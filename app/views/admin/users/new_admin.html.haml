@@ -1,0 +1,30 @@
+%h4
+  = 'Новый временный администратор'
+-#
+  .a
+    = debug @user.errors
+    = debug params
+.bc
+  = form_for @user, url: {action: :create_admin} do |f|
+    - if devise_error_messages?
+      %div#error_explanation
+        %h4= t('errors.messages.registration_part1')
+        %h4= t('errors.messages.registration_part2')
+    %div
+      = f.label :email
+    %div
+      = f.text_field :email
+    %div
+      = f.label :password
+    %div
+      = f.password_field :password
+    %div
+      = f.label :password_confirmation
+    %div
+      = f.password_field :password_confirmation
+    %div
+      = f.label :valid_to
+    %div
+      = date_select :user, :valid_to, {include_blank: true, default: nil}
+    %div
+      = f.submit 'Сохранить'

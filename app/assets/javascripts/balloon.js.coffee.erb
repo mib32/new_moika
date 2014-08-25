@@ -1,0 +1,76 @@
+class @Balloon
+
+  @body: (car_wash, url) ->
+    wrapper_begin = '<div class="balloon">'
+    wrapper_end = '</div>'
+    part1 = """
+      <h3>
+        #{car_wash.title}
+      </h3>
+      <h5 class="address">
+        Адрес: #{car_wash.address}
+      </h5>
+      <h3 class="phone">
+        Телефон: #{car_wash.contacts}
+      </h3>
+            """
+    part2 = if car_wash.servises? then "<h5 class='services'>#{car_wash.services}</h5>" else ''
+    part3 = if car_wash.main_action? then "<h3 class='red'>#{car_wash.main_action}</h3>" else ''
+    part4 = """
+      <a href='#{url}'>
+        Перейти на страницу этой мойки
+      </a>
+            """
+
+    if car_wash.grey
+      ret = wrapper_begin + part1 + part4 + wrapper_end
+    else
+      if car_wash.signal
+        if car_wash.videoned
+          ret = """
+            <div class="balloon">
+              #{part1}
+              <img src='<%= asset_path('green.png') %>'>
+              <span class="green">Свободно</span>
+              <img src='<%= asset_path('video_camera.png') %>'>
+              <br/>
+              #{part4}
+            </div>
+                """
+        else
+          ret = """
+            <div class="balloon">
+              #{part1}
+              <img src='<%= asset_path('green.png') %>'>
+              <span class="green">Свободно</span>
+              <br/>
+              #{part4}
+            </div>
+                """
+      else
+        if car_wash.videoned
+          ret = """
+            <div class="balloon">
+              #{part1}
+              <img src='<%= asset_path('red.png') %>'>
+              <span class="red">Занято</span>
+              <img src='<%= asset_path('video_camera.png') %>'>
+              <br/>
+              #{part4}
+            </div>
+                """
+        else
+          ret = """
+          <div class="balloon">
+            ret = wrapper_begin + part1
+              #{part1}
+              <img src='<%= asset_path('red.png') %>'>
+              <span class="red">Занято</span>
+              <br/>
+              #{part4}
+            </div>
+                """
+    return ret
+
+  @bodyLayout: ->
+    window.ymaps.templateLayoutFactory.createClass('<div>$[properties.body]</div>')

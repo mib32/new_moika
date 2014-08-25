@@ -1,0 +1,10 @@
+%p#notice= notice
+
+%ul.list-group
+  %li.list-group-item= @admin_post.title
+  %li.list-group-item= @admin_post.subtitle
+  %li.list-group-item= @admin_post.content
+
+= link_to t('edit'), edit_admin_post_path(@admin_post), class: "btn btn-warning"
+\|
+= link_to t('back_link'), admin_posts_path, class: "btn btn-success"

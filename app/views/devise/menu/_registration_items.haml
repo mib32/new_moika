@@ -1,0 +1,12 @@
+- if user_signed_in?
+  - if current_user.admin?
+    = link_to content_tag(:h4, t('admin_panel'), class: 'signed_in'), admin_path
+  - elsif current_user.client?
+    = link_to content_tag(:h4, t('enter_cabinet'), class: 'signed_in smaller'), edit_car_wash_path(current_user.car_wash)
+  - elsif current_user.guest?
+    = link_to content_tag(:h4, current_user.car_wash_title, class: 'signed_in'), user_path(current_user)
+- else
+  - if normal_user_signed_in?
+    = link_to content_tag(:h4, current_normal_user.email, class: 'signed_in'), normal_user_path(current_normal_user)
+  - else
+    = link_to content_tag(:h4, t('sign_up'), class: 'not_signed_in'), registration_path

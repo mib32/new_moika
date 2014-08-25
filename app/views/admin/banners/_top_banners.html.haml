@@ -1,0 +1,19 @@
+.col-md-3
+  -#banner = @banners.where(place: 'top_1').first
+  - banner = BannersConfig.where(place:'top_1').first.banner
+  = render 'banner_with_tabs', banner: banner
+
+.col-md-3
+  - banner = BannersConfig.where(place:'top_2').first.banner
+  = render 'banner_with_tabs', banner: banner
+  =#render 'top_banners_block', banner: banner
+
+.col-md-3
+  - banner = BannersConfig.where(place:'top_3').first.banner
+  = render 'banner_with_tabs', banner: banner
+  =#render 'top_banners_block', banner: banner
+
+.col-md-3
+  - banner = BannersConfig.where(place:'top_4').first.banner
+  = render 'banner_with_tabs', banner: banner
+  =#render 'top_banners_block', banner: banner

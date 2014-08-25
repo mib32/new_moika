@@ -1,0 +1,199 @@
+class @PlacemarksRenderer
+
+  constructor: ->
+
+  @geoObjectCollections = {}
+  @geo_objects_ary = []
+  @clasterer = {}
+
+  @presets:
+    yandex: [
+      {
+        name:'twirl#greenStretchyIcon'
+        imageSize: Array(2)
+      }
+      {
+        name:'twirl#redStretchyIcon'
+        imageSize: Array(2)
+      }
+      {
+        name:'twirl#greyIcon'
+        imageSize: [20,20]
+      }
+
+    ]
+    custom: [
+      {
+        name:'my#red_blink'
+        imageHref: "<%= asset_path('red_bl.gif') %>"
+        imageSize: [20, 20]
+      }
+      {
+        name:'my#green_blink'
+        imageHref: "<%= asset_path('green_bl.gif') %>"
+        imageSize: [20, 20]
+      }
+      {
+        name:'my#red_not_blink'
+        imageHref: "<%= asset_path('red_led.png') %>"
+        imageSize: [20, 20]
+      }
+      {
+        name:'my#green_not_blink'
+        imageHref: "<%= asset_path('green_led2.png') %>"
+        imageSize: [20, 20]
+      }
+      {
+        name:'my#videoned'
+        imageHref: "<%= asset_path('video.gif') %>"
+        imageSize: [45, 45]
+      }
+      {
+        name:'my#discounted'
+        imageHref: "<%= asset_path('percent_10.gif') %>"
+        imageSize: [50, 35]
+      }
+      {
+        name:'my#brended'
+        imageHref: "<%= asset_path('f1_percent.gif') %>"
+        imageSize: [45, 45]
+      }
+      {
+        name:'my#gasolined'
+        imageHref: "<%= asset_path('gas_station.gif') %>"
+        imageSize: [35, 35]
+      }
+      {
+        name:'my#repaired'
+        imageHref: "<%= asset_path('repair.gif') %>"
+        imageSize: [35, 35]
+      }
+      {
+        name:'my#tired'
+        imageHref: "<%= asset_path('tire.gif') %>"
+        imageSize: [35, 35]
+      }
+      {
+        name:'my#grey'
+        imageHref: "<%= asset_path('grey_led.png') %>"
+        imageHref: "<%= asset_path('grey_led.png') %>"
+        imageSize: [20, 20]
+      }
+    ]
+
+  @addPresets: =>
+    for preset in @presets.custom
+      window.ymaps.option.presetStorage.add preset.name,
+        iconImageHref: preset: preset.imageHref
+
+  @createGeoObjectCollections: =>
+    for key, o of @presets
+      for preset in o
+        collection_key = preset.name
+        collection_value = new window.ymaps.GeoObjectCollection({}, {preset: preset.name,iconImageHref: preset.imageHref, iconImageSize: preset.imageSize})
+        @geoObjectCollections[collection_key] = collection_value
+
+  @putPlacemarksToMap: =>
+    console.log "putPlacemarksToMap begin"
+    greyGeoObjects = []
+    cw_list = CarWashLoader.cw_list
+    if cw_list?
+      for car_wash in cw_list
+        coordinates = car_wash.coords
+        properties =
+          body: Balloon.body(car_wash, car_wash.url)
+          hintContent: Hint.content(car_wash)
+          car_wash_id: car_wash.id
+          iconContent: if car_wash.action_on_map then car_wash.main_action else ""
+        options =
+          balloonContentBodyLayout : Balloon.bodyLayout()
+        placemark = new ymaps.Placemark(coordinates, properties, options)
+        @geo_objects_ary.push(placemark)
+
+        if car_wash.grey
+          #@geoObjectCollections['my#grey'].add(placemark)
+          placemark.options.set('preset', 'twirl#greyIcon')
+          placemark.options.set('iconImageSize', [20,20])
+          #@geoObjectCollections['twirl#greyIcon'].add(placemark)
+          greyGeoObjects.push placemark
+        else
+          if car_wash.signal
+            if car_wash.blink
+              @geoObjectCollections['my#green_blink'].add(placemark)
+            else if car_wash.action_on_map
+              @geoObjectCollections['twirl#greenStretchyIcon'].add(placemark)
+            else if car_wash.videoned
+              @geoObjectCollections['my#videoned'].add(placemark)
+            else if car_wash.discounted
+              @geoObjectCollections['my#discounted'].add(placemark)
+            else if car_wash.brended
+              @geoObjectCollections['my#brended'].add(placemark)
+            else if car_wash.gasolined
+              @geoObjectCollections['my#gasolined'].add(placemark)
+            else if car_wash.repaired
+              @geoObjectCollections['my#repaired'].add(placemark)
+            else if car_wash.tired
+              @geoObjectCollections['my#tired'].add(placemark)
+            else
+              @geoObjectCollections['my#green_not_blink'].add(placemark)
+          else
+            if car_wash.blink
+              @geoObjectCollections['my#red_blink'].add(placemark)
+            else if car_wash.action_on_map
+              @geoObjectCollections['twirl#redStretchyIcon'].add(placemark)
+            else if car_wash.videoned
+              @geoObjectCollections['my#videoned'].add(placemark)
+            else if car_wash.discounted
+              @geoObjectCollections['my#discounted'].add(placemark)
+            else if car_wash.brended
+              @geoObjectCollections['my#brended'].add(placemark)
+            else if car_wash.gasolined
+              @geoObjectCollections['my#gasolined'].add(placemark)
+            else if car_wash.repaired
+              @geoObjectCollections['my#repaired'].add(placemark)
+            else if car_wash.tired
+              @geoObjectCollections['my#tired'].add(placemark)
+            else
+              @geoObjectCollections['my#red_not_blink'].add(placemark)
+
+      clusterIcons = [
+        href: "<%= asset_path('grey_hvost.png') %>"
+        size: [40, 40]
+        offset: [-20, -20]
+      ]
+      myIconContentLayout = ymaps.templateLayoutFactory.createClass(
+        '<div style="color: #444; font-weight: bold;position: relative;top: -7px;left: -5px;">$[properties.geoObjects.length]</div>')
+      PlacemarksRenderer.clusterer = new ymaps.Clusterer
+        clusterIcons: clusterIcons
+        clusterNumbers: 30
+        clusterIconContentLayout: myIconContentLayout
+        size: [20,20]
+        gridSize: 200
+        groupByCoordinates: false
+        clusterDisableClickZoom: false
+      
+      for collection_name, collection of @geoObjectCollections
+        if collection_name == "twirl#greyIcon"
+          console.log "grey"
+          #PlacemarksRenderer.clusterer.add collection
+        else
+          MapRenderer.myMap.geoObjects.add(collection)
+    PlacemarksRenderer.clusterer.add greyGeoObjects
+    MapRenderer.myMap.geoObjects.add PlacemarksRenderer.clusterer
+    console.log "putPlacemarksToMap end"
+
+  @render: =>
+    @addPresets()
+    @createGeoObjectCollections()
+    @putPlacemarksToMap()
+    dfd = $.Deferred()
+
+    numOfPointsOnMap = ymaps.geoQuery(@geo_objects_ary).getLength()
+    numOfCarWashes = CarWashLoader.cw_list.length
+    flag = (numOfPointsOnMap == numOfCarWashes)
+    until flag
+      numOfPointsOnMap = ymaps.geoQuery(@geo_objects_ary).getLength()
+      flag = (numOfPointsOnMap == numOfCarWashes)
+    dfd.resolve()
+    return dfd.promise()
+

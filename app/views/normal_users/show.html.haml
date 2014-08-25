@@ -1,0 +1,27 @@
+#car_washes_user_list
+  .base-grey-panel 
+    %h4.text-center Выбранные Вами Автомойки
+  %ul
+    - unless @car_washes.blank?
+      - @car_washes.each do |cw|
+        .steel_button
+          %li{id: "car_wash_#{cw.id}"}
+            = link_to(car_wash_normal_user_messages_path(cw)) do
+              =cw.title
+              (
+              %span#normal_user_messages_count=cw.normal_user_messages.where(receiver_id: @normal_user.id).count
+              )
+.right-8
+  - if @car_washes.blank?
+    .base-grey-panel
+      - t('.normal_user_registration_message').each {|x| haml_tag :h4, x, class: "text-center" }
+  - else
+    %ul.user_car_washes
+      - @car_washes.each do |cw|
+        = subscribe_to "/normal_users_messages/#{cw.id}/#{current_normal_user.id}"
+        %li.base-grey-panel
+          .red= cw.title
+          %ul.user_actions
+            = cw.actions.find_each do |action|
+              %li= action.text
+

@@ -1,0 +1,2 @@
+module BannersConfigHelper
+end

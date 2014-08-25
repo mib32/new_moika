@@ -1,0 +1,7 @@
+%h1= t(".header")
+
+= render 'form'
+
+= link_to t('show_link'), admin_post_path(@admin_post), class: "btn btn-warning"
+\|
+= link_to t('back_link'), admin_posts_path, class: "btn btn-success"

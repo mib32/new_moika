@@ -1,0 +1,21 @@
+.row
+  .col-lg-3
+    = link_to t('new_link'), new_admin_post_path, class: 'btn btn-success btn-block'
+%h1= t('.header')
+
+%table.table
+  %tr
+    %th Заголовок
+    %th Подзаголовок
+    %th Дата создания
+    %th
+    %th
+
+  - @admin_posts.each do |admin_post|
+    %tr
+      %td= admin_post.title
+      %td= admin_post.subtitle
+      %td= admin_post.created_at.localtime.strftime("%H:%M %d.%m.%Y")
+      %td= link_to t('show_link'), admin_post_path(admin_post), class: 'btn btn-success'
+      %td= link_to t('edit_button'), edit_admin_post_path(admin_post), class: 'btn btn-warning'
+      %td= link_to t('delete_button'), admin_post_path(admin_post), :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: 'btn btn-danger'

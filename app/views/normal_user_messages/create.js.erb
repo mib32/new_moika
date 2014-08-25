@@ -1,0 +1,12 @@
+<% publish_to "/normal_users_messages/#{@car_wash_id}/#{@normal_user_message.receiver_id}" do %>
+  $("#normal_user_messages").append("<%= escape_javascript render(@normal_user_message) %>");
+<% end %>
+label = $("#message_status");
+prev_html = label.html();
+label.html("Сообщение Отправлено").show("slow").effect("highlight", {color: "#f77"}, 3000);
+setTimeout( function() { label.html(prev_html); }, 3000);
+
+$('.normal_user_message_form #normal_user_message_subject').val('')
+$('.normal_user_message_form #normal_user_message_body').val('')
+
+$('li#car_wash_<%= escape_javascript @car_wash_id.to_s %> #normal_user_messages_count').html("<%= escape_javascript @messages_count.to_s %>")

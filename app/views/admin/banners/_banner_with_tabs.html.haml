@@ -1,0 +1,9 @@
+- banner_type = banner.type.underscore
+.btn-group.banner_type_radio_btns{data: {toggle:"buttons"}}
+  - AdminBanner.admin_banner_types.each do |type, text|
+    = banner_type_input type, banner.id, text, banner_type == type.to_s
+
+.tab-content
+  - AdminBanner.admin_banner_types.each do |type, text|
+    = banner_tab_pane( type, banner.id, banner_type == type.to_s) do
+      = render type.to_s, banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220

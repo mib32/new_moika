@@ -1,0 +1,9 @@
+.col-md-12
+  = form_for :banner, remote: true,  url: admin_banner_path(@top_text_banner), method: :put, role: "form", html: {class: "form-horizontal"} do |f|
+    .form-group
+      = hidden_field_tag "banner[type]", @top_text_banner.type
+      = f.label "Бегущая строка", class: 'col-sm-2 control-label'
+      .col-sm-8
+        = text_field_tag "banner[text]", @top_text_banner.text, class: 'form-control'
+      .col-sm-2
+        = f.submit t("save_button"), class: 'btn btn-danger'

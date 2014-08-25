@@ -1,0 +1,27 @@
+ru:
+  bootsy:
+    action:
+      refresh: Обновить
+      destroy: Удалить
+      close: Закрыть
+      load: Load
+      upload: Загрузить новое изображение
+    image_gallery: Галерея Изображений
+    image:
+      s: Изображение
+      p: Изображения
+      size: Размер
+      large: Большой
+      medium: Средний
+      small: Маленький
+      original: Оригинальный
+      new: Новое изображение
+      confirm:
+        destroy: Вы уверены, что хотите удалить это изображение?
+      position:
+        left: Слева
+        right: Справа
+        inline: Inline
+    no_images_uploaded: Пока нет загруженных изображений
+    js:
+      alert_unsaved: У Вас есть незаписанные изменения.

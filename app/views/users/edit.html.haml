@@ -1,0 +1,41 @@
+/= debug @post
+/= debug @user
+/= debug @res
+/- if params[:user] 
+/  = @user.valid_password?(@post[:current_password])
+
+#login
+  = form_for(@user,  :url => { :action => "update_password" }, :html => { :method => :post, :class => 'form-signin'}) do |f|
+    %fieldset
+      .result
+        - if params[:user]
+          - if @failure
+            - @res.messages.each do |message|
+              = message
+          - else
+            Успешно!
+      %div
+        = f.label :email
+        %br/
+        = f.email_field :email, :autofocus => true, :class => 'form-control'
+      %div
+        = f.label :password
+        %i (leave blank if you don't want to change it)
+        %br/
+        = f.password_field :password, :autocomplete => "off",:class => 'form-control'
+      %div
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation,  :class => 'form-control'
+      %div
+        = f.label :current_password
+        %i (чтобы подтвердить изменения)
+        %br/
+        = f.password_field :current_password,:class => 'form-control'
+        %div
+        = f.label :address
+        %i (должен быть заполнен)
+        %br/
+        = f.text_field :address,:class => 'form-control', required: 'required'
+      %div= f.submit t("save_button"), :class => 'btn btn-lg btn-primary btn-block'
+= link_to "Back", :back

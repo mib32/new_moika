@@ -1,0 +1,20 @@
+.modal-title
+  %h4
+    =#"#{banner.id}: #{banner.text}"
+.modal-body
+  =form_for [banner], url: admin_banner_path(banner.id) do |f|
+    #banner{id: banner.id, data: {url: admin_banner_path(banner), token: form_authenticity_token, version: version }}
+      .col-lg-2
+        = f.label :text, "Текст"
+      = f.text_field :text, class: 'col-lg-10 form_control banner_text'
+      %ul{id: "image-container_#{banner.id}", class: 'image-container'}
+        %li
+          %h4 Старый
+          = image_tag banner_url, size: '250x150'
+      %div{id: "filelist_#{banner.id}", class: 'filelist'}
+.modal-footer
+  %button(type="button" class="btn btn-default" data-dismiss="modal")= t('close')
+  %button(type="button" class="btn btn-danger" id="deletefiles_#{banner.id}")
+    = link_to t('delete_button'), admin_delete_file_path(banner.id), data: {:confirm => t('are_you_sure')}, :method => :delete, :remote=>true, class: "delete_file"
+  %button(style="position: relative; z-index: 9999;" type="button" class="btn btn-success" id="pickfiles_#{banner.id}")= t('banners.modal.choose_file')
+  %button(type="submit" class="btn btn-primary" id="uploadfiles_#{banner.id}")= t('banners.modal.submit_update_image')

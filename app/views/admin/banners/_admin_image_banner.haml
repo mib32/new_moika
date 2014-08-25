@@ -1,0 +1,16 @@
+.admin_image_banner{id: "admin_image_banner_#{place_id}", style: "display:#{show_flag ? 'block':'none'}"}
+  %h4.banner_text{id: banner.id}= banner.text
+  .col-lg-6
+    = image_tag banner_url, class: "img-thumbnail banner", 'data-toggle' => 'tooltip', 'data-id' => banner.id, id: banner.id, title: 'Кликните для редактирования'
+  .col-lg-6
+    = form_for banner, url: admin_banner_path(banner), remote: true,  role: "form", class: "form-horizontal"  do |f|
+      .form-group
+        = f.hidden_field :place
+      .form-group
+        = f.label :text, t('admin.banners.text')
+        = text_field_tag :text, banner.text, class: "form-control" 
+      .form-group
+        = f.label :car_wash_id, t('admin.banners.car_wash')
+        = collection_select :banner, :car_wash_id, CarWash.non_grey, :id, :title, {selected: banner.car_wash_id}, {class: "form-control" }
+      = f.submit t('save_button'), class: 'btn btn-warning'
+  = render 'modal', banner: banner, banner_url: banner_url, version: version

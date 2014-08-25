@@ -1,0 +1,15 @@
+%h1#message_status Сообщение
+%p= @car_wash.title
+
+= form_for [@car_wash, @normal_user_message], remote: true, role: "form", html: {class: "normal_user_message_form"} do |f|
+  .form-group
+    = hidden_field_tag 'normal_user_message[sender_id]', current_user.id
+    = hidden_field_tag 'normal_user_message[car_wash_id]', @car_wash.id
+    = f.label :receiver_id, t('messages.receiver')
+    = f.select :receiver_id, options_from_collection_for_select(@receivers, "id", "email"), {}, class: 'form-control'
+    = f.label :subject, t('messages.subject')
+    = f.text_field :subject, class: 'form-control'
+    = f.label :body, t('messages.body')
+    = f.text_area :body, class: 'form-control'
+    %br
+    = f.submit t("messages.new_message_submit_button"), class: 'red-medium-button', id: 'normal_user_message_submit'

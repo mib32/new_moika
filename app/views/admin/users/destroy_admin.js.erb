@@ -1,0 +1,14 @@
+os = $('table.admin_admins tr td.order_num');
+user_id = <%= @user_id %>
+console.log(user_id);
+removed_order_num = $('table.admin_admins tr#' + user_id + ' td.order_num').attr('id');
+$('table.admin_admins tr#adm_' + user_id.toString()).remove();
+// console.log($('table.admin_admins tr#' + user_id));
+console.log(removed_order_num);
+$.each(os, function(i,val) { 
+  if(val.id > removed_order_num) {
+    console.log(val.id);
+    $('table.admin_admins tr td#' + val.id).html( val.id - 1 );
+    $('table.admin_admins tr td#' + val.id).attr( 'id', val.id - 1 );
+  } 
+})

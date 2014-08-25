@@ -1,0 +1,9 @@
+/ - if user_signed_in?
+/   = link_to content_tag(:h4,t('edit_profile')),
+/   	edit_user_path()
+- if user_signed_in?
+  = link_to content_tag(:h4, t('logout')), destroy_user_session_path, :method => :delete
+- elsif normal_user_signed_in?
+  = link_to content_tag(:h4, t('logout')), destroy_normal_user_session_path, :method => :delete
+- else
+  = link_to content_tag(:h4, t('login')), login_path

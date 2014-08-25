@@ -1,0 +1,23 @@
+.row#top_text_banner
+  = render 'top_text_banner'
+
+%table.table.table-striped.table-bordered#banners{style: "border 1px solid #444;", data: {ids: @image_banners.ids}}
+  %thead
+    %tr
+      %td Place
+      %td BannerType
+      %td Filename
+      //%td &nbsp;
+  %tbody
+    - BannersConfig.find_each do |bc|
+      %tr
+        %td= bc.place
+        %td= select_tag "banner_type", options_for_select(AdminBanner.admin_banner_types.invert, bc.banner.type.underscore), class: "banner_type_select", id: bc.id
+        %td
+          - AdminBanner.admin_banner_types.each do |banner_type, name_for_user|
+            - show_flag = (bc.banner.type.underscore == banner_type.to_s)
+            - if show_flag
+              = render bc.banner.type.underscore, banner: bc.banner, banner_url: bc.banner.file.send(bc.uploader_version.to_sym).url, version: bc.uploader_version.to_sym, show_flag: show_flag, place_id: bc.id
+            - else
+              - banner = banner_type.to_s.camelize.constantize.where(place: bc.place).first
+              = render banner_type.to_s, banner: banner, banner_url: banner.file.send(bc.uploader_version.to_sym).url, version: bc.uploader_version.to_sym, show_flag: show_flag, place_id: bc.id

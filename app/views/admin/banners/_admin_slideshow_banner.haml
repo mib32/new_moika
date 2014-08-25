@@ -1,0 +1,14 @@
+.admin_slideshow_banner{id: "admin_slideshow_banner_#{place_id}", style: "display:#{show_flag ? 'block':'none'}"}
+  %h4.banner_text{id: banner.id}= banner.text
+  .col-lg-6
+    = render "slideshow", banner: banner
+  .col-lg-6
+    = form_for banner, url: admin_banner_path(banner), remote: true, role: "form" do |f|
+      = f.hidden_field :type, value: banner.type
+      .form-group
+        = f.label :text, t('admin.banners.text')
+        = text_field_tag :text, banner.text, class: "form-control" 
+      .form-group
+        = f.label :car_wash_id, t('admin.banners.car_wash')
+        = collection_select :banner, :car_wash_id, CarWash.non_grey, :id, :title, {selected: banner.car_wash_id}, {class: "form-control" }
+      = f.submit t('save_button'), class: 'btn btn-warning'

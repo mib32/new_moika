@@ -1,0 +1,32 @@
+class @Hint
+
+  @content: (car_wash) ->
+    timeNow = new Date
+    wrapper_begin = '<div class="hint">'
+    wrapper_end = '</div>'
+    part1 = """
+      <h3>
+        #{car_wash.title.toUpperCase()}
+      </h3>
+      <h5 class="address">
+        Адрес: #{car_wash.address}
+      </h5>
+      <h3 class="time">
+        Время:  #{timeNow.toLocaleTimeString()}
+      </h3>
+            """
+    part2 = if car_wash.main_action? then '<h3 class="red">' + car_wash.main_action + '</h3>' else ''
+
+    part3 = '<img src="'
+    part4 = '">'
+    if car_wash.grey
+      ret = wrapper_begin + part1 + wrapper_end
+    else
+      if car_wash.signal
+        if car_wash.videoned
+          ret = wrapper_begin + part1 + part2 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + part3 +  "<%= asset_path('video_camera.png') %>" + part4 + wrapper_end;
+        else
+          ret = wrapper_begin + part1 + part2 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + wrapper_end;
+      else
+        ret = wrapper_begin + part1 + part2 + part3 + "<%= asset_path('red.png') %>" + part4 + '<span class="red">Занято</span>' +  wrapper_end;
+    return ret

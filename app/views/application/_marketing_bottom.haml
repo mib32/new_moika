@@ -1,0 +1,32 @@
+.container
+  .marketing-top
+    - banner = BannersConfig.where(place: 'bottom_1').first.banner
+    = render "banners/banner_text", banner: banner
+  .marketing-top
+    - banner = BannersConfig.where(place: 'bottom_2').first.banner
+    = render "banners/banner_text", banner: banner
+  .marketing-top
+    - banner = BannersConfig.where(place: 'bottom_3').first.banner
+    = render "banners/banner_text", banner: banner
+  .marketing-top.omega
+    - banner = BannersConfig.where(place: 'bottom_4').first.banner
+    = render "banners/banner_text", banner: banner
+
+.container
+  .marketing.marketing-top
+    - bc = BannersConfig.where(place: 'bottom_1').first
+    - banner = bc.banner
+    = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
+  .marketing.marketing-top.video#video_top_4{data: {ivideon_url4: @ivideon_url4}}
+    - bc = BannersConfig.where(place: 'bottom_2').first
+    - banner = bc.banner
+    = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
+  .marketing.marketing-top#video_top_5{data: {ivideon_url5: @ivideon_url5}}
+    - bc = BannersConfig.where(place: 'bottom_3').first
+    - banner = bc.banner
+    = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
+  .marketing.marketing-top.youtube.omega#video_top_6{data: {ivideon_url6: @ivideon_url6}}
+    - bc = BannersConfig.where(place: 'bottom_4').first
+    - banner = bc.banner
+    = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
+

@@ -1,0 +1,6 @@
+.modal.fade{role: "dialog", id: "bannermodal_#{banner.id}"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        .button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+      = render 'image_upload_tab', banner: banner, version: version, banner_url: banner_url

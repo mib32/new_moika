@@ -1,0 +1,126 @@
+%h4.flash.success= flash[:notice]
+%ul.nav.nav-tabs#users
+  %li.active
+    =link_to t('.clients'), "#clients", data:{toggle: "tab"}
+  %li
+    =link_to t('.guests'), "#guests", data:{toggle: "tab"}
+  %li
+    =link_to t('.admins'), "#admins", data:{toggle: "tab"}
+  %li
+    =link_to t('.normal_users'), "#normal_users", data:{toggle: "tab"}
+.tab-content
+  .tab-pane.fade.active.in#clients
+    %h5 Список клиентов
+    %table.table.admin_users
+      %tr
+        %th N п/п
+        %th=User.human_attribute_name(:email)
+        %th=User.human_attribute_name(:phone)
+        %th=User.human_attribute_name(:car_wash_title)
+        %th=User.human_attribute_name(:contact_person)
+        %th
+        %th
+
+      - @clients.each_with_index do |client, i|
+        %tr
+          %td= i+1
+          %td= client.email
+          %td= client.phone 
+          %td= client.car_wash.title unless client.car_wash.nil?
+          %td= client.contact_person
+          %td= link_to(t('.link_to_car_wash_edit'), edit_car_wash_path(client.car_wash), class: "btn btn-primary btn-sm") unless client.car_wash.nil?
+          %td= link_to t('.link_to_message'), "#messagemodal_#{client.id}", class: "btn btn-primary btn-sm", data: {toggle: "modal"}
+        .modal.fade{role: "dialog", id: "messagemodal_#{client.id}"}
+          = form_for [:admin, Message.new], role: 'form' do |f|
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  .button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+                  .modal-title
+                    %h4
+                      = t('.from') 
+                      %span.text-success= current_user.try(:email)
+                    %hr
+                    %h4
+                      = t('.to') 
+                      %span.text-success= "#{client.email}"
+                .modal-body
+                  = f.hidden_field :sender_id, value: current_user.id
+                  = f.hidden_field :receiver_id, value: client.id
+                  = f.hidden_field :car_wash_id, value: client.car_wash.id
+                  .form-group
+                    = f.label :subject, "Тема"
+                    = f.text_field :subject, rows: 15, class: 'form-control'
+                  .form-group
+                    = f.label :body, "Введите текст сообщения"
+                    = f.text_area :body, rows: 15, class: 'form-control'
+                .modal-footer
+                  %button(type="button" class="btn btn-default" data-dismiss="modal")= t('close')
+                  %button(type="submit" class="btn btn-primary")= t('.submit_sending_message')
+  .tab-pane.fade#guests
+    %h5 Список гостей(автомойки)
+    %table.table.admin_users
+      %tr
+        %th N п/п
+        %th=User.human_attribute_name(:email)
+        %th=User.human_attribute_name(:phone)
+        %th=User.human_attribute_name(:car_wash_title)
+        %th=User.human_attribute_name(:contact_person)
+        %th
+        %th
+      - @guests.each_with_index do |user,i|
+        %tr{id: "#{user.id}"}
+          %td.order_num{id: "#{i+1}"}= i+1
+          %td= user.email
+          %td= user.phone 
+          %td= user.car_wash_title
+          %td= user.contact_person
+          %td
+            = link_to "Добавить в клиeнты", admin_add_car_wash_path(user), class: 'btn btn-primary'
+          %td
+            = link_to "Удалить", admin_user_path(user), method: :delete, remote: true, data: {confirm: t('are_you_sure')}, class: 'btn btn-danger'
+          / %td
+          /   = link_to "Настройки профиля", admin_user_path(user), class: 'btn btn-primary'
+  .tab-pane.fade#admins
+    %h5 Список администраторов сайта
+    .bc
+      = link_to "Создать временного администратора", admin_users_new_admin_path, class: 'btn btn-primary'
+    %table.table.admin_admins
+      %tr
+        %th #
+        %th E-mail
+        %th Роль
+        %th Действителен до
+        %th
+
+      - @admins.each_with_index do |user,i|
+        %tr{ id: 'adm_'+user.id.to_s}
+          %td.order_num= i+1
+          %td= user.email
+          %td= user.roles.first.name unless user.roles.first.nil?
+          %td= user.valid_to
+          %td
+            = link_to "Удалить", admin_user_path(user), method: :delete, remote: true, data: {confirm: t('are_you_sure')}, class: 'btn btn-danger'
+          / %td= link_to t('edit_profile'), admin_user_path(user)
+
+  .tab-pane.fade#normal_users
+    %h5 Список пользователей
+    %table.table
+      %tr
+        %th N п/п
+        %th Имя
+        %th email
+        %th Телефон
+        %th Зарегистрировался
+        %th Время последнего входа
+        %th IP адрес
+
+      - @normal_users.each_with_index do |user,i|
+        %tr
+          %td= i+1
+          %td= user.name
+          %td= user.email
+          %td= user.phone
+          %td= user.created_at
+          %td= user.last_sign_in_at
+          %td= user.last_sign_in_ip

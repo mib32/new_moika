@@ -1,0 +1,292 @@
+ru:
+  site_title: "Мойка-77 - Автомойки Москвы"
+  site_description: "Интернет-сайт «Мойка-77», Автомойки Москвы! - это интерактивный сервис на базе Яндекс-карт.  На карте находятся лучшие Автомойки в Москве! Видеотрансляция, предварительная запись, адреса, телефоны, фотографии, видеоролики, отзывы клиентов на персональных страницах автомоек.  Добро пожаловать на сайт!"
+  site_keywords: "Автомойки, Автомойки Москвы, Автомойки в Москве, Карта автомоек Москвы, поиск автомоек Москвы, поиск автомоек Москвы на карте, интернет-сервис Мойка-77, как найти автомойку, где помыть машину, акции на автомойках, самая дешевая автомойка, самая лушая автомойка"
+  date:
+    abbr_day_names:
+    - Вс
+    - Пн
+    - Вт
+    - Ср
+    - Чт
+    - Пт
+    - Сб
+    abbr_month_names:
+    -
+    - янв.
+    - февр.
+    - марта
+    - апр.
+    - мая
+    - июня
+    - июля
+    - авг.
+    - сент.
+    - окт.
+    - нояб.
+    - дек.
+    day_names:
+    - воскресенье
+    - понедельник
+    - вторник
+    - среда
+    - четверг
+    - пятница
+    - суббота
+    formats:
+      default: ! '%d.%m.%Y'
+      long: ! '%-d %B %Y'
+      short: ! '%-d %b'
+    month_names:
+    -
+    - января
+    - февраля
+    - марта
+    - апреля
+    - мая
+    - июня
+    - июля
+    - августа
+    - сентября
+    - октября
+    - ноября
+    - декабря
+    order:
+    - :day
+    - :month
+    - :year
+  banners:
+    modal:
+      choose_file: "Выбрать файл"
+      submit_update_image: "Загрузить новый баннер"
+  notice:
+    requests:
+      create: "Ваша заявка отправлена администратору мойки." 
+    messages:
+      create:
+        success: "Сообщение отправлено"
+  close: "Закрыть"
+  signal_open: "Свободно"
+  signal_type_normal: "Обычный"
+  admin_messages_button: "Сообщения администрации сайта"
+  signal_close: "Занято"
+  save_button: "Сохранить"
+  edit_button: "Редактировать"
+  delete_button: "Удалить"
+  requests_button: "Заявки"
+  search_button: "ПОИСК"
+  show_link: "Показать"
+  back_link: "Назад"
+  new_link: "Создать"
+  logo_text: "Поиск Автомоек Москвы"
+  logo_mockup: "Здесь будет логотип"
+  marketing1: "Блок1"
+  marketing2: "Блок2"
+  marketing1_body: "Мы обладаем неоспоримым преимуществом.Наши сотрудники являются самой важной составляющей нашего успеха на протяжении длительного времени. Поэтому неудивительно, сколько времени и усилий мы тратим на то, чтобы создать привлекательный пакет льгот для всех наших сотрудников."
+  marketing2_body: "Мы гордимся нашей культурой мобильного и динамичного коллектива и стремимся работать единой командой, помогать друг другу ежедневно добиваться новых побед. Наши специалисты в каждом случае могут подобрать методы и схемы, которые будут наиболее эффективны для той отрасли бизнеса, в которой работают наши клиенты."
+  login: "Вход"
+  logout: "Выход"
+  edit_profile: "Настройки профиля"
+  login_verb: "Войти"
+  logout_verb: "Выйти"
+  for_normal_users: "Для посетителей сайта"
+  for_car_wash_users: "Для владельцев автомоек"
+  car_wash_login: "Вход автомойки"
+  car_wash_logout: "Выход автомойки"
+  normal_user_login: "Вход нормальный"
+  normal_user_logout: "Выход нормальный"
+  sign_up: "Регистрация"
+  enter_cabinet: "Личный кабинет"
+  admin_panel: "Админка"
+  are_you_sure: "Вы уверены?"
+  adv_manage: 'Управление рекламой на Вашей странице'
+  detailed_form_header: 'Управление видео и персональными данными'
+  normal_user_message: "Сообщение для пользователя"
+  signal_on_map: 'Сигнал на карте'
+
+
+  about_us: "О проекте"
+  contacts: "Контакты"
+  social: "Соц.сети"
+  feedback: "Обратная связь"
+  main_video: "Видeотрансляция"
+  main_video_body: "Здесь будет трансляция с одной из автомоек"
+  news: Новости
+  #adv1: "Горизонтальный рекламный блок бегущая строка"
+  #adv1: "Сайт в разработке! Тестовый режим!"
+  adv1: "Уважаемые владельцы автомоек! Регистрируйтесь на сайте, и используйте все IT-технологии для привлечения клиентов!
+β - версия."
+  link_to_save: "Сохранить"
+
+  car_washes:
+    show:
+      comments: "Отзывы"
+      send_request: "Оставить заявку"
+      requests: "Заявки"
+      messages: "Сообщения администрации сайта"
+      subscribe: "Подписаться"
+      register_and_subscribe: "Регистрация для клиентов Автомойки"
+      you_are_subscribed: "Вы подписаны"
+    edit:
+      signal_notice: "Вы поменяли сигнал"
+  comments:
+    index:
+      empty_comments: "Ещё не оставлено ниодного отзыва"
+      input_name: "Ваше имя"
+      input_text: "Ваш отзыв"
+      add_comment: "Добавить отзыв"
+  requests: 
+    index:
+      unread_count_pl: "непрочитанных"
+      empty_comments: "Заявок нет."
+    new: 
+      header: "Новая заявка"
+    show:
+      header: "Ваша заявка"
+  messages:
+    index:
+      unread_count_pl: "непрочитанных"
+    receiver: "Получатель"
+    subject: "Тема"
+    body: "Текст сообщения"
+    new_message_submit_button: "Отправить"
+  activerecord:
+    models:
+      car_wash: "Автомойки"
+      user: "Пользователи - автомойки"
+      normal_user: "Пользователи"
+      request: "Заявки"
+      message: "Сообщения администрации сайта"
+    attributes:
+      car_wash:
+        title: "Название"
+        address: "Адрес"
+        lat: "Широта"
+        lon: "Долгота"
+        contacts: "Контакты"
+        services: "Услуги"
+        price: "Цены"
+        zones_count: "Кол-во постов"
+        actions: "Акции"
+        video_url1: "Видео 1"
+        video_url2: "Видео 2"
+        video_title1: "Заголовок 1"
+        video_title2: "Заголовок 2"
+        signal: "Занято/Свободно"
+        site_url: "Сайт"
+        vk_url: "В контакте"
+        odn_url: "Одноклассники"
+        blink: "Мигает"
+        videoned: "Звезда"
+        discounted: "Скидки"
+        action_on_map: "Акция"
+        signal_type: "Тип сигнала на карте"
+      user:
+        email: "E-mail"
+        phone: "Телефон"
+        contact_person: "Контактное лицо"
+        car_wash_title: "Название автомойки"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        address: "Адрес"
+        valid_to: "Действителен до"
+      normal_user:
+        email: "E-mail"
+        phone: "Телефон"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+      request:
+        name: "Имя"
+        phone: "Телефон"
+        email: "email"
+        text: "Заявка"
+      message:
+        subject: "Тема"
+        body: "Сообщение"
+        created_at: "Отправлено"
+    errors:
+      models:
+        user:
+          attributes:
+            phone:
+              blank: "не может быть пустым"
+            password:
+              blank: "не может быть пустым"
+              too_short: "должен быть более 3 символов"
+            contact_person:
+              blank: "не может быть пустым"
+            car_wash_title:
+              blank: "не может быть пустым"
+            email:
+              blank: "не может быть пустым"
+        normal_user:
+          attributes:
+            password:
+              blank: "не может быть пустым"
+              too_short: "должен быть более 3 символов"
+            email:
+              blank: "не может быть пустым"
+  layouts:
+    admin:
+      main_header: "Панель управления сайта \"Мойка 77\""
+      header:
+        back_link: Назад на сайт
+      vmenu:
+        users: "Пользователи"
+        adv: "Реклама"
+        static_pages: "Статические страницы"
+        car_washes: "Автомойки"
+        posts: "Новости"
+  admin:
+    users:
+      index:
+        clients: "Автомойки"
+        admins: "Администраторы"
+        guests: "Гости(автомойки)"
+        normal_users: "Пользователи"
+        link_to_message: "Написать сообщение"
+        link_to_car_wash_edit: "Панель управления мойки"
+        submit_sending_message: "Отправить"
+        modal_title: "Сообщение для"
+        from: "От"
+        to: "Кому"
+    banners:
+      text: "Текст над баннером"
+      car_wash: "Выберите автомойку"
+      admin_youtube_banner:
+        youtube_url: "Ссылка с ютюба"
+      
+    static_pages:
+      index:
+        header: "Список статических страниц сайта"
+    car_washes:
+      index:
+        header: "Список автомоек"
+    posts:
+      index:
+        header: Список новостей
+      new:
+        header: Создание новости
+      edit:
+        header: Редактирование новости
+  users:
+    show:
+      car_wash_registration_message:
+        - Заявка на регистрацию автомойки принята.
+        - В ближайшее время Вам будет отправлена ссылка на личный кабинет.
+  normal_users:
+    show:
+      normal_user_registration_message:
+        - Подписывайтесь на одну или несколько понравившихся Вам автомоек и пользуйтесь акциями и скидками!
+        - Оставляйте отзывы или записывайтес на удобное для Вас время!
+      reg_info: "Информация, указанная Вами при регистрации"
+  invoices:
+    new:
+      generate_pdf: 'Сформировать счёт'
+  map:
+    show:
+      map_search_header: 'Автомойки Москвы'
+
+
