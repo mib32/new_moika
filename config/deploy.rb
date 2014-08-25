@@ -6,7 +6,7 @@ require "bundler/capistrano"
 #set :rvm_type, :user  # Don't use system-wide RVM
 
 #server "141.8.193.154", :web, :app, :db, primary: true
-server "141.8.193.183", :web, :app, :db, primary: true
+server "moika-77.ru", :web, :app, :db, primary: true
 set :application, "test-moika"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
@@ -18,6 +18,7 @@ set :repository, "https://github.com/mib32/new_moika.git"
 set :branch, "master"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+ssh_options[:port] = "1416"
 
 
 after "deploy:update_code", :update_images_symlink
@@ -45,9 +46,9 @@ namespace :deploy do
     puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
-  # task :symlink_config, roles: :app do
+  task :symlink_config, roles: :app do
   #   run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  # end
+  end
   after "deploy:finalize_update", "deploy:symlink_config"
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
