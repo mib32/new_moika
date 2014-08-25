@@ -62,7 +62,7 @@ end
 
 group :development do
   gem 'guard-livereload'
-  gem 'meta_request', '0.2.6'
+  gem 'meta_request'
   #gem 'boson-more'
   gem 'irbtools', '~> 1.5.0', :require => false
   gem 'irbtools-more', :require => false
