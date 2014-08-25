@@ -72,6 +72,17 @@ namespace :rails do
   end
 end
 
+namespace :logs do
+  desc "tail rails logs"
+  task :tail_rails, :roles => :app do
+    trap("INT") { puts 'Interupted'; exit 0; }
+    run "tail -f #{shared_path}/log/#{rails_env}.log" do |channel, stream, data|
+      puts "#{channel[:host]}: #{data}" 
+      break if stream == :err    
+    end
+  end
+end
+
 def run_interactively(command)
   server ||= find_servers_for_task(current_task).first
   exec %Q(ssh #{user}@moika-77.ru -t' #{current_release}/#{command}')
