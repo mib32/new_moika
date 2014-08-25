@@ -97,7 +97,7 @@ gem 'nokogiri'
 
 gem 'whenever', :require => false
 
-gem 'best_in_place', :git => "https://github.com/bernat/best_in_place", :branch => "rails-4"
+gem 'best_in_place', :git => "https://github.com/bernat/best_in_place"
 
 gem 'carrierwave'
 gem 'carrierwave-dropbox'
