@@ -80,8 +80,12 @@ gem 'bootstrap-sass'
 gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', '~> 2.15.0', group: :development
-gem 'net-ssh', '~> 2.7.0', group: :development
+group :development do
+  gem 'capistrano', '~> 3.0', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'net-ssh', '~> 2.7.0'
+end
 #gem 'rvm-capistrano'
 gem 'thin'
 #gem 'puma', group: :development
@@ -124,3 +128,7 @@ gem 'bootsy'
 
 # to store session in db
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
+# this is good thing
+gem 'capistrano3-nginx_unicorn', group: :development
+
