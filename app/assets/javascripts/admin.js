@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //
 //= require jquery.purr
-//= require jquery.ui.all
+//= require jquery-ui
 //= require bootstrap
 
 //= require jquery.cycle2.min

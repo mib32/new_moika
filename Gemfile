@@ -7,7 +7,10 @@ gem 'rails'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-gem 'sprockets-rails'
+# if bigger then everything breaks
+gem 'sprockets', '= 2.11.0'
+# gem 'sprockets-rails'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails'

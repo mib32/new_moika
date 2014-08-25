@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.purr
-//= require jquery.ui.all
+//= require jquery-ui
 //= require ru
 //= require car_washes
 //= require toggle_agreement_submit
