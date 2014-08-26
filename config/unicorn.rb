@@ -1,9 +1,9 @@
-root = "/var/www/test-moika/current"
+root = "/home/deployer/apps/new_moika/current"
 working_directory root
-pid "/var/www/test-moika/shared/pids/unicorn.pid"
+pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
-listen "/tmp/unicorn.test-moika.sock"
+listen "/tmp/unicorn.new_moika.sock"
 worker_processes 2
 timeout 30
 preload_app true
