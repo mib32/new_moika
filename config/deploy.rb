@@ -7,7 +7,7 @@ require "bundler/capistrano"
 
 #server "141.8.193.154", :web, :app, :db, primary: true
 server "moika-77.ru", :web, :app, :db, primary: true
-set :application, "test-moika"
+set :application, "new_moika"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
