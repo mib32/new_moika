@@ -56,7 +56,7 @@ group :development, :test do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
   gem 'libnotify' if /linux/ =~ RUBY_PLATFORM
-  gem 'growl' if /darwin/ =~ RUBY_PLATFORM
+  # gem 'growl' if /darwin/ =~ RUBY_PLATFORM
 end
 
 group :test do
