@@ -49,15 +49,18 @@ end
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.0'
   gem 'guard', '>=2.1.0'
   gem 'guard-rspec'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+  gem 'libnotify' if /linux/ =~ RUBY_PLATFORM
+  gem 'growl' if /darwin/ =~ RUBY_PLATFORM
 end
 
 group :test do
   gem 'capybara'
-  gem 'rb-inotify'
-  gem 'libnotify'
 end
 
 group :development do

@@ -1,8 +1,13 @@
 //// ---------------------------------------------------------------------------
 // Imports
 
-@import base
-@import compass/layout/sticky-footer
-@import bootstrap-custom.min
+@import "base";
+@import "compass/layout/sticky-footer";
+@import "bootstrap-custom.min";
 
 //// ---------------------------------------------------------------------------
+
+#map{
+  width:800px;
+  height:400px;
+}

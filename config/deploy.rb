@@ -5,7 +5,7 @@ set :application, 'test-moika'
 set :server_name, 'mash.moika-77.ru'
 set :repo_url, 'https://github.com/mib32/new_moika.git'
 set :pty, true
-
+set :unicorn_pid, '/var/www/test-moika/shared/pids/unicorn.pid'
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
@@ -74,7 +74,7 @@ namespace :unicorn do
   task :stop do
     on roles(:app) do
       if test("[ -f #{fetch(:unicorn_pid)} ]")
-        execute :kill, capture(:cat, "#{current_path}/tmp/pids/unicorn.pid")
+        execute :kill, capture(:cat, "/var/www/test-moika/shared/pids/unicorn.pid")
       end
     end
   end
@@ -94,7 +94,7 @@ namespace :unicorn do
   task :reload do
     on roles(:app) do
       if test("[ -f #{fetch(:unicorn_pid)} ]")
-        execute :kill, '-s USR2', capture(:cat, fetch(:unicorn_pid))
+        execute :kill, '-s USR2', capture(:cat, "/var/www/test-moika/shared/pids/unicorn.pid")
       else
         error 'Unicorn process not running'
       end

@@ -177,6 +177,7 @@ GEM
     formatador (0.2.5)
     g (1.7.2)
     geocoder (1.2.4)
+    growl (1.0.3)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -237,8 +238,6 @@ GEM
       railties (>= 3.2.16)
     json (1.8.1)
     kgio (2.9.2)
-    libnotify (0.8.3)
-      ffi (>= 1.0.11)
     listen (2.7.9)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -264,7 +263,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
-    newrelic_rpm (3.9.2.239)
+    newrelic_rpm (3.9.3.241)
     node (0.0.2)
       eventmachine
     nokogiri (1.6.3.1)
@@ -312,6 +311,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    rb-fchange (0.0.6)
+      ffi
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -319,26 +320,25 @@ GEM
       json (~> 1.4)
     refine (0.0.1)
     remotipart (1.2.1)
-    rspec (3.0.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
-    rspec-core (3.0.4)
-      rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.4)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.0.0)
-    rspec-mocks (3.0.4)
-      rspec-support (~> 3.0.0)
-    rspec-rails (3.0.2)
+    rspec (2.99.0)
+      rspec-core (~> 2.99.0)
+      rspec-expectations (~> 2.99.0)
+      rspec-mocks (~> 2.99.0)
+    rspec-collection_matchers (1.0.0)
+      rspec-expectations (>= 2.99.0.beta1)
+    rspec-core (2.99.2)
+    rspec-expectations (2.99.2)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.99.2)
+    rspec-rails (2.99.0)
       actionpack (>= 3.0)
+      activemodel (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
-      rspec-support (~> 3.0.0)
-    rspec-support (3.0.4)
+      rspec-collection_matchers
+      rspec-core (~> 2.99.0)
+      rspec-expectations (~> 2.99.0)
+      rspec-mocks (~> 2.99.0)
     sass (3.4.1)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -432,6 +432,7 @@ DEPENDENCIES
   devise
   faye
   geocoder
+  growl
   guard (>= 2.1.0)
   guard-livereload
   guard-rspec
@@ -441,7 +442,6 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   jquery-ui-rails
-  libnotify
   meta_request
   mini_magick
   net-ssh (~> 2.7.0)
@@ -456,8 +456,10 @@ DEPENDENCIES
   psych (~> 2.0.5)
   rails
   rails_12factor
+  rb-fchange
+  rb-fsevent
   rb-inotify
-  rspec-rails
+  rspec-rails (~> 2.0)
   sass-rails
   sassy-buttons
   sdoc
