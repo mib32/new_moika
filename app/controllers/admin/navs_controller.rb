@@ -1,4 +1,4 @@
-class NavsController < ApplicationController
+class Admin::NavsController < AdminController
   before_action :set_nav, only: [:show, :edit, :update, :destroy]
 
   # GET /navs
@@ -28,7 +28,7 @@ class NavsController < ApplicationController
 
     respond_to do |format|
       if @nav.save
-        format.html { redirect_to @nav, notice: 'Nav was successfully created.' }
+        format.html { redirect_to [:admin, @nav], notice: 'Nav was successfully created.' }
         format.json { render :show, status: :created, location: @nav }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class NavsController < ApplicationController
   def update
     respond_to do |format|
       if @nav.update(nav_params)
-        format.html { redirect_to @nav, notice: 'Nav was successfully updated.' }
+        format.html { redirect_to [:admin, @nav], notice: 'Nav was successfully updated.' }
         format.json { render :show, status: :ok, location: @nav }
       else
         format.html { render :edit }

@@ -1,4 +1,4 @@
-= form_for @nav do |f|
+= form_for [:admin, @nav] do |f|
   - if @nav.errors.any?
     #error_explanation
       %h2= "#{pluralize(@nav.errors.count, "error")} prohibited this nav from being saved:"

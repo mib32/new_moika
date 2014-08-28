@@ -1,11 +1,9 @@
 .logo.hidden-xs
-  logo
+  =image_tag 'logo.png'
 .container.hidden-xs
   social
-%ul.nav.nav-pills.nav-stacked
-  %li.visible-xs-inline-block.visible-sm-block.visible-md-block.visible-lg-block
-    %a
-      Вход
-  %li.visible-xs-inline-block.visible-sm-block.visible-md-block.visible-lg-block
-    %a
-      Карта
+%nav
+  %ul.nav
+    - @navs.each do |n|
+      %li
+        = link_to n.name, n.path

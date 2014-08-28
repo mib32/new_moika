@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_devise_params, if: :devise_controller?
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_navs
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| 
@@ -26,6 +27,10 @@ class ApplicationController < ActionController::Base
     else
       super
     end
+  end
+
+  def set_navs
+    @navs = Nav.all
   end
 
   protected

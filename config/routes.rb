@@ -1,6 +1,6 @@
 Moika::Application.routes.draw do
 
-  resources :navs
+  # resources :navs
 
   resources :posts, only: [:index]
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
@@ -63,6 +63,7 @@ Moika::Application.routes.draw do
     resources :static_pages
     resources :car_washes
     resources :posts
+    resources :navs
     # devise_for :users, only: [:update, :index, :show]
     get 'add_car_wash/:id', to: 'users#add_car_wash', as: '/add_car_wash'
     delete 'delete_file/:id', to: 'banners#delete_file', as: '/delete_file'

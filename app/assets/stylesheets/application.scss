@@ -1,10 +1,49 @@
 //@import "twitter/bootstrap";
 @import "bootsy";
-@import "bootstrap";
+@import "reset";
+// @import "bootstrap";
 //@import "flowplayer/skin/minimalist"
 html,body{
 	height:100%;
 }
+
+#sb{
+		width:220px;
+		height:100%;
+
+		background-color:white;
+		box-shadow:2px 0px 4px rgba(0,0,0,0.3);
+
+		padding-left:10px;
+
+		z-index:10;
+		position:relative;
+		float:left;
+	.logo{
+		padding-top:10px;
+		img{
+			// width:170px
+		}
+	}
+}
+
+.nav{
+	a{
+		text-transform: uppercase;
+		text-decoration:none;
+		font-family:'Helvetica Neue', sans-serif;
+		font-size:9pt;
+	}
+	li{
+		padding:10px;
+	}
+}
+
+#m{
+	margin-left:220px;
+	height:100%;
+}
+
 .map{
 	#map{
 	  width:100%;
@@ -13,4 +52,5 @@ html,body{
 	#page, #page .row, #main{
 		height:100%;
 	}
+
 }
