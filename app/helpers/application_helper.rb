@@ -14,5 +14,8 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
-  
+
+  def current_path
+    request.env['PATH_INFO']
+  end
 end

@@ -21,6 +21,7 @@
 //= require date
 //= require requests
 //= require messages
+//= require turbolinks
 
 //= require bootstrap
 

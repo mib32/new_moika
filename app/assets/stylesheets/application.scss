@@ -1,6 +1,7 @@
 //@import "twitter/bootstrap";
 @import "bootsy";
 @import "reset";
+@import "social";
 // @import "bootstrap";
 //@import "flowplayer/skin/minimalist"
 html,body{
@@ -10,6 +11,13 @@ html,body{
 * {
 	box-sizing: border-box;
 }
+@mixin rotate($deg){
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	transform: rotate($deg);
+}
 
 #sb{
 		width:220px;
@@ -17,9 +25,11 @@ html,body{
 
 		background-color:white;
 		box-shadow:2px 0px 4px rgba(0,0,0,0.3);
+		border-right: 1px solid black;
 
 		padding-left:10px;
 
+		/*overflow-y:auto;*/
 		z-index:10;
 		position:relative;
 		float:left;
@@ -29,6 +39,19 @@ html,body{
 			width:200px;
 		}
 	}
+
+	.social{
+		overflow:auto;
+		float: right;
+		margin:10px 5px;
+	}
+
+	nav{
+		position: relative;
+		top: 50px;
+		background-color: white;
+	}
+
 }
 
 .nav{
@@ -37,9 +60,45 @@ html,body{
 		text-decoration:none;
 		font-family:'Helvetica Neue', sans-serif;
 		font-size:9pt;
+		text-shadow: rgba(0,0,0,.01) 0 0 1px;
+		-webkit-font-smoothing: antialiased;
+		font-smoothing: antialiased;
+		color:#444;
+		letter-spacing:1px;
+		position:relative;
+		&:visited{
+			color: #777;
+		}
+		&:hover{
+			transition: 0.2s all;
+			color: #222;
+		}
 	}
 	li{
 		padding:10px;
+		cursor:pointer;
+		&.active{
+			/*background-color:#56b2ff;*/
+			a{
+				color:black;
+				&:after{
+					content:"";
+					background-color:white;
+					width:7px;
+					height:7px;
+					display:inline-block;
+					@include rotate(45deg);
+					border-top: 1px solid black;
+					border-right: 1px solid black;
+					box-shadow:0px 0px 2px 1px rgba(0,0,0,0.3);
+					position: absolute;
+					z-index: -1;
+					left: 196px;
+					top:3px;
+				}
+			}
+
+		}
 	}
 }
 

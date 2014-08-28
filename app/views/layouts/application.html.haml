@@ -6,7 +6,7 @@
     %meta{content: t('site_description'), name: "description"}
     %meta{content: t('site_keywords'), name: "keywords"}
     %title= t("site_title")
-    = stylesheet_link_tag    "application", media: "all"
+    = stylesheet_link_tag    "application", media: "all", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body{ class: controller.controller_name }
     #sb
@@ -18,5 +18,5 @@
     /#footer
     /  = render partial: 'footer'
     / = javascript_include_tag "http://api-maps.yandex.ru/2.0.31/?load=package.full&lang=ru-RU"
-    = javascript_include_tag "http://api-maps.yandex.ru/2.1/?lang=ru_RU"
-    = javascript_include_tag "main_page"
+    = javascript_include_tag "http://api-maps.yandex.ru/2.1/?lang=ru_RU", 'data-turbolinks-track' => true
+    = javascript_include_tag "main_page", 'data-turbolinks-track' => true

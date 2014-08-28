@@ -177,9 +177,9 @@ class @PlacemarksRenderer
           console.log "grey"
           #PlacemarksRenderer.clusterer.add collection
         else
-          MapRenderer.myMap.geoObjects.add(collection)
+          window.myMap.geoObjects.add(collection)
     PlacemarksRenderer.clusterer.add greyGeoObjects
-    MapRenderer.myMap.geoObjects.add PlacemarksRenderer.clusterer
+    window.myMap.geoObjects.add PlacemarksRenderer.clusterer
     console.log "putPlacemarksToMap end"
 
   @render: =>
