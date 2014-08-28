@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @nav.name
+%p
+  %b Path:
+  = @nav.path
+%p
+  %b Image url:
+  = @nav.image_url
+%p
+  %b Hidden-xs:
+  = @nav.hidden-xs
+
+= link_to 'Edit', edit_nav_path(@nav)
+\|
+= link_to 'Back', navs_path

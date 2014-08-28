@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818212550) do
+ActiveRecord::Schema.define(version: 20140828092402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,6 +154,15 @@ ActiveRecord::Schema.define(version: 20140818212550) do
   add_index "messages", ["car_wash_id"], name: "index_messages_on_car_wash_id", using: :btree
   add_index "messages", ["receiver_id"], name: "index_messages_on_receiver_id", using: :btree
   add_index "messages", ["sender_id"], name: "index_messages_on_sender_id", using: :btree
+
+  create_table "navs", force: true do |t|
+    t.string   "name"
+    t.string   "path"
+    t.string   "image_url"
+    t.boolean  "hidden_xs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "normal_user_messages", force: true do |t|
     t.integer  "sender_id"

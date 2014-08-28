@@ -1,20 +1,24 @@
 !!!
-%html
+%html{ lang: I18n.locale }
   %head
     %meta{:charset => "utf-8"}
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}
     %meta{content: t('site_description'), name: "description"}
     %meta{content: t('site_keywords'), name: "keywords"}
     %title= t("site_title")
     = stylesheet_link_tag    "application", media: "all"
     = csrf_meta_tags
-  %body
-    #header
-      = render partial: 'header'
-    #main_content
-      = yield
-    #footer
-      = render partial: 'footer'
+  %body{ class: controller.controller_name }
+    #page.container-fluid
+      .row
+        .col-md-2.sidebar
+          = render partial: 'sidebar'
+        #main.col-md-10
+          = yield
+    
+    
+    /#footer
+    /  = render partial: 'footer'
     / = javascript_include_tag "http://api-maps.yandex.ru/2.0.31/?load=package.full&lang=ru-RU"
     = javascript_include_tag "http://api-maps.yandex.ru/2.1/?lang=ru_RU"
     = javascript_include_tag "main_page"

@@ -74,7 +74,7 @@ end
 #gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 #                              :github => 'anjlab/bootstrap-rails'
 
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -98,16 +98,16 @@ gem 'thin'
 
 gem 'rails_12factor', group: :production
 
-gem 'susy'
-gem 'compass'
-gem 'compass-rails'
-gem 'sassy-buttons'
+# gem 'susy'
+# gem 'compass'
+# gem 'compass-rails'
+# gem 'sassy-buttons'
 
 gem 'nokogiri'
 
 gem 'whenever', :require => false
 
-gem 'best_in_place', :git => "https://github.com/bernat/best_in_place"
+# gem 'best_in_place', :git => "https://github.com/bernat/best_in_place"
 
 gem 'carrierwave'
 gem 'carrierwave-dropbox'
@@ -124,9 +124,9 @@ gem 'prawn', :git => "https://github.com/prawnpdf/prawn.git"
 gem 'faye'
 gem 'private_pub'
 
-gem 'oj'
-gem 'yajl-ruby'
-gem 'psych', '~> 2.0.5'
+# gem 'oj'
+# gem 'yajl-ruby'
+# gem 'psych', '~> 2.0.5'
 gem 'bootsy'
 
 # to store session in db
