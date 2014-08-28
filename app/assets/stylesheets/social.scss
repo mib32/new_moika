@@ -1,0 +1,77 @@
+.social {
+  .color_on_hover {
+    height: 16px;
+    width: 16px;
+    float: left;
+    /*margin-right: 1% */
+    display: inline;
+    a {
+      max-width: 100%;
+      overflow: hidden;
+      height: auto;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    &#youtube {
+      /*margin-left: 1% */
+      background-image: url(image_path("social/youtube.png"));
+      background-size: cover;
+      background-repeat: no-repeat;
+      &:hover {
+        background-image: url(image_path("social/youtube_grey.png"));
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    &#mir {
+      background-image: url(image_path("social/mir.png"));
+      background-size: cover;
+      background-repeat: no-repeat;
+      &:hover {
+        background-image: url(image_path("social/mir_grey.png"));
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    &#vk {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(image_path("social/vk.png"));
+      &:hover {
+        background-image: url(image_path("social/vk_grey.png"));
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    &#odn {
+      background-image: url(image_path("social/odn.png"));
+      background-size: cover;
+      background-repeat: no-repeat;
+      &:hover {
+        background-image: url(image_path("social/odn_grey.png"));
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    &#twitter {
+      background-image: url(image_path("social/twitter.png"));
+      background-size: cover;
+      background-repeat: no-repeat;
+      &:hover {
+        background-image: url(image_path("social/twitter_grey.png"));
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+    &#facebook {
+      background-image: url(image_path("social/facebook.png"));
+      background-size: cover;
+      background-repeat: no-repeat;
+      &:hover {
+        background-image: url(image_path("social/facebook_grey.png"));
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
