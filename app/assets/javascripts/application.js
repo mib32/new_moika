@@ -12,29 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.purr
-//= require jquery-ui
+//= require jquery.cycle2.min
+//= require jquery.cycle2.carousel.min
 //= require ru
+//= require search-address
+//= require car_wash_loader
+//= require placemarks_renderer
 //= require car_washes
-//= require toggle_agreement_submit
+//= require hint
+//= require balloon
+//= require map
 //= require weather
 //= require date
-//= require requests
-//= require messages
-//= require turbolinks
-
-//= require bootstrap
-
-//= require moxie
-//= require plupload.dev
-
-// optional, only needed if you'd like to use plupload localized
-//= require plupload/i18n/ru
-
-// optional, but recommended. it sets generic settings like flash url, etc.
-//= require plupload.settings
-
-// optional, only if you want to use the jquery integration
-//= require jquery.plupload.queue
-
-//= require admin/banners
+//= require load_ivideon

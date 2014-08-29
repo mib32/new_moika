@@ -31,7 +31,7 @@
 Nav.destroy_all
 
 navs = [
-  {name:'Вход', path: 'users/sign_in', image_url: 'sign_in.png'},
+  {name:'Вход', path: 'users/sign_in', image_url: 'sign_in.png', remote: true},
   {name:'Карта', path: '', image_url: ''},
   {name:'Автомойки', path: 'car_washes', image_url: 'car_washes.png'},
   {name:'Новости', path: 'news', image_url: 'news.png'},

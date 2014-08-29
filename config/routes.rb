@@ -17,8 +17,8 @@ Moika::Application.routes.draw do
 
   get "normal_user/:id", to: "normal_users#show", as: '/normal_user'
 
-  devise_for :users, controllers: { registrations: "registrations" }
-  devise_for :normal_users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
+  devise_for :normal_users, controllers: { registrations: "registrations", sessions: "sessions" }
 
   get "update_password", to: "users#update_password", as: "/update_password"
   post "update_password", to: "users#update_password"

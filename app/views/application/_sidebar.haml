@@ -6,4 +6,4 @@
   %ul.nav
     - @navs.each do |n|
       %li{ class: ('active' if n.path.tr('/','') == current_path.split('/').first.to_s) } 
-        = link_to n.name, n.path
+        = link_to n.name, n.path, :remote => n.remote
