@@ -20,7 +20,6 @@ class @PlacemarksRenderer
         name:'twirl#greyIcon'
         imageSize: [20,20]
       }
-
     ]
     custom: [
       {
@@ -90,7 +89,7 @@ class @PlacemarksRenderer
     for key, o of @presets
       for preset in o
         collection_key = preset.name
-        collection_value = new window.ymaps.GeoObjectCollection({}, {preset: preset.name,iconImageHref: preset.imageHref, iconImageSize: preset.imageSize})
+        collection_value = new window.ymaps.GeoObjectCollection({}, {preset: preset.name,iconImageHref: preset.imageHref, iconImageSize: preset.imageSize, iconLayout:'default#image'})
         @geoObjectCollections[collection_key] = collection_value
 
   @putPlacemarksToMap: =>
