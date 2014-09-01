@@ -1,5 +1,7 @@
 Moika::Application.routes.draw do
 
+  # get 'temp_session/login'
+  resources :temp_session
   # resources :navs
 
   resources :posts, only: [:index]

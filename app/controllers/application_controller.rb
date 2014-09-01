@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_devise_params, if: :devise_controller?
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :temp_require_login 
   before_action :set_navs
 
   def configure_permitted_parameters
@@ -41,6 +42,12 @@ class ApplicationController < ActionController::Base
     def configure_devise_params
       devise_parameter_sanitizer.for(:sign_up) do |u|
         u.permit(:phone, :contact_person, :car_wash_title, :email, :password, :password_confirmation)
+      end
+    end
+
+    def temp_require_login
+      unless session['athd']
+        redirect_to temp_session_index_path
       end
     end
 

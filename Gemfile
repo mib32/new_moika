@@ -124,8 +124,8 @@ gem 'prawn', :git => "https://github.com/prawnpdf/prawn.git"
 gem 'faye'
 gem 'private_pub'
 
-# gem 'oj'
-# gem 'yajl-ruby'
+gem 'oj'
+gem 'yajl-ruby'
 # gem 'psych', '~> 2.0.5'
 gem 'bootsy'
 
