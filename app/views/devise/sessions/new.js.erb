@@ -1,0 +1,3 @@
+$("<div class='auth'><%= escape_javascript(render 'devise/sessions/form') %></div>").appendTo("body");
+$('.nav li.active').removeClass('active');
+$('.nav').children().first().addClass('active');
