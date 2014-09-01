@@ -5,6 +5,10 @@
     float: left;
     /*margin-right: 1% */
     display: inline;
+    -webkit-filter:invert(100%) drop-shadow(-2px 2px 0px rgba(0,0,0,0.5));
+    filter: url("data:image/svg+xml;utf8,<svg height='0' xmlns='http://www.w3.org/2000/svg'><filter id='drop-shadow'><feOffset dx='-2' dy='2' result='offsetblur'/><feFlood flood-color='rgba(0,0,0,0.5)'/><feComposite in2='offsetblur' operator='in'/><feMerge><feMergeNode/><feMergeNode in='SourceGraphic'/></feMerge></filter></svg>#drop-shadow");
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=-2, OffY=2, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=-2, OffY=2, Color='#444')";
     a {
       max-width: 100%;
       overflow: hidden;

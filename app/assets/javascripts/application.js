@@ -25,3 +25,5 @@
 //= require weather
 //= require date
 //= require load_ivideon
+//= require sidebar
+//= require bootstrap
