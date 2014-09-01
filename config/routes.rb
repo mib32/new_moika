@@ -21,6 +21,13 @@ Moika::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
   devise_for :normal_users, controllers: { registrations: "registrations", sessions: "sessions" }
+  devise_scope :user do
+    get 'sign_in' => 'devise/sessions#new'
+    get 'sign_up/car_wash' => 'devise/registrations#new'
+  end
+  devise_scope :normal_users do
+    get 'sign_up/driver' => 'devise/registrations#new'
+  end
 
   get "update_password", to: "users#update_password", as: "/update_password"
   post "update_password", to: "users#update_password"

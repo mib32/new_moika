@@ -132,6 +132,5 @@ gem 'bootsy'
 # to store session in db
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
-# this is good thing
-# gem 'capistrano3-nginx_unicorn', group: :development
-
+# just for tabs :)
+gem 'bettertabs'

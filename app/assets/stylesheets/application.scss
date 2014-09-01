@@ -2,7 +2,7 @@
 @import "bootsy";
 @import "reset";
 @import "social";
-@import "bootstrap";
+// @import "bootstrap";
 // @import "flowplayer/skin/minimalist"
 html,body{
 	height:100%;
@@ -67,13 +67,13 @@ html,body{
 	width:600px;
 	background-color:white;
 	height:300px;
-	.panel{
+	.tabs{
 		overflow: auto;
 		li{
-			// width:50%;
-			// float:left;
-			// text-align: center;
-			// line-height:40px;
+			width:33%;
+			float:left;
+			text-align: center;
+			line-height:40px;
 			&.active{
 				background-color:#56b2ff;
 				a{
@@ -90,6 +90,7 @@ html,body{
 			}
 		}
 	}
+	.content.hidden { display:none;} 
 	// .c{
 	// 	display: none;
 	// }
@@ -104,6 +105,7 @@ html,body{
 		padding:10px;
 		cursor:pointer;
 		margin:0;
+		transition: 400ms all ease;
 		&.active{
 			// background-color:#56b2ff;
 			border-right:2px solid #56b2ff;
@@ -133,7 +135,7 @@ html,body{
 		a{
 		text-transform: uppercase;
 		text-decoration:none;
-		// font-family:'Helvetica Neue', sans-serif;
+		font-family:'Helvetica Neue', sans-serif;
 		font-size:9pt;
 		text-shadow: rgba(0,0,0,.01) 0 0 1px;
 		-webkit-font-smoothing: antialiased;
