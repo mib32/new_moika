@@ -21,6 +21,6 @@ module Moika
     config.i18n.default_locale = :ru
     config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/"]
     config.assets.precompile += %w( admin.css main_page.js admin.js pr_pub.js)
-    #MultiJson.use :yajl
+    MultiJson.use :yajl
   end
 end
