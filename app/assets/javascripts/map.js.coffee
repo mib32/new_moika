@@ -36,14 +36,14 @@ $ ->
   #renderer = new MapRenderer
   #setTimeout(ymaps.ready(MapRenderer.init()),0)
   #setTimeout(CarWashLoader.load PlacemarksRenderer.render, 0)
-  ymaps.ready (->
-    $.when(MapRenderer.init()).done ->
-        console.log "CarWashLoader"
-        $.when(CarWashLoader.load()).done (data) ->
-          $.when(PlacemarksRenderer.render()).done (data) ->
-            #setTimeOut(loadIvideon(), 100000)
-  )
-
+  ydo = ->
+    MapRenderer.init()
+    console.log "CarWashLoader"
+    $.when(CarWashLoader.load()).done (data) ->
+      $.when(PlacemarksRenderer.render()).done (data) ->
+        #setTimeOut(loadIvideon(), 100000)
+  ymaps.ready ->
+    ydo()
 ###
   window.setInterval(updateTraffic,1*60*1000)
 ###
