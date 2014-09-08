@@ -1,5 +1,15 @@
 Moika::Application.routes.draw do
 
+  # This line mounts Forem's routes at /forums by default.
+  # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.
+  # If you would like to change where this extension is mounted, simply change the :at option to something different.
+  #
+  # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
+  mount Forem::Engine, :at => '/forum'
+
+
+  get 'news', to: 'posts#index', type: 'news'
+  get 'info', to: 'posts#index', type: 'info'
   # get 'temp_session/login'
   resources :temp_session
   # resources :navs
@@ -23,10 +33,10 @@ Moika::Application.routes.draw do
   devise_for :normal_users, controllers: { registrations: "registrations", sessions: "sessions" }
   devise_scope :user do
     get 'sign_in' => 'devise/sessions#new'
-    get 'sign_up/car_wash' => 'devise/registrations#new'
+    get 'get_user', to: "sessions#get_user"
   end
-  devise_scope :normal_users do
-    get 'sign_up/driver' => 'devise/registrations#new'
+  devise_scope :normal_user do
+    get 'sign_up' => 'devise/registrations#new'
   end
 
   get "update_password", to: "users#update_password", as: "/update_password"

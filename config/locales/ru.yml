@@ -182,7 +182,7 @@ ru:
         action_on_map: "Акция"
         signal_type: "Тип сигнала на карте"
       user:
-        email: "E-mail"
+        email: "Электронная почта"
         phone: "Телефон"
         contact_person: "Контактное лицо"
         car_wash_title: "Название автомойки"
@@ -268,7 +268,8 @@ ru:
       index:
         header: Список новостей
       new:
-        header: Создание новости
+        news_header: Создание новости
+        info_header: Создание статьи
       edit:
         header: Редактирование новости
   users:

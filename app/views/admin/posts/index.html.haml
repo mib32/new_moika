@@ -1,12 +1,14 @@
 .row
-  .col-lg-3
-    = link_to t('new_link'), new_admin_post_path, class: 'btn btn-success btn-block'
+  .col-lg-12
+    = link_to 'Написать новость', new_admin_post_path(type: 'news'), class: 'btn btn-success'
+    = link_to "Написать статью", new_admin_post_path(type: 'info'), class: 'btn btn-success'
 %h1= t('.header')
 
 %table.table
   %tr
     %th Заголовок
     %th Подзаголовок
+    %th Тип
     %th Дата создания
     %th
     %th
@@ -15,6 +17,7 @@
     %tr
       %td= admin_post.title
       %td= admin_post.subtitle
+      %td= admin_post.type_name
       %td= admin_post.created_at.localtime.strftime("%H:%M %d.%m.%Y")
       %td= link_to t('show_link'), admin_post_path(admin_post), class: 'btn btn-success'
       %td= link_to t('edit_button'), edit_admin_post_path(admin_post), class: 'btn btn-warning'

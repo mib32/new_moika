@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  helper_method :forem_user
+
   after_action :allow_iframe
   helper :application
   # Prevent CSRF attacks by raising an exception.
@@ -14,6 +16,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| 
       u.permit(:password, :password_confirmation, :current_password) 
     }
+  end
+
+  def forem_user
+    current_user
   end
 
   def after_sign_in_path_for(resource)

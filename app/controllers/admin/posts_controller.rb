@@ -24,6 +24,8 @@ class Admin::PostsController < AdminController
   # POST /admin/posts
   # POST /admin/posts.json
   def create
+    params[:post][:type] = params[:type]
+
     @admin_post = Post.new(admin_post_params)
 
     respond_to do |format|
@@ -69,6 +71,6 @@ class Admin::PostsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_post_params
-      params.require(:post).permit(:title, :subtitle, :content, :bootsy_image_gallery_id)
+      params.require(:post).permit(:title, :subtitle, :content, :bootsy_image_gallery_id, :type)
     end
 end

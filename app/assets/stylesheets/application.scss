@@ -4,13 +4,10 @@
 @import "social";
 // @import "bootstrap";
 // @import "flowplayer/skin/minimalist"
-html,body{
-	height:100%;
-}
 
-* {
-	box-sizing: border-box;
-}
+$blue: #56b2ff;
+$dark-blue: adjust-hue(darken($blue,40%),-25deg);
+
 @mixin rotate($deg){
 	-webkit-transform: rotate($deg);
 	-moz-transform: rotate($deg);
@@ -18,6 +15,17 @@ html,body{
 	-ms-transform: rotate($deg);
 	transform: rotate($deg);
 }
+
+html,body{
+	height:100%;
+	font-family: 'Lucida Grande', sans-serif;
+	font-size: 10pt;
+}
+
+* {
+	box-sizing: border-box;
+}
+
 
 #sb{
 		width:220px;
@@ -58,47 +66,9 @@ html,body{
 		background-color: white;
 	}
 
-}
 
-.auth{
-	position:absolute;
-	margin-left:220px;
-	top:148px;
-	width:600px;
-	background-color:white;
-	height:300px;
-	.tabs{
-		overflow: auto;
-		li{
-			width:33%;
-			float:left;
-			text-align: center;
-			line-height:40px;
-			&.active{
-				background-color:#56b2ff;
-				a{
-					color:white;
-				}
-			}
-			a{
-				text-size:11pt;
-				font-family: "Helvetica Neue", sans-serif;
-				font-style: italic;
-				font-weight: 200;
-				text-decoration: none;
-				border-bottom: 1px dotted;
-			}
-		}
-	}
-	.content.hidden { display:none;} 
-	// .c{
-	// 	display: none;
-	// }
-	// :target{
-	// 	display: block;
-	// }
-}
 
+}
 
 .nav{
 	li{
@@ -107,8 +77,8 @@ html,body{
 		margin:0;
 		transition: 400ms all ease;
 		&.active{
-			// background-color:#56b2ff;
-			border-right:2px solid #56b2ff;
+			// background-color:$blue;
+			border-right:2px solid $blue;
 			a{
 				color:black;
 				// &:after{
@@ -120,8 +90,8 @@ html,body{
 				// 	@include rotate(45deg);
 				// 	// border-top: 1px solid black;
 				// 	// border-right: 1px solid black;
-				// 	border-top: 2px solid #56b2ff;
-				// 	border-right: 2px solid #56b2ff;
+				// 	border-top: 2px solid $blue;
+				// 	border-right: 2px solid $blue;
 				// 	// box-shadow:0px 0px 2px 1px rgba(0,0,0,0.3);
 				// 	position: absolute;
 				// 	// z-index: -1;
@@ -155,9 +125,109 @@ html,body{
 	}
 }
 
+.auth{
+	position:absolute;
+	margin-left:220px;
+	top:148px;
+	width:600px;
+	background-color:white;
+	// height:400px;
+	overflow: auto;
+	// background: asset-url('agsquare.png') white repeat;
+	
+	.tabs{
+		overflow: auto;
+		li{
+			width:50%;
+			float:left;
+			text-align: center;
+			line-height:35px;
+			background-color: $blue;
+			&.active{
+				background-color:$dark-blue;
+				box-shadow: 0px 0px 8px rgba(0,0,0,0.3) inset;
+				// a{
+				// 	color:white;
+				// }
+			}
+			a{
+				color: white;
+				text-size:11pt;
+				font-family: "Helvetica Neue", sans-serif;
+				font-style: italic;
+				font-weight: 200;
+				text-decoration: none;
+				border-bottom: 1px dotted;
+			}
+		}
+	}
+	.bettertabs{
+		// height: 100%;
+		.content.hidden { display:none;} 
+		.content {
+			border: 2px solid $dark-blue;
+			border-top: none;
+			// background-color: desaturate($dark-blue,30%);
+			height:300px;
+			position: relative;
+		}
+	}
+	// .c{
+	// 	display: none;
+	// }
+	// :target{
+	// 	display: block;
+	// }
+}
+
+.form-signin{
+	#agreement_text{ height:200px;overflow:auto;}
+	#cw_owner.hidden{ display: none; }
+	font-size: 8pt;
+	color: #aaa;
+	fieldset{
+		&.right-aligned{
+			.row{
+				display: block;
+				label{
+					display:inline-block;
+					width:15em;
+					text-align: right;
+				}
+				.right{
+					margin-left: 15em;
+				}
+			}
+		}
+	}
+
+	&#login{
+		height: 80px;
+		
+	}
+	width: 380px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+
+	.form-control{
+		padding: 4px;
+		border: none;
+		border-bottom:1px dotted #ccc;
+	}
+	.btn{
+		border: 2px solid $dark-blue;
+		background-color: white;
+	}
+}
+
 #m{
 	margin-left:220px;
 	height:100%;
+	position:absolute;
 }
 
 .map{
@@ -183,3 +253,20 @@ html,body{
 		margin: auto;
 	}
 }
+
+.car-washes{
+	.header{
+		.row{
+			margin: 20px;
+		}
+	}
+	.list{
+		li{
+			margin: 10px 0;
+			.p{
+				background-color:rgba(0,0,0,0.4);
+			}
+		}
+	}
+}
+

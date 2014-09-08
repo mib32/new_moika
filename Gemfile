@@ -134,3 +134,14 @@ gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 # just for tabs :)
 gem 'bettertabs'
+
+# jquery-turbolinks
+gem 'jquery-turbolinks'
+
+# i like that kind of names
+gem 'active_record_query_trace'
+
+# forum
+gem 'forem', :github => "mib32/forem", :branch => "rails4"
+gem 'kaminari', '0.15.1'
+

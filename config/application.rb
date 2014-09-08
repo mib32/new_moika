@@ -22,5 +22,8 @@ module Moika
     config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/"]
     config.assets.precompile += %w( admin.css main_page.js admin.js pr_pub.js)
     MultiJson.use :yajl
+    # ActiveRecordQueryTrace.enabled = true
+    # ActiveRecordQueryTrace.level = :full
+    # ActiveRecordQueryTrace.lines = -1
   end
 end

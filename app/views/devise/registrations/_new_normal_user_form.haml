@@ -1,40 +1,61 @@
+-#= debug resource_name
 .container
   #login
-    = form_for(NormalUser.new, as: resource_name, url: normal_user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
+    = form_for(NormalUser.new, as: :normal_user, url: normal_user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
       - if devise_error_messages?
         %div#error_explanation
           %h4= t('errors.messages.registration_part1')
           %h4= t('errors.messages.registration_part2')
-      %fieldset
-        %div
+      %fieldset.right-aligned
+        .row
           = f.label :email do
             = NormalUser.human_attribute_name("email")
             %span.red &nbsp;*
-          %br/
           = f.email_field :email, :autofocus => true, class: "form-control", required: "required"
-        %div
-          = f.label :name do
+        .row
+          = f.label :name  do
             = NormalUser.human_attribute_name("name")
             %span.red &nbsp;*
-          %br/
           = f.text_field :name, class: "form-control", required: "required"
-        %div
-          = f.label :phone, NormalUser.human_attribute_name("phone")
-          %br/
+        .row
+          = f.label :phone do
+            = NormalUser.human_attribute_name("phone")
+            %span &nbsp;&nbsp;&nbsp;
           = f.phone_field :phone, class: "form-control"
-        %div
+        .row
           = f.label :password do
             = NormalUser.human_attribute_name("password")
             %span.red &nbsp;*
-          %br/
           = f.password_field :password, class: "form-control", required: "required"
-        %div
+        .row
           = f.label :password_confirmation do
             = NormalUser.human_attribute_name("password_confirmation")
             %span.red &nbsp;*
-          %br/
           = f.password_field :password_confirmation, class: "form-control", required: "required"
+        .row
+          = label_tag do
+            Я владелец автомойки &nbsp;&nbsp;&nbsp;
+          = check_box_tag nil, nil, false, id: 'expander'
+        #cw_owner.hidden
+          .row
+            = label_tag :car_wash_title do
+              = User.human_attribute_name("car_wash_title")
+              %span.red &nbsp;*
+            = text_field_tag 'user[car_wash_title]', nil, class: "form-control", required: "required", disabled: true
+          .row
+            = label_tag :address do
+              = User.human_attribute_name("address")
+              %span.red &nbsp;*
+            = text_field_tag 'user[address]', nil,class: "form-control", required: "required", disabled: true
+          #agreement_text
+            = render 'agreement'
+          %div
+            %label.checkbox
+              = check_box_tag 'agreement', '', false
+              Нажимая кнопку «Зарегистрироваться», я принимаю условия Пользовательского соглашения
         = hidden_field_tag 'user[normal]', true
-        %div= f.submit t("devise.sign_up"), class: "btn btn-lg btn-primary btn-block"
-        %br
-        = render "devise/shared/links"
+        .row
+          .right
+            =f.submit t("devise.sign_up"), class: "btn btn-lg btn-primary btn-block"
+            %br
+            = render "devise/shared/links"

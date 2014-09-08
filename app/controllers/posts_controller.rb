@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+
   def index
-    @posts = Post.all
+    @posts = Post.where(type: params[:type])
   end
+
 end

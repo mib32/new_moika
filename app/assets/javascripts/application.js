@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.cycle2.min
 //= require jquery.cycle2.carousel.min
@@ -26,4 +27,7 @@
 //= require date
 //= require load_ivideon
 //= require spinner
+//= require front_end
+//= require toggle_agreement_submit
 //= require jquery.bettertabs.min
+//= require turbolinks

@@ -1,5 +1,5 @@
-%h1= t(".header")
+%h1= t(".#{params[:type]}_header")
 
 = render 'form'
 
-= link_to t('back_link'), admin_posts_path, class: "btn btn-success"
+= link_to t('back_link'), admin_posts_path(:type => params[:type]), class: "btn btn-success"

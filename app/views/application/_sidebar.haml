@@ -5,6 +5,15 @@
   =render 'social'
 %nav
   %ul.nav
+    %li
+      - if user_signed_in?
+        = link_to content_tag(:h4, t('logout')), main_app.destroy_user_session_path, :method => :delete
+      - elsif normal_user_signed_in?
+        = link_to content_tag(:h4, t('logout')), main_app.destroy_normal_user_session_path, :method => :delete
+      - else
+        = link_to 'Вход', new_user_session_path, :remote => true
     - @navs.each do |n|
-      %li{ class: ('active' if n.path.tr('/','') == current_path.split('/').first.to_s) } 
-        = link_to n.name, n.path, :remote => n.remote
+      %li{ class: ('active' if n.path.tr('/','') == current_path.split('/').second.to_s) } 
+        / = debug n.path.tr('/','')
+        / = debug current_path.split('/').second.to_s
+        = link_to n.name, n.path_or_root, :remote => n.remote
