@@ -1,17 +1,18 @@
 class User < ActiveRecord::Base
 
   scope :admins, -> { includes(:roles).where("roles.name='admin'").references(:roles) }
-  scope :clients, -> { includes(:roles).where("roles.name='client'").references(:roles) }
-  scope :guests, -> { includes(:roles).where("roles.name='guest'").references(:roles) }
+  scope :clients, -> { includes(:roles).where("roles.name='client' and type='car_wash_owner'").references(:roles) }
+  scope :guests, -> { includes(:roles).where("roles.name='guest' and type='car_wash_owner'").references(:roles) }
+  scope :users, -> { where("type = 'user'") }
 
-
+  self.inheritance_column = 'subclass_of'
   has_and_belongs_to_many :roles, join_table: "roles_users"
   belongs_to :car_wash
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
   has_many :received_messages, class_name: "Message", foreign_key: "receiver_id"
   has_many :posts
 
-  validates_presence_of :phone, :contact_person, :car_wash_title, :address
+  validates_presence_of :phone, :contact_person, :car_wash_title, :address, if: :car_wash_owner?
 
 
   before_create do |user|
@@ -69,4 +70,35 @@ class User < ActiveRecord::Base
   def revoke_client
     self.roles.delete(Role.client)
   end
+
+  def forem_admin?
+    admin?
+  end
+
+  def forem_name
+    if admin?
+      'Администратор'
+    else
+      car_wash_title
+    end
+  end
+
+  def car_wash_owner?
+    type == 'car_wash_owner'
+  end
+
+  # def self.find_for_authentication(conditions)
+  #   email = conditions[:email]
+  #   user = User.where(email: email)
+  #   normal_user = NormalUser.where(email: email)
+  #   if user.count > 0
+  #     res = user.first
+  #   elsif normal_user.count > 0
+  #     res = normal_user.first
+  #   else
+  #     res = user.first
+  #   end
+  #   # byebug
+  #   res
+  # end
 end

@@ -1,20 +1,20 @@
-= form_for(User.new, :as => :user, :url => session_path(:user), :html => {:id => "login",:class => "form-signin"}) do |f|
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => "login",:class => "form-signin"}) do |f|
   %fieldset.sign-in.right-aligned
     -# [if lt IE 10]
-    .row
+    .m-row
       = f.label :email, User.human_attribute_name("email")
-      = f.email_field :email, :autofocus => true, class: "form-control"
+      = f.email_field :email, :autofocus => true, class: "m-form-control"
     -# [if lt IE 10]
-    .row
+    .m-row
       = f.label :password, User.human_attribute_name("password")
-      = f.password_field :password, class: "form-control"
+      = f.password_field :password, class: "m-form-control"
     - if devise_mapping.rememberable?
-      .row
+      .m-row
         = f.label :remember_me, t("devise.remember_me"), class: "checkbox"
         = f.check_box :remember_me
-    .row
-      .right
-        = f.submit t("devise.sign_in"), class: "btn"
-    .row
-      .right
+    .m-row
+      .m-right
+        = f.submit t("devise.sign_in"), class: "m-btn"
+    .m-row
+      .m-right
         = render "devise/shared/links"

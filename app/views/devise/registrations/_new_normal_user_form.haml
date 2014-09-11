@@ -7,46 +7,46 @@
           %h4= t('errors.messages.registration_part1')
           %h4= t('errors.messages.registration_part2')
       %fieldset.right-aligned
-        .row
+        .m-row
           = f.label :email do
             = NormalUser.human_attribute_name("email")
             %span.red &nbsp;*
-          = f.email_field :email, :autofocus => true, class: "form-control", required: "required"
-        .row
+          = f.email_field :email, :autofocus => true, class: "m-form-control", required: "required"
+        .m-row
           = f.label :name  do
             = NormalUser.human_attribute_name("name")
             %span.red &nbsp;*
-          = f.text_field :name, class: "form-control", required: "required"
-        .row
+          = f.text_field :name, class: "m-form-control", required: "required"
+        .m-row
           = f.label :phone do
             = NormalUser.human_attribute_name("phone")
             %span &nbsp;&nbsp;&nbsp;
-          = f.phone_field :phone, class: "form-control"
-        .row
+          = f.phone_field :phone, class: "m-form-control"
+        .m-row
           = f.label :password do
             = NormalUser.human_attribute_name("password")
             %span.red &nbsp;*
-          = f.password_field :password, class: "form-control", required: "required"
-        .row
+          = f.password_field :password, class: "m-form-control", required: "required"
+        .m-row
           = f.label :password_confirmation do
             = NormalUser.human_attribute_name("password_confirmation")
             %span.red &nbsp;*
-          = f.password_field :password_confirmation, class: "form-control", required: "required"
-        .row
+          = f.password_field :password_confirmation, class: "m-form-control", required: "required"
+        .m-row
           = label_tag do
             Я владелец автомойки &nbsp;&nbsp;&nbsp;
           = check_box_tag nil, nil, false, id: 'expander'
         #cw_owner.hidden
-          .row
+          .m-row
             = label_tag :car_wash_title do
               = User.human_attribute_name("car_wash_title")
               %span.red &nbsp;*
-            = text_field_tag 'user[car_wash_title]', nil, class: "form-control", required: "required", disabled: true
-          .row
+            = text_field_tag 'user[car_wash_title]', nil, class: "m-form-control", required: "required", disabled: true
+          .m-row
             = label_tag :address do
               = User.human_attribute_name("address")
               %span.red &nbsp;*
-            = text_field_tag 'user[address]', nil,class: "form-control", required: "required", disabled: true
+            = text_field_tag 'user[address]', nil,class: "m-form-control", required: "required", disabled: true
           #agreement_text
             = render 'agreement'
           %div
@@ -54,8 +54,8 @@
               = check_box_tag 'agreement', '', false
               Нажимая кнопку «Зарегистрироваться», я принимаю условия Пользовательского соглашения
         = hidden_field_tag 'user[normal]', true
-        .row
-          .right
-            =f.submit t("devise.sign_up"), class: "btn btn-lg btn-primary btn-block"
+        .m-row
+          .m-right
+            =f.submit t("devise.sign_up"), class: "m-btn"
             %br
             = render "devise/shared/links"
