@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //
-//= require jquery.purr
+//= require jquery.purr	
 //= require jquery-ui
 //= require bootstrap
 
@@ -41,3 +41,4 @@
 //= require admin/banners
 //= require admin/car_washes
 //= require admin/posts
+//= require admin/sort_navs
