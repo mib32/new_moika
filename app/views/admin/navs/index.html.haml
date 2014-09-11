@@ -1,6 +1,6 @@
 %h1 Listing navs
 
-%table
+%table#sortable.table
   %tr
     %th Name
     %th Path
@@ -11,7 +11,7 @@
     %th
 
   - @navs.each do |nav|
-    %tr
+    %tr{ "class" => 'item', "data-item-id" => nav.id}
       %td= nav.name
       %td= nav.path
       %td= nav.image_url

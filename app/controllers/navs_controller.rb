@@ -4,7 +4,7 @@ class NavsController < ApplicationController
   # GET /navs
   # GET /navs.json
   def index
-    @navs = Nav.all
+    @navs = Nav.all.order(position: :asc)
   end
 
   # GET /navs/1
@@ -14,7 +14,7 @@ class NavsController < ApplicationController
 
   # GET /navs/new
   def new
-    @nav = Nav.new
+    # @nav = Nav.new
   end
 
   # GET /navs/1/edit
@@ -24,41 +24,42 @@ class NavsController < ApplicationController
   # POST /navs
   # POST /navs.json
   def create
-    @nav = Nav.new(nav_params)
+    # @nav = Nav.new(nav_params)
 
-    respond_to do |format|
-      if @nav.save
-        format.html { redirect_to @nav, notice: 'Nav was successfully created.' }
-        format.json { render :show, status: :created, location: @nav }
-      else
-        format.html { render :new }
-        format.json { render json: @nav.errors, status: :unprocessable_entity }
-      end
-    end
+
+    # respond_to do |format|
+    #   if @nav.save
+    #     format.html { redirect_to @nav, notice: 'Nav was successfully created.' }
+    #     format.json { render :show, status: :created, location: @nav }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @nav.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /navs/1
   # PATCH/PUT /navs/1.json
   def update
-    respond_to do |format|
-      if @nav.update(nav_params)
-        format.html { redirect_to @nav, notice: 'Nav was successfully updated.' }
-        format.json { render :show, status: :ok, location: @nav }
-      else
-        format.html { render :edit }
-        format.json { render json: @nav.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @nav.update(nav_params)
+    #     format.html { redirect_to @nav, notice: 'Nav was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @nav }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @nav.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /navs/1
   # DELETE /navs/1.json
   def destroy
-    @nav.destroy
-    respond_to do |format|
-      format.html { redirect_to navs_url, notice: 'Nav was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # @nav.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to navs_url, notice: 'Nav was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private

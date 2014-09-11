@@ -33,7 +33,7 @@ Moika::Application.routes.draw do
   devise_for :normal_users, controllers: { registrations: "registrations", sessions: "sessions" }
   devise_scope :user do
     get 'sign_in' => 'devise/sessions#new'
-    get 'get_user', to: "sessions#get_user"
+    # get 'get_user', to: "sessions#get_user"
   end
   devise_scope :normal_user do
     get 'sign_up' => 'devise/registrations#new'
@@ -82,7 +82,9 @@ Moika::Application.routes.draw do
     resources :static_pages
     resources :car_washes
     resources :posts
-    resources :navs
+    resources :navs do
+      post :update_position, on: :collection
+    end
     # devise_for :users, only: [:update, :index, :show]
     get 'add_car_wash/:id', to: 'users#add_car_wash', as: '/add_car_wash'
     delete 'delete_file/:id', to: 'banners#delete_file', as: '/delete_file'

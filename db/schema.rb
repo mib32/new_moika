@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903183327) do
+ActiveRecord::Schema.define(version: 20140910103329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(version: 20140903183327) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "reply_to_id"
-    t.string   "state",       default: "pending_review"
+    t.string   "state",       default: "approved"
     t.boolean  "notified",    default: false
   end
 
@@ -195,11 +195,11 @@ ActiveRecord::Schema.define(version: 20140903183327) do
     t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "locked",       default: false,            null: false
+    t.boolean  "locked",       default: false,      null: false
     t.boolean  "pinned",       default: false
     t.boolean  "hidden",       default: false
     t.datetime "last_post_at"
-    t.string   "state",        default: "pending_review"
+    t.string   "state",        default: "approved"
     t.integer  "views_count",  default: 0
     t.string   "slug"
   end
@@ -258,6 +258,7 @@ ActiveRecord::Schema.define(version: 20140903183327) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "remote"
+    t.integer  "position"
   end
 
   create_table "normal_user_messages", force: true do |t|
@@ -273,20 +274,23 @@ ActiveRecord::Schema.define(version: 20140903183327) do
   end
 
   create_table "normal_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "name",                   default: "", null: false
+    t.string   "email",                  default: "",               null: false
+    t.string   "encrypted_password",     default: "",               null: false
+    t.string   "name",                   default: "",               null: false
     t.string   "phone"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,                null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "forem_admin",            default: false
+    t.string   "forem_state",            default: "pending_review"
+    t.boolean  "forem_auto_subscribe",   default: false
   end
 
   add_index "normal_users", ["email"], name: "index_normal_users_on_email", unique: true, using: :btree
@@ -392,8 +396,10 @@ ActiveRecord::Schema.define(version: 20140903183327) do
     t.string   "address"
     t.datetime "valid_to"
     t.boolean  "forem_admin",            default: false
-    t.string   "forem_state",            default: "pending_review"
+    t.string   "forem_state",            default: "approved"
     t.boolean  "forem_auto_subscribe",   default: false
+    t.string   "name",                   default: "",               null: false
+    t.string   "type",                   default: "car_wash_owner", null: false
   end
 
   add_index "users", ["car_wash_id"], name: "index_users_on_car_wash_id", using: :btree

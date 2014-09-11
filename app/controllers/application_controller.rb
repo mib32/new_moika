@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_navs
-    @navs = Nav.all
+    @navs = Nav.all.order(position: :asc)
   end
 
   protected
@@ -62,4 +62,5 @@ class ApplicationController < ActionController::Base
     def allow_iframe
       response.headers.except! 'X-Frame-Options'
     end
+
 end

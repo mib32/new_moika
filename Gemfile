@@ -47,6 +47,8 @@ group :doc do
 end
 
 group :development, :test do
+  # gem 'debugger'
+  gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rspec-rails', '~> 2.0'
@@ -143,5 +145,9 @@ gem 'active_record_query_trace'
 
 # forum
 gem 'forem', :github => "mib32/forem", :branch => "rails4"
+gem 'forem-bootstrap', github: "radar/forem-bootstrap"
 gem 'kaminari', '0.15.1'
+
+# this is for SORTING LISTS
+gem 'acts_as_list'
 

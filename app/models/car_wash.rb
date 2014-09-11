@@ -27,6 +27,9 @@ class CarWash < ActiveRecord::Base
 
   geocoded_by :address, :latitude  => :lat, :longitude => :lon
 
+  def random_banner
+    
+  end
   def activate!
     self.update(activated: true)
   end
