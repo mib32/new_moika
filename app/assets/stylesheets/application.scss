@@ -1,7 +1,10 @@
 //@import "twitter/bootstrap";
 @import "bootsy";
-@import "reset";
 @import "social";
+// @import "forem/base";
+// @import "forem-bootstrap";
+@import "reset";
+@import url(http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic);
 // @import "bootstrap";
 // @import "flowplayer/skin/minimalist"
 
@@ -28,7 +31,7 @@ html,body{
 
 
 #sb{
-		width:220px;
+		width:240px;
 		height:100%;
 
 		background-color:white;
@@ -44,7 +47,7 @@ html,body{
 	.logo{
 		padding-top:10px;
 		img{
-			width:200px;
+			width:220px;
 		}
 	}
 
@@ -70,17 +73,24 @@ html,body{
 
 }
 
-.nav{
+nav ul{
 	li{
 		padding:10px;
 		cursor:pointer;
 		margin:0;
 		transition: 400ms all ease;
+		width: 100%;
+		overflow: auto;
+		img{
+			// position: relative;
+			// top: 4px;
+			float: right;
+		}
 		&.active{
 			// background-color:$blue;
 			border-right:2px solid $blue;
 			a{
-				color:black;
+				color: #222 !important;
 				// &:after{
 				// 	content:"";
 				// 	background-color:white;
@@ -102,32 +112,48 @@ html,body{
 			}
 
 		}
-		a{
-		text-transform: uppercase;
-		text-decoration:none;
-		font-family:'Helvetica Neue', sans-serif;
-		font-size:9pt;
-		text-shadow: rgba(0,0,0,.01) 0 0 1px;
-		-webkit-font-smoothing: antialiased;
-		font-smoothing: antialiased;
-		color:#444;
-		letter-spacing:1px;
-		padding:0;
-		position:relative;
-		&:visited{
-			color: #777;
-		}
 		&:hover{
-			transition: 0.2s all;
-			color: #222;
+			a{
+				color: #222 !important;
+			}
 		}
-	}
+		a{/* Old one
+			text-transform: uppercase;
+			text-decoration:none;
+			font-family:'Helvetica Neue', sans-serif;
+			font-size:9pt;
+			text-shadow: rgba(0,0,0,.01) 0 0 1px;
+			-webkit-font-smoothing: antialiased;
+			font-smoothing: antialiased;
+			color:#444;
+			letter-spacing:1px;
+			padding:0;
+			position:relative;
+			transition: 0.2s all ease; */
+			text-transform: lowercase;
+			text-decoration:none;
+			font-family:'Helvetica Neue', 'PT Sans', sans-serif;
+			font-size:15px;
+			text-shadow: rgba(0,0,0,.01) 0 0 1px;
+			-webkit-font-smoothing: antialiased;
+			font-smoothing: antialiased;
+			color:#666;
+			letter-spacing:0px;
+			padding:0;
+			position:relative;
+			transition: 0.2s all ease;
+			// font-weight: 200;
+			&:visited{
+				// color: #444;
+			}
+			
+		}
 	}
 }
 
 .auth{
 	position:absolute;
-	margin-left:220px;
+	margin-left:240px;
 	top:148px;
 	width:600px;
 	background-color:white;
@@ -187,14 +213,14 @@ html,body{
 	color: #aaa;
 	fieldset{
 		&.right-aligned{
-			.row{
+			.m-row{
 				display: block;
 				label{
 					display:inline-block;
 					width:15em;
 					text-align: right;
 				}
-				.right{
+				.m-right{
 					margin-left: 15em;
 				}
 			}
@@ -213,21 +239,23 @@ html,body{
 	bottom: 0;
 	position: absolute;
 
-	.form-control{
+	.m-form-control{
 		padding: 4px;
 		border: none;
 		border-bottom:1px dotted #ccc;
 	}
-	.btn{
+	.m-btn{
 		border: 2px solid $dark-blue;
 		background-color: white;
 	}
 }
 
 #m{
-	margin-left:220px;
+	margin-left:240px;
 	height:100%;
 	position:absolute;
+	left:0;
+	right:0;
 }
 
 .map{
@@ -235,7 +263,7 @@ html,body{
 	  width:100%;
 	  height:100%;
 	}
-	#page, #page .row, #main{
+	#page, #page .m-row, #main{
 		height:100%;
 	}
 
@@ -256,17 +284,76 @@ html,body{
 
 .car-washes{
 	.header{
-		.row{
+		.m-row{
 			margin: 20px;
 		}
 	}
 	.list{
 		li{
 			margin: 10px 0;
+			width: 100%;
+			max-width: 400px;
+			position: relative;
+			.cbg{
+				height: 120px;
+				overflow:hidden;
+				img{
+					width:100%;
+					top: -75px;
+					position:relative;
+				}
+			}
 			.p{
-				background-color:rgba(0,0,0,0.4);
+				position: absolute;
+				top: 20px;
+				bottom: 20px;
+				width: 100%;
+				background-color:rgba(0,0,0,0.8);
+				color: white;
+				padding:15px 40px;
+				font-family: 'Helvetica Neue', sans-serif;
 			}
 		}
 	}
 }
 
+h3{
+	font-weight: bold;
+	font-size: 12pt;
+	margin:20 auto;
+}
+h3.sub{
+	color: #aaa;
+}
+h4{
+	font-style: italic;
+}
+h2{
+	font-weight: bold;
+	font-size: 16pt;
+}
+.posts{
+	section{
+		margin-left:20px;
+	}
+	article{
+		margin-top:30px;
+		h3{
+			margin-bottom:15px;
+
+		}
+		.c{
+			margin-bottom:20px;
+		}
+		.date{
+			display: inline-block;
+			color: #aaa;
+		}
+		.share42init{
+			display: inline-block;
+			position: relative;
+			top:7px;
+			margin-left: 50px;
+		}
+	}
+}
