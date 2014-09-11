@@ -11,7 +11,7 @@ class CopyNormalUsersToUsers < ActiveRecord::Migration
           abort 'not created'
         end
       else
-        say "#{u.email} skipped as duplicate"
+        say "#{nu.email} skipped as duplicate"
       end
     end
   end
