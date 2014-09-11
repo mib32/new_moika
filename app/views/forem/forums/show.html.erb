@@ -1,0 +1,12 @@
+<div class='forum'>
+  <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
+
+   <%= forem_pages_widget(@topics) %>
+  <ul>
+      <% if @topics.empty? %>
+      К сожалению, открытых тем не существует.
+      <% end %>
+      <%= render @topics %>
+</ul>
+  <%= forem_pages_widget(@topics) %>
+</div>
