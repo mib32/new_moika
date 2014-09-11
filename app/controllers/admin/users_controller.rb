@@ -7,7 +7,7 @@ class Admin::UsersController < AdminController
     @admins = User.admins
     @clients = User.clients
     @guests = User.guests
-    @normal_users= NormalUser.all
+    @normal_users= User.users
 
     logger.debug ( "#{@clients}" )
 
