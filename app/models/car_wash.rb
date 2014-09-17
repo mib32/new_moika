@@ -20,6 +20,7 @@ class CarWash < ActiveRecord::Base
   has_many :normal_user_messages
   has_many :subscribes
   has_many :normal_users, through: :subscribes
+  has_many :reviews
 
 
 
@@ -30,6 +31,7 @@ class CarWash < ActiveRecord::Base
   def random_banner
     
   end
+  
   def activate!
     self.update(activated: true)
   end

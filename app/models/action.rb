@@ -6,6 +6,7 @@ class Action < ActiveRecord::Base
   delegate :text, to: :action_type, prefix: true
   delegate :text, to: :action_text
 
+  default_scope -> { order('actions.created_at DESC') }
   scope :main, -> { includes(:action_type).where("action_types.text" => "main") }
   scope :bottom1, -> { includes(:action_type).where("action_types.text" => "bottom1") }
   scope :bottom2, -> { includes(:action_type).where("action_types.text" => "bottom2") }
@@ -15,4 +16,5 @@ class Action < ActiveRecord::Base
     action_text_object = ActionText.find_or_create_by(text: str)
     self.action_text_id = action_text_object.id
   end
+
 end

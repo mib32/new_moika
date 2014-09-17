@@ -9,15 +9,15 @@ class @PlacemarksRenderer
   @presets:
     yandex: [
       {
-        name:'twirl#greenStretchyIcon'
+        name:'islands#nightStretchyIcon'
         imageSize: Array(2)
       }
       {
-        name:'twirl#redStretchyIcon'
+        name:'islands#redStretchyIcon'
         imageSize: Array(2)
       }
       {
-        name:'twirl#greyIcon'
+        name:'islands#grayIcon'
         imageSize: [20,20]
       }
     ]
@@ -88,8 +88,13 @@ class @PlacemarksRenderer
   @createGeoObjectCollections: =>
     for key, o of @presets
       for preset in o
+        options = {preset: preset.name, iconImageHref: preset.imageHref, iconImageSize: preset.imageSize}
+
+        if key == 'custom'
+          options['iconLayout'] = 'default#image'
+
         collection_key = preset.name
-        collection_value = new window.ymaps.GeoObjectCollection({}, {preset: preset.name,iconImageHref: preset.imageHref, iconImageSize: preset.imageSize, iconLayout:'default#image'})
+        collection_value = new window.ymaps.GeoObjectCollection({}, options)
         @geoObjectCollections[collection_key] = collection_value
 
   @putPlacemarksToMap: =>
@@ -111,16 +116,16 @@ class @PlacemarksRenderer
 
         if car_wash.grey
           #@geoObjectCollections['my#grey'].add(placemark)
-          placemark.options.set('preset', 'twirl#greyIcon')
+          placemark.options.set('preset', 'islands#grayIcon')
           placemark.options.set('iconImageSize', [20,20])
-          #@geoObjectCollections['twirl#greyIcon'].add(placemark)
+          #@geoObjectCollections['islands#grayIcon'].add(placemark)
           greyGeoObjects.push placemark
         else
           if car_wash.signal
             if car_wash.blink
               @geoObjectCollections['my#green_blink'].add(placemark)
             else if car_wash.action_on_map
-              @geoObjectCollections['twirl#greenStretchyIcon'].add(placemark)
+              @geoObjectCollections['islands#nightStretchyIcon'].add(placemark)
             else if car_wash.videoned
               @geoObjectCollections['my#videoned'].add(placemark)
             else if car_wash.discounted
@@ -139,7 +144,7 @@ class @PlacemarksRenderer
             if car_wash.blink
               @geoObjectCollections['my#red_blink'].add(placemark)
             else if car_wash.action_on_map
-              @geoObjectCollections['twirl#redStretchyIcon'].add(placemark)
+              @geoObjectCollections['islands#redStretchyIcon'].add(placemark)
             else if car_wash.videoned
               @geoObjectCollections['my#videoned'].add(placemark)
             else if car_wash.discounted
@@ -172,8 +177,8 @@ class @PlacemarksRenderer
         clusterDisableClickZoom: false
       
       for collection_name, collection of @geoObjectCollections
-        if collection_name == "twirl#greyIcon"
-          console.log "grey"
+        if collection_name == "islands#grayIcon"
+          console.log "gray"
           #PlacemarksRenderer.clusterer.add collection
         else
           MapRenderer.myMap.geoObjects.add(collection)

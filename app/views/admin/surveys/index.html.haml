@@ -1,0 +1,29 @@
+%h1 Listing admin_surveys
+
+%table
+  %tr
+    %th Question
+    %th Answer 1
+    %th Answer 2
+    %th Answer 3
+    %th Answer 4
+    %th Answer 5
+    %th
+    %th
+    %th
+
+  - @admin_surveys.each do |admin_survey|
+    %tr
+      %td= admin_survey.question
+      %td= admin_survey.answer_1
+      %td= admin_survey.answer_2
+      %td= admin_survey.answer_3
+      %td= admin_survey.answer_4
+      %td= admin_survey.answer_5
+      %td= link_to 'Show', admin_survey
+      %td= link_to 'Edit', edit_admin_survey_path(admin_survey)
+      %td= link_to 'Destroy', admin_survey, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Survey', new_admin_survey_path

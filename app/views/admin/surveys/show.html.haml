@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%h2 Результаты:
+- 5.times do |i|
+  - ans = @admin_survey.send("answer_#{i+1}")
+  - unless ans.blank?
+    .row
+      .col-lg-2
+        = ans + ' :'
+      .col-lg-10
+        - denominator = @admin_survey.survey_results.where("result = #{i}").count
+        - unless denominator == 0
+          =  number_to_percentage 100 * @admin_survey.survey_results.count / denominator, precision: 2
+        - else
+          = "0%"
+
+
+%p
+  %b Question:
+  = @admin_survey.question
+%p
+  %b Answer 1:
+  = @admin_survey.answer_1
+%p
+  %b Answer 2:
+  = @admin_survey.answer_2
+%p
+  %b Answer 3:
+  = @admin_survey.answer_3
+%p
+  %b Answer 4:
+  = @admin_survey.answer_4
+%p
+  %b Answer 5:
+  = @admin_survey.answer_5
+
+= link_to 'Edit', edit_admin_survey_path(@admin_survey)
+\|
+= link_to 'Back', admin_surveys_path

@@ -3,8 +3,8 @@ class Post < ActiveRecord::Base
   self.inheritance_column = 'inherit_of?'
   belongs_to :user
   default_scope -> {order('created_at desc')}
-  # scope :news, -> {where(type: 'news')}
-  # scope :info, -> {where(type: 'info')}
+  scope :news, -> {where(type: 'news')}
+  scope :info, -> {where(type: 'info')}
 
   validates_presence_of :type
 

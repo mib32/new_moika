@@ -55,6 +55,13 @@ ru:
     - :day
     - :month
     - :year
+  time:
+    am: утра
+    formats:
+      default: ! '%a, %d %b %Y, %H:%M:%S %z'
+      long: ! '%d %B %Y, %H:%M'
+      short: ! '%d %b, %H:%M'
+    pm: вечера
   datetime:
     distance_in_words:
       about_x_hours:
@@ -360,5 +367,6 @@ ru:
       few: '%{count} сообщения'
       many: '%{count} сообщений'
       other: '%{count} сообщений'
-
-
+  views:
+    pagination:
+      truncate: "..."

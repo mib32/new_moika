@@ -24,26 +24,30 @@ class @MapRenderer
     #   .add('mapTools', { left: 35, top: 5 })
     #   .add('routeEditor', { left: 130, top: 5 })
     #   .add(@trafficControl, {top: 50, left: 40})
-    console.log "map renderer init end"
-    dfd = $.Deferred()
-    flag = $('.ymaps-map').length
-    while flag == 0
-      flag = $('.ymaps-map').length
-    dfd.resolve()
-    return dfd.promise()
+    # console.log "map renderer init end"
+    # dfd = $.Deferred()
+    # flag = $('.ymaps-map').length
+    # while flag == 0
+    #   flag = $('.ymaps-map').length
+    # dfd.resolve()
+    console.log "map renderer init true end"
+    # return dfd.promise()
 
-$ ->
+# $ ->
   #renderer = new MapRenderer
   #setTimeout(ymaps.ready(MapRenderer.init()),0)
   #setTimeout(CarWashLoader.load PlacemarksRenderer.render, 0)
-  ydo = ->
-    MapRenderer.init()
-    console.log "CarWashLoader"
-    $.when(CarWashLoader.load()).done (data) ->
-      $.when(PlacemarksRenderer.render()).done (data) ->
-        #setTimeOut(loadIvideon(), 100000)
-  ymaps.ready ->
-    ydo()
+console.log('sh)')
+window.ydo = ->
+  console.log(1)
+  MapRenderer.init()
+  console.log(2)
+  console.log "CarWashLoader"
+  $.when(CarWashLoader.load()).done (data) ->
+    $.when(PlacemarksRenderer.render()).done (data) ->
+      #setTimeOut(loadIvideon(), 100000)
+ymaps.ready ->
+  window.ydo()
 ###
   window.setInterval(updateTraffic,1*60*1000)
 ###

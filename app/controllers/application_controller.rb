@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
   before_filter :configure_devise_params, if: :devise_controller?
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :temp_require_login 
-  before_action :set_navs
+  before_action :set_news
+  before_action :set_advs
+  before_action :set_survey
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| 
@@ -36,8 +38,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_navs
-    @navs = Nav.all.order(position: :asc)
+  def set_news
+    @news = Post.news.limit(3)
+  end
+
+  def set_advs
+    parent_name = Rails.application.class.parent_name
+    @ads = AdSettings.find_by_app_name parent_name
+  end
+
+  def set_survey
+    @survey = Admin::Survey.order('created_at DESC').first
   end
 
   protected

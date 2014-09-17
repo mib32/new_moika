@@ -11,12 +11,16 @@
   %body{ class: controller.controller_name.dasherize }
     #sb
       = render partial: 'sidebar'
+    #hd
+      = render partial: 'header'
     #m
       = yield
+    - unless controller.controller_name == 'map'
+      #ad
+        = render partial: 'ads'
     
     
     /#footer
     /  = render partial: 'footer'
-    / = javascript_include_tag "http://api-maps.yandex.ru/2.0.31/?load=package.full&lang=ru-RU"
-    = javascript_include_tag "http://api-maps.yandex.ru/2.1/?lang=ru_RU", 'data-turbolinks-track' => true
     = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = yield :map_script

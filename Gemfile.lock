@@ -246,9 +246,6 @@ GEM
     jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-turbolinks (2.1.0)
-      railties (>= 3.1.0)
-      turbolinks
     jquery-ui-rails (5.0.0)
       railties (>= 3.2.16)
     json (1.8.1)
@@ -377,6 +374,8 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    skylight (0.3.20)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     spoon (0.0.4)
       ffi
@@ -402,8 +401,6 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.2.0)
-    turbolinks (2.2.2)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -461,7 +458,6 @@ DEPENDENCIES
   irbtools-more
   jbuilder
   jquery-rails
-  jquery-turbolinks
   jquery-ui-rails
   kaminari (= 0.15.1)
   libnotify
@@ -484,9 +480,9 @@ DEPENDENCIES
   rspec-rails (~> 2.0)
   sass-rails
   sdoc
+  skylight
   sprockets (= 2.11.0)
   thin
-  turbolinks
   uglifier
   unicorn
   whenever

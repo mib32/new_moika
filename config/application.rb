@@ -21,7 +21,7 @@ module Moika
     config.i18n.locale = :ru
     config.i18n.default_locale = :ru
     config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/"]
-    config.assets.precompile += %w( admin.css admin.js pr_pub.js forem.js)
+    config.assets.precompile += %w( admin.css admin.js pr_pub.js forem.js map_general.js)
     config.assets.paths << Emoji.images_path
     MultiJson.use :yajl
     # ActiveRecordQueryTrace.enabled = true

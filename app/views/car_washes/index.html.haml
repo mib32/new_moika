@@ -4,15 +4,16 @@
     сортировать по:
     = link_to 'минимальной цене', car_washes_path('order_by' => 'price')
     = link_to 'рейтингу', car_washes_path('order_by' => 'rating')
+    = paginate @car_washes
 .list
   %ul
     - @car_washes.each do |cw|
       %li
-        - banner = cw.banners.where('file is not null').first
-        .cbg= image_tag asset_path(banner.file.b_380_270.url) if banner.present?
-        .p
-          %h3= cw.title
-          %h4= cw.address 
-          -5.times do |i|
-            %span
-              = image_tag asset_path(cw.rating >= i+1 ? 'star_e.png' : 'star_d.png')
+        = link_to cw do
+          .cbg= car_wash_background cw
+          .p
+            %h3= cw.title
+            %h4= cw.address 
+            -5.times do |i|
+              %span
+                = image_tag asset_path(cw.rating >= i+1 ? 'star_e.png' : 'star_d.png')

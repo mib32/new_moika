@@ -87,6 +87,10 @@ class User < ActiveRecord::Base
     type == 'car_wash_owner'
   end
 
+  def can_create_forem_topics?(forum)
+    true
+  end
+
   # def self.find_for_authentication(conditions)
   #   email = conditions[:email]
   #   user = User.where(email: email)

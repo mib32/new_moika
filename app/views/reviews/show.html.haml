@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Text:
+  = @review.text
+%p
+  %b Rating:
+  = @review.rating
+%p
+  %b Car wash:
+  = @review.car_wash
+
+= link_to 'Edit', edit_car_wash_review_path(@car_wash,@review)
+\|
+= link_to 'Back', car_wash_reviews_path

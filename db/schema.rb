@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910103329) do
+ActiveRecord::Schema.define(version: 20140914151651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20140910103329) do
     t.integer  "car_wash_id"
     t.integer  "action_text_id"
     t.integer  "action_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admin_surveys", force: true do |t|
+    t.string   "question"
+    t.string   "answer_1"
+    t.string   "answer_2"
+    t.string   "answer_3"
+    t.string   "answer_4"
+    t.string   "answer_5"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -331,6 +342,16 @@ ActiveRecord::Schema.define(version: 20140910103329) do
     t.boolean  "read",        default: false
   end
 
+  create_table "reviews", force: true do |t|
+    t.string   "text"
+    t.integer  "rating"
+    t.integer  "car_wash_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["car_wash_id"], name: "index_reviews_on_car_wash_id", using: :btree
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -357,6 +378,18 @@ ActiveRecord::Schema.define(version: 20140910103329) do
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
+  create_table "settings", force: true do |t|
+    t.string   "app_name"
+    t.string   "ad_1_title"
+    t.string   "ad_1_text"
+    t.string   "ad_2_title"
+    t.string   "ad_2_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["app_name"], name: "index_settings_on_app_name", unique: true, using: :btree
+
   create_table "static_pages", force: true do |t|
     t.string   "title"
     t.text     "header"
@@ -375,6 +408,16 @@ ActiveRecord::Schema.define(version: 20140910103329) do
 
   add_index "subscribes", ["car_wash_id"], name: "index_subscribes_on_car_wash_id", using: :btree
   add_index "subscribes", ["normal_user_id"], name: "index_subscribes_on_normal_user_id", using: :btree
+
+  create_table "survey_results", force: true do |t|
+    t.integer  "survey_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "session_id"
+    t.integer  "result"
+  end
+
+  add_index "survey_results", ["survey_id"], name: "index_survey_results_on_survey_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",               null: false

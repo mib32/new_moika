@@ -1,11 +1,13 @@
-<div id='forums_container'>
-  <h1 id='forums_title'><%= t('.title') %></h1>
-
+<div id='forums-container'>
+  <!-- <h1 id='forums_title'><%= t('.title') %></h1> -->
+  <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
+<ul id='forums-list'>
 <%= render "/forem/forums/listing", :category => @categories.first %>
+</ul>
 </div>
 
 <br>
-<footer id='admin_link'>
+<footer id='admin-link'>
   <% if forem_admin? %>
     <%= link_to t("area", :scope => "forem.admin"), forem.admin_root_path %>
   <% end %>

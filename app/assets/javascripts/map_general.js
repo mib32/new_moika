@@ -1,0 +1,10 @@
+//= require search-address
+//= require car_wash_loader
+//= require placemarks_renderer
+// require car_washes
+//= require hint
+//= require balloon
+//= require map
+//= require weather
+//= require date
+//= require load_ivideon

@@ -32,7 +32,8 @@ gem 'jquery-ui-rails'
 gem 'haml-rails'
 
 # Turbolinks makes following links in your web application faster. Read more:
-gem 'turbolinks'
+# gem 'turbolinks'
+# gem 'jquery-turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
@@ -118,7 +119,10 @@ gem 'plupload-rails'
 
 gem 'mini_magick'
 gem 'carrierwave-processing'
+
 gem 'newrelic_rpm'
+gem 'skylight'
+
 #gem 'activemerchant', :require => 'active_merchant'
 #gem 'robokassa'
 gem 'prawn', :git => "https://github.com/prawnpdf/prawn.git"
@@ -137,8 +141,7 @@ gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 # just for tabs :)
 gem 'bettertabs'
 
-# jquery-turbolinks
-gem 'jquery-turbolinks'
+
 
 # i like that kind of names
 gem 'active_record_query_trace'

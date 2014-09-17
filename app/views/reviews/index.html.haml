@@ -1,0 +1,23 @@
+%h1 Listing reviews
+
+%table
+  %tr
+    %th Text
+    %th Rating
+    %th Car wash
+    %th
+    %th
+    %th
+
+  - @reviews.each do |review|
+    %tr
+      %td= review.text
+      %td= review.rating
+      %td= review.car_wash.id
+      %td= link_to 'Show', car_wash_review_path(@car_wash, review)
+      %td= link_to 'Edit', edit_car_wash_review_path(@car_wash, review)
+      %td= link_to 'Destroy', car_wash_review_path(@car_wash, review), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Review', new_car_wash_review_path

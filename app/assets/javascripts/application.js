@@ -11,26 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+// comment  jquery.turbolinks
 //= require jquery_ujs
-//= require jquery.cycle2.min
-//= require jquery.cycle2.carousel.min
+// comment  jquery.cycle2.min
+// comment  jquery.cycle2.carousel.min
 //= require ru
-//= require search-address
-//= require car_wash_loader
-//= require placemarks_renderer
-//= require car_washes
-//= require hint
-//= require balloon
-//= require map
-//= require weather
-//= require date
-//= require load_ivideon
 //= require spinner
 //= require front_end
 //= require toggle_agreement_submit
 //= require jquery.bettertabs.min
-//= require turbolinks
+// comment  turbolinks
 
 //= require moxie
 //= require plupload.dev
@@ -47,4 +37,5 @@
 //= require admin/banners
 
 //= require share42
-//= require forem
+// require forem
+//= require car_washes

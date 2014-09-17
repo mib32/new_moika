@@ -29,4 +29,8 @@ Moika::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   #config.reload_classes_only_on_change = false
+
+  # u no
+  BetterErrors.editor = :sublime
+
 end

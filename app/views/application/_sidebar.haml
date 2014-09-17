@@ -1,22 +1,25 @@
 .logo.hidden-xs
-  =link_to :root do
+  =link_to :root, class: 'image' do
     =image_tag 'logo.png'
 .social.hidden-xs
   =render 'social'
 %nav
   %ul
     %li
-      - if user_signed_in?
-        = link_to t('logout'), main_app.destroy_user_session_path, :method => :delete
-      - elsif normal_user_signed_in?
-        = link_to t('logout'), main_app.destroy_normal_user_session_path, :method => :delete
-      - else
-        = link_to 'Вход', new_user_session_path, :remote => true
-      = image_tag asset_path 'login.png'
-    - @navs.each do |n|
-      %li{ class: ('active' if n.path.tr('/','') == request.fullpath.split('/').second.to_s) } 
-        -# = debug n.path.tr('/','')
-        -# = debug current_path.split('/').to_s
-        -# = debug request_params
-        = link_to n.name, n.path_or_root, :remote => n.remote
-        = image_tag asset_path n.image_url
+      = render 'devise'
+    = render 'navs'
+  - unless @survey.nil? || session['passed_survey']
+    %article#survey
+      = form_for SurveyResult.new, :remote => true do |f|
+        %p= @survey.question
+        - 5.times do |i|
+          - ans = @survey.send("answer_#{i+1}")
+          - unless ans.blank?
+            .m-row
+              = f.radio_button :result, i+1
+              = f.label ans
+              = hidden_field_tag :survey_id, @survey.id
+        .m-row
+          = f.submit 'Отправить'
+
+

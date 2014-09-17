@@ -1,0 +1,27 @@
+= form_for [:admin,@ad_settings], html: {class: 'form-horizontal'}, method: :put do |f|
+  - if @ad_settings.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ad_settings.errors.count, "error")} prohibited settings from being saved:"
+      %ul
+        - @ad_settings.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.row
+    = label_tag nil, AdSettings.human_attribute_name("ad_1_title"), class: 'control-label col-lg-2'
+    .col-lg-3
+      = f.text_field :ad_1_title, class: 'form-control'
+  .form-group.row
+    = label_tag nil, AdSettings.human_attribute_name("ad_1_text"), class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_area :ad_1_text, class: 'form-control'
+  .form-group.row
+    = label_tag nil, AdSettings.human_attribute_name("ad_2_title"), class: 'control-label col-lg-2'
+    .col-lg-3
+      = f.text_field :ad_2_title, class: 'form-control'
+  .form-group.row
+    = label_tag nil, AdSettings.human_attribute_name("ad_2_text"), class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_area :ad_2_text, class: 'form-control'
+  .row
+    .col-lg-4
+      = submit_tag t("save_button"), class: 'btn btn-danger btn-block'

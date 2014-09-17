@@ -19,4 +19,9 @@ module CarWashesHelper
     end
   end
 
+  def car_wash_background car_wash
+    banner = car_wash.banners.where('file is not null').first
+    image_tag asset_path(banner.file.b_380_270.url) unless banner.nil?
+  end
+
 end
