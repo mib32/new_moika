@@ -47,6 +47,7 @@ class ApplicationController < ActionController::Base
     @settings = Settings.find_by_app_name parent_name
     if @settings.nil?
       @settings = Settings.create(app_name: parent_name)
+    end
   end
 
   def set_survey
