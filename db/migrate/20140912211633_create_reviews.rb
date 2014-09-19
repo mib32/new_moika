@@ -1,6 +1,5 @@
 class CreateReviews < ActiveRecord::Migration
   def change
-    drop_table :reviews
     create_table :reviews do |t|
       t.string :text
       t.integer :rating
