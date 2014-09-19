@@ -6,23 +6,29 @@
 #cw_content
   = bettertabs :cw_tabs, selected_tabs: :info do |tab|
     = tab.static :info, 'информация' do
-      #free_close_signal
-        = render 'signal'
-      = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
+      #c
+        #cw_dashboard
+          #cw_signal
+            = render 'signal'
+        = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
     = tab.static :live, 'трансляция' do
-      .ivideon_c
-        %h5=@car_wash.video_title1
-        = render 'video_320', src: @car_wash.video_url1
-      .ivideon_c
-        %h5=@car_wash.video_title2
-        = render 'video_320', src: @car_wash.video_url2
+      #c
+        .ivideon_c
+          %h5=@car_wash.video_title1
+          = render 'video_100p', src: @car_wash.video_url1
+        .ivideon_c
+          %h5=@car_wash.video_title2
+          = render 'video_100p', src: @car_wash.video_url2
     = tab.static :video, "видео: #{@banners.where(type: 'ClientVideoBanner').size}" do
-      - banner = @banners.where(type: 'ClientVideoBanner').first
-      - unless banner.nil? || banner.filename.blank?
-        %h5.text-center= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
-        = render 'client_youtube', src: banner.filename
+      #c
+        - banner = @banners.where(type: 'ClientVideoBanner').first
+        - unless banner.nil? || banner.filename.blank?
+          %h5.text-center= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
+          = render 'client_youtube', src: banner.filename
     = tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
-      = actions(@vacancy_actions, 'li')
+      #c
+        = actions(@vacancy_actions, 'li')
     = tab.static :reviews, "отзывы: #{@car_wash.reviews.size}" do
-      = link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
-      = render @car_wash.reviews
+      #c
+        = link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
+        = render @car_wash.reviews

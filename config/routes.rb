@@ -83,6 +83,8 @@ Moika::Application.routes.draw do
     # get 'ads', to: 'settings#ads_index', as: 'ad_settings'
     # put 'ads', to: 'settings#ads_update'
     resources :ad_settings
+    resources :mq_settings
+    resources :settings
     get 'load_data_from_ya', to: 'dashboard#load_data_from_ya', as: '/load_data_from_ya'
     post 'users/create_admin'
     get 'users/new_admin'

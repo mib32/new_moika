@@ -1,0 +1,34 @@
+/ %li
+/   = link_to 'Карта', '/'
+/   = image_tag asset_path 'map.png'
+/ %li
+/   = link_to 'Автомойки', '/car_washes'
+/   = image_tag asset_path 'car_washes.png'
+/ %li#news
+/   = link_to 'Новости', '/news'
+/   = image_tag asset_path 'news.png'
+/ %li
+/   = link_to 'Акции и скидки', '/proposals'
+/   = image_tag asset_path 'proposals.png'
+/ %li
+/   = link_to 'Форум', '/forum'
+/   = image_tag asset_path 'forum.png'
+/ %li
+/   = link_to 'Полезная информация', '/info'
+/   = image_tag asset_path 'info.png'
+/ %li
+/   = link_to 'О проекте', '/about'
+/   = image_tag asset_path 'about.png'
+= nav_to 'Карта', '/', 'map.png'
+= nav_to 'Автомойки', '/car_washes', 'car_washes.png'
+#news
+  = nav_to 'Новости', '/news', 'news.png'
+  #news_list
+    - @news.each do |n|
+      = link_to main_app.post_path(n) do
+        %span= l n.created_at, format: '%d %b'
+        = n.title.truncate(25)
+= nav_to 'Акции и скидки', '/proposals', 'proposals.png'
+= nav_to 'Форум', '/forum', 'forum.png'
+= nav_to 'Полезная информация', '/info', 'info.png'
+= nav_to 'О проекте', '/about', 'about.png'

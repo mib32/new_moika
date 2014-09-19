@@ -6,6 +6,8 @@ module CarWashesHelper
       actions.each do |action|
         ret += "<#{tag}>#{action.action_text.text}</#{tag}>"
       end
+    else
+      ret = "К сожалению, открытых вакансий нет"
     end
     raw(ret)
   end

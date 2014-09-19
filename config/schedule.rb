@@ -19,7 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.minute do
-  runner "Currency.test_runner"
+# set :output, "~/cron_log.log"
+every :day, :at => '12am' do
+  runner "Currency.save_current_from_cb"
+  # runner "Currency.test_runner"
 end
 

@@ -2,12 +2,14 @@ require 'open-uri'
 require 'nokogiri'
 
 class Currency < ActiveRecord::Base
+  attr_accessor :diff
 
-	def self.get_from_cb(date)
+	def self.get_from_cb(date = Time.now)
 	  ret = [] 
 	  formatted_date = date.strftime("%d/%m/%Y")
-    # file_handle = open("http://www.cbr.ru/scripts/XML_daily.asp?date_req=#{formatted_date}")
-    file_handle = nil
+    file_handle = open("http://www.cbr.ru/scripts/XML_daily.asp?date_req=#{formatted_date}")
+    puts file_handle
+    # file_handle = nil
     unless file_handle.nil?
       document = Nokogiri::XML(file_handle)
       eur_name = document.xpath("//Valute[@ID='R01239']/CharCode").children.first.text
@@ -20,8 +22,7 @@ class Currency < ActiveRecord::Base
     ret
 	end
 
-	def self.save_current_from_cb
-		current_date = Date.today
+	def self.save_current_from_cb(current_date = Date.today)
 		ary = Currency.get_from_cb(current_date)
 		currency = []
 		ary.each do |row|
@@ -38,17 +39,19 @@ class Currency < ActiveRecord::Base
 	end
 
 	def self.get_current(opt_hash)
-		current = Currency.where(name: opt_hash[:currency_name], date: Date.today)
+    currency = opt_hash.delete(:currency_name)
+		current = Currency.where(name: currency, date: Date.today)
 		if current.empty?
 			save_current_from_cb
-  		current = Currency.where(name: opt_hash[:currency_name], date: Date.today)
+  		current = Currency.where(name: currency, date: Date.today)
 		end
 		if current.empty?
-  		current = Currency.where(name: opt_hash[:currency_name], date: Date.today-1)
+  		current = Currency.where(name: currency, date: Date.today-1)
     end
 		if current.empty?
-  		current = Currency.where(name: opt_hash[:currency_name], date: Date.today-2)
+  		current = Currency.where(name: currency, date: Date.today-2)
     end
+    current.first.diff = get_dynamics current.first, current.first.date.to_date
 		current.first
 	end
 
@@ -56,5 +59,10 @@ class Currency < ActiveRecord::Base
 		logger.debug "vatagin: Currency test_runner invoked..."
 		
 	end
+
+  def self.get_dynamics(current, date)
+    previous = Currency.where(name: current.name, date: date - 1)
+    diff = current.value - previous.first.value
+  end
 
 end

@@ -1,12 +1,6 @@
-#signal_text
-  - if @car_wash.signal
-    %li 
-      Свободно
-  - else
-    %li 
-      Занято
-#signal_image
-  - if @car_wash.signal
-    =image_tag "green.png"
-  - else
-    =image_tag "red.png"
+- if @car_wash.signal
+  .free 
+    Свободно
+- else
+  .busy
+    Занято

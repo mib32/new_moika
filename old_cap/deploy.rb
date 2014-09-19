@@ -7,7 +7,7 @@ require "bundler/capistrano"
 
 #server "141.8.193.154", :web, :app, :db, primary: true
 server "moika-77.ru", :web, :app, :db, primary: true
-set :application, "new_moika"
+set :application, "test-moika"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
@@ -47,7 +47,7 @@ namespace :deploy do
   end
   after "deploy:setup", "deploy:setup_config"
   task :symlink_config, roles: :app do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  #   run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
   desc "Make sure local git is in sync with remote."
@@ -87,13 +87,4 @@ end
 def run_interactively(command)
   server ||= find_servers_for_task(current_task).first
   exec %Q(ssh #{user}@moika-77.ru -t' #{current_release}/#{command}')
-end
-
-after "deploy:symlink", "deploy:update_crontab"
-
-namespace :deploy do
-  desc "Update the crontab file"
-  task :update_crontab, :roles => :db do
-    run "cd #{release_path} && whenever --update-crontab #{application}"
-  end
 end

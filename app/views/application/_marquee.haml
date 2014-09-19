@@ -1,0 +1,22 @@
+#mq
+  #date_currency
+    .datetime
+      %span.date
+      %span.time
+    .vr
+    #weather
+      #deg
+    .vr
+    .currency 
+      %span.name &#36;
+      %span.dynamics= currency_dynamics @usd.diff
+      %span.value= @usd.value
+      %span.name &euro;
+      %span.dynamics= currency_dynamics @euro.diff
+      %span.value= @euro.value
+    .vr
+    .traffic
+      #traffic_light.none
+      %span.level ?
+    .vr
+    #message= @settings.mq_message

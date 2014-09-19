@@ -46,4 +46,12 @@ module ApplicationHelper
   def we_are_there? path
     path.tr('/','') == request.fullpath.split('/').second.to_s
   end
+
+  def currency_dynamics diff
+    if diff > 0
+      image_tag asset_path('up.png')
+    else
+      image_tag asset_path('down.png')
+    end
+  end
 end

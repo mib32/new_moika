@@ -1,8 +1,11 @@
+.ocean
+  =image_tag 'ocean2.png'
 .logo.hidden-xs
   =link_to :root, class: 'image' do
-    =image_tag 'logo.png'
-.social.hidden-xs
-  =render 'social'
+    =image_tag 'logo_wo_frame.png'
+//.hr
+#social
+  = render 'social'
 %nav
   %ul
     %li
@@ -21,5 +24,7 @@
               = hidden_field_tag :survey_id, @survey.id
         .m-row
           = f.submit 'Отправить'
+#footer
+  = render 'footer'
 
 

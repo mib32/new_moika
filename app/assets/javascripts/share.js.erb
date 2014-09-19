@@ -69,26 +69,44 @@ function loadIvideon() {
   console.log('loadIvideon end');
 };
 
-function updateTraffic() {
-  trafficProvider.update();
-  var level = trafficProvider.state.get('level');
-  if (level === undefined) {
-    return false;
+function updateTraffic(index_page) {
+  if ( index_page ){
+    var now = new Date();
+    console.log('traffic cookie set');
+  // if (docCookies.getItem('trafficLevel') !== null){
+    // var traffic_time = new Date(docCookies.getItem('trafficTime'));
+    // var time_diff = Math.abs(traffic_time.getTime() - now.getTime()) / 1000;
+    // alert(time_diff);
+  // }
+    // console.log(MapRenderer.trafficProvider)
+    // MapRenderer.trafficProvider.update();
+    var level = TrafficProvider.actual.state.get('level');
+  // document.cookie = 'trafficLevel='+level;
+  // document.cookie = 'trafficTime='+new Date();
+    if (level === undefined || level === null) {
+      console.log('traffic level fail');
+      return false;
+    }
+
+    docCookies.setItem('trafficLevel',level);
+    docCookies.setItem('trafficTime',now);
   }
-  if (level < 4) {
-    $('#traffic .svetofor').removeClass('traffic_undefined');
-    $('#traffic .svetofor').addClass('traffic_green');
-  } else if (level < 7) {
-    $('#traffic .svetofor').removeClass('traffic_undefined');
-    $('#traffic .svetofor').addClass('traffic_yellow');
+  cookie_level = docCookies.getItem('trafficLevel')
+  console.log('traffic cookie get '+cookie_level);
+  if (cookie_level < 4) {
+    $('#traffic_light').removeClass();
+    $('#traffic_light').addClass('green');
+  } else if (cookie_level < 7) {
+    $('#traffic_light').removeClass();
+    $('#traffic_light').addClass('yellow');
   } else {
-    $('#traffic .svetofor').removeClass('traffic_undefined');
-    $('#traffic .svetofor').addClass('traffic_red');
+    $('#traffic_light').removeClass();
+    $('#traffic_light').addClass('red');
   }
 
-  $('#traffic #level_digit').html( level );
-  $('#traffic #level_text').html( declensionBall[level]);
-  $('#traffic #level_desc').html( trafficText[level-1]);
+  $('.traffic .level').html( cookie_level );
+
+  window.clearInterval(window.traffic_interval);
 };
 
 function init_old(cw_list){
@@ -330,20 +348,18 @@ function init_old(cw_list){
 $(document).ready(function() {
   setInterval(function() {
   var date_now = new Date();
-  $(".datetime .date").html(
-    ru_Date.abbreviatedDayNames[date_now.getDay()] +
-    ' ' +
-    date_now.getDate() +
-    ' ' +
-    ru_Date.monthNames[date_now.getMonth()] +
-    ' ' +
-    date_now.getFullYear() +
-    ' г.'
-    );
+  // $(".datetime .date").html(
+  //   ru_Date.abbreviatedDayNames[date_now.getDay()] +
+  //   ' ' +
+  //   date_now.getDate() +
+  //   ' ' +
+  //   ru_Date.monthNames[date_now.getMonth()] +
+  //   ' ' +
+  //   date_now.getFullYear() +
+  //   ' г.'
+  //   );
   $(".datetime .time").html(
-    ' | ' +
-    date_now.toLocaleTimeString() +
-    ' | '
+    date_now.toLocaleTimeString()
     );
   },500)
 
@@ -353,18 +369,70 @@ $(document).ready(function() {
     $('#weather #deg').html(data.data.current_condition[0].temp_C + '&deg;C')
   }, 'jsonp');
 
-  if ( $('#car_wash_name').length > 0 ) {
-    $('#map').hide();
-    ymaps.ready(init);
-    window.setInterval(updateTraffic,1*10*1000)
-  }
-  else {
-  }
+  // if ( $('#car_wash_name').length > 0 ) {
+    // $('#map').hide();
+    // ymaps.ready(init);
+    // window.setInterval(updateTraffic,1*60*1000)
+    // var we_are_at_index;
+    if ( $('#map').length === 0 ) {
+    //   we_are_at_index = true;
+    // }else{
+    //   we_are_at_index = false;
+    // }
+      updateTraffic(false);
+    }
+
+
+  // }
+  // else {
+  // }
 
   //trafficControl = new ymaps.control.TrafficControl({providerKey: 'traffic#actual', shown: true});
   //trafficProvider = trafficControl.getProvider('traffic#actual');
 
+  $('.msg_c').hover(function(){
+    $(this).addClass('mouseover');
+  },function(){
+    $(this).removeClass('mouseover');
+  });
+
+  window.cycleStep = 0;
+  window.setInterval(cl_cycle,3000);
+
+
+
 });
+
+function cl_cycle(){
+  if ( ! $('.msg_c').hasClass('mouseover') ){
+    var step = window.cycleStep;
+    var len = $('.msg_c').children().length;
+    var klass = 'pos-'+step;
+    var prev_klass = 'pos-'+(step-1);
+    var last_klass = 'pos-'+(len-1);
+    var first_klass = 'pos-0';
+    var cl = '#cl_'+step;
+    var prev_cl = '#cl_'+(step-1);
+    var last_cl = '#cl_'+(len);
+    var first_cl = '#cl_0';
+    if (step == 0){
+      $('.msg_c').removeClass(last_klass);
+      // $(last_cl).addClass('dimmed');
+      // $(first_cl).removeClass('dimmed');
+      $('.msg_c').children().removeClass('lightened');
+      $('.msg_c').children().slice(1,len).addClass('dimmed');
+
+    }
+    $('.msg_c').removeClass(prev_klass);
+    $('.msg_c').addClass(klass);
+    $(prev_cl).addClass('lightened');
+    $(cl).removeClass('dimmed');
+    window.cycleStep++;
+    if ( window.cycleStep == len ) {
+      window.cycleStep = 0;
+    }
+  }
+}
 
 function log (argument) {
   console.log(argument)

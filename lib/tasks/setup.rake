@@ -171,4 +171,10 @@ namespace :setup do
     end
   end
 
+  desc "Create currency rates for today and yesterday"
+  task get_currencies: :environment do
+    puts 'Fetching currency rates'
+    Currency.save_current_from_cb
+    Currency.save_current_from_cb(Date.today - 1)
+  end
 end

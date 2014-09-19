@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :temp_require_login 
   before_action :set_news
-  before_action :set_advs
+  before_action :set_sets
   before_action :set_survey
-
+  before_action :set_curr
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| 
       u.permit(:password, :password_confirmation, :current_password) 
@@ -42,14 +42,20 @@ class ApplicationController < ActionController::Base
     @news = Post.news.limit(3)
   end
 
-  def set_advs
+  def set_sets
     parent_name = Rails.application.class.parent_name
-    @ads = AdSettings.find_by_app_name parent_name
+    @settings = Settings.find_by_app_name parent_name
   end
 
   def set_survey
     @survey = Admin::Survey.order('created_at DESC').first
   end
+
+  def set_curr
+    @euro = Currency.get_current_eur
+    @usd = Currency.get_current_usd
+  end
+
 
   protected
     def check_access

@@ -1,16 +1,18 @@
-class Admin::AdSettingsController < AdminController
+class Admin::AdSettingsController < Admin::SettingsController
   before_action :_create_settings_if_none_also_set
 
-
-  # @settings is set from before_action
   def index
+    redirect_to edit_admin_ad_setting_path(@settings)
   end
 
   def update
-    @ad_settings.update settings_params
+    @settings.update ad_settings_params
     respond_to do |format|
-      format.html { render action: 'index' }
+      format.html { render action: 'edit' }
     end
+  end
+
+  def edit
   end
 
   private
@@ -21,10 +23,10 @@ class Admin::AdSettingsController < AdminController
     if s.nil?
       s = AdSettings.create :app_name => parent_name
     end
-    @ad_settings = s
+    @settings = s
   end
 
-  def settings_params
+  def ad_settings_params
       params.require(:ad_settings).permit(:ad_1_title, :ad_1_text, :ad_2_title, :ad_2_text)
   end
 end

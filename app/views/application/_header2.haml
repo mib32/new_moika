@@ -34,13 +34,12 @@
       .datetime
         %span.date
         %span.time
+      .vr
+        
       .currency 
-        //%span.name= "#{Currency.get_current_usd.name}"
-        //%span.value= "#{Currency.get_current_usd.value}"
-        //%span.name= "#{Currency.get_current_eur.name}"
-        //%span.value= "#{Currency.get_current_eur.value}"
-        %span.name= 'USD'
-        %span.value= '32.87'
-        %span.name= 'EUR'
-        %span.value= '45.19'
+        %span.name= "#{Currency.get_current_usd.name}"
+        %span.value= "#{Currency.get_current_usd.value}"
+        %span.name= "#{Currency.get_current_eur.name}"
+        %span.value= "#{Currency.get_current_eur.value}"
+      .vr= ""
 

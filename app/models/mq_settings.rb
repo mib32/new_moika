@@ -1,0 +1,2 @@
+class MqSettings < Settings
+end

@@ -15,11 +15,12 @@
 //= require jquery_ujs
 // comment  jquery.cycle2.min
 // comment  jquery.cycle2.carousel.min
-//= require ru
+//= require share
 //= require spinner
 //= require front_end
 //= require toggle_agreement_submit
 //= require jquery.bettertabs.min
+//= require cookies
 // comment  turbolinks
 
 //= require moxie
@@ -39,3 +40,5 @@
 //= require share42
 // require forem
 //= require car_washes
+//= require date
+//= require traffic_provider

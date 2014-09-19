@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914151651) do
+ActiveRecord::Schema.define(version: 20140918151814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -386,6 +386,19 @@ ActiveRecord::Schema.define(version: 20140914151651) do
     t.string   "ad_2_text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mq_message"
+    t.string   "cl_message_0_text"
+    t.string   "cl_message_0_url"
+    t.string   "cl_message_1_text"
+    t.string   "cl_message_1_url"
+    t.string   "cl_message_2_text"
+    t.string   "cl_message_2_url"
+    t.string   "cl_message_3_text"
+    t.string   "cl_message_3_url"
+    t.string   "cl_message_4_text"
+    t.string   "cl_message_4_url"
+    t.string   "cl_message_5_text"
+    t.string   "cl_message_5_url"
   end
 
   add_index "settings", ["app_name"], name: "index_settings_on_app_name", unique: true, using: :btree
