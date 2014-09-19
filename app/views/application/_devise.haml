@@ -1,7 +1,7 @@
 - if user_signed_in?
   = link_to t('logout'), main_app.destroy_user_session_path, :method => :delete
-- elsif current_user.admin?
-  = link_to 'Админка', main_app.admin_url
+  - if current_user.admin?
+    = link_to 'Админка', main_app.admin_url
 - else
   = link_to 'Вход', main_app.new_user_session_path, :remote => true
 = image_tag asset_path 'login.png'
