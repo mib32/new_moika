@@ -1,0 +1,26 @@
+#c
+  -if @sign_up_successful
+    .c
+      Спасибо, регистрация через Facebook завершена успешно.
+      Если вы являетесь владельцем автомойки и хотите зарегистрировать её, то заполните следующие поля, пожалуйста:
+    = form_for(resource, as: resource_name, :url => user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
+      %fieldset
+        %div
+          = f.label :car_wash_title do
+            = User.human_attribute_name("car_wash_title")
+            %span.red &nbsp;*
+          %br/
+          = f.text_field :car_wash_title, class: "form-control", required: "required"
+        %div
+          = f.label :address do
+            = User.human_attribute_name("address")
+            %span.red &nbsp;*
+          %br/
+          = f.text_field :address, class: "form-control", required: "required"
+        #agreement_text
+          = render 'agreement'
+        %div
+          %label.checkbox
+            = check_box_tag 'agreement', '', false
+            Нажимая кнопку «Зарегистрироваться», я принимаю условия Пользовательского соглашения
+        %div= f.submit t("devise.sign_up"), disabled: true, class: "btn btn-lg btn-primary btn-block"
