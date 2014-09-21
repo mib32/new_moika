@@ -1,6 +1,27 @@
-.auth
-  = bettertabs :auth_tabs, :selected_tab => :sign_in, :render_only_active_content => false do |tab|
-    = tab.static :sign_in,'вход', :url => '/sign_in' do
-      = render 'devise/sessions/new'
-    = tab.static :sign_up, 'регистрация', :url => '/sign_up' do
-      = render 'devise/registrations/new_normal_user_form'
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => "login",:class => "form-signin"}) do |f|
+  %fieldset.sign-in.right-aligned
+    -# [if lt IE 10]
+    .m-row
+      = f.label :email, User.human_attribute_name("email")
+      = f.email_field :email, :autofocus => true, class: "m-form-control"
+    -# [if lt IE 10]
+    .m-row
+      = f.label :password, User.human_attribute_name("password")
+      = f.password_field :password, class: "m-form-control"
+    - if devise_mapping.rememberable?
+      .m-row
+        = f.label :remember_me, t("devise.remember_me"), class: "checkbox"
+        = f.check_box :remember_me
+    .m-row
+      .m-right
+        = f.submit t("devise.sign_in"), class: "m-btn"
+    .m-row
+      .m-right
+        = render "devise/shared/links"
+    .m-row
+      .m-right
+        %ul.nav.nav-list
+          / - if !user_signed_in?
+          /   %li= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+          /   %li= link_to "Sign in with Vkontakte", user_omniauth_authorize_path(:vkontakte)
+    

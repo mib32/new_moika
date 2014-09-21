@@ -3,6 +3,6 @@
   - if current_user.admin?
     = link_to 'Админка', main_app.admin_url
 - else
-  = link_to 'Вход', main_app.new_user_session_path, :remote => true
+  %a#show_auth Вход
 -#= image_tag asset_path 'login.png'
 .img#login

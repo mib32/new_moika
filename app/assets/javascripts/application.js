@@ -23,6 +23,8 @@
 //= require cookies
 // comment  turbolinks
 
+
+
 //= require moxie
 //= require plupload.dev
 
@@ -36,6 +38,7 @@
 //= require jquery.plupload.queue
 
 //= require admin/banners
+//= require sign_in
 
 //= require share42
 // require forem

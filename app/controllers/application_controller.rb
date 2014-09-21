@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
     }
   end
 
+
+
   def forem_user
     current_user
   end
@@ -53,6 +55,10 @@ class ApplicationController < ActionController::Base
   def set_survey
     @survey = Admin::Survey.order('created_at DESC').first
   end
+
+
+
+
 
   def set_curr
     @euro = Currency.get_current_eur

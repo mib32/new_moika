@@ -7,6 +7,10 @@ module ApplicationHelper
     :user
   end
 
+  def resource_class
+    'User'.constantize
+  end
+
   def resource
     @resource ||= User.new
   end
@@ -19,17 +23,7 @@ module ApplicationHelper
     request.env['PATH_INFO']
   end
   
-  def resource_name
-    :user
-  end
 
-  def resource
-    @resource ||= User.new
-  end
-
-  def devise_mapping
-    @devise_mapping ||= Devise.mappings[:user]
-  end
 
   def nav_to name, path, image
     if we_are_there?(path)
