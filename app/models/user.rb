@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   def role?(role)
     return !!self.roles.find_by(name: role.to_s)
@@ -91,6 +91,10 @@ class User < ActiveRecord::Base
     true
   end
 
+
+  def self.find_for_facebook_oauth access_token
+     User.where(:social_id => access_token.uid).first
+  end
   # def self.find_for_authentication(conditions)
   #   email = conditions[:email]
   #   user = User.where(email: email)

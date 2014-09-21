@@ -625,12 +625,14 @@ nav ul{
 	// 	margin: 30px;
 	// 	box-shadow: $g-shadow;
 	// }
-	#c{
-		background-color: lighten($sb-color,80%);
-		margin: 30px;
-		box-shadow: $g-shadow;
-		padding: 20px;
-	}
+	
+}
+
+#c{
+	background-color: lighten($sb-color,80%);
+	margin: 30px;
+	box-shadow: $g-shadow;
+	padding: 20px;
 }
 
 h3{

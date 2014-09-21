@@ -45,7 +45,7 @@ Moika::Application.routes.draw do
 
   get "normal_user/:id", to: "normal_users#show", as: '/normal_user'
 
-  devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
+  devise_for :users, controllers: { registrations: "registrations", sessions: "sessions", :omniauth_callbacks => "users/omniauth_callbacks" }
   # devise_for :normal_users, controllers: { registrations: "registrations", sessions: "sessions" }
   devise_scope :user do
     get 'sign_in' => 'devise/sessions#new'

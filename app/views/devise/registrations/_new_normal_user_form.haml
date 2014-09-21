@@ -1,7 +1,6 @@
--#= debug resource_name
 .container
   #login
-    = form_for(NormalUser.new, as: :normal_user, url: normal_user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
+    = form_for(User.new, as: :user, url: user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
       - if devise_error_messages?
         %div#error_explanation
           %h4= t('errors.messages.registration_part1')
