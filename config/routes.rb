@@ -47,13 +47,6 @@ Moika::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations", sessions: "sessions", :omniauth_callbacks => "users/omniauth_callbacks" }
   # devise_for :normal_users, controllers: { registrations: "registrations", sessions: "sessions" }
-  devise_scope :user do
-    get 'sign_in' => 'devise/sessions#new'
-    # get 'get_user', to: "sessions#get_user"
-  end
-  devise_scope :normal_user do
-    get 'sign_up' => 'devise/registrations#new'
-  end
 
   get "update_password", to: "users#update_password", as: "/update_password"
   post "update_password", to: "users#update_password"

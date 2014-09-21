@@ -1,5 +1,4 @@
 class SessionsController < Devise::SessionsController
-	layout false
   before_filter :resource_name
 
   # def resource_name

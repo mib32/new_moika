@@ -400,19 +400,19 @@ nav ul{
 	// :target{
 	// 	display: block;
 	// }
-	.bettertabs{
-		.tabs{
-			li{
-				width:50% !important;
-			}
-		}
-	}
 	.content {
 		border: 2px solid $dark-blue;
 	}
 }
 .bettertabs{
 	// height: 100%;
+	&#auth_tabs{
+		.tabs{
+			li{
+				width:50% !important;
+			}
+		}
+	}
 	.content.hidden { display:none;} 
 	.content {
 		// border: 2px solid $dark-blue;
