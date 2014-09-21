@@ -1,5 +1,13 @@
 Moika::Application.routes.draw do
 
+  namespace :users do
+  get 'omniauth_callbacks/facebook'
+  end
+
+  namespace :users do
+  get 'omniauth_callbacks/vkontakte'
+  end
+
   resources :survey_results, only: [:index,:create]
   namespace :admin do
     resources :surveys
@@ -38,7 +46,7 @@ Moika::Application.routes.draw do
   get "normal_user/:id", to: "normal_users#show", as: '/normal_user'
 
   devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
-  devise_for :normal_users, controllers: { registrations: "registrations", sessions: "sessions" }
+  # devise_for :normal_users, controllers: { registrations: "registrations", sessions: "sessions" }
   devise_scope :user do
     get 'sign_in' => 'devise/sessions#new'
     # get 'get_user', to: "sessions#get_user"
