@@ -14,7 +14,9 @@
     #hd
       = render partial: 'header'
     #auth
-      = render 'devise/sessions/contents'
+      = render partial: 'devise/shared/auth', locals: {current_tab: :sign_in}
+    - flash.each do |flash, msg|
+      .flash{class: flash}= msg
     #m
       = yield
     - unless controller.controller_name == 'map'

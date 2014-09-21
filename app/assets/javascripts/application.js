@@ -19,7 +19,7 @@
 //= require spinner
 //= require front_end
 //= require toggle_agreement_submit
-//= require jquery.bettertabs
+//= require jquery.bettertabs.min
 //= require cookies
 // comment  turbolinks
 
@@ -45,3 +45,4 @@
 //= require car_washes
 //= require date
 //= require traffic_provider
+//= require general

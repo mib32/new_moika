@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :received_messages, class_name: "Message", foreign_key: "receiver_id"
   has_many :posts
 
-  validates_presence_of :phone, :contact_person, :car_wash_title, :address, if: :car_wash_owner?
+  validates_presence_of :phone, :car_wash_title, :address, if: :car_wash_owner?
 
 
   before_create do |user|
@@ -22,6 +22,16 @@ class User < ActiveRecord::Base
       user.make_guest
     end
   end
+
+  # before_create do |user|
+  #   if defined? car_wash_owner_checkbox
+  #     if car_wash_owner_checkbox
+  #       user.type = 'car_wash_owner'
+  #     end
+  #   else
+  #     user.type = 'user'
+  #   end
+  # end
 
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -84,8 +94,13 @@ class User < ActiveRecord::Base
   end
 
   def car_wash_owner?
+    # byebug
     type == 'car_wash_owner'
   end
+
+  # def type
+    # 
+  # end
 
   def can_create_forem_topics?(forum)
     true

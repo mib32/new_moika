@@ -1,16 +1,16 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
+// body {
+//   background-color: #fff;
+//   color: #333;
+//   font-family: verdana, arial, helvetica, sans-serif;
+//   font-size: 13px;
+//   line-height: 18px;
+// }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
+// p, ol, ul, td {
+//   font-family: verdana, arial, helvetica, sans-serif;
+//   font-size: 13px;
+//   line-height: 18px;
+// }
 
 pre {
   background-color: #eee;
@@ -18,16 +18,16 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
+// a {
+//   color: #000;
+//   &:visited {
+//     color: #666;
+//   }
+//   &:hover {
+//     color: #fff;
+//     background-color: #000;
+//   }
+// }
 
 div {
   &.field, &.actions {
@@ -66,4 +66,25 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.flash{
+  position: fixed;
+  z-index: 1003;
+  width: 70%;
+  left:15%;
+  opacity:0.9;
+  padding: 10px 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.notice{
+  background-color: rgb(145, 214, 145);
+  border: 2px solid green;
+}
+
+.alert{
+  background-color: #ff5c51;
+  border: 2px solid #80101e;
 }

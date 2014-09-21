@@ -1,5 +1,6 @@
 #user_show
-  - t('.car_wash_registration_message').each {|x| haml_tag :h3, x, class: "text-center" }
+  - t(".registration_message.#{@user.type}").each {|x| haml_tag :h3, x, class: "text-center" }
+
   %br
   %h4.text-center= t('.reg_info')
   #info

@@ -4,8 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_facebook_oauth access_token
     if @user
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
-      sign_in @user, :event => :authentication
-      @sign_up_successful = true
+      sign_in_and_redirect @user, :event => :authentication
     else
       @user = User.new(:social_id => access_token.uid,
                   :provider => access_token.provider,
@@ -16,6 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
                    :type => 'user',
                    :password => Devise.friendly_token[0,20]) 
       if @user.save
+        @sign_up_successful = true
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
         sign_in @user, :event => :authentication
         @sign_up_successful = true

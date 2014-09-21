@@ -1,0 +1,2 @@
+$('.flash').hover ->
+	$(this).fadeOut()

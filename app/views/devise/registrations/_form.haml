@@ -1,10 +1,11 @@
 .container
   #login
-    = form_for(User.new, as: :user, url: user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
+    = form_for(resource, as: resource_name, url: user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
       - if devise_error_messages?
         %div#error_explanation
           %h4= t('errors.messages.registration_part1')
           %h4= t('errors.messages.registration_part2')
+          = devise_error_messages!
       %fieldset.right-aligned
         .m-row
           = f.label :email do
@@ -34,7 +35,7 @@
         .m-row
           = label_tag do
             Я владелец автомойки &nbsp;&nbsp;&nbsp;
-          = check_box_tag nil, nil, false, id: 'expander'
+          = check_box_tag 'user[car_wash_owner_checkbox]', 1, false, class: 'expander'
         #cw_owner.hidden
           .m-row
             = label_tag :car_wash_title do
