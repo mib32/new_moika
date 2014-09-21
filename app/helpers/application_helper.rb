@@ -31,7 +31,7 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
-  def nav_to name, path, image_path
+  def nav_to name, path, image
     if we_are_there?(path)
       klass = 'active'
     else
@@ -39,7 +39,8 @@ module ApplicationHelper
     end
     content_tag :li, class: klass do
       link_to(name, path) +
-      image_tag(asset_path image_path)
+      # image_tag(asset_path image_path)
+      content_tag(:div, nil, id: image, class: 'img')
     end
   end
 

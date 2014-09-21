@@ -9,6 +9,9 @@ gem 'pg'
 
 # if bigger then everything breaks
 gem 'sprockets', '= 2.11.0'
+group :assets do
+  gem 'turbo-sprockets-rails3'
+end
 # gem 'sprockets-rails'
 
 
@@ -102,9 +105,9 @@ gem 'thin'
 gem 'rails_12factor', group: :production
 
 # gem 'susy'
-# gem 'compass'
-# gem 'compass-rails'
-# gem 'sassy-buttons'
+gem 'compass'
+gem 'compass-rails'
+gem 'sassy-buttons'
 
 gem 'nokogiri'
 

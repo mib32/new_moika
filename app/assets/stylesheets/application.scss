@@ -5,12 +5,15 @@
 // @import "forem-bootstrap";
 @import "reset";
 @import url(http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic);
+@import "compass";
+@import "navs";
 // @import "bootstrap";
 // @import "flowplayer/skin/minimalist"
 
 $blue: #56b2ff;
 // rgb(255, 207, 6)
-$yellow: #FFF14A;
+// yel: FFF14A
+$yellow: rgba(248, 248, 248, 1);
 $dark-blue: adjust-hue(darken($blue,40%),-25deg);
 // $sb-color: rgba(249,249,249,0.95);
 $sb-color: white;
@@ -172,7 +175,10 @@ nav ul{
 		transition: 400ms all ease;
 		width: 100%;
 		overflow: auto;
-		img{
+		.img{
+			width: 16px;
+			height: 16px;
+			background: asset-url('icons.png');
 			position: relative;
 			z-index:10;
 			// top: 4px;
@@ -294,6 +300,10 @@ nav ul{
 
 	#mq{
 		background-color: rgba(0,0,0,0.8);
+		// needs latest Compass, add '@import "compass"' to your scss
+		background-color: rgb(17,72,127); // Old browsers
+		@include filter-gradient(#11487f, #196ac0, horizontal); // IE6-9 fallback on horizontal gradient
+		@include background-image(linear-gradient(left top,  rgba(17,72,127,1) 0%,rgba(25,106,192,1) 100%));
 		height:$mq-height;
 		border-bottom: 1px solid black;
 		color:white;
@@ -344,12 +354,14 @@ nav ul{
 		border-bottom: 1px solid #957800;
 		color: black;
 		overflow: hidden;
+		// box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.37) inset;
+		box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3) inset;
 		.msg_c{
 			position: relative;
 			transition: top 0.5s ease;
 			.m-row{
 				padding-left: 10px;
-				transition: background-color 0.5s ease;
+				transition: background-color 0.5s ease-in;
 				&.dimmed{
 					background-color: darken($yellow,25%);
 				}

@@ -2,7 +2,7 @@
   =image_tag 'ocean2.png'
 .logo.hidden-xs
   =link_to :root, class: 'image' do
-    =image_tag 'logo_wo_frame.png'
+    =image_tag 'logo_red2.png'
 //.hr
 #social
   = render 'social'
@@ -13,7 +13,7 @@
     = render 'navs'
   - unless @survey.nil? || session['passed_survey']
     %article#survey
-      = form_for SurveyResult.new, :remote => true do |f|
+      = form_for SurveyResult.new, url: main_app.survey_results_path, :remote => true do |f|
         %p= @survey.question
         - 5.times do |i|
           - ans = @survey.send("answer_#{i+1}")

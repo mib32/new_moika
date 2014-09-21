@@ -24,6 +24,8 @@ module Moika
     config.assets.precompile += %w( admin.css admin.js pr_pub.js forem.js map_general.js)
     config.assets.paths << Emoji.images_path
     MultiJson.use :yajl
+
+    config.railties_order = [:main_app,Forem::Engine, :all]
     # ActiveRecordQueryTrace.enabled = true
     # ActiveRecordQueryTrace.level = :full
     # ActiveRecordQueryTrace.lines = -1

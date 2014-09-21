@@ -1,34 +1,34 @@
 / %li
 /   = link_to 'Карта', '/'
-/   = image_tag asset_path 'map.png'
+/   = image_tag asset_path 'map'
 / %li
 /   = link_to 'Автомойки', '/car_washes'
-/   = image_tag asset_path 'car_washes.png'
+/   = image_tag asset_path 'car_washes'
 / %li#news
 /   = link_to 'Новости', '/news'
-/   = image_tag asset_path 'news.png'
+/   = image_tag asset_path 'news'
 / %li
 /   = link_to 'Акции и скидки', '/proposals'
-/   = image_tag asset_path 'proposals.png'
+/   = image_tag asset_path 'proposals'
 / %li
 /   = link_to 'Форум', '/forum'
-/   = image_tag asset_path 'forum.png'
+/   = image_tag asset_path 'forum'
 / %li
 /   = link_to 'Полезная информация', '/info'
-/   = image_tag asset_path 'info.png'
+/   = image_tag asset_path 'info'
 / %li
 /   = link_to 'О проекте', '/about'
-/   = image_tag asset_path 'about.png'
-= nav_to 'Карта', '/', 'map.png'
-= nav_to 'Автомойки', '/car_washes', 'car_washes.png'
+/   = image_tag asset_path 'about'
+= nav_to 'Карта', '/', 'cmps'
+= nav_to 'Автомойки', '/car_washes', 'car_washes'
 #news
-  = nav_to 'Новости', '/news', 'news.png'
+  = nav_to 'Новости', '/news', 'news_icon'
   #news_list
     - @news.each do |n|
       = link_to main_app.post_path(n) do
         %span= l n.created_at, format: '%d %b'
         = n.title.truncate(25)
-= nav_to 'Акции и скидки', '/proposals', 'proposals.png'
-= nav_to 'Форум', '/forum', 'forum.png'
-= nav_to 'Полезная информация', '/info', 'info.png'
-= nav_to 'О проекте', '/about', 'about.png'
+= nav_to 'Акции и скидки', '/proposals', 'proposals'
+= nav_to 'Форум', '/forum', 'forum'
+= nav_to 'Полезная информация', '/info', 'info'
+= nav_to 'О проекте', '/about', 'about'
