@@ -9,14 +9,18 @@ gem 'pg'
 
 # if bigger then everything breaks
 gem 'sprockets', '= 2.11.0'
+# gem 'sprockets'
+gem 'compass-rails'
+gem 'sassy-buttons'
 group :assets do
   gem 'turbo-sprockets-rails3'
+
 end
 # gem 'sprockets-rails'
 
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '= 4.0.2'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
@@ -108,9 +112,9 @@ gem 'thin'
 gem 'rails_12factor', group: :production
 
 # gem 'susy'
-gem 'compass'
-gem 'compass-rails'
-gem 'sassy-buttons'
+# gem 'compass'
+# gem 'compass-rails'
+# gem 'sassy-buttons'
 
 gem 'nokogiri'
 

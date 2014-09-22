@@ -110,6 +110,10 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth access_token
      User.where(:social_id => access_token.uid).first
   end
+
+  def self.find_for_vk_oauth access_token
+     User.where(:social_id => access_token.uid).first
+  end
   # def self.find_for_authentication(conditions)
   #   email = conditions[:email]
   #   user = User.where(email: email)

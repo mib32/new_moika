@@ -1,2 +1,6 @@
-%h1 Users::OmniauthCallbacks#vkontakte
-%p Find me in app/views/users/omniauth_callbacks/vkontakte.html.haml
+#c
+  -if @sign_up_successful
+    .c
+      Спасибо, регистрация через Вконтакте завершена успешно.
+      Если вы являетесь владельцем автомойки и хотите зарегистрировать её, то заполните следующие поля, пожалуйста:
+      = render 'users/omniauth_callbacks/form'

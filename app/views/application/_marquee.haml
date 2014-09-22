@@ -14,9 +14,9 @@
       %span.name &euro;
       %span.dynamics= currency_dynamics @euro.diff
       %span.value= @euro.value
-    .vr
-    .traffic
-      #traffic_light.none
-      %span.level ?
-    .vr
-    #message= @settings.mq_message unless @settings.nil?
+  .vr
+  .traffic
+    #traffic_light.none
+    %span.level ?
+  .vr
+  #message= @settings.mq_message unless @settings.nil?

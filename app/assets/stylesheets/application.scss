@@ -176,6 +176,7 @@ nav ul{
 		transition: 400ms all ease;
 		width: 100%;
 		overflow: auto;
+		position: relative;
 		.img{
 			width: 16px;
 			height: 16px;
@@ -183,7 +184,10 @@ nav ul{
 			position: relative;
 			z-index:10;
 			// top: 4px;
-			float: right;
+			// float: right;
+			position: absolute;
+			right: 11px;
+			top: 12px;
 		}
 		&.active{
 			// background-color:$blue;
@@ -300,6 +304,7 @@ nav ul{
 	margin-left:$sb-width;
 
 	#mq{
+		overflow: hidden;
 		background-color: rgba(0,0,0,0.8);
 		// needs latest Compass, add '@import "compass"' to your scss
 		background-color: rgb(17,72,127); // Old browsers
@@ -346,6 +351,9 @@ nav ul{
 					background: asset-url('traffic_green.png') no-repeat;
 				}
 			}
+		}
+		#message{
+			display: inline;
 		}
 	}
 
@@ -450,8 +458,10 @@ nav ul{
 	}
 }
 
+#agreement_text{overflow:auto;}
+
 .form-signin{
-	#agreement_text{ height:200px;overflow:auto;}
+	#agreement_text{ height:200px;}
 	#cw_owner.hidden{ display: none; }
 	font-size: 8pt;
 	color: #aaa;
@@ -472,7 +482,7 @@ nav ul{
 	}
 
 	&#login{
-		height: 80px;
+		height: 180px;
 		
 	}
 	width: 380px;
