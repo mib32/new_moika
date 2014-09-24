@@ -1,8 +1,9 @@
 $ ->
 	$('.bettertabs').bettertabs()
-	$('a#show_auth').click ->
+	$('a#show_auth').click (e) ->
 		window.history.pushState('users/sign_in',"Вход", '/users/sign_in');
 		$('#auth').show()
+		e.stopPropagation()
 
 	console.log 'sign in text'
 	$('.expander').change (e) ->
@@ -23,7 +24,7 @@ $ ->
 			$('input[type="submit"]').prop('disabled',true)
 
 	$('html').click ->
-		$('.auth').remove()
+		$('#auth').remove()
 		console.log 'auth should disap'
 	$('.auth').click (e) ->
 		e.stopPropagation()

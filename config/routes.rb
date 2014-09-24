@@ -5,6 +5,8 @@ Moika::Application.routes.draw do
 
   
 
+  resources :videos
+
   resources :survey_results, only: [:index,:create]
   namespace :admin do
     resources :surveys

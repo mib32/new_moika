@@ -1,7 +1,7 @@
 //= require search-address
 //= require car_wash_loader
 //= require placemarks_renderer
-// require car_washes
+//comment require car_washes
 //= require hint
 //= require balloon
 //= require map

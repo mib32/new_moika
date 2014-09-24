@@ -42,7 +42,7 @@
 
 //= require share42
 // require forem
-//= require car_washes
+//=require car_washes
 //= require date
 //= require traffic_provider
 //= require general

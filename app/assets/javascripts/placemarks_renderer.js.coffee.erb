@@ -106,7 +106,7 @@ class @PlacemarksRenderer
         coordinates = car_wash.coords
         properties =
           balloonContent: Balloon.body(car_wash, car_wash.url)
-          hintContent: Hint.content(car_wash)
+          # hintContent: Hint.content(car_wash)
           car_wash_id: car_wash.id
           iconContent: if car_wash.action_on_map then car_wash.main_action else ""
         options =

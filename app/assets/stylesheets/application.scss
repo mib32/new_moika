@@ -513,9 +513,10 @@ nav ul{
 
 #m{
 	margin-left:$sb-width;
-	height:100%;
+	// height:100%;
 	position:fixed;
 	left:0;
+	bottom:0;
 	top: $mq-height*2;
 	right:250px;
 	font-family: 'Lucida Grande', sans-serif;
@@ -582,6 +583,9 @@ nav ul{
 				color: white;
 				padding:15px 40px;
 				font-family: 'Helvetica Neue', sans-serif;
+				a{
+					color: white;
+				}
 			}
 		}
 	}
@@ -601,7 +605,7 @@ nav ul{
 			padding: 10px 20px;
 			background-color: rgba(0,0,0,0.3);
 			position: absolute;
-			top: 50px;
+			top: 30px;
 			color: white;
 			text-shadow: 0 0 4px rgba(0,0,0,0.3);
 		}
@@ -644,6 +648,63 @@ nav ul{
 	// 	box-shadow: $g-shadow;
 	// }
 	
+}
+
+.rating{
+	position: relative;
+	z-index: 1;
+	.uploader{
+		color:black;
+		a{
+			color:black
+		}
+	}
+	.review_form{
+		display: none;
+		background-color: white;
+		padding-top: 26px;
+		margin-top: -23px;
+		padding-left: 10px;
+		margin-left: -10px;
+		padding-bottom: 20px;
+	}
+	.sc{
+		font-size: 0pt;
+	}
+	div{
+		display: inline-block;
+	}
+	.star{
+		width: 18px;
+		height: 18px;
+		display: inline-block;
+		background-image: asset-url('stars.png');
+		margin-right:2px;
+		cursor: pointer;
+		&.lit{
+			background-position: 17px 0px;
+		}
+		&.dim{
+			background-position: -17px 0px;
+		}
+		&.sel, &.seld{
+			background-position: 0 0;
+			width:18px;
+			// margin:0;
+			height: 18px;
+			position: relative;
+			// top: -2px;
+		}
+	}
+	.lr{
+		// opacity:0.8;
+		color: grey;
+		font-size:9pt;
+		font-style: italic;
+		&.lit{
+			opacity:1;
+		}
+	}
 }
 
 #c{
@@ -767,4 +828,14 @@ h1{
 	#x2{
 	}
 
+}
+
+#live_cw_tabs_content{
+	#c{
+		overflow: auto;
+		.ivideon_c{
+			width: 50%;
+			float:left;
+		}
+	}
 }

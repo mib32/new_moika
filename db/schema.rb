@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921100608) do
+ActiveRecord::Schema.define(version: 20140923114054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,31 +97,31 @@ ActiveRecord::Schema.define(version: 20140921100608) do
     t.integer  "zones_count"
     t.string   "video_url1"
     t.string   "video_url2"
-    t.boolean  "signal",         default: true
+    t.boolean  "signal",                                 default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "site_url"
-    t.boolean  "blink",          default: false
+    t.boolean  "blink",                                  default: false
     t.boolean  "signal_changed"
-    t.boolean  "activated",      default: false
+    t.boolean  "activated",                              default: false
     t.string   "official_title"
     t.string   "u_address"
     t.string   "inn"
-    t.boolean  "action_on_map",  default: false
-    t.boolean  "youtubed",       default: false
+    t.boolean  "action_on_map",                          default: false
+    t.boolean  "youtubed",                               default: false
     t.string   "vk_url"
     t.string   "odn_url"
-    t.integer  "rating",         default: 0
-    t.boolean  "videoned",       default: false
+    t.decimal  "rating",         precision: 5, scale: 4, default: 0.0
+    t.boolean  "videoned",                               default: false
     t.string   "signal_type"
     t.string   "video_title1"
     t.string   "video_title2"
-    t.boolean  "discounted",     default: false
-    t.boolean  "grey",           default: false
-    t.boolean  "brended",        default: false
-    t.boolean  "gasolined",      default: false
-    t.boolean  "repaired",       default: false
-    t.boolean  "tired",          default: false
+    t.boolean  "discounted",                             default: false
+    t.boolean  "grey",                                   default: false
+    t.boolean  "brended",                                default: false
+    t.boolean  "gasolined",                              default: false
+    t.boolean  "repaired",                               default: false
+    t.boolean  "tired",                                  default: false
   end
 
   create_table "comments", force: true do |t|
@@ -234,6 +234,14 @@ ActiveRecord::Schema.define(version: 20140921100608) do
   add_index "forem_views", ["updated_at"], name: "index_forem_views_on_updated_at", using: :btree
   add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
   add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "image"
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "invoices", force: true do |t|
     t.integer  "car_wash_id"
@@ -348,6 +356,7 @@ ActiveRecord::Schema.define(version: 20140921100608) do
     t.integer  "car_wash_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "created_by"
   end
 
   add_index "reviews", ["car_wash_id"], name: "index_reviews_on_car_wash_id", using: :btree

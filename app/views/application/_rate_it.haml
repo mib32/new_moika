@@ -1,0 +1,22 @@
+.sc(data-rateable='active' data-star-size=20)
+  -5.times do |i|
+    .star{ class: (item.rating >= i+1 ? 'lit' : 'dim')}
+.lr
+  Оставить отзыв
+-review = item.reviews.new
+.review_form
+  = form_for [item, review], html: { multipart: true } do |f|
+    = hidden_field_tag "review[rating]", nil, class: 'rating_field'
+    .m-row
+      = f.text_field :text
+    .m-row
+      = f.fields_for :images, review.images.build do |is|
+        = 'Гитлер'
+        = is.label :image
+        = is.file_field :image
+
+    -#.uploader
+      
+    .m-row
+      = f.submit 'Отправить'
+

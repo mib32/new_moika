@@ -1,5 +1,5 @@
 .header
-  .m-row= link_to 'добавить автомойку', new_car_wash_path
+  -#.m-row= link_to 'добавить автомойку', new_car_wash_path
   .m-row
     сортировать по:
     = link_to 'минимальной цене', car_washes_path('order_by' => 'price')
@@ -9,11 +9,10 @@
   %ul
     - @car_washes.each do |cw|
       %li
-        = link_to cw do
-          .cbg= car_wash_background cw
-          .p
+        .cbg= car_wash_background cw
+        .p
+          = link_to cw do
             %h3= cw.title
-            %h4= cw.address 
-            -5.times do |i|
-              %span
-                = image_tag asset_path(cw.rating >= i+1 ? 'star_e.png' : 'star_d.png')
+            %h4= cw.address
+          .rating
+            = render partial: 'rate_it', locals: {item: cw}

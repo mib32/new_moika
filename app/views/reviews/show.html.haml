@@ -9,6 +9,10 @@
 %p
   %b Car wash:
   = @review.car_wash
+%p
+  %b Images:
+  - @review.images.each do |img|
+    = image_tag img.image.to_s
 
 = link_to 'Edit', edit_car_wash_review_path(@car_wash,@review)
 \|
