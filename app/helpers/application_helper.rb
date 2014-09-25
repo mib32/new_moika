@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def we_are_there? path
-    path.tr('/','') == request.fullpath.split('/').second.to_s
+    path == request.fullpath || path.tr('/','') == request.fullpath.split('/').second.to_s
   end
 
   def currency_dynamics diff

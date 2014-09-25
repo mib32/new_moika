@@ -177,4 +177,18 @@ namespace :setup do
     Currency.save_current_from_cb
     Currency.save_current_from_cb(Date.today - 1)
   end
+
+  desc 'recreate versions of uploaded images. see ImageUploader and https://github.com/carrierwaveuploader/carrierwave'
+  task recreate_images: :environment do
+    puts 'destroying empty images'
+    # destroy_empty_images
+    puts 'processing images with minimagick'
+    Image.all.each do |image|
+      image.image.recreate_versions!
+    end
+  end
+
+  def destroy_empty_images
+    Image.where(image: nil).destroy_all
+  end
 end

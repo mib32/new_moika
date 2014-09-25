@@ -9,7 +9,9 @@
   = bettertabs :cw_tabs, selected_tabs: :info do |tab|
     = tab.static :info, 'информация' do
       #c
-        #cw_dashboard
+        .cw_dashboard
+          =link_to "Оставить заявку",new_car_wash_request_path(@car_wash), class: 'blue'
+        .cw_dashboard
           #cw_signal
             = render 'signal'
         = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
@@ -21,16 +23,20 @@
         .ivideon_c
           %h5=@car_wash.video_title2
           = render 'video_100p', src: @car_wash.video_url2
-    = tab.static :video, "видео: #{@banners.where(type: 'ClientVideoBanner').size}" do
+    = tab.static :video, "видео: #{@videos.size}" do
       #c
-        - banner = @banners.where(type: 'ClientVideoBanner').first
-        - unless banner.nil? || banner.filename.blank?
-          %h5.text-center= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
-          = render 'client_youtube', src: banner.filename
-    = tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
+        - @videos.each do |video|
+          %h5.text-center= video.description
+          = render 'client_youtube', src: video.url
+    = tab.static :images, "фото: #{@images.size}" do
       #c
-        = actions(@vacancy_actions, 'li')
-    = tab.static :reviews, "отзывы: #{@car_wash.reviews.size}" do
+        - @images.each do |image|
+          %h5.text-center= image.description
+          = image_tag asset_path(image.image.b_380_270.url)
+    -#= tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
+    -#  #c
+    -#    = actions(@vacancy_actions, 'li')
+    = tab.static :reviews, "отзывы: #{@car_wash.reviews.count}" do
       #c
         = link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
         = render @car_wash.reviews

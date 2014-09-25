@@ -26,5 +26,5 @@ $ ->
 	$('html').click ->
 		$('#auth').remove()
 		console.log 'auth should disap'
-	$('.auth').click (e) ->
+	$('#auth').click (e) ->
 		e.stopPropagation()

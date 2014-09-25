@@ -2,10 +2,7 @@
   #login
     = form_for(resource, as: resource_name, url: user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
       - if devise_error_messages?
-        %div#error_explanation
-          %h4= t('errors.messages.registration_part1')
-          %h4= t('errors.messages.registration_part2')
-          = devise_error_messages!
+        = devise_error_messages!
       %fieldset.right-aligned
         .m-row
           = f.label :email do
@@ -20,7 +17,7 @@
         .m-row
           = f.label :phone do
             = NormalUser.human_attribute_name("phone")
-            %span &nbsp;&nbsp;&nbsp;
+            %span &nbsp;*
           = f.phone_field :phone, class: "m-form-control"
         .m-row
           = f.label :password do

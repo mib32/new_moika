@@ -2,7 +2,7 @@ class CarWash < ActiveRecord::Base
   default_scope {order('rating DESC').order('id DESC')}
   scope :grey, -> { where(grey: true) }
   scope :non_grey, -> { where(grey: false) }
-  after_create :create_empty_banners
+  # after_create :create_empty_banners
   after_create :create_payment
   after_validation :geocode,
     if: ->(obj){ obj.lat.nil? || obj.lon.nil? }
@@ -14,13 +14,15 @@ class CarWash < ActiveRecord::Base
   has_many :comments
   has_many :requests
   has_many :messages
-  has_many :banners
+  # has_many :banners
   has_many :payments
   has_many :invoices
   has_many :normal_user_messages
   has_many :subscribes
   has_many :normal_users, through: :subscribes
   has_many :reviews
+  has_many :images, as: :parent
+  has_many :videos
 
 
 

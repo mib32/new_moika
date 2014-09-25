@@ -18,7 +18,6 @@ class Admin::UsersController < AdminController
   end
 
   def show
-    abort("upda")
   end
 
   def edit

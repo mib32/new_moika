@@ -19,6 +19,8 @@
 / %li
 /   = link_to 'О проекте', '/about'
 /   = image_tag asset_path 'about'
+-unless current_user.car_wash.nil?
+  = nav_to 'Управление автомойкой', edit_car_wash_path(current_user.car_wash), 'none'
 = nav_to 'Карта', '/', 'cmps'
 = nav_to 'Автомойки', '/car_washes', 'car_washes'
 #news

@@ -56,6 +56,13 @@ a{
 		// 	border-bottom: none;
 		// }
 	}
+	&.blue{
+		color: #2116ed;
+		border-bottom: 1px dashed #2116ed;
+		&:hover{
+			color: #4d96ed;
+		}
+	}
 }
 
 .v-align-helper{
@@ -411,6 +418,7 @@ nav ul{
 	// }
 	.content {
 		border: 2px solid $dark-blue;
+		overflow: scroll;
 	}
 }
 .bettertabs{
@@ -619,9 +627,12 @@ nav ul{
 			}
 		}
 	}
-	#cw_dashboard{
+	.cw_dashboard{
 		// position: relative;
-		padding: 25px 40px;
+		padding: 15px 40px;
+		a{
+			font-style: italic;
+		}
 		#cw_signal{
 			border: 1px solid #777;
 			padding: 10px 15px;
@@ -630,17 +641,17 @@ nav ul{
 			border-radius: 2px;
 		}
 	}
-	table#car_wash_info{
-		tr{
-			td{
-				padding: 10px;
-				&:first-child{
-					text-align: right;
-					font-weight: bold;
-				}
-			}
-		}
-	}
+	// table#car_wash_info{
+	// 	tr{
+	// 		td{
+	// 			padding: 10px;
+	// 			&:first-child{
+	// 				text-align: right;
+	// 				font-weight: bold;
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	// #info_father{
 	// 	background-color: lighten($sb-color,80%);
@@ -838,4 +849,20 @@ h1{
 			float:left;
 		}
 	}
+}
+
+.m-info-table{
+	tr{
+		td{
+			padding: 10px;
+			&:first-child{
+				text-align: right;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.display-none{
+	display: none;
 }

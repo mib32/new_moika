@@ -11,8 +11,8 @@ module DeviseHelper
 
     html = <<-HTML
     <div id="error_explanation">
-      <h4>#{sentence1}</h4>
-      <h4>#{sentence2}</h4>
+      <h4>Действие не выполнено</h4>
+      <h4>Проверьте правильность заполнения полей</h4>
       <ul>#{messages}</ul>
     </div>
     HTML
