@@ -183,8 +183,25 @@ namespace :setup do
     puts 'destroying empty images'
     # destroy_empty_images
     puts 'processing images with minimagick'
-    Image.all.each do |image|
-      image.image.recreate_versions!
+    Image.each do |image|
+      begin
+        puts image.id
+        image.image.recreate_versions!
+      rescue Errno::ENOENT
+        # filename = image.image.to_s
+        # file_path = image.image.url
+        # new_file_path = file_path.sub(/\.png/,'gif')
+        # new_filename = filename.sub(/\.png/,'gif')
+        # folder = "#{Rails.root}/public/"
+        # puts 
+        # File.rename(folder+file_path, folder+new_file_path)
+        # image.update(image: new_filename)
+        # image.image.recreate_versions!
+
+        # fuck it
+        image.destroy_all
+
+      end
     end
   end
 
