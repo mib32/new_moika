@@ -183,7 +183,7 @@ namespace :setup do
     puts 'destroying empty images'
     # destroy_empty_images
     puts 'processing images with minimagick'
-    Image.each do |image|
+    Image.where('image is not null and id < 1363').each do |image|
       begin
         puts image.id
         image.image.recreate_versions!
