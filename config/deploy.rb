@@ -90,7 +90,7 @@ def run_interactively(command)
   exec %Q(ssh #{user}@moika-77.ru -t' #{current_release}/#{command}')
 end
 
-after "deploy:symlink", "deploy:update_crontab"
+after "deploy:create_symlink", "deploy:update_crontab"
 
 namespace :deploy do
   desc "Update the crontab file"
