@@ -22,8 +22,11 @@ module CarWashesHelper
   end
 
   def car_wash_background car_wash
-    image = car_wash.images.first
+    image = Image.find(car_wash.title_image)
     image_tag asset_path(image.image.medium.url) unless image.nil?
   end
 
+  def widget_class widget, cw_widget
+    widget == cw_widget ? 'pushed' : ''
+  end
 end

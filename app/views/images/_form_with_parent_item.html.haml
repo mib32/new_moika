@@ -1,0 +1,24 @@
+= form_for [item, @image] do |f|
+  - if @image.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@image.errors.count, "error")} prohibited this image from being saved:"
+      %ul
+        - @image.errors.full_messages.each do |msg|
+          %li= msg
+
+  %fieldset.spaced
+    .m-row
+      = f.label 'Изображение'
+    .m-row
+      = f.file_field :image, class:'m-form-control'
+    .m-row
+      = f.label 'Описание'
+    .m-row
+      = f.text_area :description, class:'m-form-control'
+    .m-row 
+      = f.label 'На обложку'
+      = check_box_tag 'image[is_title_image]', 1
+    = hidden_field_tag 'image[parent_type]', item.class.to_s
+    = hidden_field_tag 'image[parent_id', item.id
+    .m-row
+      = f.submit 'Сохранить', class: 'm-btn'

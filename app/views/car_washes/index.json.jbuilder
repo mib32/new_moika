@@ -7,7 +7,7 @@ json.array!(@car_washes) do |car_wash|
     :video_url1, :video_url2, :signal, :blink,
     :updated_at, :action_on_map,
     :videoned, :discounted, :brended, :gasolined, :repaired, :tired,
-    :signal_type, :grey
+    :signal_type, :grey, :widget
   json.url car_wash_url(car_wash, format: :json)
   #json.main_action car_wash.main_action.try(:text)
   json.main_action @main_actions_hash[car_wash.id]

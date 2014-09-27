@@ -1,0 +1,11 @@
+-#%ul.widgets-list
+-#  - Widget.each do |widget|
+-#    %li= link_to widget, car_wash_path(@car_wash, 'car_wash[widget]' => widget), method: 'patch', class: widget_class(widget, @car_wash.widget)
+= form_for @car_wash do |f|
+  %h4 Виджет для карты
+  - Widget.each do |widget_type|
+    = f.radio_button :widget_type, widget_type, class: 'toggle'
+    = label_tag :widget_type, widget_type, class: 'toggle'
+  %h4 Комментарий
+  = f.text_field :widget_content, class: 'm-form-control wide'
+  = f.submit 'Сохранить', class: 'm-btn'

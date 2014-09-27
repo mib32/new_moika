@@ -1,1 +1,31 @@
-= @full ? (render 'detailed_form') : (render 'form')
+#cw_header
+  .hbg
+    = car_wash_background @car_wash
+  .bgt
+    %h1= car_wash_title @car_wash.title
+    %h2 Управление
+#cw_content
+  = bettertabs :cw_tabs, selected_tabs: :info do |tab|
+    = tab.static :basic, 'настройки' do
+      = render 'form'
+    = tab.static :video, "видео: #{@car_wash.videos.count}" do
+      .c
+        %h4 Добавить видео:
+        = render partial: 'videos/form', locals: {item: @car_wash}
+      #c
+        = render @car_wash.videos
+    = tab.static :images, "фото: #{@car_wash.images.count}" do
+      .c
+        %h4 Добавить фото:
+        = render partial: 'images/form_with_parent_item', locals: {item: @car_wash}
+      #c
+        = render @car_wash.images
+    = tab.static :detailed, "доп. настройки" do
+      #c.clearfix
+        = render 'detailed_form'
+    = tab.static :requests, "заявки: #{@car_wash.unread_requests_count}" do
+      - @car_wash.requests.each do |request|
+        .c
+          %p.date= l request.created_at.localtime, format: :long
+          %h5= request.name + ', тел: ' + request.phone
+          %p= request.text

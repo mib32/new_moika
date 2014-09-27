@@ -1,0 +1,7 @@
+%article.media
+  %p.date
+    = l video.created_at.localtime, format: :long
+    - if current_user and (current_user.client? or current_user.admin?)
+      = link_to "Удалить", car_wash_video_path(@car_wash,video), method: :delete,  data: {confirm: t('are_you_sure')}, class: 'black'
+  %h4= my_best_in_place video, :description
+  = render 'client_youtube', src: video_url(video.url)

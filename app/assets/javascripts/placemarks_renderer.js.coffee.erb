@@ -23,7 +23,7 @@ class @PlacemarksRenderer
     ]
     custom: [
       {
-        name:'my#red_blink'
+        name:'normal'
         imageHref: "<%= asset_path('red_bl.gif') %>"
         imageSize: [20, 20]
       }
@@ -121,44 +121,45 @@ class @PlacemarksRenderer
           #@geoObjectCollections['islands#grayIcon'].add(placemark)
           greyGeoObjects.push placemark
         else
-          if car_wash.signal
-            if car_wash.blink
-              @geoObjectCollections['my#green_blink'].add(placemark)
-            else if car_wash.action_on_map
-              @geoObjectCollections['islands#nightStretchyIcon'].add(placemark)
-            else if car_wash.videoned
-              @geoObjectCollections['my#videoned'].add(placemark)
-            else if car_wash.discounted
-              @geoObjectCollections['my#discounted'].add(placemark)
-            else if car_wash.brended
-              @geoObjectCollections['my#brended'].add(placemark)
-            else if car_wash.gasolined
-              @geoObjectCollections['my#gasolined'].add(placemark)
-            else if car_wash.repaired
-              @geoObjectCollections['my#repaired'].add(placemark)
-            else if car_wash.tired
-              @geoObjectCollections['my#tired'].add(placemark)
-            else
-              @geoObjectCollections['my#green_not_blink'].add(placemark)
-          else
-            if car_wash.blink
-              @geoObjectCollections['my#red_blink'].add(placemark)
-            else if car_wash.action_on_map
-              @geoObjectCollections['islands#redStretchyIcon'].add(placemark)
-            else if car_wash.videoned
-              @geoObjectCollections['my#videoned'].add(placemark)
-            else if car_wash.discounted
-              @geoObjectCollections['my#discounted'].add(placemark)
-            else if car_wash.brended
-              @geoObjectCollections['my#brended'].add(placemark)
-            else if car_wash.gasolined
-              @geoObjectCollections['my#gasolined'].add(placemark)
-            else if car_wash.repaired
-              @geoObjectCollections['my#repaired'].add(placemark)
-            else if car_wash.tired
-              @geoObjectCollections['my#tired'].add(placemark)
-            else
-              @geoObjectCollections['my#red_not_blink'].add(placemark)
+          @geoObjectCollections[car_wash.widget].add(placemark)
+          # if car_wash.signal
+          #   if car_wash.blink
+          #     @geoObjectCollections['my#green_blink'].add(placemark)
+          #   else if car_wash.action_on_map
+          #     @geoObjectCollections['islands#nightStretchyIcon'].add(placemark)
+          #   else if car_wash.videoned
+          #     @geoObjectCollections['my#videoned'].add(placemark)
+          #   else if car_wash.discounted
+          #     @geoObjectCollections['my#discounted'].add(placemark)
+          #   else if car_wash.brended
+          #     @geoObjectCollections['my#brended'].add(placemark)
+          #   else if car_wash.gasolined
+          #     @geoObjectCollections['my#gasolined'].add(placemark)
+          #   else if car_wash.repaired
+          #     @geoObjectCollections['my#repaired'].add(placemark)
+          #   else if car_wash.tired
+          #     @geoObjectCollections['my#tired'].add(placemark)
+          #   else
+          #     @geoObjectCollections['my#green_not_blink'].add(placemark)
+          # else
+          #   if car_wash.blink
+          #     @geoObjectCollections['my#red_blink'].add(placemark)
+          #   else if car_wash.action_on_map
+          #     @geoObjectCollections['islands#redStretchyIcon'].add(placemark)
+          #   else if car_wash.videoned
+          #     @geoObjectCollections['my#videoned'].add(placemark)
+          #   else if car_wash.discounted
+          #     @geoObjectCollections['my#discounted'].add(placemark)
+          #   else if car_wash.brended
+          #     @geoObjectCollections['my#brended'].add(placemark)
+          #   else if car_wash.gasolined
+          #     @geoObjectCollections['my#gasolined'].add(placemark)
+          #   else if car_wash.repaired
+          #     @geoObjectCollections['my#repaired'].add(placemark)
+          #   else if car_wash.tired
+          #     @geoObjectCollections['my#tired'].add(placemark)
+          #   else
+          #     @geoObjectCollections['my#red_not_blink'].add(placemark)
 
       clusterIcons = [
         href: "<%= asset_path('grey_hvost.png') %>"

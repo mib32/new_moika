@@ -25,14 +25,13 @@
           = render 'video_100p', src: @car_wash.video_url2
     = tab.static :video, "видео: #{@videos.size}" do
       #c
+        = render @videos
         - @videos.each do |video|
           %h5.text-center= video.description
           = render 'client_youtube', src: video.url
     = tab.static :images, "фото: #{@images.size}" do
       #c
-        - @images.each do |image|
-          %h5.text-center= image.description
-          = image_tag asset_path(image.image.b_380_270.url)
+        = render @images
     -#= tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
     -#  #c
     -#    = actions(@vacancy_actions, 'li')

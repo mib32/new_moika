@@ -120,7 +120,7 @@ gem 'nokogiri'
 
 gem 'whenever', :require => false
 
-# gem 'best_in_place', :git => "https://github.com/bernat/best_in_place"
+gem 'best_in_place', :git => "https://github.com/bernat/best_in_place"
 
 gem 'carrierwave'
 gem 'carrierwave-dropbox'
@@ -163,4 +163,7 @@ gem 'kaminari', '0.15.1'
 
 # this is for SORTING LISTS
 gem 'acts_as_list'
+
+
+gem 'rails-bootstrap-toggle-buttons'
 

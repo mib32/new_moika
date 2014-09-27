@@ -13,6 +13,8 @@
 //= require jquery
 // comment  jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.purr
+//= require best_in_place
 // comment  jquery.cycle2.min
 // comment  jquery.cycle2.carousel.min
 //= require share
@@ -46,3 +48,4 @@
 //= require date
 //= require traffic_provider
 //= require general
+

@@ -8,8 +8,7 @@
   = render 'social'
 %nav
   %ul
-    %li
-      = render 'devise'
+    = render 'devise'
     = render 'navs'
   - unless @survey.nil? || session['passed_survey']
     %article#survey

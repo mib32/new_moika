@@ -39,7 +39,15 @@ module ApplicationHelper
   end
 
   def we_are_there? path
-    path == request.fullpath || path.tr('/','') == request.fullpath.split('/').second.to_s
+    unless @active_is_set
+      if path == request.fullpath.sub(/\?.*/,'')
+
+        @active_is_set = true
+        return true
+      elsif path.tr('/','') == request.fullpath.split('/').second.to_s
+        true
+      end
+    end
   end
 
   def currency_dynamics diff
@@ -49,4 +57,24 @@ module ApplicationHelper
       image_tag asset_path('down.png')
     end
   end
+
+  def video_url src
+    base = "//www.youtube.com/embed/"
+    suffix = "?wmode=transparent"
+    query = URI.parse(src).query
+    if !query.nil?
+      #&& (/wmode=transparent/ =~ self.filename).nil?
+      src = base + query[2..-1] + suffix
+    else
+      src += suffix
+    end
+  end
+
+  def my_best_in_place(object, field, opts = {})
+    if current_user and (current_user.client? or current_user.admin?)
+      best_in_place object, field, opts
+    end
+  end
+
+
 end

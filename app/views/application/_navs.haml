@@ -1,26 +1,3 @@
-/ %li
-/   = link_to 'Карта', '/'
-/   = image_tag asset_path 'map'
-/ %li
-/   = link_to 'Автомойки', '/car_washes'
-/   = image_tag asset_path 'car_washes'
-/ %li#news
-/   = link_to 'Новости', '/news'
-/   = image_tag asset_path 'news'
-/ %li
-/   = link_to 'Акции и скидки', '/proposals'
-/   = image_tag asset_path 'proposals'
-/ %li
-/   = link_to 'Форум', '/forum'
-/   = image_tag asset_path 'forum'
-/ %li
-/   = link_to 'Полезная информация', '/info'
-/   = image_tag asset_path 'info'
-/ %li
-/   = link_to 'О проекте', '/about'
-/   = image_tag asset_path 'about'
--unless current_user.car_wash.nil?
-  = nav_to 'Управление автомойкой', edit_car_wash_path(current_user.car_wash), 'none'
 = nav_to 'Карта', '/', 'cmps'
 = nav_to 'Автомойки', '/car_washes', 'car_washes'
 #news

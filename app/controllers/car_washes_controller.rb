@@ -1,5 +1,5 @@
 class CarWashesController < ApplicationController
-  before_action :set_car_wash, only: [:show, :edit, :update, :update_main_action, :destroy]
+  before_action :set_car_wash, only: [:show, :edit, :update, :destroy]
   before_action :set_actions, only: [:show, :edit]
   before_filter :check_access, :only => [:new, :edit, :update, :destroy]
 
@@ -40,6 +40,8 @@ class CarWashesController < ApplicationController
   def edit
     @full = (params['full'] == '1')
     @payment = Payment.new(car_wash_id: @car_wash.id, amount: 6000.00)
+    @video = Video.new
+    @image = Image.new
   end
 
   # POST /car_washes
@@ -49,7 +51,7 @@ class CarWashesController < ApplicationController
 
     respond_to do |format|
       if @car_wash.save
-        format.html { redirect_to @car_wash, notice: 'Car wash was successfully created.' }
+        format.html { redirect_to @car_wash, notice: 'Автомойка успешно создана' }
         format.json { render action: 'show', status: :created, location: @car_wash }
       else
         format.html { render action: 'new' }
@@ -61,36 +63,35 @@ class CarWashesController < ApplicationController
   # PATCH/PUT /car_washes/1
   # PATCH/PUT /car_washes/1.json
   def update
-    params_actions = params[:car_wash][:actions]
+    # params_actions = params[:car_wash][:actions]
     
-    unless params_actions.blank?
-      params_actions.each do |params_action|
-        action = @car_wash.actions_by_type(params_action[:action_type_text]).first
-        if action.nil?
-         @car_wash.actions.build(
-           action_text: ActionText.create(text: params_action[:text]), 
-           action_type: ActionType.find_by(text: params_action[:action_type_text]))
-        else
-         action.action_text.update(text: params_action[:text])
-        end
-      end
-    end
-
+    # unless params_actions.blank?
+    #   params_actions.each do |params_action|
+    #     action = @car_wash.actions_by_type(params_action[:action_type_text]).first
+    #     if action.nil?
+    #      @car_wash.actions.build(
+    #        action_text: ActionText.create(text: params_action[:text]), 
+    #        action_type: ActionType.find_by(text: params_action[:action_type_text]))
+    #     else
+    #      action.action_text.update(text: params_action[:text])
+    #     end
+    #   end
+    # end
     respond_to do |format|
       if @car_wash.update(car_wash_params)
-        format.html { redirect_to @car_wash, notice: 'Car wash was successfully updated.' }
+        format.html { redirect_to edit_car_wash_path(@car_wash), notice: 'Автомойка успешно обновлена.' }
         format.json { head :no_content }
         format.js {
-          if params_actions.blank?
-            render "signal_update"
-          else
-            case params_actions.first[:action_type_text]
-            when "main"
-              render 'main_action_update'
-            when "left"
-              render 'left_action_update'
-            end
-          end
+          # if params_actions.blank?
+          #   render "signal_update"
+          # else
+          #   case params_actions.first[:action_type_text]
+          #   when "main"
+          #     render 'main_action_update'
+          #   when "left"
+          #     render 'left_action_update'
+          #   end
+          # end
         }
       else
         format.html { render action: 'edit' }
@@ -99,22 +100,22 @@ class CarWashesController < ApplicationController
     end
   end
 
-  def update_actions
-  end
+  # def update_actions
+  # end
 
-  def update_main_action
-      m_actions = @car_wash.actions.includes(:action_type).where("action_types.text" => "main")
-      if m_actions.empty?
-        @car_wash.actions << Action.create(action_text: ActionText.create(text: car_wash_params[:main_action_text]), action_type: ActionType.find_by(text: 'main'))
-      else
-        m_actions.first.action_text.update(text: car_wash_params[:main_action_text])
-      end
+  # def update_main_action
+  #     m_actions = @car_wash.actions.includes(:action_type).where("action_types.text" => "main")
+  #     if m_actions.empty?
+  #       @car_wash.actions << Action.create(action_text: ActionText.create(text: car_wash_params[:main_action_text]), action_type: ActionType.find_by(text: 'main'))
+  #     else
+  #       m_actions.first.action_text.update(text: car_wash_params[:main_action_text])
+  #     end
       
-      respond_to do |format|
-        format.json { respond_with_bip(@car_wash) }
-      end
+  #     respond_to do |format|
+  #       format.json { respond_with_bip(@car_wash) }
+  #     end
 
-  end
+  # end
 
   # DELETE /car_washes/1
   # DELETE /car_washes/1.json
@@ -140,6 +141,8 @@ class CarWashesController < ApplicationController
       end
     end
   end
+
+
 
   private
     def set_car_wash
@@ -177,6 +180,8 @@ class CarWashesController < ApplicationController
         :signal_type,
         :video_title1,
         :video_title2,
+        :widget_type,
+        :widget_content,
         actions_attributes: [:text, :action_type_text])
     end
 end

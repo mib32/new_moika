@@ -1,8 +1,13 @@
 - if user_signed_in?
-  = link_to t('logout'), main_app.destroy_user_session_path, :method => :delete
-  - if current_user.admin?
-    = link_to 'Админка', main_app.admin_url
+  %li
+    = link_to t('logout'), main_app.destroy_user_session_path, :method => :delete
+    - if current_user.admin?
+      = link_to 'Админка', main_app.admin_url
+    -#= image_tag asset_path 'login.png'
+    .img#login
+  -unless current_user.car_wash.nil?
+    = nav_to 'Управление автомойкой', edit_car_wash_path(current_user.car_wash), 'none'
 - else
-  %a#show_auth Вход
--#= image_tag asset_path 'login.png'
-.img#login
+  %li 
+    %a#show_auth Вход
+    .img#login

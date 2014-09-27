@@ -1,6 +1,7 @@
-#requests
-  #requests_header
-    %h3= "#{@car_wash.title}: #{t('.header')}"
+#c
+  #requests
+    #requests_header
+      %h3= "#{car_wash_title @car_wash.title}: #{t('.header')}"
 
-  #requests_content
-    = render 'form'
+    #requests_content
+      = render 'form'
