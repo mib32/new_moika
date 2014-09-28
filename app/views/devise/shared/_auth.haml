@@ -1,5 +1,5 @@
 = bettertabs :auth_tabs, :selected_tab => current_tab, :render_only_active_content => false do |tab|
-  = tab.static :sign_in,'вход', :url => new_user_session_path do
+  = tab.static :sign_in,'вход', :url => main_app.new_user_session_path do
     = render 'devise/sessions/form'
-  = tab.static :sign_up, 'регистрация', :url => new_user_registration_path do
+  = tab.static :sign_up, 'регистрация', :url => main_app.new_user_registration_path do
     = render 'devise/registrations/form'
