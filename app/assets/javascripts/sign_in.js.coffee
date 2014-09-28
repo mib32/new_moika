@@ -24,7 +24,7 @@ $ ->
 			$('input[type="submit"]').prop('disabled',true)
 
 	$('html').click ->
-		$('#auth').remove()
+		$('#auth').hide()
 		console.log 'auth should disap'
 	$('#auth').click (e) ->
 		e.stopPropagation()
