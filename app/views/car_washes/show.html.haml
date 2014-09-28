@@ -3,7 +3,7 @@
     = car_wash_background @car_wash
   .bgt
     %h1= car_wash_title @car_wash.title
-    .rating
+    .rating 
       = render partial: 'rate_it', locals: {item: @car_wash}
 #cw_content
   = bettertabs :cw_tabs, selected_tabs: :info do |tab|
