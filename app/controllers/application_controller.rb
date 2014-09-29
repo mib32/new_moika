@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   before_action :set_sets
   before_action :set_survey
   before_action :set_curr
+  before_action :set_ads
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| 
       u.permit(:password, :password_confirmation, :current_password) 
@@ -54,6 +55,10 @@ class ApplicationController < ActionController::Base
 
   def set_survey
     @survey = Admin::Survey.order('created_at DESC').first
+  end
+
+  def set_ads
+    @cube_ads = CubeAd.all
   end
 
 

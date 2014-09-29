@@ -1,0 +1,19 @@
+= form_tag request.env['PATH_INFO'], method: :patch do |f|
+  - @ads.each do |ad|
+    - if ad.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(ad.errors.count, "error")} prohibited ads from being saved:"
+        %ul
+          - ad.errors.full_messages.each do |msg|
+            %li= msg
+  - @ads.each_with_index do |ad, i|
+    .row
+      = label_tag nil, "Сообщение №#{i+1}", class: 'control-label col-sm-8 text-left'
+      = label_tag nil, "Ссылка №#{i+1}", class: 'control-label col-sm-4'
+    .form-grop.row
+      = hidden_field_tag 'ads[][id]', ad.id
+      .col-sm-8
+        = text_field_tag "ads[][text]", ad.text, class: 'form-control'
+      .col-sm-4
+        = text_field_tag "ads[][url]", ad.url, class: 'form-control'
+  = submit_tag 'Сохранить', class: 'btn btn-danger btn-block'

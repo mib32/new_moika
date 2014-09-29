@@ -1,6 +1,6 @@
 #cl
   .msg_c
-    - 5.times do |i|
-      - unless @settings.send("cl_message_#{i}_text").blank?
+    - @cube_ads.each_with_index do |ad, i|
+      - unless ad.text.blank?
         .m-row{ :class => ('dimmed' if i > 0), :id => "cl_#{i}" } 
-          = link_to @settings.send("cl_message_#{i}_text"), @settings.send("cl_message_#{i}_url"), target: '_blank'
+          = link_to ad.text, ad.url, target: '_blank'

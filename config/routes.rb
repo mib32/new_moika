@@ -86,6 +86,10 @@ Moika::Application.routes.draw do
     get '', to: 'dashboard#main', as: '/'
     # get 'ads', to: 'settings#ads_index', as: 'ad_settings'
     # put 'ads', to: 'settings#ads_update'
+    patch 'cube_ads', to: 'advertisements#update', :type => 'CubeAd'
+    patch 'marquee_ads', to: 'advertisements#update', :type => 'MarqueeAd'
+    resources :cube_ads, :controller => 'advertisements', :type => 'CubeAd'
+    resources :marquee_ads, :controller => 'advertisements', :type => 'MarqueeAd'
     resources :ad_settings
     resources :mq_settings
     resources :settings

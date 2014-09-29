@@ -2,7 +2,7 @@ class WidgetsController < ApplicationController
   before_action :set_car_wash
   def update
     
-    x = 1
+    @car_wash.update set
 
   end
 

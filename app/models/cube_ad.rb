@@ -1,0 +1,2 @@
+class CubeAd < Advertisement
+end
