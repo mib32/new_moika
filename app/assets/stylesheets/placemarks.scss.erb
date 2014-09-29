@@ -1,0 +1,11 @@
+.widget-pic{
+	background-image: asset-url('placemarks.png');
+	<% Widget.each do |w| %>
+	&#<%= w.type %>{
+		// clip: rect(<%= w.clip_rect %>);
+		background-position: <%= w.background_position %>;
+		width: <%= w.dx %>px;
+		height: <%= w.dy %>px; 
+	}
+	<% end %>
+}

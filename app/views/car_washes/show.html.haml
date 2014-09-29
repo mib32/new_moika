@@ -5,37 +5,42 @@
     %h1= car_wash_title @car_wash.title
     .rating 
       = render partial: 'rate_it', locals: {item: @car_wash}
-#cw_content
-  = bettertabs :cw_tabs, selected_tabs: :info do |tab|
-    = tab.static :info, 'информация' do
-      #c
-        .cw_dashboard
-          =link_to "Оставить заявку",new_car_wash_request_path(@car_wash), class: 'blue'
-        .cw_dashboard
-          #cw_signal
-            = render 'signal'
-        = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
-    = tab.static :live, 'трансляция' do
-      #c
-        .ivideon_c
-          %h5=@car_wash.video_title1
-          = render 'video_100p', src: @car_wash.video_url1
-        .ivideon_c
-          %h5=@car_wash.video_title2
-          = render 'video_100p', src: @car_wash.video_url2
-    = tab.static :video, "видео: #{@videos.size}" do
-      #c
-        = render @videos
-        - @videos.each do |video|
-          %h5.text-center= video.description
-          = render 'client_youtube', src: video.url
-    = tab.static :images, "фото: #{@images.size}" do
-      #c
-        = render @images
-    -#= tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
-    -#  #c
-    -#    = actions(@vacancy_actions, 'li')
-    = tab.static :reviews, "отзывы: #{@car_wash.reviews.count}" do
-      #c
-        = link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
-        = render @car_wash.reviews
+#cw_content.clearfix
+  #cw-info.c
+    /=link_to "Оставить заявку",new_car_wash_request_path(@car_wash), class: 'blue'
+    / #cw_signal
+    /   = render 'signal'
+    = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
+  #cw-live.c
+    .ivideon_c
+      %h5=@car_wash.video_title1
+      = render 'video_100p', src: @car_wash.video_url1
+    .ivideon_c
+      %h5=@car_wash.video_title2
+      = render 'video_100p', src: @car_wash.video_url2
+  #cw-actions.c
+    / .cd
+    /   =link_to new_registration_path(:user), class: 'm-btn' do
+    /     %div= 'Регистрация для клиентов автомойки'
+    / .cd
+    /   =link_to car_wash_reviews_path(@car_wash), class: 'm-btn' do
+    /     %div= 'Отзывы'
+    / .cd
+    /   =link_to new_car_wash_request_path(@car_wash), class: 'm-btn' do
+    /     %div= 'Оставить заявку'
+    .cd
+      =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
+    .cd
+      =link_to 'Отзывы', car_wash_reviews_path(@car_wash), class: 'blue'
+    .cd
+      =link_to 'Оставить заявку', new_car_wash_request_path(@car_wash), class: 'blue'
+  #cw-videos.c
+    = render @videos
+  #cw-image.c
+    = render @images
+-#= tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
+-#  #c
+-#    = actions(@vacancy_actions, 'li')
+  #cw-reviews.c
+    = link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
+    = render @car_wash.reviews

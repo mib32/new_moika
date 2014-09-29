@@ -8,7 +8,7 @@
     %title= t("site_title")
     = stylesheet_link_tag    "application", media: "all"
     = csrf_meta_tags
-  %body{ class: controller.controller_name.dasherize }
+  %body{ class: controller.controller_name.dasherize + (' ads' if need_ads).to_s }
     #sb
       = render partial: 'sidebar'
     #hd
@@ -19,9 +19,7 @@
       .flash{class: flash}= msg
     #m
       = yield
-    - unless controller.controller_name == 'map'
-      #ad
-        = render partial: 'ads'
+    = ads_block
     
     
     /#footer

@@ -16,6 +16,7 @@
 @import "navs";
 @import "scaffolds";
 @import "toggle_buttons";
+@import "placemarks";
 // @import "bootstrap";
 // @import "flowplayer/skin/minimalist"
 
@@ -482,9 +483,11 @@ nav ul{
 
 #agreement_text{overflow:auto;}
 fieldset{
+	.m-row{
+		display: block;
+	}
 	&.right-aligned{
 		.m-row{
-			display: block;
 			label{	
 				display:inline-block;
 				width:7em;
@@ -565,10 +568,16 @@ fieldset{
 	left:0;
 	bottom:0;
 	top: $mq-height*2;
-	right:250px;
+	// right:250px;
+	right: 0;
 	font-family: 'Lucida Grande', sans-serif;
 	font-size: 10pt;
 	overflow-y: scroll;
+}
+body.ads{
+	#m{
+		right: 250px;
+	}
 }
 
 .map{
@@ -642,13 +651,16 @@ fieldset{
 
 	#cw_header{
 		.hbg{
-			height: 150px;
+			height: 115px;
 			overflow: hidden;
 			width: 100%;
 			img{
-				width:100%;
-				position: relative;
-				top: -100%;
+				width: 100%;
+				position: fixed;
+				// position: relative;
+				// top: -64%;
+				height: 100%;
+				z-index: -1;
 			}
 		}
 		.bgt{
@@ -658,6 +670,7 @@ fieldset{
 			top: 30px;
 			color: white;
 			text-shadow: 0 0 4px rgba(0,0,0,0.3);
+			width: 100%;
 		}
 
 	}
@@ -675,7 +688,10 @@ fieldset{
 		a{
 			font-style: italic;
 		}
-		#cw_signal{
+		
+	}
+
+	#cw_signal{
 			border: 1px solid #777;
 			padding: 10px 15px;
 
@@ -683,7 +699,6 @@ fieldset{
 			/* font-style: italic; */
 			border-radius: 2px;
 		}
-	}
 	// table#car_wash_info{
 	// 	tr{
 	// 		td{
@@ -884,12 +899,14 @@ h1{
 
 }
 
-#live_cw_tabs_content{
-	#c{
-		overflow: auto;
-		.ivideon_c{
-			width: 50%;
-			float:left;
+#cw-live{
+	overflow: auto;
+	float:right;
+	.ivideon_c{
+		width: 50%;
+		float:left;
+		.iv-v{
+			height: 200px !important;
 		}
 	}
 }
@@ -958,3 +975,36 @@ article.media{
 	position: relative;
 }
 
+#cw_content .c{
+	float: left;
+	margin: 12px;
+}
+
+#cw-info{
+	width: 35%;
+	font-size:10pt;
+	.m-info-table tr td {
+		padding:5px;
+	}
+}
+
+#cw-live{
+	width: 60%;
+	float: right !important;
+}
+
+td.td-10{
+	width:10%;
+}
+
+a.m-btn{
+	display: inline-block;
+}
+
+.cd{
+	margin:7px 0;
+	a{
+		width:100%;
+		text-align: center;
+	}
+}

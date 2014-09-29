@@ -6,8 +6,8 @@ class CarWash < ActiveRecord::Base
   after_create :create_payment
   after_validation :geocode,
     if: ->(obj){ obj.lat.nil? || obj.lon.nil? }
-  after_update :update_signals, if: :signal_changed?
-  before_save :update_signal_type
+  # after_update :update_signals, if: :signal_changed?
+  # before_save :update_signal_type
 
   has_many :users
   has_many :actions
@@ -71,77 +71,77 @@ class CarWash < ActiveRecord::Base
     actions_by_type(type).try(:action_text).first.try(:text)
   end
 
-  def enable_blink
-    self.blink = true
-    self.save!
-  end
+  # def enable_blink
+  #   self.blink = true
+  #   self.save!
+  # end
 
-  def disable_blink
-    self.blink = false
-    self.save!
-  end
+  # def disable_blink
+  #   self.blink = false
+  #   self.save!
+  # end
 
-  def update_signal_type
-    signal_type = self.signal_type
-    logger.debug "vatagin: #{signal_type}"
-    case signal_type
-    when /blink/
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-      self.blink = true
-      self.videoned = false
-      self.discounted= false
-      self.action_on_map = false
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-    when /action_on_map/
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-      self.blink = false
-      self.videoned = false
-      self.discounted= false
-      self.action_on_map = true
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-    when /videoned/
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-      self.blink = false
-      self.videoned = true
-      self.discounted= false
-      self.action_on_map = false
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-    when /discounted/
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-      self.blink = false
-      self.videoned = false
-      self.discounted= true
-      self.action_on_map = false
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-    else
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-      self.blink = false
-      self.videoned = false
-      self.discounted= false
-      self.action_on_map = false
-      logger.debug "vatagin: #{self.blink}"
-      logger.debug "vatagin: #{self.videoned}"
-      logger.debug "vatagin: #{self.action_on_map}"
-    end
-  end
+  # def update_signal_type
+  #   signal_type = self.signal_type
+  #   logger.debug "vatagin: #{signal_type}"
+  #   case signal_type
+  #   when /blink/
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #     self.blink = true
+  #     self.videoned = false
+  #     self.discounted= false
+  #     self.action_on_map = false
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #   when /action_on_map/
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #     self.blink = false
+  #     self.videoned = false
+  #     self.discounted= false
+  #     self.action_on_map = true
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #   when /videoned/
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #     self.blink = false
+  #     self.videoned = true
+  #     self.discounted= false
+  #     self.action_on_map = false
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #   when /discounted/
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #     self.blink = false
+  #     self.videoned = false
+  #     self.discounted= true
+  #     self.action_on_map = false
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #   else
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #     self.blink = false
+  #     self.videoned = false
+  #     self.discounted= false
+  #     self.action_on_map = false
+  #     logger.debug "vatagin: #{self.blink}"
+  #     logger.debug "vatagin: #{self.videoned}"
+  #     logger.debug "vatagin: #{self.action_on_map}"
+  #   end
+  # end
 
   protected
     def create_empty_banners

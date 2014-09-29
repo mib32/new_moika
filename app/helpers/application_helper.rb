@@ -76,5 +76,24 @@ module ApplicationHelper
     end
   end
 
+  def ads_block
+    if need_ads
+      content_tag :div, id: 'ad' do
+        render partial: 'ads'
+      end
+    end
+  end
 
+
+  def need_ads
+    route = [controller.controller_name, controller.action_name]
+    rules = [['map'], ['car_washes','show']]
+    rules.each do |rule|
+      if (rule & route).any?
+        return false
+      end
+    end
+
+    true
+  end
 end

@@ -22,62 +22,14 @@ class @PlacemarksRenderer
       }
     ]
     custom: [
-      {
-        name:'normal'
-        imageHref: "<%= asset_path('red_bl.gif') %>"
-        imageSize: [20, 20]
-      }
-      {
-        name:'my#green_blink'
-        imageHref: "<%= asset_path('green_bl.gif') %>"
-        imageSize: [20, 20]
-      }
-      {
-        name:'my#red_not_blink'
-        imageHref: "<%= asset_path('red_led.png') %>"
-        imageSize: [20, 20]
-      }
-      {
-        name:'my#green_not_blink'
-        imageHref: "<%= asset_path('green_led2.png') %>"
-        imageSize: [20, 20]
-      }
-      {
-        name:'my#videoned'
-        imageHref: "<%= asset_path('video.gif') %>"
-        imageSize: [45, 45]
-      }
-      {
-        name:'my#discounted'
-        imageHref: "<%= asset_path('percent_10.gif') %>"
-        imageSize: [50, 35]
-      }
-      {
-        name:'my#brended'
-        imageHref: "<%= asset_path('f1_percent.gif') %>"
-        imageSize: [45, 45]
-      }
-      {
-        name:'my#gasolined'
-        imageHref: "<%= asset_path('gas_station.gif') %>"
-        imageSize: [35, 35]
-      }
-      {
-        name:'my#repaired'
-        imageHref: "<%= asset_path('repair.gif') %>"
-        imageSize: [35, 35]
-      }
-      {
-        name:'my#tired'
-        imageHref: "<%= asset_path('tire.gif') %>"
-        imageSize: [35, 35]
-      }
-      {
-        name:'my#grey'
-        imageHref: "<%= asset_path('grey_led.png') %>"
-        imageHref: "<%= asset_path('grey_led.png') %>"
-        imageSize: [20, 20]
-      }
+      <% Widget.each do |w| %>
+        {
+          name: '<%=w.type%>'
+          imageHref: "<%= asset_path('placemarks.png') %>"
+          imageSize: <%= w.js_image_size %>
+          imageClipRect: <%= w.js_clip_rect %>
+        }
+        <% end %>
     ]
 
   @addPresets: =>
@@ -88,7 +40,7 @@ class @PlacemarksRenderer
   @createGeoObjectCollections: =>
     for key, o of @presets
       for preset in o
-        options = {preset: preset.name, iconImageHref: preset.imageHref, iconImageSize: preset.imageSize}
+        options = {preset: preset.name, iconImageHref: preset.imageHref, iconImageSize: preset.imageSize, iconImageClipRect: preset.imageClipRect}
 
         if key == 'custom'
           options['iconLayout'] = 'default#image'
@@ -121,7 +73,7 @@ class @PlacemarksRenderer
           #@geoObjectCollections['islands#grayIcon'].add(placemark)
           greyGeoObjects.push placemark
         else
-          @geoObjectCollections[car_wash.widget].add(placemark)
+          @geoObjectCollections[car_wash.widget_type].add(placemark)
           # if car_wash.signal
           #   if car_wash.blink
           #     @geoObjectCollections['my#green_blink'].add(placemark)

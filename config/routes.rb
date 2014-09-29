@@ -71,7 +71,7 @@ Moika::Application.routes.draw do
     resources :images, except: [:index]
   end
   get 'car_washes/:id/edit(/:cw_tabs_selected_tab)', :to => 'car_washes#edit', as: 'edit_car_wash_with_tab'
-  get 'car_washes/:id(/:cw_tabs_selected_tab)', :to => 'car_washes#show', as: 'show_car_wash_with_tab'
+  # get 'car_washes/:id(/:cw_tabs_selected_tab)', :to => 'car_washes#show', as: 'show_car_wash_with_tab'
   put 'car_washes/:id/update_main_action', to: 'car_washes#update_main_action', as: '/car_washes_update_main_action'
   post 'car_washes/:id/subscribe/:user_id', to: 'car_washes#subscribe', as: '/car_washes_subscribe'
 

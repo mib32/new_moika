@@ -17,12 +17,6 @@ class @CarWashLoader
           blink: row.blink,
           main_action: row.main_action,
           action_on_map: row.action_on_map,
-          videoned: row.videoned,
-          discounted: row.discounted,
-          brended: row.brended,
-          gasolined: row.gasolined,
-          repaired: row.repaired,
-          tired: row.tired,
-          signal_type: row.signal_type,
+          widget_type: row.widget_type,
           grey: row.grey
 
