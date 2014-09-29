@@ -22,8 +22,8 @@
 
 $blue: #56b2ff;
 // rgb(255, 207, 6)
-// yel: FFF14A
-$yellow: rgba(248, 248, 248, 1);
+$yellow: #FFF14A;
+// $yellow: rgba(248, 248, 248, 1);
 $dark-blue: adjust-hue(darken($blue,40%),-25deg);
 // $sb-color: rgba(249,249,249,0.95);
 $sb-color: white;

@@ -48,6 +48,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
+        SystemMailer.new_request_happen(@car_wash,@request).deliver
         format.html { redirect_to @car_wash, notice: t('notice.requests.create') }
         format.json { render action: 'show', status: :created, location: @request }
       else

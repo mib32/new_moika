@@ -19,3 +19,4 @@ pickle-email-*.html
 .DS_Store
 /public/uploads/
 /config/oauth.yml
+/config/mauth.yml
