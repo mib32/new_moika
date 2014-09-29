@@ -121,13 +121,13 @@ class @PlacemarksRenderer
       myIconContentLayout = ymaps.templateLayoutFactory.createClass(
         '<div style="color: #444; font-weight: bold;position: relative;top: -7px;left: -5px;">$[properties.geoObjects.length]</div>')
       PlacemarksRenderer.clusterer = new ymaps.Clusterer
-        clusterIcons: clusterIcons
+        # clusterIcons: clusterIcons
         clusterNumbers: 30
-        clusterIconContentLayout: myIconContentLayout
-        size: [20,20]
-        gridSize: 200
-        groupByCoordinates: false
-        clusterDisableClickZoom: false
+        # clusterIconContentLayout: myIconContentLayout
+        size: [10,10]
+        gridSize: 128
+        # groupByCoordinates: false
+        # clusterDisableClickZoom: false
       
       for collection_name, collection of @geoObjectCollections
         if collection_name == "islands#grayIcon"

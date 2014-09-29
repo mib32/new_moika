@@ -6,9 +6,11 @@ class CarWashesController < ApplicationController
   # GET /car_washes
   # GET /car_washes.json
   def index
-    respond_to do |format|
-      format.html { @car_washes  = CarWash.all.page(params[:page]).per 15 }
-      format.js { @car_washes = CarWash.all}
+    case request.format
+    when 'html'
+      @car_washes  = CarWash.all.page(params[:page]).per 15
+    when 'json'
+      @car_washes = CarWash.all
     end
     
     @main_actions = Action.includes(:action_type).
