@@ -6,7 +6,11 @@ class CarWashesController < ApplicationController
   # GET /car_washes
   # GET /car_washes.json
   def index
-    @car_washes = CarWash.all.page(params[:page]).per 15
+    respond_to do |format|
+      format.html { @car_washes  = CarWash.all.page(params[:page]).per 15 }
+      format.js { @car_washes = CarWash.all}
+    end
+    
     @main_actions = Action.includes(:action_type).
       where("action_types.text" => "main").includes(:action_text).select("action_texts.text")
     @main_actions_hash = Hash[@main_actions.map {|o| [o.car_wash_id,o.text] }]
