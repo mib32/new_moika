@@ -3,4 +3,4 @@
     - 5.times do |i|
       - unless @settings.send("cl_message_#{i}_text").blank?
         .m-row{ :class => ('dimmed' if i > 0), :id => "cl_#{i}" } 
-          = link_to @settings.send("cl_message_#{i}_text"), @settings.send("cl_message_#{i}_url")
+          = link_to @settings.send("cl_message_#{i}_text"), @settings.send("cl_message_#{i}_url"), target: '_blank'

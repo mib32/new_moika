@@ -2,11 +2,10 @@
 = nav_to 'Автомойки', '/car_washes', 'car_washes'
 #news
   = nav_to 'Новости', '/news', 'news_icon'
-  #news_list
-    - @news.each do |n|
-      = link_to main_app.post_path(n) do
-        %span= l n.created_at, format: '%d %b'
-        = n.title.truncate(25)
+  -# @news.each do |n|
+    -# link_to main_app.post_path(n) do
+      -#%span=# l n.created_at, format: '%d %b'
+      -# n.title.truncate(25)
 = nav_to 'Акции и скидки', '/proposals', 'proposals'
 = nav_to 'Форум', '/forum', 'forum'
 = nav_to 'Полезная информация', '/info', 'info'

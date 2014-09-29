@@ -29,12 +29,14 @@ module ApplicationHelper
     if we_are_there?(path)
       klass = 'active'
     else
-      klass = nil
+      klass = ''
     end
     content_tag :li, class: klass do
-      link_to(name, path) +
+      link_to path, class: 'li' do
       # image_tag(asset_path image_path)
-      content_tag(:div, nil, id: image, class: 'img')
+        content_tag(:div, name) +
+        content_tag(:div, nil, id: image, class: 'img')
+      end
     end
   end
 

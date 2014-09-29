@@ -1,6 +1,13 @@
 class SurveyResultsController < ApplicationController
   
   def create
+    if session['passed_survey']
+      respond_to do |format|
+        format.js { render 'fails'}
+      end
+      return false
+    end
+
     params[:survey_result][:session_id] = request.session_options[:id]
     params[:survey_result][:survey_id] = params[:survey_id]
     @survey_result = SurveyResult.new survey_result_params
