@@ -11,7 +11,7 @@ Moika::Application.routes.draw do
     resources :surveys
   end
 
-  get 'proposals', to: 'actions#index'
+  get 'proposals', to: 'proposals#index'
   resources :reviews, only: [:index]
 
   # This line mounts Forem's routes at /forums by default.

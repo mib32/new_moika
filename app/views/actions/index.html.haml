@@ -1,9 +1,0 @@
--title 'Акции и скидки на автомойках - Мойка-77'
-- @proposals.each do |p|
-  - unless p.widget_content.blank?
-    .c  
-      = link_to car_wash_path(p) do
-        %h3.b-marged= p.title
-      %div= p.widget_content
-      %p.date= l p.updated_widget_at.localtime, format: :long
-      .share42init{ 'data-url' => car_wash_url(p), 'data-path' => '', 'data-zero-counter' => 1, 'data-icons-file' => asset_path('share42_icons.png')}

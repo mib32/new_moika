@@ -6,27 +6,27 @@
       %fieldset.right-aligned
         .m-row
           = f.label :email do
-            = NormalUser.human_attribute_name("email")
+            = User.human_attribute_name("email")
             %span.red &nbsp;*
           = f.email_field :email, :autofocus => true, class: "m-form-control", required: "required"
         .m-row
           = f.label :name  do
-            = NormalUser.human_attribute_name("name")
+            = User.human_attribute_name("name")
             %span.red &nbsp;*
           = f.text_field :name, class: "m-form-control", required: "required"
         .m-row
           = f.label :phone do
-            = NormalUser.human_attribute_name("phone")
+            = User.human_attribute_name("phone")
             %span &nbsp;*
           = f.phone_field :phone, class: "m-form-control"
         .m-row
           = f.label :password do
-            = NormalUser.human_attribute_name("password")
+            = User.human_attribute_name("password")
             %span.red &nbsp;*
           = f.password_field :password, class: "m-form-control", required: "required"
         .m-row
           = f.label :password_confirmation do
-            = NormalUser.human_attribute_name("password_confirmation")
+            = User.human_attribute_name("password_confirmation")
             %span.red &nbsp;*
           = f.password_field :password_confirmation, class: "m-form-control", required: "required"
         .m-row

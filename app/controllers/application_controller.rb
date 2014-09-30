@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   before_action :set_survey
   before_action :set_curr
   before_action :set_ads
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| 
       u.permit(:password, :password_confirmation, :current_password) 
@@ -46,8 +47,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sets
-    parent_name = Rails.application.class.parent_name
-    @settings = Settings.find_by_app_name parent_name
+    @settings = Settings.find_by_app_name app_name
+    
     if @settings.nil?
       @settings = Settings.create(app_name: parent_name)
     end
@@ -63,15 +64,14 @@ class ApplicationController < ActionController::Base
   end
 
 
-
-
-
   def set_curr
     @euro ||= Currency.get_current_eur
     @usd ||= Currency.get_current_usd
   end
 
-
+  def app_name
+    parent_name = Rails.application.class.parent_name
+  end
   protected
     def check_access
       redirect_to(root_path) and return unless current_user and (current_user.client? or current_user.admin?)
