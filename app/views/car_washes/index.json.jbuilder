@@ -1,4 +1,4 @@
-json.cache! ['v1', @car_washes], expires_in: 30.minutes do
+json.cache! 'v1', expires_in: 30.minutes do
 	json.array!(@car_washes) do |car_wash|
 	  json.extract! car_wash,
 	    :id, :title, :address, :lat, :lon,
