@@ -33,7 +33,7 @@ $g-shadow: 0px 0px 6px rgba(0,0,0,0.1);
 $sb-width: 240px;
 $mq-height: 30px;
 
-$carousel-count: 5;
+$carousel-count: 10;
 
 
 @mixin rotate($deg){
@@ -340,7 +340,7 @@ nav ul{
 		height:$mq-height;
 		border-bottom: 1px solid black;
 		color:white;
-		padding-left: 10px;
+		// padding-left: 10px;
 		.vr{
 			// border-right: 1px solid #ccc;
 			height: ($mq-height - 6);
@@ -357,6 +357,8 @@ nav ul{
 		// position:fixed;
 		div{
 			display: inline-block;
+			float: left;
+			padding: 0 2px;
 		}
 		.traffic{
 			#traffic_light{
@@ -364,7 +366,10 @@ nav ul{
 				// top: 2px;
 				width:16px;
 				height: 20px;
-				vertical-align: middle;
+				// vertical-align: middle;
+				position: relative;
+				top: 5px;
+				padding: 0 10px;
 				&.none{
 					background: asset-url('traffic_none.png') no-repeat;
 				}
@@ -380,7 +385,7 @@ nav ul{
 			}
 		}
 		#message{
-			display: inline;
+			// display: inline;
 		}
 	}
 
@@ -1011,5 +1016,25 @@ a.m-btn{
 	a{
 		width:100%;
 		text-align: center;
+	}
+}
+
+#m_mq{
+	// width:200%;
+	.msg_mq{
+		// width:49%;
+		transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+		// float: left;
+		// display: none !important;
+		visibility:hidden;
+		opacity: 0;
+		color: white;
+		position: absolute;
+		&.active{
+			// display: inline-block !important;
+			visibility:visible;
+		  opacity:1;
+		  transition-delay:0s;
+		}
 	}
 }

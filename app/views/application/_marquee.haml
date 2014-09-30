@@ -19,4 +19,9 @@
     #traffic_light.none
     %span.level ?
   .vr
-  #message= @settings.mq_message unless @settings.nil?
+  #message 
+    #m_mq
+      - @mq_ads.each_with_index do |ad, i|
+        - unless ad.text.blank?
+          .msg_mq{ :class => ('active' if i == 0), :id => "mq_#{i}" } 
+            = link_to ad.text, ad.url, target: '_blank'

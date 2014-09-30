@@ -10,6 +10,6 @@ class Admin::AdvertisementsController < AdminController
     params[:ads].each do |ad|
       Advertisement.update(ad['id'], text: ad['text'], url: ad['url'])
     end
-    redirect_to action: :index
+    redirect_to({action: :index}, notice: 'Успешно сохранено')
   end
 end

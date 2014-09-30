@@ -59,6 +59,7 @@ class ApplicationController < ActionController::Base
 
   def set_ads
     @cube_ads = CubeAd.all
+    @mq_ads = MarqueeAd.all
   end
 
 
