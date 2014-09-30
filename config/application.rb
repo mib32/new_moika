@@ -27,7 +27,7 @@ module Moika
 
     config.railties_order = [:main_app,Forem::Engine, :all]
     # ActiveRecordQueryTrace.enabled = true
-    # ActiveRecordQueryTrace.level = :full
-    # ActiveRecordQueryTrace.lines = -1
+    # ActiveRecordQueryTrace.level = :app
+    # ActiveRecordQueryTrace.lines = 5
   end
 end

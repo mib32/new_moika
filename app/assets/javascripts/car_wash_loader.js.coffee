@@ -18,5 +18,6 @@ class @CarWashLoader
           main_action: row.main_action,
           action_on_map: row.action_on_map,
           widget_type: row.widget_type,
-          grey: row.grey
+          grey: row.grey,
+          categories: row.categories_concated
 

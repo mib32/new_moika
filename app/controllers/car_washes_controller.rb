@@ -10,7 +10,7 @@ class CarWashesController < ApplicationController
     when 'html'
       @car_washes  = CarWash.all.page(params[:page]).per 15
     when 'json'
-      @car_washes = CarWash.all
+      @car_washes = CarWash.includes(:categories).all
     end
     
     @main_actions = Action.includes(:action_type).
@@ -83,8 +83,13 @@ class CarWashesController < ApplicationController
     #     end
     #   end
     # end
+    update_params = car_wash_params
+    unless car_wash_params[:widget_content].nil?
+      update_params[:updated_widget_at] = Time.now
+    end
+
     respond_to do |format|
-      if @car_wash.update(car_wash_params)
+      if @car_wash.update(update_params)
         format.html { redirect_to edit_car_wash_path(@car_wash), notice: 'Автомойка успешно обновлена.' }
         format.json { head :no_content }
         format.js {
@@ -188,6 +193,7 @@ class CarWashesController < ApplicationController
         :video_title2,
         :widget_type,
         :widget_content,
+        :category_ids => [],
         actions_attributes: [:text, :action_type_text])
     end
 end

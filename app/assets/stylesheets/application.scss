@@ -12,7 +12,28 @@
 // @import "forem-bootstrap";
 @import "reset";
 @import url(http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic);
+//@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic);
+// @font-face {
+//   font-family: 'Open Sans';
+//   font-style: normal;
+//   font-weight: 400;
+// 	src: ;
+//   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+// }
 @import "compass";
+// @include font-face("Open Sans", font-files("OpenSans-Regular-webfont.woff", "OpenSans-Regular-webfont.ttf",  "OpenSans-Regular-webfont.svg"),"OpenSans-Regular-webfont.eot");
+// @include font-face("Open Sans", font-files(asset-url("fonts/OpenSans-Regular-webfont"),'ttf'),asset-url("fonts/OpenSans-Regular-webfont.eot"));
+@font-face {
+  font-family: 'Open Sans';
+  src:font_url('OpenSans-Regular-webfont.eot');
+  src:asset-url('OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    asset-url('OpenSans-Regular-webfont.svg#opensans') format('svg'),
+    asset-url('OpenSans-Regular-webfont.woff') format('woff'),
+    asset-url('OpenSans-Regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "navs";
 @import "scaffolds";
 @import "toggle_buttons";
@@ -35,6 +56,10 @@ $mq-height: 30px;
 
 $carousel-count: 10;
 
+// $hlv: 'Helvetica Neue';
+// $pt: 'PT Sans';
+$hlv: 'Helvetica Neue','Open Sans', 'Helvetica','Arial';
+$pt: 'PT Sans';
 
 @mixin rotate($deg){
 	-webkit-transform: rotate($deg);
@@ -48,7 +73,7 @@ $carousel-count: 10;
 html,body{
 	height:100%;
 	background-color: #e5e5e5;
-	font-family: 'PT Sans', sans-serif;
+	font-family: $pt, sans-serif;
 
 }
 
@@ -92,7 +117,7 @@ a{
 #sb{
 	width:$sb-width;
 	// height:120%;
-	padding-bottom: 100px;
+	padding-bottom: 120px;
 
 	// background-color:rgba(245,245,245,0.95);
 	background-color:$sb-color;
@@ -158,6 +183,7 @@ a{
 		padding:10px;
 		background-color: rgba(150,159,150,0.13);
 		box-shadow: 0 0 6px rgba(0,0,0,0.1) inset;
+		font-size: 13px;
 	}
 
 	#footer{
@@ -190,9 +216,12 @@ a{
 }
 
 nav ul{
-	font-family:'Helvetica Neue', 'PT Sans', sans-serif;
+	font-family:$hlv, $pt, sans-serif;
 
 	li{
+		&:hover{
+			background-color: #f1f6f6;
+		}
 		.img{
 				width: 16px;
 				height: 16px;
@@ -295,32 +324,40 @@ nav ul{
 			
 		}
 	}
-	#news{
+	// #news{
 		// border: 1px solid #ccc;
-		#news_list{
-			// background-color: rgba(150,159,150,0.13);
-			// box-shadow: 0 0 6px rgba(0,0,0,0.1) inset;
-			// font-size: 9pt;
-			// padding: 4px 10px;
-			background-color: rgba(150,159,150,0.13);
-			font-size: 9pt;
-			border-right: 8px solid #56b2ff;
-			padding: 4px 10px;
-			box-shadow: 0 0 6px rgba(0,0,0,0.1) inset;
-			a{
-				margin:0 0;
-				display: block;
-				color: #555 !important;
-				span{
-					color: #888;
-				}
-			}
-		}
-	}
+		
+		// }
+	// }
 
 
 }
 
+
+
+#news_list{
+	// background-color: rgba(150,159,150,0.13);
+	// box-shadow: 0 0 6px rgba(0,0,0,0.1) inset;
+	// font-size: 9pt;
+	// padding: 4px 10px;
+	// background-color: rgba(150,159,150,0.13);
+	font-size: 9pt;
+	border-right: 8px solid #56b2ff;
+	padding: 4px 10px;
+	// box-shadow: 0 0 6px rgba(0,0,0,0.1) inset;
+	a{
+		margin:0 0;
+		display: block;
+		color: #555 !important;
+		span{
+			color: #888;
+		}
+	}
+}
+
+b{
+	font-weight: bold;
+}
 
 #hd{
 	position: fixed;
@@ -335,8 +372,8 @@ nav ul{
 		background-color: rgba(0,0,0,0.8);
 		// needs latest Compass, add '@import "compass"' to your scss
 		background-color: rgb(17,72,127); // Old browsers
-		@include filter-gradient(#11487f, #196ac0, horizontal); // IE6-9 fallback on horizontal gradient
-		@include background-image(linear-gradient(left top,  rgba(17,72,127,1) 0%,rgba(25,106,192,1) 100%));
+		@include filter-gradient(#000205, #5A5D66, horizontal); // IE6-9 fallback on horizontal gradient
+		@include background-image(linear-gradient(left top,  #000205 0%,#5A5D66 100%));
 		height:$mq-height;
 		border-bottom: 1px solid black;
 		color:white;
@@ -481,7 +518,7 @@ nav ul{
 			a{
 				color: white;
 				font-size:11pt;
-				font-family: "Helvetica Neue", sans-serif;
+				font-family: $hlv, sans-serif;
 				font-style: italic;
 				font-weight: 200;
 				text-decoration: none;
@@ -543,10 +580,11 @@ fieldset{
 
 }
 .m-form-control{
-		padding: 4px;
+		padding: 6px;
 		border: none;
 		border-bottom:1px dotted #777;
 		background-color: transparent;
+		box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
 		&.wide{
 			border-bottom:1px solid #b9bdbd;
 			width:100%;
@@ -578,6 +616,7 @@ fieldset{
 	left:0;
 	bottom:0;
 	top: $mq-height*2;
+	min-width: 740px;
 	// right:250px;
 	right: 0;
 	font-family: 'Lucida Grande', sans-serif;
@@ -648,7 +687,7 @@ body.ads{
 				background-color:rgba(0,0,0,0.8);
 				color: white;
 				padding:15px 40px;
-				font-family: 'Helvetica Neue', sans-serif;
+				font-family: $hlv, sans-serif;
 				h4{
 					margin: 0;
 				}
@@ -732,6 +771,7 @@ body.ads{
 .rating{
 	position: relative;
 	z-index: 1;
+	color: black;
 	.uploader{
 		color:black;
 		a{
@@ -751,24 +791,24 @@ body.ads{
 		font-size: 0pt;
 	}
 	div{
-		display: inline-block;
+		// display: inline-block;
 	}
 	.star{
-		width: 18px;
+		width: 16px;
 		height: 18px;
 		display: inline-block;
 		background-image: asset-url('stars.png');
 		margin-right:2px;
 		cursor: pointer;
 		&.lit{
-			background-position: 17px 0px;
+			background-position: 16px 0px;
 		}
 		&.dim{
-			background-position: -17px 0px;
+			background-position: -18px 0px;
 		}
 		&.sel, &.seld{
-			background-position: 0 0;
-			width:18px;
+			background-position: -1px 0px;
+			width:16px;
 			// margin:0;
 			height: 18px;
 			position: relative;
@@ -796,7 +836,10 @@ body.ads{
 h3{
 	font-weight: bold;
 	font-size: 12pt;
-	margin:20 auto;
+	margin:20 auto; //intentionally broken
+	&.b-marged{
+		margin-bottom: 10px;
+	}
 }
 h3.sub{
 	color: #aaa;
@@ -812,6 +855,9 @@ h4.i{
 h2{
 	font-weight: bold;
 	font-size: 16pt;
+	&.marged{
+		margin: 10px 0;
+	}
 }
 h1{
 	font-size: 24pt;
@@ -888,7 +934,7 @@ h1{
 	bottom: 0;
 	top: $mq-height*2;
 	background-color: rgba(250,250,250,1);
-	font-family: 'Helvetica Neue', sans-serif;
+	font-family: $hlv, sans-serif;
 	.x1,.x2{
 		padding: 10px;
 		font-size: 10pt;
@@ -912,6 +958,7 @@ h1{
 #cw-live{
 	overflow: auto;
 	float:right;
+	min-height: 270px;
 	.ivideon_c{
 		width: 50%;
 		float:left;
@@ -980,14 +1027,24 @@ article.media{
 	padding: 15px;
 }
 
+.pad-7{
+	padding: 7px;
+}
+
 .cw_cat{
 	left: -120px;
 	position: relative;
 }
 
 #cw_content .c{
-	float: left;
+	// float: left;
 	margin: 12px;
+	&.left{
+		float:left;
+	}
+	&.right{
+		float:right;
+	}
 }
 
 #cw-info{
@@ -999,8 +1056,7 @@ article.media{
 }
 
 #cw-live{
-	width: 60%;
-	float: right !important;
+	width: 58%;
 }
 
 td.td-10{
@@ -1028,7 +1084,7 @@ a.m-btn{
 		// display: none !important;
 		visibility:hidden;
 		opacity: 0;
-		color: white;
+		a{color: white;}
 		position: absolute;
 		&.active{
 			// display: inline-block !important;
@@ -1036,5 +1092,40 @@ a.m-btn{
 		  opacity:1;
 		  transition-delay:0s;
 		}
+	}
+}
+
+.balloon{
+	font-family: $hlv, $pt, sans-serif;
+}
+
+#fake_video{
+	width:100%;
+}
+
+#cw-videos{
+}
+#cw-images{
+}
+
+#cw-actions{
+}
+
+#cw-reviews{
+}
+.pbox{
+	box-shadow: $g-shadow;
+	padding:10px;
+	margin:10px;
+}
+
+
+
+
+
+
+.reviews{
+	.rating{
+		margin-top:0;
 	}
 }

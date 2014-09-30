@@ -31,7 +31,8 @@
       %span= car_wash.zones_count
   %tr
     %td.td-10
-      %span.title Акции:
+      %span.title Акция:
     %td
-      %ul
-        = actions(left_actions, 'li')
+      -#%ul
+        -# = actions(left_actions, 'li')
+      = car_wash.widget_content

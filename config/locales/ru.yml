@@ -369,3 +369,8 @@ ru:
   views:
     pagination:
       truncate: "..."
+      next: "Следующая"
+      last: "В конец"
+      first: "В начало"
+      previous: "Предыдущая"
+

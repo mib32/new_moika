@@ -23,6 +23,16 @@
               = hidden_field_tag :survey_id, @survey.id
         .m-row
           = f.submit 'Отправить'
+  %h5.pad-7 Новости
+  %section#news_list
+    - @news.each do |n|
+      = link_to main_app.post_path(n) do
+        %span
+          = l n.created_at, format: :short
+        %br
+        %b= n.title.truncate(35)
+        %br
+        = strip_tags n.content.truncate(80)
 #footer
   = render 'footer'
 

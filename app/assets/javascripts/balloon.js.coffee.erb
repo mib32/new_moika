@@ -4,19 +4,22 @@ class @Balloon
     wrapper_begin = '<div class="balloon">'
     wrapper_end = '</div>'
     part1 = """
-      <h3>
+      <h2 class="marged">
         #{car_wash.title}
-      </h3>
-      <h5 class="address">
+      </h2>
+      <div class="address">
         Адрес: #{car_wash.address}
-      </h5>
-      <h3 class="phone">
+      </div>
+      <div class="phone">
         Телефон: #{car_wash.contacts}
-      </h3>
+      </div>
             """
     part2 = if car_wash.servises? then "<h5 class='services'>#{car_wash.services}</h5>" else ''
     part3 = if car_wash.main_action? then "<h3 class='red'>#{car_wash.main_action}</h3>" else ''
     part4 = """
+      <div class="cats">
+        #{car_wash.categories}
+      </div>
       <a href='#{url}'>
         Перейти на страницу этой мойки
       </a>
@@ -26,45 +29,18 @@ class @Balloon
       ret = wrapper_begin + part1 + part4 + wrapper_end
     else
       if car_wash.signal
-        if car_wash.videoned
           ret = """
             <div class="balloon">
               #{part1}
-              <img src='<%= asset_path('green.png') %>'>
-              <span class="green">Свободно</span>
-              <img src='<%= asset_path('video_camera.png') %>'>
-              <br/>
-              #{part4}
-            </div>
-                """
-        else
-          ret = """
-            <div class="balloon">
-              #{part1}
-              <img src='<%= asset_path('green.png') %>'>
               <span class="green">Свободно</span>
               <br/>
               #{part4}
             </div>
                 """
       else
-        if car_wash.videoned
           ret = """
             <div class="balloon">
               #{part1}
-              <img src='<%= asset_path('red.png') %>'>
-              <span class="red">Занято</span>
-              <img src='<%= asset_path('video_camera.png') %>'>
-              <br/>
-              #{part4}
-            </div>
-                """
-        else
-          ret = """
-          <div class="balloon">
-            ret = wrapper_begin + part1
-              #{part1}
-              <img src='<%= asset_path('red.png') %>'>
               <span class="red">Занято</span>
               <br/>
               #{part4}

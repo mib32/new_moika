@@ -1,19 +1,15 @@
-= form_for [@car_wash,@review] do |f|
-  - if @review.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
-      %ul
-        - @review.errors.full_messages.each do |msg|
-          %li= msg
+.review_form
+  %fieldset
+    = form_for [@car_wash, @review], html: { multipart: true } do |f|
+      = hidden_field_tag "review[rating]", nil, class: 'rating_field'
+      .m-row
+        = f.text_field :text
+      .m-row
+        = f.fields_for :images, @review.images.build do |is|
+          = is.label :image
+          = is.file_field :image
 
-  .field
-    = f.label :text
-    = f.text_field :text
-  .field
-    = f.label :rating
-    = f.select:rating, (0..5)
-  -#.field
-    -# f.label :car_wash_id
-    -#f.text_field :car_wash_id
-  .actions
-    = f.submit 'Save'
+      -#.uploader
+        
+      .m-row
+        = f.submit 'Отправить'

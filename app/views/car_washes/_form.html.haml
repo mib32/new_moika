@@ -1,6 +1,6 @@
 -#render 'payment_notification'
-.c= render 'widgets_form'
-.c
+.c.left= render 'widgets_form'
+.c.left
   %h4 Занятость
   = form_for @car_wash do |f|
     = f.radio_button :signal, true, class: 'toggle'

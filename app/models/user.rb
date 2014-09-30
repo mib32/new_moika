@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    role?(:admin)
+    @is_admin ||= role?(:admin)
   end
 
   def client?

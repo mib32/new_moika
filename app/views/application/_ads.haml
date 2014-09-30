@@ -1,10 +1,12 @@
 .x1
-  .atl
-    %h4= @settings.ad_1_title
-  .atx
-    %p= @settings.ad_1_text
+  = link_to @settings.ad_1_url do
+    .atl
+      %h4= @settings.ad_1_title
+    .atx
+      %p= @settings.ad_1_text
 .x2
-  .atl
-    %h4= @settings.ad_2_title
-  .atx
-    %p= @settings.ad_2_text
+  = link_to @settings.ad_2_url do
+    .atl
+      %h4= @settings.ad_2_title
+    .atx
+      %p= @settings.ad_2_text

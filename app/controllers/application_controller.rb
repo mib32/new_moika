@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_news
-    @news = Post.news.limit(3)
+    @news = Post.news.limit(1)
   end
 
   def set_sets
@@ -67,8 +67,8 @@ class ApplicationController < ActionController::Base
 
 
   def set_curr
-    @euro = Currency.get_current_eur
-    @usd = Currency.get_current_usd
+    @euro ||= Currency.get_current_eur
+    @usd ||= Currency.get_current_usd
   end
 
 

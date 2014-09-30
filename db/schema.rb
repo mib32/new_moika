@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929220943) do
+ActiveRecord::Schema.define(version: 20140930162228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,34 +105,35 @@ ActiveRecord::Schema.define(version: 20140929220943) do
     t.integer  "zones_count"
     t.string   "video_url1"
     t.string   "video_url2"
-    t.boolean  "signal",                                 default: true
+    t.boolean  "signal",                                    default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "site_url"
-    t.boolean  "blink",                                  default: false
+    t.boolean  "blink",                                     default: false
     t.boolean  "signal_changed"
-    t.boolean  "activated",                              default: false
+    t.boolean  "activated",                                 default: false
     t.string   "official_title"
     t.string   "u_address"
     t.string   "inn"
-    t.boolean  "action_on_map",                          default: false
-    t.boolean  "youtubed",                               default: false
+    t.boolean  "action_on_map",                             default: false
+    t.boolean  "youtubed",                                  default: false
     t.string   "vk_url"
     t.string   "odn_url"
-    t.decimal  "rating",         precision: 5, scale: 4, default: 0.0
-    t.boolean  "videoned",                               default: false
+    t.decimal  "rating",            precision: 5, scale: 4, default: 0.0
+    t.boolean  "videoned",                                  default: false
     t.string   "signal_type"
     t.string   "video_title1"
     t.string   "video_title2"
-    t.boolean  "discounted",                             default: false
-    t.boolean  "grey",                                   default: false
-    t.boolean  "brended",                                default: false
-    t.boolean  "gasolined",                              default: false
-    t.boolean  "repaired",                               default: false
-    t.boolean  "tired",                                  default: false
+    t.boolean  "discounted",                                default: false
+    t.boolean  "grey",                                      default: false
+    t.boolean  "brended",                                   default: false
+    t.boolean  "gasolined",                                 default: false
+    t.boolean  "repaired",                                  default: false
+    t.boolean  "tired",                                     default: false
     t.integer  "title_image"
     t.string   "widget_type"
     t.string   "widget_content"
+    t.datetime "updated_widget_at"
   end
 
   create_table "car_washes_categories", force: true do |t|
@@ -383,6 +384,7 @@ ActiveRecord::Schema.define(version: 20140929220943) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "created_by"
+    t.string   "user_name"
   end
 
   add_index "reviews", ["car_wash_id"], name: "index_reviews_on_car_wash_id", using: :btree
@@ -434,6 +436,8 @@ ActiveRecord::Schema.define(version: 20140929220943) do
     t.string   "cl_message_4_url"
     t.string   "cl_message_5_text"
     t.string   "cl_message_5_url"
+    t.string   "ad_1_url"
+    t.string   "ad_2_url"
   end
 
   add_index "settings", ["app_name"], name: "index_settings_on_app_name", unique: true, using: :btree

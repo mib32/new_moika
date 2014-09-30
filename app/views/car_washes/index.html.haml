@@ -1,9 +1,11 @@
+-title 'Список автомоек'
 .header
   -#.m-row= link_to 'добавить автомойку', new_car_wash_path
   .m-row
-    сортировать по:
-    = link_to 'минимальной цене', car_washes_path('order_by' => 'price')
-    = link_to 'рейтингу', car_washes_path('order_by' => 'rating')
+    -#
+      сортировать по:
+      = link_to 'минимальной цене', car_washes_path('order_by' => 'price')
+      = link_to 'рейтингу', car_washes_path('order_by' => 'rating')
     = paginate @car_washes
 .list
   %ul

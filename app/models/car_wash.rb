@@ -71,6 +71,9 @@ class CarWash < ActiveRecord::Base
     actions_by_type(type).try(:action_text).first.try(:text)
   end
 
+  def categories_concated
+    categories.map(&:name).join(", ")
+  end
   # def enable_blink
   #   self.blink = true
   #   self.save!

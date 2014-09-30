@@ -3,6 +3,10 @@
     height: 24px;
     width: 25px;
     display: inline-block;
+    &:hover{
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.21);
+    }
     a {
       max-width: 100%;
       overflow: hidden;
@@ -17,9 +21,6 @@
       background-repeat: no-repeat;
       background-position-x: -41px;
       &:hover {
-        background-image: url(image_path("social/youtube_grey.png"));
-        background-size: cover;
-        background-repeat: no-repeat;
       }
     }
     &#youtube {
@@ -29,8 +30,6 @@
       background-size: cover;
       background-repeat: no-repeat;
       &:hover {
-        background-image: url(image_path("social/youtube_grey.png"));
-        background-size: cover;
         background-repeat: no-repeat;
       }
     }
@@ -39,7 +38,6 @@
       background-size: cover;
       background-repeat: no-repeat;
       &:hover {
-        background-image: url(image_path("social/mir_grey.png"));
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -50,7 +48,6 @@
       background-image: asset-url("social.png");
       background-position-x: -71px;
       &:hover {
-        background-image: url(image_path("social/vk_grey.png"));
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -60,7 +57,6 @@
       background-size: cover;
       background-repeat: no-repeat;
       &:hover {
-        background-image: url(image_path("social/odn_grey.png"));
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -71,8 +67,6 @@
       background-repeat: no-repeat;
       background-position-x: -133px;
       &:hover {
-        background-image: url(image_path("social/twitter_grey.png"));
-        background-size: cover;
         background-repeat: no-repeat;
       }
     }
@@ -82,7 +76,6 @@
       background-repeat: no-repeat;
       background-position-x: -102px;
       &:hover {
-        background-image: url(image_path("social/facebook_grey.png"));
         background-size: cover;
         background-repeat: no-repeat;
       }

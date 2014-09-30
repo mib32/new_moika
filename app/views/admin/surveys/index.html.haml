@@ -1,13 +1,14 @@
-%h1 Listing admin_surveys
+%h1 Опросы
+= link_to 'Новый опрос', new_admin_survey_path, class: 'btn btn-success'
 
-%table
+%table.table
   %tr
-    %th Question
-    %th Answer 1
-    %th Answer 2
-    %th Answer 3
-    %th Answer 4
-    %th Answer 5
+    %th Вопрос
+    %th Ответ №1
+    %th Ответ №2
+    %th Ответ №3
+    %th Ответ №4
+    %th Ответ №5
     %th
     %th
     %th
@@ -20,10 +21,9 @@
       %td= admin_survey.answer_3
       %td= admin_survey.answer_4
       %td= admin_survey.answer_5
-      %td= link_to 'Show', admin_survey
-      %td= link_to 'Edit', edit_admin_survey_path(admin_survey)
-      %td= link_to 'Destroy', admin_survey, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Показать', admin_survey, class: 'btn btn-success'
+      %td= link_to 'Редактировать', edit_admin_survey_path(admin_survey), class: 'btn btn-warning'
+      %td= link_to 'Удалить', admin_survey, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
 
-= link_to 'New Survey', new_admin_survey_path

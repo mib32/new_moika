@@ -12,16 +12,16 @@ $ ->
           }
         }
   $('div[data-rateable]').mousemove (e) ->
-    if $(this).data('rateable') == 'active'
-      size = $(this).data('starSize')
+    # if $(this).data('rateable') == 'active'
+    size = $(this).data('starSize')
 
-      x = e.pageX - $(this).offset().left;
-      stars = 1 + (x / size);
+    x = e.pageX - $(this).offset().left;
+    stars = 1 + (x / size);
 
-      $(this).children().slice(0,stars).each ->
-        $(this).addClass('sel')
-      $(this).children().slice(stars,5).each ->
-        $(this).removeClass('sel')
+    $(this).children().slice(0,stars).each ->
+      $(this).addClass('sel')
+    $(this).children().slice(stars,5).each ->
+      $(this).removeClass('sel')
 
   $('div[data-rateable]').mouseout (e) ->
     if $(this).data('rateable') == 'active'
@@ -34,7 +34,7 @@ $ ->
     x = e.pageX - $(this).offset().left;
     stars = 1 + (x / size);
     console.log 2
-    # $(this).data('rateable', 'passive')
+    $(this).data('rateable', 'passive')
     $(this).children().slice(0,stars).each ->
         $(this).addClass('sel')
     $(this).children().slice(stars,5).each ->

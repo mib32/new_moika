@@ -1,23 +1,26 @@
-%h1 Listing reviews
-
-%table
-  %tr
-    %th Text
-    %th Rating
-    %th Car wash
-    %th
-    %th
-    %th
-
-  - @reviews.each do |review|
-    %tr
-      %td= review.text
-      %td= review.rating
-      %td= review.car_wash.id
-      %td= link_to 'Show', car_wash_review_path(@car_wash, review)
-      %td= link_to 'Edit', edit_car_wash_review_path(@car_wash, review)
-      %td= link_to 'Destroy', car_wash_review_path(@car_wash, review), :method => :delete, :data => { :confirm => 'Are you sure?' }
+.c
+  %h2 Отзывы
+  -#= link_to 'Оставить отзыв', new_car_wash_review_path, class: 'blue'
+  %br
+  %h5 Оставьте отзыв:
+  .rating
+    = render partial: 'rate_it', locals: {item: @car_wash, rating: 0}
+  - @reviews.each do |rev|
+    .pbox
+      %p.date= l rev.created_at.localtime, format: :short
+      = " от "
+      %b= rev.user_name
+      %br
+      %br
+      %div= rev.text
+      %br
+      - if rev.images.any?
+        %h3 Изображения:
+        - rev.images.each do |image|
+          = image_tag asset_path(image.image.medium.url)
+      .rating
+        -5.times do |i|
+          .star{ class: (rev.rating >= i+1 ? 'lit' : 'dim')}
 
 %br
 
-= link_to 'New Review', new_car_wash_review_path
