@@ -17,6 +17,7 @@
         %th=User.human_attribute_name(:email)
         %th=User.human_attribute_name(:phone)
         %th=User.human_attribute_name(:car_wash_title)
+        %th=User.human_attribute_name(:address)
         %th=User.human_attribute_name(:contact_person)
         %th
         %th
@@ -27,6 +28,7 @@
           %td= client.email
           %td= client.phone 
           %td= client.car_wash.title unless client.car_wash.nil?
+          %td= client.car_wash.address
           %td= client.contact_person
           %td= link_to(t('.link_to_car_wash_edit'), edit_car_wash_path(client.car_wash), class: "btn btn-primary btn-sm") unless client.car_wash.nil?
           %td= link_to t('.link_to_message'), "#messagemodal_#{client.id}", class: "btn btn-primary btn-sm", data: {toggle: "modal"}

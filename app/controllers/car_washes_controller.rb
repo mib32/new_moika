@@ -69,6 +69,8 @@ class CarWashesController < ApplicationController
 
     respond_to do |format|
       if @car_wash.update(update_params)
+        # expire_fragment('car_washes_json')
+        Rails.cache.delete 'car_washes_json'
         format.html { redirect_to edit_car_wash_path(@car_wash), notice: 'Автомойка успешно обновлена.' }
         format.json { head :no_content }
         format.js {

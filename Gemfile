@@ -167,3 +167,5 @@ gem 'acts_as_list'
 
 gem 'rails-bootstrap-toggle-buttons'
 
+gem 'jbuilder_cache_multi'
+

@@ -710,6 +710,8 @@ body.ads{
 				// top: -64%;
 				height: 100%;
 				z-index: -1;
+				filter: blur(20px);
+				-webkit-filter: blur(20px);
 			}
 		}
 		.bgt{
@@ -860,7 +862,11 @@ h2{
 	}
 }
 h1{
-	font-size: 24pt;
+	// font-size: 24pt;
+	font-size: 28pt;
+	font-weight: 100;
+	font-family: 'Open Sans', Arial, sans-serif
+
 }
 .posts{
 	section{
