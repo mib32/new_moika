@@ -1,12 +1,12 @@
 -#render 'payment_notification'
 .c.left= render 'widgets_form'
 .c.left
-  %h4 Занятость
+  %h4 Статус
   = form_for @car_wash do |f|
     = f.radio_button :signal, true, class: 'toggle'
-    = label_tag :signal, 'Свободно', class: 'toggle'
+    = label_tag :signal, 'Автомойка свободна', class: 'toggle'
     = f.radio_button :signal, false, class: 'toggle'
-    = label_tag :signal, 'Занято', class: 'toggle'
+    = label_tag :signal, 'Автомойка занята', class: 'toggle'
     .m-row
       = f.submit 'Сохранить', class: 'm-btn'
 

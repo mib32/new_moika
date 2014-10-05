@@ -33,4 +33,15 @@ module CarWashesHelper
   def widget_class widget, cw_widget
     widget == cw_widget ? 'pushed' : ''
   end
+
+  def car_wash_working_time car_wash
+
+    if car_wash.working_time == 'круглосуточно'
+      return "круглосуточно"
+    elsif car_wash.working_time.nil?
+      return "нет информации"
+    else
+      return "с #{car_wash.start_hour}:00 до #{car_wash.end_hour}:00"
+    end
+  end
 end

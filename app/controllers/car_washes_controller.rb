@@ -9,6 +9,7 @@ class CarWashesController < ApplicationController
     when 'html'
       @car_washes  = CarWash.all.page(params[:page]).per 15
     when 'json'
+      # byebug
       @car_washes = CarWash.preload(:categories).all
     end
     
@@ -61,7 +62,9 @@ class CarWashesController < ApplicationController
   # PATCH/PUT /car_washes/1
   # PATCH/PUT /car_washes/1.json
   def update
-
+    @video = Video.new
+    @image = Image.new
+    
     update_params = car_wash_params
     unless car_wash_params[:widget_content].nil?
       update_params[:updated_widget_at] = Time.now

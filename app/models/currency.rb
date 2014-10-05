@@ -20,6 +20,7 @@ class Currency < ActiveRecord::Base
       ret << {name: usd_name, value: usd_value, date: date}
     end
     ret
+  rescue SocketError
   end
 
   def self.save_current_from_cb(current_date = Date.today)

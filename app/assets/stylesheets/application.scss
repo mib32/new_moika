@@ -36,8 +36,12 @@
 
 @import "navs";
 @import "scaffolds";
+
+// Sprites
 @import "toggle_buttons";
 @import "placemarks";
+@import "categories";
+
 // @import "bootstrap";
 // @import "flowplayer/skin/minimalist"
 
@@ -144,7 +148,7 @@ a{
 		// padding-left:21px;
 		// box-shadow: 0 0 6px rgba(0,0,0,0.5);
 		img{
-			width:150px;
+			width:210px;
 		}
 	}
 
@@ -703,6 +707,7 @@ body.ads{
 			height: 115px;
 			overflow: hidden;
 			width: 100%;
+			position: absolute;
 			img{
 				width: 100%;
 				position: fixed;
@@ -716,9 +721,13 @@ body.ads{
 		}
 		.bgt{
 			padding: 10px 20px;
-			background-color: rgba(0,0,0,0.3);
-			position: absolute;
-			top: 30px;
+			// background-color: rgba(0,0,0,0.3);
+			// background-color:  rgba(69, 255, 250, 0.45)
+			// background-color: rgba(99, 184, 255, 0.54);
+			// position: absolute;
+			// margin: 30px 0;
+			margin-bottom:50px;
+			margin-top: 10px;
 			color: white;
 			text-shadow: 0 0 4px rgba(0,0,0,0.3);
 			width: 100%;
@@ -795,28 +804,7 @@ body.ads{
 	div{
 		// display: inline-block;
 	}
-	.star{
-		width: 16px;
-		height: 18px;
-		display: inline-block;
-		background-image: asset-url('stars.png');
-		margin-right:2px;
-		cursor: pointer;
-		&.lit{
-			background-position: 16px 0px;
-		}
-		&.dim{
-			background-position: -18px 0px;
-		}
-		&.sel, &.seld{
-			background-position: -1px 0px;
-			width:16px;
-			// margin:0;
-			height: 18px;
-			position: relative;
-			// top: -2px;
-		}
-	}
+	
 	.lr{
 		// opacity:0.8;
 		color: grey;
@@ -828,6 +816,39 @@ body.ads{
 	}
 }
 
+.star{
+	width: 16px;
+	height: 18px;
+	display: inline-block;
+	background-image: asset-url('stars.png');
+	margin-right:2px;
+	cursor: pointer;
+	&.lit{
+		background-position: 16px 0px;
+	}
+	&.dim{
+		background-position: -18px 0px;
+	}
+	&.sel, &.seld{
+		background-position: -1px 0px;
+		width:16px;
+		// margin:0;
+		height: 18px;
+		position: relative;
+		// top: -2px;
+	}
+}
+
+.review-rating{
+	display: inline-block;
+	position: relative;
+	top: 3px;
+	left: 14px;
+	font-size: 0pt;
+	.star{
+		cursor: default;
+	}
+}
 #c, .c{
 	background-color: lighten($sb-color,80%);
 	margin: 30px;
@@ -1045,19 +1066,45 @@ article.media{
 #cw_content .c{
 	// float: left;
 	margin: 12px;
+	margin-top: 0;
 	&.left{
 		float:left;
 	}
 	&.right{
 		float:right;
 	}
+	#info{
+		width:30%;
+	}
 }
 
 #cw-info{
-	width: 35%;
+	display: inline-block;
+	// width: 30%;
+	// float: left;
 	font-size:10pt;
+
 	.m-info-table tr td {
 		padding:5px;
+	}
+
+}
+
+#cw-first{
+	overflow: hidden;
+	.left{
+		max-width:70%;
+	}
+}
+#cw-map.c{
+	// float:right;
+	// display: inline-block;
+	padding:0;
+	overflow:hidden;
+	background-color: transparent;
+	#map{
+		height:250px;
+		width: 100%;
 	}
 }
 
@@ -1106,7 +1153,7 @@ a.m-btn{
 }
 
 #fake_video{
-	width:100%;
+	width:98%;
 }
 
 #cw-videos{
@@ -1114,11 +1161,10 @@ a.m-btn{
 #cw-images{
 }
 
-#cw-actions{
+#cw-actions.c{
+	margin-top:0;
 }
 
-#cw-reviews{
-}
 .pbox{
 	box-shadow: $g-shadow;
 	padding:10px;
@@ -1134,4 +1180,68 @@ a.m-btn{
 	.rating{
 		margin-top:0;
 	}
+}
+
+.v-inline{
+	*{
+		vertical-align: middle
+	}
+}
+
+.info{
+	.phone{
+		font-size: 17pt;
+		margin-bottom: 10px;
+	}
+	.working-time{
+		margin-top: 10px;
+	}
+}
+
+.categories{
+	margin-top:15px;
+}
+
+#cw-reviews.c{
+	width: 39%;
+	margin-top: 0;
+	.reviews-items{
+		margin-top: 17px;
+		.review-images{
+			display: none;
+			img{
+				width: 100%;
+			}
+		}
+	}
+}
+
+.hidden{
+	display:none;
+}
+
+#bg{
+	img{
+		min-height:100%;
+		min-width: 1024px;
+
+		width:100%;
+		height: auto;
+
+		position: fixed;
+		top: $mq-height*2;
+		left: $sb-width;
+
+		filter: blur(20px);
+		-webkit-filter: blur(20px);
+	}
+}
+
+input,textarea{
+	width: 200px;
+}
+
+#wt{
+	padding: 10px;
+	font-size: 10pt;
 }

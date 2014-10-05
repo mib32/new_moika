@@ -2,13 +2,17 @@ class Widget
   attr_reader :name, :type, :offset, :dim, :ox, :oy, :dx, :dy
   # ;D
   def self.all
+    dim = {x:47,y:57}
       [
-      new(name: 'Автомойка', type: :normal, clip_rect: {offset: {x:67,y:0}, dim: {x:32,y:38}}),
-      new(name: 'Автосервис', type: :repair, clip_rect: {offset: {x:32,y:0}, dim: {x:32,y:38}}),
-      new(name: 'Скидка 10%', type: :discount_10, clip_rect: {offset: {x:134,y:0}, dim: {x:32,y:38}}),
-      # new(name: 'Скидка 15%', type: :discount_15, clip_rect: {offset: {x:98,y:0}, dim: {x:32,y:38}}),
-      new(name: 'Шиномонтаж', type: :tire_svc, clip_rect: {offset: {x:100,y:0}, dim: {x:32,y:38}}),
-      new(name: 'Автозаправка', type: :gasoline, clip_rect: {offset: {x:0,y:0}, dim: {x:32,y:38}})
+      new(name: 'Автомойка', type: :normal, clip_rect: {offset: {x:103,y:0}, dim: dim}),
+      new(name: 'Автосервис', type: :repair, clip_rect: {offset: {x:51,y:0}, dim: dim}),
+      new(name: 'Скидка 10%', type: :discount_10, clip_rect: {offset: {x:207,y:0}, dim: dim}),
+      new(name: 'Скидка 15%', type: :discount_15, clip_rect: {offset: {x:207,y:66}, dim: dim}),
+      new(name: 'Шиномонтаж', type: :tire_svc, clip_rect: {offset: {x:154,y:0}, dim: dim}),
+      new(name: 'Автозаправка', type: :gasoline, clip_rect: {offset: {x:0,y:0}, dim: dim}),
+      new(name: 'Магазин', type: :store, clip_rect: {offset: {x:0,y:66}, dim: dim}),
+      new(name: 'Кафе', type: :cafe, clip_rect: {offset: {x:51,y:66}, dim: dim}),
+      new(name: 'Предложение', type: :proposal, clip_rect: {offset: {x:154,y:66}, dim: dim}),
     ]
       # repair
       # discount_10

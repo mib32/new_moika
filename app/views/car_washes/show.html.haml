@@ -1,40 +1,64 @@
 -title @car_wash.title + ' Мойка-77'
+- content_for :background, car_wash_background(@car_wash)
 #cw_header
-  .hbg
-    = car_wash_background @car_wash
   .bgt
     %h1= car_wash_title @car_wash.title
-    .rating 
-      = render partial: 'rate_it', locals: {item: @car_wash}
+
+    / .rating 
+    /   = render partial: 'rate_it', locals: {item: @car_wash}
+    .categories
+      - @car_wash.categories.each do |category|
+        .cat-pic{ class: category.image + ' ' + cycle('','light')}
 #cw_content.clearfix
-  #cw-info.c.left
-    /=link_to "Оставить заявку",new_car_wash_request_path(@car_wash), class: 'blue'
-    / #cw_signal
-    /   = render 'signal'
-    = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
-  #cw-live.c.right
-    .ivideon_c
-      %h5=@car_wash.video_title1
-      = render 'video_100p', src: @car_wash.video_url1
-    .ivideon_c
-      %h5=@car_wash.video_title2
-      = render 'video_100p', src: @car_wash.video_url2
-  #cw-actions.c.left
-    / .cd
-    /   =link_to new_registration_path(:user), class: 'm-btn' do
-    /     %div= 'Регистрация для клиентов автомойки'
-    / .cd
-    /   =link_to car_wash_reviews_path(@car_wash), class: 'm-btn' do
-    /     %div= 'Отзывы'
-    / .cd
-    /   =link_to new_car_wash_request_path(@car_wash), class: 'm-btn' do
-    /     %div= 'Оставить заявку'
-    .cd
-      =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
-    .cd
-      =link_to 'Отзывы', car_wash_reviews_path(@car_wash), class: 'blue'
-    .cd
-      =link_to 'Оставить заявку', new_car_wash_request_path(@car_wash), class: 'blue'
+  #cw-first
+    .left
+      #cw-info.c
+        .info
+          .phone.v-inline
+            = image_tag 'phone.png'
+            - unless @car_wash.contacts.blank?
+              = link_to @car_wash.contacts, "tel:#{@car_wash.contacts}"
+            - else
+              %span Нет
+          .address.v-inline
+            = image_tag 'pin.png'
+            %span= @car_wash.address
+          .working-time.v-inline
+            = image_tag 'clock.png'
+            %span= car_wash_working_time @car_wash
+      #cw-actions.c
+        .cd
+          =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
+        .cd
+          =link_to 'Оставить заявку', new_car_wash_request_path(@car_wash), class: 'blue'
+    #cw-map.c
+      
+      -#
+        #info.left
+          = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
+      #map
+      /=link_to "Оставить заявку",new_car_wash_request_path(@car_wash), class: 'blue'
+      / #cw_signal
+      /   = render 'signal'
+  #cw-reviews.c.left
+    %h4 Отзывы
+    -#= link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
+    = link_to 'написать свой', 'javascript:;', class: 'blue', 'data-show-that' => '.rating'
+    .rating.hidden
+      = render partial: 'rate_it', locals: {item: @car_wash, rating: 0}
+    .reviews-items
+      = render @car_wash.reviews
+
+  -#[@car_wash.video_url1, @car_wash.video_url2].any?(&:blank?)
+  - if @car_wash.videoned?
+    #cw-live
+      .ivideon_c
+        %h5=@car_wash.video_title1
+        = render 'video_100p', src: @car_wash.video_url1 unless @car_wash.video_url1.blank?
+      .ivideon_c
+        %h5=@car_wash.video_title2
+        = render 'video_100p', src: @car_wash.video_url2 unless @car_wash.video_url2.blank?
+
   #cw-videos.c.right
     = render @videos
   #cw-images.c.left
@@ -42,7 +66,10 @@
   -#= tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
   -#  #c
   -#    = actions(@vacancy_actions, 'li')
--#  
-  #cw-reviews.c.right
-    = link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
-    = render @car_wash.reviews
+
+:javascript
+  window.car_wash = [#{@car_wash.as_json.merge(url:car_wash_url(@car_wash, format: :json), categories_concated: @car_wash.categories_concated).to_json}]
+
+- content_for :map_script do
+  =javascript_include_tag "http://api-maps.yandex.ru/2.1/?lang=ru_RU&"
+  =javascript_include_tag 'map_general_lite'

@@ -1,4 +1,17 @@
 .item
-  %p= review.text
-  %p= review.rating
-  %p= review.created_at
+  %p.date= l review.created_at.localtime, format: :short
+  = " от "
+  %b= review.user_name
+  .review-rating
+    -5.times do |i|
+      .star{ class: (review.rating >= i+1 ? 'lit' : 'dim')}
+  %br
+  %br
+  %div= review.text
+  %br
+  - if review.images.any?
+    = link_to 'показать изображения', 'javascript:;', class: 'blue', 'data-show-that' => '.review-images'
+    .review-images
+      - review.images.each do |image|
+        = link_to asset_path(image.image.url) do 
+          = image_tag asset_path(image.image.medium.url)

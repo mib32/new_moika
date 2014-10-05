@@ -45,19 +45,22 @@ class Admin::CarWashesController < AdminController
 
   private
 
-    def set_car_wash
-      @car_wash = CarWash.find(params[:id])
-    end
+  def set_car_wash
+    @car_wash = CarWash.find(params[:id])
+  end
 
-    def car_wash_params
-      params.require(:car_wash).permit(:title,
-                                       :address,
-                                       :lat, :lon,
-                                       :contacts,
-                                       :site_url,
-                                       :video_url1, :video_url2,
-                                       :vk_url, :odn_url,
-                                       :blink, :videoned,
-                                       :signal_type)
-    end
+  def car_wash_params
+    # params.require(:car_wash).permit(:title,
+    #                                  :address,
+    #                                  :lat, :lon,
+    #                                  :contacts,
+    #                                  :site_url,
+    #                                  :video_url1, :video_url2,
+    #                                  :vk_url, :odn_url,
+    #                                  :blink, :videoned,
+    #                                  :signal_type, :working_time => [])
+    params.require(:car_wash).permit!
+  end
+
+
 end

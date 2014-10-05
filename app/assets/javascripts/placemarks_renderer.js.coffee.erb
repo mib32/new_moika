@@ -28,6 +28,7 @@ class @PlacemarksRenderer
           imageHref: "<%= asset_path('placemarks.png') %>"
           imageSize: <%= w.js_image_size %>
           imageClipRect: <%= w.js_clip_rect %>
+          pisL: 0
         }
         <% end %>
     ]
@@ -125,7 +126,7 @@ class @PlacemarksRenderer
         clusterNumbers: 30
         # clusterIconContentLayout: myIconContentLayout
         size: [10,10]
-        gridSize: 128
+        gridSize: 196
         # groupByCoordinates: false
         # clusterDisableClickZoom: false
       

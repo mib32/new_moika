@@ -17,7 +17,7 @@ class @Balloon
     part2 = if car_wash.servises? then "<h5 class='services'>#{car_wash.services}</h5>" else ''
     part3 = if car_wash.main_action? then "<h3 class='red'>#{car_wash.main_action}</h3>" else ''
     part4 = """
-      <div class="cats">
+      <div class="categories">
         #{car_wash.categories}
       </div>
       <a href='#{url}'>

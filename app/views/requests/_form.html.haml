@@ -9,15 +9,15 @@
 
     .m-row
       = f.label "Имя:"
-      = f.text_field :name
+      = f.text_field :name, class: 'm-form-control'
     .m-row
       = f.label "Телефон:"
-      = f.text_field :phone
+      = f.text_field :phone, class: 'm-form-control'
     .m-row
       = f.label "Электронная почта:"
-      = f.text_field :email
+      = f.text_field :email, class: 'm-form-control'
     .m-row
       = f.label "Заявка:"
-      = f.text_area :text
+      = f.text_area :text, class: 'm-form-control'
     .m-row
       = f.submit t("save_button"), class: 'm-btn'

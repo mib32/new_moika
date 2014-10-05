@@ -45,7 +45,6 @@
 //= require share42
 // require forem
 //=require car_washes
-//= require traffic_provider
 //= require general
 //= require weather
 //= require date

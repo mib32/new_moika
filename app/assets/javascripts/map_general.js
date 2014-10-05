@@ -5,6 +5,7 @@
 //= require hint
 //= require balloon
 //= require map
+//= require traffic_provider
 //= require weather
 //= require date
 //= require load_ivideon

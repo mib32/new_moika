@@ -3,8 +3,16 @@ class @CarWashLoader
   @cw_list = []
 
   @load: ->
+    if window.car_wash != undefined
+      CarWashLoader.parse_json window.car_wash
+      return MapRenderer.myMap.setCenter(CarWashLoader.cw_list[0].coords)
+
     $.getJSON '/car_washes', (json) ->
-      for row in json
+      CarWashLoader.parse_json json
+      
+
+  @parse_json: (json) ->
+    for row in json
         CarWashLoader.cw_list.push
           coords: [row.lat, row.lon],
           id: row.id,

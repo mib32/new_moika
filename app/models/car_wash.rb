@@ -6,6 +6,8 @@ class CarWash < ActiveRecord::Base
   after_validation :geocode,
     if: ->(obj){ obj.lat.nil? || obj.lon.nil? }
 
+  attr_accessor :url, :start_hour, :end_hour, :working_time_string
+
   has_many :users
   has_many :requests
   has_many :messages
@@ -19,6 +21,8 @@ class CarWash < ActiveRecord::Base
   has_and_belongs_to_many :categories
 
   geocoded_by :address, :latitude  => :lat, :longitude => :lon
+
+  # validates_presence_of :contacts, :address, :working_time
 
   
   def activate!
@@ -44,8 +48,79 @@ class CarWash < ActiveRecord::Base
 
 
   def categories_concated
-    categories.map(&:name).join(", ")
+    # categories.map(&:name).join(", ")
+    cat_pics = categories.each_with_index.map do |c,i| 
+      # byebug
+      klass = i % 2 == 1? 'light': ''
+      "<div class='cat-pic #{c.image} #{klass}'></div>"
+    end
+    cat_pics.join("")
   end
+
+  def start_hour
+    if working_time.nil?
+      return 0
+    end
+    res = working_time.scan(/(\d*)\s/).last
+    if res.present?
+      res.last.to_i
+    else
+      res
+    end
+  end
+
+  def end_hour
+    if working_time.nil?
+      return 0
+    end
+    res = working_time.scan(/\s(\d*)/).last
+    if res.present?
+      res.last.to_i
+    else
+      res
+    end
+  end
+
+  def working_time= value
+    if value.kind_of?(Hash)
+      w_time = value['start_hour'] + ' ' + value['end_hour']
+    else
+      w_time = self.working_time_string
+    end
+    write_attribute(:working_time,w_time)
+  end
+
+  def working_time_string= value
+    write_attribute(:working_time, value)
+  end
+
+  def working_time_string
+    w_time = read_attribute(:working_time)
+    w_time_arr = w_time.scan(/(\d*)\s(\d*)/)
+    if w_time_arr.empty?
+      if w_time.is_a?(String)
+        return w_time
+      else
+        return nil
+      end
+    else
+      return ''
+    end
+  end
+
+
+  # def working_time
+  #   w_time = read_attribute(:working_time)
+
+  #   unless w_time.nil?
+    
+  #     time_arr = read_attribute(:working_time).scan(/(\d*)\s(\d*)/)
+  #     {:start_hour => time_arr.last.first.to_i, :end_hour => time_arr.last.last.to_i }
+  #   else
+  #     ""
+  #   end
+  # end
+
 
   protected
   

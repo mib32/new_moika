@@ -15,6 +15,7 @@
       %h5 Отзыв
       .m-row
         = f.text_field :text
+      %h5 Прикрепить фотографию
       .m-row
         = f.fields_for :images, review.images.build do |is|
           = is.file_field :image

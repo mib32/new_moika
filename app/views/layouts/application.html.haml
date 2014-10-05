@@ -17,6 +17,8 @@
       = render partial: 'devise/shared/auth', locals: {current_tab: :sign_in}
     - flash.each do |flash, msg|
       .flash{class: flash}= msg
+    #bg
+      = yield(:background)
     #m
       = yield
     = ads_block

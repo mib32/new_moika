@@ -1,7 +1,7 @@
 #json.cache! CarWash, expires_in: 30.minutes do
-json.cache_collection! @car_washes, expires_in: 30.minutes do |car_wash|
+#json.cache_collection! @car_washes, expires_in: 30.minutes do |car_wash|
 
-	#json.array!(@car_washes) do |car_wash|
+	json.array!(@car_washes) do |car_wash|
 	  json.extract! car_wash,
 	    :id, :title, :address, :lat, :lon,
 	    :contacts, :services, :price,

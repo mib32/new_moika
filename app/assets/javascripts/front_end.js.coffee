@@ -11,3 +11,10 @@ $ ->
   $("input[checked=checked].toggle").each ->
       # $("label[for=" + $(this).attr('id') + "]").addClass('checked');
       $(this).next('label').addClass('checked')
+
+  $("[data-show-that]").click ->
+    hidden = $(this).data('showThat')
+
+    $(hidden).show()
+
+    $(this).hide()
