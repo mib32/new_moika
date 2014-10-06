@@ -43,8 +43,10 @@
     .m-row
       = f.label CarWash.human_attribute_name("video_url2")+':'
       = f.text_field :video_url2, class: 'm-form-control'
+    .m-row
+      = f.submit 'Сохранить', class: 'm-btn'
   .right.cw_cat
-    %h4 Категории автомойки
+    %h4 Дополнительные услуги
     = hidden_field_tag "car_wash[category_ids][]", nil
     - Category.all.each do |category|
       .m-row

@@ -15,11 +15,6 @@
             %span.red &nbsp;*
           = f.text_field :name, class: "m-form-control", required: "required"
         .m-row
-          = f.label :phone do
-            = User.human_attribute_name("phone")
-            %span &nbsp;*
-          = f.phone_field :phone, class: "m-form-control"
-        .m-row
           = f.label :password do
             = User.human_attribute_name("password")
             %span.red &nbsp;*
@@ -39,6 +34,11 @@
               = User.human_attribute_name("car_wash_title")
               %span.red &nbsp;*
             = text_field_tag 'user[car_wash_title]', nil, class: "m-form-control", required: "required", disabled: true
+          .m-row
+            = f.label :phone do
+              = User.human_attribute_name("phone")
+              %span &nbsp;*
+            = f.phone_field :phone, class: "m-form-control"
           .m-row
             = label_tag :address do
               = User.human_attribute_name("address")

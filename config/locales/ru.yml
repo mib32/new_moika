@@ -257,6 +257,7 @@ ru:
       user:
         email: "Электронная почта"
         phone: "Телефон"
+        name: "Имя"
         contact_person: "Контактное лицо"
         car_wash_title: "Название автомойки"
         password: "Пароль"

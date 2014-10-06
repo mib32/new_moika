@@ -4,9 +4,10 @@ class @Balloon
     wrapper_begin = '<div class="balloon">'
     wrapper_end = '</div>'
     part1 = """
+      <a href='#{url}'>
       <h2 class="marged">
         #{car_wash.title}
-      </h2>
+      </h2></a>
       <div class="address">
         Адрес: #{car_wash.address}
       </div>
@@ -17,12 +18,14 @@ class @Balloon
     part2 = if car_wash.servises? then "<h5 class='services'>#{car_wash.services}</h5>" else ''
     part3 = if car_wash.main_action? then "<h3 class='red'>#{car_wash.main_action}</h3>" else ''
     part4 = """
-      <div class="categories">
+      <div class="categories clearfix">
         #{car_wash.categories}
       </div>
+      <br/>
+      <div>
       <a href='#{url}'>
         Перейти на страницу этой мойки
-      </a>
+      </a></div>
             """
 
     if car_wash.grey

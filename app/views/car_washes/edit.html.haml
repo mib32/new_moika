@@ -1,29 +1,49 @@
 #cw_header
-  .hbg
-    = car_wash_background @car_wash
-  .bgt
-    %h1= car_wash_title @car_wash.title
+  .bgt.edit
+    %h1= link_to car_wash_title(@car_wash.title), @car_wash
     %h2 Управление
-#cw_content
+#cw_content.cw_admin
   = bettertabs :cw_tabs, selected_tabs: :info do |tab|
-    = tab.static :basic, 'настройки' do
+    = tab.static :basic, 'Виджеты для карты' do
       = render 'form'
-    = tab.static :video, "видео: #{@car_wash.videos.count}" do
-      .c
+    = tab.static :video, "Загрузка видео" do
+      .c.clearfix
         %h4 Добавить видео:
-        = render partial: 'videos/form', locals: {item: @car_wash}
+        .videos
+          = render partial: 'videos/form', locals: {item: @car_wash}
+        .live
+          = form_for @car_wash do |f|
+            %fieldset.spaced
+              .m-row
+                = f.label CarWash.human_attribute_name("video_title1")
+              .m-row
+                = f.text_field :video_title1, class: 'm-form-control wide'
+              .m-row
+                = f.label CarWash.human_attribute_name("video_url1")
+              .m-row
+                = f.text_field :video_url1, class: 'm-form-control'
+              .m-row
+                = f.label CarWash.human_attribute_name("video_title2")
+              .m-row
+                = f.text_field :video_title2, class: 'm-form-control wide'
+              .m-row
+                = f.label CarWash.human_attribute_name("video_url2")
+              .m-row
+                = f.text_field :video_url2, class: 'm-form-control wide'
+              .m-row
+                = f.submit 'Сохранить', class: 'm-btn'
       #c
         = render @car_wash.videos
-    = tab.static :images, "фото: #{@car_wash.images.count}" do
+    = tab.static :images, "Загрузка фото" do
       .c
         %h4 Добавить фото:
         = render partial: 'images/form_with_parent_item', locals: {item: @car_wash}
       #c
         = render @car_wash.images
-    = tab.static :detailed, "доп. настройки" do
+    = tab.static :detailed, "Информация об автомойке" do
       #c.clearfix
         = render 'detailed_form'
-    = tab.static :requests, "заявки: #{@car_wash.unread_requests_count}" do
+    = tab.static :requests, "Заявки: #{@car_wash.unread_requests_count}" do
       - @car_wash.requests.each do |request|
         .c
           %p.date= l request.created_at.localtime, format: :long

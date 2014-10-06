@@ -579,7 +579,7 @@ fieldset{
 	right: 0;
 	top: 0;
 	bottom: 0;
-	position: absolute;
+	// position: absolute;
 
 
 }
@@ -728,9 +728,12 @@ body.ads{
 			// margin: 30px 0;
 			margin-bottom:50px;
 			margin-top: 10px;
-			color: white;
+			color: #333;
 			text-shadow: 0 0 4px rgba(0,0,0,0.3);
 			width: 100%;
+			&.edit{
+				margin-bottom:20px;
+			}
 		}
 
 	}
@@ -739,6 +742,11 @@ body.ads{
 			width:100%;
 			li{
 				width:20%;
+				transition: all 0.5s ease;
+				&:hover{
+					// background-color:$dark-blue;
+					box-shadow: 0 0 10px 2px rgba(255,255,255,0.6) inset;
+				}
 			}
 		}
 	}
@@ -1237,11 +1245,56 @@ a.m-btn{
 	}
 }
 
-input,textarea{
+input[type=text],input[type=password], input[type=email],textarea{
 	width: 200px;
+	background-color: white;
 }
 
 #wt{
 	padding: 10px;
 	font-size: 10pt;
+}
+
+.balloon{
+	.red{
+		color: white;
+		background-color: red;
+		padding: 6px 20px;
+		display: inline-block;
+		border-radius: 7px;
+		font-weight: bold;
+		font-size: 15px;
+		font-family: 'PT sans', sans-serif;
+		box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.26);
+		margin-left: 3px;
+	}
+	.green{
+		color: white;
+		background-color: rgb(63, 255, 0);
+		padding: 6px 20px;
+		display: inline-block;
+		border-radius: 7px;
+		font-weight: bold;
+		font-size: 15px;
+		font-family: 'PT sans', sans-serif;
+		box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.26);
+		margin-left: 3px;
+	}
+}
+
+#cw_content{
+	.tabs{
+		margin-bottom: 15px;
+	}
+}
+
+.cw_admin{
+	.videos{
+		float:left;
+		width:40%;
+	}
+	.live{
+		float:right;
+		width:50%;
+	}
 }
