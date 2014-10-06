@@ -1,5 +1,5 @@
 -title @car_wash.title + ' Мойка-77'
-- content_for :background, car_wash_background(@car_wash)
+-# content_for :background, car_wash_background(@car_wash)
 #cw_header
   .bgt
     %h1= car_wash_title @car_wash.title
@@ -40,27 +40,30 @@
       /=link_to "Оставить заявку",new_car_wash_request_path(@car_wash), class: 'blue'
       / #cw_signal
       /   = render 'signal'
-  #cw-reviews.c.left
-    %h4 Отзывы
-    -#= link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
-    = link_to 'написать свой', 'javascript:;', class: 'blue', 'data-show-that' => '.rating'
-    .rating.hidden
-      = render partial: 'rate_it', locals: {item: @car_wash, rating: 0}
-    .reviews-items
-      = render @car_wash.reviews
+  #cw-second
+    #cw-reviews
+      .c
+        %h4 Отзывы
+        -#= link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
+        -#= link_to 'написать свой', 'javascript:;', class: 'blue', 'data-show-that' => '.rating'
+        .lp= 'оцените автомойку:'
+        .rating
+          = render partial: 'rate_it_opened', locals: {item: @car_wash, rating: 0}
+        .reviews-items
+          = render @car_wash.reviews
+    .v-content
+      #cw-live
+        %h4 Видео-трансляция
+        .ivideon_c
+          %h5=@car_wash.video_title1
+          = render 'video_100p', src: @car_wash.video_url1 
+        .ivideon_c
+          %h5=@car_wash.video_title2
+          = render 'video_100p', src: @car_wash.video_url2 
 
-  -#[@car_wash.video_url1, @car_wash.video_url2].any?(&:blank?)
-  - if @car_wash.videoned?
-    #cw-live
-      .ivideon_c
-        %h5=@car_wash.video_title1
-        = render 'video_100p', src: @car_wash.video_url1 unless @car_wash.video_url1.blank?
-      .ivideon_c
-        %h5=@car_wash.video_title2
-        = render 'video_100p', src: @car_wash.video_url2 unless @car_wash.video_url2.blank?
-
-  #cw-videos.c.right
-    = render @videos
+      #cw-videos
+        %h4 Видео-презентация
+        = render @videos
   #cw-images.c.left
     = render @images
   -#= tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do

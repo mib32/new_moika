@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
         @review.car_wash.rating = @car_wash.reload.reviews.average(:rating).to_f
         @review.car_wash.save
 
-        format.html { redirect_to car_wash_reviews_path(@car_wash), notice: 'Спасибо! Отзыв добавлен' }
+        format.html { redirect_to car_wash_path(@car_wash), notice: 'Спасибо! Отзыв добавлен' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
