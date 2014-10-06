@@ -997,9 +997,9 @@ h1{
 }
 
 #cw-live{
-	overflow: auto;
+	// overflow: auto;
 	// float:right;
-	// height: 270px;
+	height: 220px;
 	.ivideon_c{
 		width: 50%;
 		float:left;
@@ -1238,6 +1238,20 @@ a.m-btn{
 	}
 	.working-time{
 		margin-top: 10px;
+		margin-bottom:10px;
+	}
+	.proposal{
+		margin-top: 10px;
+		.percent{
+			font-size: 14pt;
+			padding: 2px;
+			display: inline-block;
+			font-weight: bold;
+		}
+	}
+	.no-info{
+		color: #7f8282;
+		font-style: italic;
 	}
 }
 
@@ -1343,17 +1357,21 @@ input[type=text],input[type=password], input[type=email],textarea{
 
 #cw-second{
 	display: table;
+	margin: 12px;
 	#cw-reviews{
 		display: table-cell;
 		width:100%;
 		position: relative;
 		min-width:260px;
 		.c{
+			overflow: auto;
 			position: absolute;
 			top: 0;
 			bottom: 0;
 			right: 0;
 			left: 0;
+			margin:0;
+			margin-right: 12px;
 		}
 	}
 	.v-content{
@@ -1378,4 +1396,11 @@ input[type=text],input[type=password], input[type=email],textarea{
 		width: 70%;
 	}
 
+}
+
+#cw-images{
+	.media{
+		width:50%;
+		float: left;
+	}
 }

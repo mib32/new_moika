@@ -26,6 +26,18 @@
           .working-time.v-inline
             = image_tag 'clock.png'
             %span= car_wash_working_time @car_wash
+          .website.v-inline
+            = image_tag 'globe_24.png'
+            -unless @car_wash.site_url.blank?
+              %span= link_to @car_wash.site_url, url_with_protocol(@car_wash.site_url), :target => '_blank'
+            -else
+              %span.no-info нет информации
+          .proposal.v-inline
+            %span.percent %
+            -unless @car_wash.widget_content.blank?
+              %span= @car_wash.widget_content
+            -else
+              %span.no-info нет предложений
       #cw-actions.c
         .cd
           =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
@@ -63,8 +75,9 @@
 
       #cw-videos
         %h4 Видео-презентация
-        = render @videos
-  #cw-images.c.left
+        = render 'client_youtube', src: video_url(@car_wash.title_video_url)
+
+  #cw-images.c.clearfix
     = render @images
   -#= tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
   -#  #c

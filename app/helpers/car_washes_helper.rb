@@ -39,7 +39,7 @@ module CarWashesHelper
     if car_wash.working_time == 'круглосуточно'
       return "круглосуточно"
     elsif car_wash.working_time.nil?
-      return "нет информации"
+      return raw "<span class='no-info'>нет информации</span>"
     else
       return "с #{car_wash.start_hour}:00 до #{car_wash.end_hour}:00"
     end

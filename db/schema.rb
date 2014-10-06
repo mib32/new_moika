@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003081322) do
+ActiveRecord::Schema.define(version: 20141006113315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 20141003081322) do
     t.string   "widget_content"
     t.datetime "updated_widget_at"
     t.string   "working_time"
+    t.string   "title_video_url"
   end
 
   create_table "car_washes_categories", force: true do |t|
