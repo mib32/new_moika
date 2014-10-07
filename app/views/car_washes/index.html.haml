@@ -1,5 +1,5 @@
 -title 'Список автомоек'
-.header
+.c.pagination-wrap
   -#.m-row= link_to 'добавить автомойку', new_car_wash_path
   .m-row
     -#
@@ -7,14 +7,14 @@
       = link_to 'минимальной цене', car_washes_path('order_by' => 'price')
       = link_to 'рейтингу', car_washes_path('order_by' => 'rating')
     = paginate @car_washes
-.list
-  %ul
-    - @car_washes.each do |cw|
-      %li
-        .cbg= car_wash_background cw
-        .p
-          = link_to cw do
-            %h3= cw.title
-            %h4= cw.address
-          .rating
-            = render partial: 'rate_it', locals: {item: cw}
+.cw-list
+  - @car_washes.each do |cw|
+    .cw.c.left
+      -#.cbg= car_wash_background cw
+      .p
+        = link_to cw do
+          %h3= cw.title
+          %span.address= cw.address
+        .rating
+          -5.times do |i|
+            .star{ class: (cw.rating >= i+1 ? 'lit' : 'dim')}

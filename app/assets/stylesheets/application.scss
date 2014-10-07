@@ -1417,3 +1417,16 @@ input[type=text],input[type=password], input[type=email],textarea{
 		text-decoration: underline;
 	}
 }
+
+.cw{
+	width:200px;
+	height:180px;
+	.address{
+		margin: 10px 0;
+		display: inline-block;
+	}
+}
+.pagination-wrap{
+	margin-bottom:0;
+	display:inline-block;
+}
