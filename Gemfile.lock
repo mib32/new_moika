@@ -422,8 +422,6 @@ GEM
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
-    skylight (0.3.20)
-      activesupport (>= 3.0.0)
     slop (3.6.0)
     spoon (0.0.4)
       ffi
@@ -539,7 +537,6 @@ DEPENDENCIES
   sass-rails (= 4.0.2)
   sassy-buttons
   sdoc
-  skylight
   sprockets (= 2.11.0)
   thin
   turbo-sprockets-rails3

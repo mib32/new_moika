@@ -8,11 +8,12 @@
       = render 'form'
     = tab.static :video, "Загрузка ссылки на видео" do
       .c.clearfix
-        %h4 Добавить видео:
+        
         = form_for @car_wash do |f|
 
           .videos
             -#= render partial: 'videos/form', locals: {item: @car_wash}
+            %h4 Добавить видео:
             %fieldset.spaced
               .m-row
                 = f.label 'Ссылка'
@@ -21,6 +22,7 @@
               .m-row
                 = f.submit 'Сохранить', class: 'm-btn'
           .live
+            %h4 Размещение кода онлайн-трансляции:
             %fieldset.spaced
               .m-row
                 = f.label CarWash.human_attribute_name("video_title1")

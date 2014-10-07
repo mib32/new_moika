@@ -19,11 +19,14 @@ class CarWash < ActiveRecord::Base
   has_many :images, as: :parent
   has_many :videos
   has_and_belongs_to_many :categories
+  has_many :car_washes_services
+  has_many :services, through: :car_washes_services
 
   geocoded_by :address, :latitude  => :lat, :longitude => :lon
 
   # validates_presence_of :contacts, :address, :working_time
 
+  accepts_nested_attributes_for :car_washes_services
   
   def activate!
     self.update(activated: true)

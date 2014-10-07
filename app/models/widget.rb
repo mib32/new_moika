@@ -6,6 +6,7 @@ class Widget
       [
       new(name: 'Автомойка', type: :normal, clip_rect: {offset: {x:103,y:0}, dim: dim}),
       new(name: 'Автосервис', type: :repair, clip_rect: {offset: {x:51,y:0}, dim: dim}),
+      new(name: 'Видео-трансляция', type: :live, clip_rect: {offset: {x:262,y:66}, dim: dim}),
       new(name: 'Скидка 10%', type: :discount_10, clip_rect: {offset: {x:207,y:0}, dim: dim}),
       new(name: 'Скидка 15%', type: :discount_15, clip_rect: {offset: {x:207,y:66}, dim: dim}),
       new(name: 'Шиномонтаж', type: :tire_svc, clip_rect: {offset: {x:154,y:0}, dim: dim}),

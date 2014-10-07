@@ -32,17 +32,16 @@
       = f.label CarWash.human_attribute_name("zones_count")+':'
       = f.text_field :zones_count, class: 'm-form-control'
     .m-row
-      = f.label CarWash.human_attribute_name("video_title1")+':'
-      = f.text_field :video_title1, class: 'm-form-control'
-    .m-row
-      = f.label CarWash.human_attribute_name("video_url1")+':'
-      = f.text_field :video_url1, class: 'm-form-control'
-    .m-row
-      = f.label CarWash.human_attribute_name("video_title2")+':'
-      = f.text_field :video_title2, class: 'm-form-control'
-    .m-row
-      = f.label CarWash.human_attribute_name("video_url2")+':'
-      = f.text_field :video_url2, class: 'm-form-control'
+      %h4 Услуги и цены
+      -#= hidden_field_tag "car_wash[service_ids][]", nil
+      - @car_wash_services.each do |cws|
+        = f.fields_for :car_washes_services, cws do |ffc|
+          .m-row
+            = ffc.label cws.service.name+':'
+            = ffc.text_field :price, class: 'm-form-control'
+      .m-row
+        = f.label 'Дополнительные услуги'
+        = f.text_area :services, class: 'm-form-control wide'
     .m-row
       = f.submit 'Сохранить', class: 'm-btn'
   .right.cw_cat

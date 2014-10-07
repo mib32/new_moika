@@ -74,8 +74,9 @@
           = render 'video_100p', src: @car_wash.video_url2 
 
       #cw-videos
-        %h4 Видео-презентация
-        = render 'client_youtube', src: video_url(@car_wash.title_video_url)
+        -unless @car_wash.title_video_url.nil?
+          %h4 Видео-презентация
+          = render 'client_youtube', src: video_url(@car_wash.title_video_url)
 
   #cw-images.c.clearfix
     = render @images

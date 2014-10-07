@@ -41,6 +41,12 @@ class CarWashesController < ApplicationController
     @payment = Payment.new(car_wash_id: @car_wash.id, amount: 6000.00)
     @video = Video.new
     @image = Image.new
+
+    @car_wash_services = []
+    Service.all.each do |service|
+      @car_wash_services << @car_wash.car_washes_services.find_or_create_by(service_id: service.id)
+    end
+
   end
 
   # POST /car_washes
@@ -142,6 +148,9 @@ class CarWashesController < ApplicationController
         :video_title2,
         :widget_type,
         :widget_content,
-        :category_ids => [])
+        :car_washes_services_attributes => [:price, :id],
+        :category_ids => [],
+        :service_ids => []
+        )
     end
 end

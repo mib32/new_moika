@@ -236,7 +236,7 @@ nav ul{
 				// float: right;
 				position: absolute;
 				right: 11px;
-				top: 12px;
+				top: 10px;
 			}
 
 		a.li{
@@ -1429,4 +1429,8 @@ input[type=text],input[type=password], input[type=email],textarea{
 .pagination-wrap{
 	margin-bottom:0;
 	display:inline-block;
+}
+
+.set-widgets{
+	max-width:366px;
 }

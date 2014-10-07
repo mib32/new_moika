@@ -131,7 +131,7 @@ gem 'mini_magick'
 gem 'carrierwave-processing'
 
 gem 'newrelic_rpm'
-gem 'skylight'
+#gem 'skylight'
 
 #gem 'activemerchant', :require => 'active_merchant'
 #gem 'robokassa'
