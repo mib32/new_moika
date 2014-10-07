@@ -16,7 +16,7 @@ class @Balloon
       </div>
             """
     part2 = if car_wash.servises? then "<h5 class='services'>#{car_wash.services}</h5>" else ''
-    part3 = if car_wash.main_action? then "<h3 class='red'>#{car_wash.main_action}</h3>" else ''
+    part3 = if car_wash.widget_content? then "<div class='widget-content'>#{car_wash.widget_content}</div>" else ''
     part4 = """
       <div class="categories clearfix">
         #{car_wash.categories}
@@ -24,7 +24,7 @@ class @Balloon
       <br/>
       <div>
       <a href='#{url}'>
-        Перейти на страницу этой мойки
+        Перейти на страницу этой автомойки
       </a></div>
             """
 
@@ -35,6 +35,7 @@ class @Balloon
           ret = """
             <div class="balloon">
               #{part1}
+              #{part3}
               <span class="green">Свободно</span>
               <br/>
               #{part4}
@@ -44,6 +45,7 @@ class @Balloon
           ret = """
             <div class="balloon">
               #{part1}
+              #{part3}
               <span class="red">Занято</span>
               <br/>
               #{part4}

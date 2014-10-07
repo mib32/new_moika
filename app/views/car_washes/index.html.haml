@@ -9,12 +9,15 @@
     = paginate @car_washes
 .cw-list
   - @car_washes.each do |cw|
-    .cw.c.left
-      -#.cbg= car_wash_background cw
-      .p
-        = link_to cw do
+    = link_to cw do
+      .cw.c.left
+        -#.cbg= car_wash_background cw
+        .p
           %h3= cw.title
           %span.address= cw.address
         .rating
           -5.times do |i|
             .star{ class: (cw.rating >= i+1 ? 'lit' : 'dim')}
+        .categories.small
+          - cw.categories.each do |category|
+            .cat-pic{ class: category.image + ' ' + cycle('','light')}

@@ -33,4 +33,42 @@
 	&.add_svc{
 		background-position-x: -376px;
 	}
+
+}
+
+.categories.small{
+	margin:0;
+	.cat-pic{
+		width: 27px;
+		height: 27px;
+		float:right;
+		background-image: asset-url('cats_small.png');
+		&.light{
+		background-position-y:-32px;
+	}
+	&.wi-fi{
+		background-position-x: 0;
+	}
+	&.tires{
+		background-position-x:-32px;
+	}
+	&.gasoline{
+		background-position-x: -64px;
+	}
+	&.store{
+		background-position-x: -96px
+	}
+	&.repair{
+		background-position-x: -129px;
+	}
+	&.live{
+		background-position-x: -161px;
+	}
+	&.cafe{
+		background-position-x: -193px;
+	}
+	&.add_svc{
+		background-position-x: -225px;
+	}
+	}
 }
