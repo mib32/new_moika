@@ -30,7 +30,7 @@ class Admin::PostsController < AdminController
 
     respond_to do |format|
       if @admin_post.save
-        format.html { redirect_to admin_post_path(@admin_post), notice: 'Post was successfully created.' }
+        format.html { redirect_to admin_post_path(@admin_post), notice: 'Статья успешно создана' }
         format.json { render action: 'show', status: :created, location: @admin_post }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class Admin::PostsController < AdminController
   def update
     respond_to do |format|
       if @admin_post.update(admin_post_params)
-        format.html { redirect_to admin_post_path(@admin_post), notice: 'Post was successfully updated.' }
+        format.html { redirect_to admin_post_path(@admin_post), notice: 'Статья успешно обновлена' }
         format.json { render action: 'show', status: :ok, location: @admin_post }
       else
         format.html { render action: 'edit' }

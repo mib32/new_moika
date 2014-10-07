@@ -6,14 +6,14 @@
         - @admin_post.errors.full_messages.each do |msg|
           %li= msg
   .form-group
-    = f.label :title
+    = f.label "Заголовок"
     = f.text_field :title, class: 'form-control'
   .form-group
-    = f.label :subtitle
+    = f.label "Подзаголовок"
     = f.text_field :subtitle, class: 'form-control'
 
   .form-group
-    = f.label :content
+    = f.label "Содержимое"
     = f.bootsy_area :content, class: 'form-control col-lg-10', size: "10x20"
 
   %br

@@ -23,8 +23,8 @@
               = hidden_field_tag :survey_id, @survey.id
         .m-row
           = f.submit 'Отправить'
-  %h5.pad-7 Новости
   %section#news_list
+    %h5 Новости
     - @news.each do |n|
       = link_to main_app.post_path(n) do
         %span

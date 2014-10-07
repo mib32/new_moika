@@ -6,13 +6,21 @@
   = bettertabs :cw_tabs, selected_tabs: :info do |tab|
     = tab.static :basic, 'Виджеты для карты' do
       = render 'form'
-    = tab.static :video, "Загрузка видео" do
+    = tab.static :video, "Загрузка ссылки на видео" do
       .c.clearfix
         %h4 Добавить видео:
-        .videos
-          = render partial: 'videos/form', locals: {item: @car_wash}
-        .live
-          = form_for @car_wash do |f|
+        = form_for @car_wash do |f|
+
+          .videos
+            -#= render partial: 'videos/form', locals: {item: @car_wash}
+            %fieldset.spaced
+              .m-row
+                = f.label 'Ссылка'
+              .m-row
+                = f.text_field :title_video_url, class: "m-form-control wide"
+              .m-row
+                = f.submit 'Сохранить', class: 'm-btn'
+          .live
             %fieldset.spaced
               .m-row
                 = f.label CarWash.human_attribute_name("video_title1")
