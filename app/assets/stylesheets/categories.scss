@@ -1,38 +1,65 @@
 .cat-pic{
-	background-image: asset-url('categories.png');
-	width: 46px;
-	height: 46px;
+	background-image: asset-url('cats_08.png');
+	width: 37px;
+	height: 37px;
 	float:left;
 	border-radius: 23px;
 	margin: 2px;
-	box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.4), 1px 1px 3px rgba(0, 0, 0, 0.53);
+	// box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.4), 1px 1px 3px rgba(0, 0, 0, 0.53);
 	&.light{
-		background-position-y:-54px;
+		background-position-y:-43px;
 	}
 	&.wi-fi{
 		background-position-x: 0;
 	}
 	&.tires{
-		background-position-x:-53px;
+		background-position-x:-43px;
 	}
 	&.gasoline{
-		background-position-x: -107px;
+		background-position-x: -86px;
 	}
 	&.store{
-		background-position-x: -161px
+		background-position-x: -129px
 	}
 	&.repair{
-		background-position-x: -214px;
+		background-position-x: -172px;
 	}
 	&.live{
-		background-position-x: -268px;
+		background-position-x: -215px;
 	}
 	&.cafe{
-		background-position-x: -322px;
+		background-position-x: -258px;
 	}
 	&.add_svc{
-		background-position-x: -376px;
+		background-position-x: -301px;
 	}
+// &.light{width: 46px;
+// 		background-position-y:-54px;
+// 	}
+// 	&.wi-fi{
+// 		background-position-x: 0;
+// 	}
+// 	&.tires{
+// 		background-position-x:-53px;
+// 	}
+// 	&.gasoline{
+// 		background-position-x: -107px;
+// 	}
+// 	&.store{
+// 		background-position-x: -161px
+// 	}
+// 	&.repair{
+// 		background-position-x: -214px;
+// 	}
+// 	&.live{
+// 		background-position-x: -268px;
+// 	}
+// 	&.cafe{
+// 		background-position-x: -322px;
+// 	}
+// 	&.add_svc{
+// 		background-position-x: -376px;
+// 	}
 
 }
 
