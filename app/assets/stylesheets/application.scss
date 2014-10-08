@@ -245,6 +245,7 @@ nav ul{
 			cursor:pointer;
 			margin:0;
 			transition: 400ms all ease;
+			-webkit-transition: 400ms all ease;
 			width: 100%;
 			overflow: auto;
 			position: relative;
@@ -321,6 +322,7 @@ nav ul{
 			// padding:0;
 			position:relative;
 			transition: 0.2s all ease;
+			-webkit-transition: 0.2s all ease;
 			// font-weight: 200;
 			&:visited{
 				// color: #444;
@@ -446,10 +448,12 @@ b{
 		.msg_c{
 			position: relative;
 			transition: top 0.5s ease;
+			-webkit-transition: top 0.5s ease;
 			.m-row{
 				a{white-space:nowrap;}
 				padding-left: 10px;
 				transition: background-color 0.5s ease-in;
+				-webkit-transition: background-color 0.5s ease-in;
 				&.dimmed{
 					background-color: darken($yellow,25%);
 				}
@@ -750,6 +754,7 @@ body.ads{
 			li{
 				width:20%;
 				transition: all 0.2s ease;
+				-webkit-transition: all 0.2s ease;
 				&:hover{
 					// background-color:$dark-blue;
 					box-shadow: 0 0 10px 2px rgba(255,255,255,0.6) inset;
@@ -1004,6 +1009,13 @@ h1{
 
 }
 
+.cw-list{
+	margin:10px;
+	a{
+		text-decoration: none;
+	}
+}
+
 #cw-live{
 	// overflow: auto;
 	// float:right;
@@ -1185,6 +1197,7 @@ a.m-btn{
 	.msg_mq{
 		// width:49%;
 		transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+		-webkit-transition:visibility 0s linear 0.5s,opacity 0.5s linear;
 		// float: left;
 		// display: none !important;
 		visibility:hidden;
@@ -1436,12 +1449,31 @@ input[type=text],input[type=password], input[type=email],textarea{
 
 .cw{
 	width:200px;
-	height:180px;
+	min-height:180px;
 	position: relative;
 	background: asset-url('big_car.png');
 	background-color: white;
 	background-repeat: no-repeat;
 	background-position: 110% bottom;
+	border-radius:11px;
+  border: 1px solid #CACACA;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  zoom: 1;
+  *display: inline;
+  _height: 250px;
+  transition: box-shadow 0.3s ease;
+  -webkit-transition: box-shadow 0.3s ease;
+  &:hover{
+  	text-decoration: none;
+		border:1px solid #a3a3a3;
+		box-shadow: 0px 0px 12px rgba(0,0,0,0.4);
+  	h3,span{
+  		text-decoration: underline;
+  	}
+  }
 	.address{
 		margin: 10px 0;
 		display: inline-block;
