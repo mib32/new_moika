@@ -714,6 +714,15 @@ body.ads{
 	}
 
 	#cw_header{
+		&.c{
+			margin: 12px;
+			padding: 0;
+			min-width: 50%;
+			.bgt{
+				margin-bottom:0;
+			}
+			display: inline-block;
+		}
 		.hbg{
 			height: 115px;
 			overflow: hidden;
@@ -740,7 +749,7 @@ body.ads{
 			margin-bottom:50px;
 			margin-top: 10px;
 			color: #333;
-			text-shadow: 0 0 4px rgba(0,0,0,0.3);
+			// text-shadow: 0 0 4px rgba(0,0,0,0.3);
 			width: 100%;
 			&.edit{
 				margin-bottom:20px;

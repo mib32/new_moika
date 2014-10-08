@@ -1,12 +1,12 @@
 -title @car_wash.title + ' Мойка-77'
 -# content_for :background, car_wash_background(@car_wash)
-#cw_header
+#cw_header.c
   .bgt
     %h1= car_wash_title @car_wash.title
 
     / .rating 
     /   = render partial: 'rate_it', locals: {item: @car_wash}
-    .categories
+    .categories.clearfix
       - @car_wash.categories.each do |category|
         .cat-pic{ class: category.image + ' ' + cycle('','light')}
 #cw_content.clearfix
