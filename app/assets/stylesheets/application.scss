@@ -1423,7 +1423,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 	width:200px;
 	height:180px;
 	position: relative;
-	background: url('/assets/big_car.png');
+	background: asset-url('big_car.png');
 	background-color: white;
 	background-repeat: no-repeat;
 	background-position: 110% bottom;
