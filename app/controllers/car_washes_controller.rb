@@ -148,6 +148,7 @@ class CarWashesController < ApplicationController
         :video_title2,
         :widget_type,
         :widget_content,
+        :title_video_url,
         :car_washes_services_attributes => [:price, :id],
         :category_ids => [],
         :service_ids => []

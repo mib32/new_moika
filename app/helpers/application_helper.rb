@@ -61,11 +61,11 @@ module ApplicationHelper
   end
 
   def video_url src
+    # byebug
     base = "//www.youtube.com/embed/"
     suffix = "?wmode=transparent"
     query = URI.parse(src).query
-    if !query.nil?
-      #&& (/wmode=transparent/ =~ self.filename).nil?
+    if !query.nil? && (/wmode=transparent/ =~ src).nil?
       src = base + query[2..-1] + suffix
     else
       src += suffix

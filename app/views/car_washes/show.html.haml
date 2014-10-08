@@ -38,6 +38,18 @@
               %span= @car_wash.widget_content
             -else
               %span.no-info нет предложений
+          
+          .prices
+            - Service.all.each do |service|
+              - cws = CarWashesService.find_by(car_wash_id: @car_wash.id, service_id: service.id)
+              .m5
+                %span.svc= "#{service.name}:"
+                %span.no-info= "#{cws.try(:price).blank? ? 'нет информации' : cws.price}"
+            -unless @car_wash.additional_services.blank?
+              = link_to 'показать дополнительные услуги', 'javascript:;', class: 'blue', 'data-show-that' => '.additional_svc'
+              .additional_svc.hidden
+                %h4 Дополнительные услуги:
+                %div= @car_wash.additional_services
       #cw-actions.c
         .cd
           =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
@@ -76,6 +88,7 @@
       #cw-videos
         -unless @car_wash.title_video_url.nil?
           %h4 Видео-презентация
+          -#= render 'client_youtube', src: @car_wash.title_video_url
           = render 'client_youtube', src: video_url(@car_wash.title_video_url)
 
   #cw-images.c.clearfix
