@@ -94,9 +94,10 @@ $ ->
       $('form.main_action_input').submit()
       this.value = "Редактировать"
       input.prop("disabled", true)
+  ### wtf??? why is it even needed
    $('input,select').keypress (e) ->
      e.keyCode != 13
-
+  ###
   @CarWashPoller =
   poll: ->
     setTimeout @request, 5000
