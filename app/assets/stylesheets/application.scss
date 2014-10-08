@@ -447,6 +447,7 @@ b{
 			position: relative;
 			transition: top 0.5s ease;
 			.m-row{
+				a{white-space:nowrap;}
 				padding-left: 10px;
 				transition: background-color 0.5s ease-in;
 				&.dimmed{
@@ -1187,7 +1188,7 @@ a.m-btn{
 		// display: none !important;
 		visibility:hidden;
 		opacity: 0;
-		a{color: white;}
+		a{color: white;white-space: nowrap;}
 		position: absolute;
 		&.active{
 			// display: inline-block !important;
@@ -1421,9 +1422,22 @@ input[type=text],input[type=password], input[type=email],textarea{
 .cw{
 	width:200px;
 	height:180px;
+	position: relative;
+	background: url('/assets/big_car.png');
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position: 110% bottom;
 	.address{
 		margin: 10px 0;
 		display: inline-block;
+	}
+	.big-car-placemark{
+		background: asset-url('big_car.png');
+		width:103px;
+		height:126px;
+		position:absolute;
+		bottom:0;
+		right:40px;
 	}
 }
 .pagination-wrap{

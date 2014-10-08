@@ -41,7 +41,7 @@
 	.cat-pic{
 		width: 27px;
 		height: 27px;
-		float:right;
+		// float:right;
 		background-image: asset-url('cats_small.png');
 		&.light{
 		background-position-y:-32px;

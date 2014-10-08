@@ -255,6 +255,7 @@ ru:
         discounted: "Скидки"
         action_on_map: "Акция"
         signal_type: "Тип сигнала на карте"
+        admin/survey: "Опрос"
       user:
         email: "Электронная почта"
         phone: "Телефон"
@@ -281,6 +282,13 @@ ru:
         subject: "Тема"
         body: "Сообщение"
         created_at: "Отправлено"
+      admin/survey:
+        question: "Вопрос"
+        answer_1: "Ответ 1"
+        answer_2: "Ответ 2"
+        answer_3: "Ответ 3"
+        answer_4: "Ответ 4"
+        answer_5: "Ответ 5"
     errors:
       models:
         user:
