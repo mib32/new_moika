@@ -69,6 +69,6 @@ class Admin::StaticPagesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def static_page_params
-      params.require(:static_page).permit(:title, :header, :content, :permalink)
+      params.require(:static_page).permit(:title, :header, :content, :permalink, :bootsy_image_gallery_id)
     end
 end
