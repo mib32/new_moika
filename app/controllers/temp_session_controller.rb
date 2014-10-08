@@ -11,7 +11,7 @@ class TempSessionController < ApplicationController
   def create
     if params[:password] == '1234'
       session['athd'] = true
-      redirect_to :root
+      redirect_to session[:redirect_to]
     else
       redirect_to temp_session_index_path
     end

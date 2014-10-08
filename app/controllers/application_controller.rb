@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   helper_method :forem_user
 
   after_action :allow_iframe
-  helper :application
+  # helper :application
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -85,7 +85,8 @@ class ApplicationController < ActionController::Base
 
     def temp_require_login
       unless session['athd']
-        redirect_to temp_session_index_path
+        session[:redirect_to] = request.url
+        redirect_to temp_session_index_path()
       end
     end
 
