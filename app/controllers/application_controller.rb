@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_devise_params, if: :devise_controller?
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :temp_require_login 
   before_action :set_news
   before_action :set_sets
   before_action :set_survey
