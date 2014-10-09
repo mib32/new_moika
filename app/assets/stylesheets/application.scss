@@ -1161,8 +1161,10 @@ article.media{
 	.left{
 		display: table-cell;
 		white-space: nowrap;
+		max-width:70%;
 		#cw-actions{
 			margin-bottom: 0;
+			white-space: normal;
 		}
 		#cw-info{}
 		.c{margin-left: 0;}
@@ -1177,6 +1179,7 @@ article.media{
 			top: 0;
 			bottom: 0;
 			width: 100%;
+			background-color: rgba(0, 0, 0, 0.11);
 		}
 	}
 }
@@ -1269,6 +1272,9 @@ a.m-btn{
 	.phone{
 		font-size: 17pt;
 		margin-bottom: 10px;
+	}
+	.address{
+		white-space: normal;
 	}
 	.working-time{
 		margin-top: 10px;
@@ -1447,8 +1453,17 @@ input[type=text],input[type=password], input[type=email],textarea{
 
 #cw-images{
 	.media{
-		width:50%;
-		float: left;
+		width:49%;
+		// width:200px;
+		min-height:180px;
+		position: relative;
+	  display: -moz-inline-stack;
+	  display: inline-block;
+	  vertical-align: top;
+	  // margin: 10px;
+	  zoom: 1;
+	  *display: inline;
+	  _height: 250px;
 		img{
 			width:100%;
 		}
