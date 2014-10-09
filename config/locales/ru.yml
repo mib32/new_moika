@@ -304,6 +304,7 @@ ru:
               blank: "не может быть пустым"
             email:
               blank: "не может быть пустым"
+              taken: "занята"
         normal_user:
           attributes:
             password:
