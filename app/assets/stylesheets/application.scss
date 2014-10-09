@@ -1222,10 +1222,13 @@ a.m-btn{
 	}
 }
 
-.balloon{
+.balloon, .hint{
 	font-family: $hlv, $pt, sans-serif;
 }
 
+.hint{
+	padding:10px;
+}
 #fake_video{
 	width:98%;
 }
@@ -1522,4 +1525,15 @@ input[type=text],input[type=password], input[type=email],textarea{
 	padding: 7px;
 	display: inline-block;
 	margin: 5px 0;
+}
+.hint-widget-content{
+	margin: 10px 2px;
+	font-size: 12pt;
+}
+.hw-title{
+	display: inline-block;
+	padding:  5px 10px;
+	border-radius: 3px;
+	background-color:rgb(84, 255, 0);
+	color: white;
 }

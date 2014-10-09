@@ -9,5 +9,6 @@
 	    :signal, 
 	    :updated_at, :action_on_map, :grey, :widget_type, :widget_content, :categories_concated
 	  json.url car_wash_url(car_wash, format: :json)
+	  json.widget_title Widget.find_by_type(car_wash.widget_type).name unless car_wash.widget_type == 'normal'
 	end
 #end

@@ -10,7 +10,7 @@ class CarWashesController < ApplicationController
       @car_washes  = CarWash.all.page(params[:page]).per 15
     when 'json'
       # byebug
-      @car_washes = CarWash.preload(:categories).all
+      @car_washes = CarWash.preload(:categories).preload(:services).all
     end
     
   end

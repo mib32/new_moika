@@ -16,7 +16,7 @@ class @Balloon
       </div>
             """
     part2 = if car_wash.servises? then "<h5 class='services'>#{car_wash.services}</h5>" else ''
-    part3 = if car_wash.widget_content? then "<div class='widget-content'>#{car_wash.widget_content}</div>" else ''
+    part3 = if !!car_wash.widget_content then "<div class='widget-content'>#{car_wash.widget_content}</div>" else ''
     part4 = """
       <div class="categories clearfix">
         #{car_wash.categories}

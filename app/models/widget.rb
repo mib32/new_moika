@@ -24,6 +24,10 @@ class Widget
       # магазин
   end
 
+  def self.find_by_type param
+    all.detect { |l| l.type.to_param == param} || raise(ActiveRecord::RecordNotFound)
+  end
+
   def self.each &block
     all.each &block
   end
