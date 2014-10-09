@@ -1,7 +1,8 @@
-%article.media
-  %p.date
-    -if current_user and ((current_user.client? and current_user.car_wash_id = @car_wash.id) or current_user.admin?)
-      = l image.created_at.localtime, format: :long
-      = link_to "Удалить", car_wash_image_path(@car_wash,image), method: :delete,  data: {confirm: t('are_you_sure')}, class: 'black'
-  %h4= my_best_in_place image, :description
-  = image_tag asset_path(image.image.medium.url)
+- unless image.image.blank?
+  %article.media
+    %p.date
+      -if current_user and ((current_user.client? and current_user.car_wash_id = @car_wash.id) or current_user.admin?)
+        = l image.created_at.localtime, format: :long
+        = link_to "Удалить", car_wash_image_path(@car_wash,image), method: :delete,  data: {confirm: t('are_you_sure')}, class: 'black'
+    %h4= my_best_in_place image, :description
+    = image_tag asset_path(image.image.medium.url)
