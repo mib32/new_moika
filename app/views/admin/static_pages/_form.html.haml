@@ -14,7 +14,7 @@
   /   = f.text_area :header, class: 'form-control'
   .form-group
     = f.label :content, 'Текст'
-    = f.bootsy_area :content, size: '100x20', class: 'form-control'
+    = f.bootsy_area :content, size: '100x20', editor_options: { html: true }, class: 'form-control'
   .col-lg-4.col-lg-offset-4.actions
     = f.submit t('save_button'), class: 'btn btn-danger btn-block'
 
