@@ -1,5 +1,5 @@
 class CarWash < ActiveRecord::Base
-  default_scope {order('rating DESC').order('id DESC')}
+  # default_scope {order('rating DESC').order('id DESC')}
   scope :grey, -> { where(grey: true) }
   scope :non_grey, -> { where(grey: false) }
   after_create :create_payment

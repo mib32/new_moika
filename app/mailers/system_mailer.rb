@@ -10,6 +10,15 @@ class SystemMailer < ActionMailer::Base
 
     @request = request
     @car_wash = car_wash
-    mail(to: to.flatten, subject: 'Поступила новая заявка')
+    mail(to: to.flatten, subject: 'Мойка-77: Поступила новая заявка')
+  end
+
+  def new_registration_happen user
+    to = []
+    to << 'mibus32@gmail.com'
+    to << 'progress-msc@mail.ru'
+
+    @user = user
+    mail(to: to.flatten, subject: 'Мойка-77: Новая регистрация')
   end
 end

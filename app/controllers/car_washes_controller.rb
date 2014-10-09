@@ -7,7 +7,7 @@ class CarWashesController < ApplicationController
   def index
     case request.format
     when 'html'
-      @car_washes  = CarWash.all.page(params[:page]).per 15
+      @car_washes  = CarWash.order("case when title like '%Грей%' then 0 else 1 end").all.page(params[:page]).per 15
     when 'json'
       # byebug
       @car_washes = CarWash.preload(:categories).preload(:services).all

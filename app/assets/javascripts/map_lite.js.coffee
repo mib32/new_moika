@@ -47,6 +47,7 @@ window.ydo = ->
   console.log(1)
   MapRenderer.init()
   console.log(2)
+  TrafficProvider.init()
   console.log "CarWashLoader"
   $.when(CarWashLoader.load()).done (data) ->
     $.when(PlacemarksRenderer.render()).done (data) ->

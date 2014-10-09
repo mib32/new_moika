@@ -3,3 +3,5 @@
 //= require balloon
 //= require hint
 //= require map_lite
+//= require traffic_provider
+
