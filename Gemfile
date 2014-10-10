@@ -169,5 +169,5 @@ gem 'rails-bootstrap-toggle-buttons'
 
 gem 'jbuilder_cache_multi'
 
-gem 'request_profiler', group: :development
+gem 'request_profiler'
 
