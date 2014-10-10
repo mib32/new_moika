@@ -1,3 +1,5 @@
+:javascript
+  window.categories_map = #{map_relation_to_obj(Category.all,:id,:image)}
 #map
 - content_for :map_script do
   =javascript_include_tag "http://api-maps.yandex.ru/2.1/?lang=ru_RU"

@@ -102,4 +102,10 @@ module ApplicationHelper
   def title(page_title)
     content_for :title, page_title.to_s
   end
+
+  def map_relation_to_obj relation, key, attr
+  "{"+relation.map do |rel|
+    "#{rel.send(key)}: '#{rel.send(attr)}'"
+  end.join(",")+"}"
+  end
 end

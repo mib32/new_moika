@@ -5,14 +5,38 @@ class CarWashesController < ApplicationController
   # GET /car_washes
   # GET /car_washes.json
   def index
-    case request.format
-    when 'html'
-      @car_washes  = CarWash.order("case when title like '%Грейтек%' then 0 else 1 end").all.page(params[:page]).per 15
-    when 'json'
+    # case request.format
+    # when 'html'
+      # @car_washes  = CarWash.order("case when title like '%Грейтек%' then 0 else 1 end").all.page(params[:page]).per 15
+    # when 'json'
       # byebug
-      @car_washes = CarWash.preload(:categories).preload(:services).all
-    end
+      # @car_washes = CarWash.preload(:categories).preload(:services).all
+      # @car_washes = CarWash.eager_load(:categories).eager_load(:services).all
+    # end
     
+    respond_to do |format|
+      format.html { @car_washes  = CarWash.order("case when title like '%Грейтек%' then 0 else 1 end").all.page(params[:page]).per 15 }
+      format.json do
+        # render json: CarWash.eager_load(:categories).all.to_json(:only => [
+        # :lat, :lon,
+        #   :id,
+        #   :address,
+        #   :title,
+        #   :signal,
+        #   :contacts,
+        #   # :services,
+        #   :blink,
+        #   :main_action,
+        #   :action_on_map,
+        #   :widget_type,
+        #   :widget_content,
+        #   :grey,
+        # ],
+        #  :methods=>[ :widget_title, :categories_concated]
+        #  )
+        @car_washes = CarWash.eager_load(:categories).all
+      end
+    end
   end
 
   def update_map

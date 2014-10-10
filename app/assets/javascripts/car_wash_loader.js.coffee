@@ -19,9 +19,10 @@ class @CarWashLoader
           address: row.address,
           title: row.title,
           signal: row.signal,
-          url: row.url.slice(0,-5),
+          # url: row.url.slice(0,-5),
+          url: "http://moika-77.ru/car_washes/#{row.id}",
           contacts: row.contacts,
-          services: row.services,
+          # services: row.services,
           blink: row.blink,
           main_action: row.main_action,
           action_on_map: row.action_on_map,
@@ -29,5 +30,6 @@ class @CarWashLoader
           widget_content: row.widget_content,
           widget_title: row.widget_title,
           grey: row.grey,
-          categories: row.categories_concated
+          # categories: row.categories_concated
+          category_ids: row.category_ids
 

@@ -15,7 +15,13 @@ class @Balloon
         Телефон: #{car_wash.contacts}
       </div>
             """
-    part2 = if car_wash.servises? then "<h5 class='services'>#{car_wash.services}</h5>" else ''
+    cats = ""
+    i = 0
+    for cat in car_wash.category_ids
+      klass = ((i % 2 == 1) ? 'light': '')
+      cats += "<div class='cat-pic #{window.categories_map[cat]} #{klass}'></div>"
+      i++
+
     part3 = if !!car_wash.widget_content then "<div class='widget-content'>#{car_wash.widget_content}</div>" else ''
     part4 = """
       <div class="categories clearfix">

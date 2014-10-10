@@ -6,7 +6,7 @@ class CarWash < ActiveRecord::Base
   after_validation :geocode,
     if: ->(obj){ obj.lat.nil? || obj.lon.nil? }
 
-  attr_accessor :url, :start_hour, :end_hour, :working_time_string
+  attr_accessor :url, :start_hour, :end_hour, :working_time_string, :widget_title
 
   has_many :users
   has_many :requests
@@ -111,6 +111,9 @@ class CarWash < ActiveRecord::Base
     end
   end
 
+  def widget_title
+    Widget.find_by_type(widget_type).name unless widget_type == 'normal'
+ end
 
   # def working_time
   #   w_time = read_attribute(:working_time)
