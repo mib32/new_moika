@@ -29,5 +29,8 @@ module Moika
     # ActiveRecordQueryTrace.enabled = true
     # ActiveRecordQueryTrace.level = :app
     # ActiveRecordQueryTrace.lines = 5
+
+    config.middleware.use "Rack::RequestProfiler"
+
   end
 end

@@ -8,6 +8,8 @@
 	    :zones_count,
 	    :signal, 
 	    :updated_at, :action_on_map, :grey, :widget_type, :widget_content, :widget_title, :category_ids
-	  json.url car_wash_url(car_wash, format: :json)
+	  #json.url car_wash_url(car_wash, format: :json)
+	  # this is for performance
+	  json.url "http://moika-77.ru/car_washes/#{car_wash.id}"
 	end
 #end

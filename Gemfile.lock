@@ -385,6 +385,8 @@ GEM
       json (~> 1.4)
     refine (0.0.1)
     remotipart (1.2.1)
+    request_profiler (0.0.4)
+      ruby-prof
     rspec (2.99.0)
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)
@@ -404,6 +406,7 @@ GEM
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
+    ruby-prof (0.15.1)
     sanitize (2.0.6)
       nokogiri (>= 1.4.4)
     sass (3.2.19)
@@ -533,6 +536,7 @@ DEPENDENCIES
   rb-fchange
   rb-fsevent
   rb-inotify
+  request_profiler
   rspec-rails (~> 2.0)
   sass-rails (= 4.0.2)
   sassy-buttons
