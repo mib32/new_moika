@@ -10,6 +10,6 @@
 	    :updated_at, :action_on_map, :grey, :widget_type, :widget_content, :widget_title, :category_ids
 	  #json.url car_wash_url(car_wash, format: :json)
 	  # this is for performance
-	  json.url "http://#{@hostname}:#{@port}/car_washes/#{car_wash.id}"
+	  json.url "car_washes/#{car_wash.id}"
 	end
 #end
