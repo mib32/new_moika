@@ -98,7 +98,7 @@
   -#    = actions(@vacancy_actions, 'li')
 
 :javascript
-  window.car_wash = [#{@car_wash.as_json.merge(url:car_wash_url(@car_wash, format: :json), categories_concated: @car_wash.categories_concated).to_json}]
+  window.car_wash = [#{@car_wash.as_json.merge(url:car_wash_url(@car_wash, format: :json), categories_concated: @car_wash.categories_concated, category_ids: @car_wash.category_ids).to_json}]
 
 - content_for :map_script do
   =javascript_include_tag "http://api-maps.yandex.ru/2.1/?lang=ru_RU&"

@@ -1,6 +1,7 @@
 class @Balloon
 
-  @body: (car_wash, url) ->
+  @body: (car_wash) ->
+    url = car_wash.url
     wrapper_begin = '<div class="balloon">'
     wrapper_end = '</div>'
     part1 = """
@@ -15,17 +16,18 @@ class @Balloon
         Телефон: #{car_wash.contacts}
       </div>
             """
-    cats = ""
-    i = 0
-    for cat in car_wash.category_ids
-      klass = ((i % 2 == 1) ? 'light': '')
-      cats += "<div class='cat-pic #{window.categories_map[cat]} #{klass}'></div>"
-      i++
+    if window.categories_map
+      cats = ""
+      i = 0
+      for cat in car_wash.category_ids
+        klass = if i % 2 == 1 then 'light' else ''
+        cats += "<div class='cat-pic #{window.categories_map[cat]} #{klass}'></div>"
+        i++
 
     part3 = if !!car_wash.widget_content then "<div class='widget-content'>#{car_wash.widget_content}</div>" else ''
     part4 = """
       <div class="categories clearfix">
-        #{car_wash.categories}
+        #{cats}
       </div>
       <br/>
       <div>

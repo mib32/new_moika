@@ -34,6 +34,8 @@ class CarWashesController < ApplicationController
         # ],
         #  :methods=>[ :widget_title, :categories_concated]
         #  )
+        @hostname = request.host
+        @port = request.port
         @car_washes = CarWash.eager_load(:categories).all
       end
     end
