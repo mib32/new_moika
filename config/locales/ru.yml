@@ -322,7 +322,7 @@ ru:
         adv: "Реклама"
         static_pages: "Статические страницы"
         car_washes: "Автомойки"
-        posts: "Новости"
+        posts: "Новости и Статьи"
   admin:
     users:
       index:

@@ -1,10 +1,11 @@
-= form_for [:admin,@admin_post], url: admin_posts_path(:type => params[:type]),role: 'form' do |f|
+= form_for [:admin,@admin_post],role: 'form' do |f|
   - if @admin_post.errors.any?
     #error_explanation
       %h2= "#{pluralize(@admin_post.errors.count, "error")} prohibited this admin_post from being saved:"
       %ul
         - @admin_post.errors.full_messages.each do |msg|
           %li= msg
+  =f.hidden_field :type
   .form-group
     = f.label "Заголовок"
     = f.text_field :title, class: 'form-control'

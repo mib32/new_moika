@@ -14,17 +14,18 @@ class Admin::PostsController < AdminController
 
   # GET /admin/posts/new
   def new
-    @admin_post = Post.new
+    @admin_post = Post.new type: params[:type]
   end
 
   # GET /admin/posts/1/edit
   def edit
+    @admin_post = Post.find params[:id]
   end
 
   # POST /admin/posts
   # POST /admin/posts.json
   def create
-    params[:post][:type] = params[:type]
+    # params[:post][:type] = params[:type]
 
     @admin_post = Post.new(admin_post_params)
 
