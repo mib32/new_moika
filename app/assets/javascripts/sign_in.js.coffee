@@ -25,6 +25,7 @@ $ ->
 
 	$('html').click ->
 		$('#auth').hide()
+		$('.flash').fadeOut()
 		console.log 'auth should disap'
 	$('#auth').click (e) ->
 		e.stopPropagation()

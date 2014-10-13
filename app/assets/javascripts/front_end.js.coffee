@@ -13,8 +13,11 @@ $ ->
       $(this).next('label').addClass('checked')
 
   $("[data-show-that]").click ->
-    hidden = $(this).data('showThat')
+    hidden = $(this).nextAll($(this).data('showThat'))
 
     $(hidden).show()
 
     $(this).hide()
+    
+  $('.flash').hover ->
+    $(this).fadeOut()

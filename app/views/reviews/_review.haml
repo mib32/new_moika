@@ -11,7 +11,7 @@
   %br
   - if review.images.any?
     = link_to 'показать изображения', 'javascript:;', class: 'blue', 'data-show-that' => '.review-images'
-    .review-images
+    .review-images.hidden
       - review.images.each do |image|
         = link_to asset_path(image.image.url) do 
           = image_tag asset_path(image.image.medium.url)
