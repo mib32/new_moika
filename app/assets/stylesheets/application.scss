@@ -11,6 +11,7 @@
 // @import "forem/base";
 // @import "forem-bootstrap";
 @import "reset";
+@import "bootsy";
 @import url(http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic);
 //@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic);
 // @font-face {
@@ -775,9 +776,14 @@ body.ads{
 		.tabs{
 			width:100%;
 			li{
-				width:20%;
+				width:16.6%;
 				transition: all 0.2s ease;
 				-webkit-transition: all 0.2s ease;
+				a{
+					white-space: nowrap;
+					font-weight: 400;
+					font-size: 10pt;
+				}
 				&:hover{
 					// background-color:$dark-blue;
 					box-shadow: 0 0 10px 2px rgba(255,255,255,0.6) inset;
@@ -1568,4 +1574,10 @@ input[type=text],input[type=password], input[type=email],textarea{
 }
 .rta{
 	height:80px;
+}
+
+.posts, .static-pages{
+	.c{
+		line-height: 20px;
+	}
 }
