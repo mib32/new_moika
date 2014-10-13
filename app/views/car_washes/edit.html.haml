@@ -2,6 +2,7 @@
   .bgt.edit
     %h1= link_to car_wash_title(@car_wash.title), @car_wash
     %h2 Управление
+    %h2= "Статус: #{car_wash_status(@car_wash.premial_status)}"
 #cw_content.cw_admin
   = bettertabs :cw_tabs, selected_tabs: :info do |tab|
     = tab.static :basic, 'Виджеты для карты' do
@@ -53,6 +54,29 @@
     = tab.static :detailed, "Информация об автомойке" do
       #c.clearfix
         = render 'detailed_form'
+    = tab.static :payment, "Оплата" do
+      .c
+        %h4.text-center Выберите способ оплаты
+        .left-6#robokassa_link_wrapper
+          %h5.text-center Электронными деньгами
+          %p
+            Все электронные платежи производятся через систему
+            = link_to 'Робокасса.', url_for('robokassa.ru'), id: 'robokassa'
+          %p
+            Вы будете перенаправлены на сайт платежной системы, где нужно будет просто следовать инструкциям.
+          - pay_url = Robokassa.client.init_payment_url(@car_wash.payments.first.id, @car_wash.payments.first.amount, '', currency='', language='ru', email='', custom_options={car_wash_id: @car_wash.id})
+          %p.text-center
+            = link_to "Оплатить", pay_url, class: 'blue_button'
+        .right-6#robokassa_link_wrapper
+          %h5.text-center Счет на оплату
+          %p
+            Вы также можете оплатить наши услуги с рассчетного счета вашей организации.
+          %p
+            Перевод может совершаться в течение 5 банковских дней.
+          %p
+            Для ускорения зачисления денежных средств на ваш счет вы можете прислать нам скан или фотографию квитанции на адрес support@moika-77.ru.
+          %p.text-center
+            = link_to "Сформировать счёт в pdf", new_car_wash_invoice_path(@car_wash), class: 'blue_button'
     = tab.static :requests, "Заявки: #{@car_wash.unread_requests_count}" do
       - @car_wash.requests.each do |request|
         .c

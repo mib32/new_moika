@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008083947) do
+ActiveRecord::Schema.define(version: 20141013082320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 20141008083947) do
     t.string   "working_time"
     t.string   "title_video_url"
     t.text     "additional_services"
+    t.string   "premial_status"
   end
 
   create_table "car_washes_categories", force: true do |t|
@@ -357,6 +358,12 @@ ActiveRecord::Schema.define(version: 20141008083947) do
 
   add_index "normal_users", ["email"], name: "index_normal_users_on_email", unique: true, using: :btree
   add_index "normal_users", ["reset_password_token"], name: "index_normal_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "operations", force: true do |t|
+    t.integer "car_wash_id"
+    t.decimal "value",          precision: 10, scale: 2
+    t.string  "transaction_id"
+  end
 
   create_table "payments", force: true do |t|
     t.boolean  "confirmed",   default: false

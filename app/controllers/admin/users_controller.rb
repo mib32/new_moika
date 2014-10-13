@@ -28,8 +28,12 @@ class Admin::UsersController < AdminController
 
   def update
     # abort("upda")
-    if @user.update_attributes(user_params) && @user.make_client && @user.revoke_guest
-      redirect_to admin_users_path, :notice => "User successfully updated."
+
+    if @user.update_attributes(user_params)
+      if params[:add_car_wash] && @user.make_client && @user.revoke_guest
+        CarWash.find(user_params[:car_wash_id]).update!(grey: false)
+      end 
+      redirect_to admin_users_path, :notice => "Пользователь обновлен успешно"
     else
       render :edit
     end

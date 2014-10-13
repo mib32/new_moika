@@ -3,12 +3,20 @@ module Robokassa
   class Interface
     class << self
       def get_options_by_notification_key(key)
+        robo_cred_path = "config/robokassa.yml"
+        robo_cred  = YAML.load_file(robo_cred_path)[Rails.env]
         {
           test_mode: true,
-          login: 'test.moika-77.ru',
-          password1: 'vat123',
-          password2: 'va20T11S'
+          login: robo_cred[:login],
+          password1: robo_cred[:password1],
+          password2: robo_cred[:password2]
         }
+        # {
+        #   test_mode: true,
+        #   login: 'test.moika,
+        #   password1: robo_cred[:password1],
+        #   password2: robo_cred[:password2]
+        # }
       end
 
       def success_implementation(invoice_id, *args)

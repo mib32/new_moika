@@ -12,5 +12,6 @@
     .field
       = f.label :car_wash, t('.car_wash')
       = f.select :car_wash_id, options_from_collection_for_select(CarWash.all, :id, :title)
+      = hidden_field :add_car_wash, true
 
   = f.submit t('link_to_save'), class: "btn btn-primary"

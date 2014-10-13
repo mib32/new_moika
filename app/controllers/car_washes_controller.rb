@@ -1,7 +1,7 @@
 class CarWashesController < ApplicationController
   before_action :set_car_wash, only: [:show, :edit, :update, :destroy]
   before_filter :check_access, :only => [:new, :edit, :update, :destroy]
-
+  before_action :check_premial_type, :only => [:update]
   # GET /car_washes
   # GET /car_washes.json
   def index
@@ -105,7 +105,7 @@ class CarWashesController < ApplicationController
     respond_to do |format|
       if @car_wash.update(update_params)
         # expire_fragment('car_washes_json')
-        Rails.cache.delete 'car_washes_json'
+        # Rails.cache.delete 'car_washes_json'
         format.html { redirect_to edit_car_wash_path(@car_wash), notice: 'Автомойка успешно обновлена.' }
         format.json { head :no_content }
         format.js {
@@ -151,6 +151,18 @@ class CarWashesController < ApplicationController
       @car_wash = CarWash.find(params[:id])
     end
 
+    def check_premial_type
+      return true if current_user.admin?
+
+      case @car_wash.premial_status
+      when 'paid', 'trial'
+        return true
+      else
+        redirect_to edit_car_wash_path(@car_wash), alert: 'Это действо недоступно: неоплаченный профиль'
+      end
+
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_wash_params
@@ -180,4 +192,5 @@ class CarWashesController < ApplicationController
         :service_ids => []
         )
     end
+
 end

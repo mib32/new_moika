@@ -44,4 +44,15 @@ module CarWashesHelper
       return "с #{car_wash.start_hour}:00 до #{car_wash.end_hour}:00"
     end
   end
+
+  def car_wash_status type
+    case type
+    when 'paid'
+      'Оплачено'
+    when 'trial'
+      'Испытательный период'
+    else
+      'Неоплачено'
+    end
+  end
 end
