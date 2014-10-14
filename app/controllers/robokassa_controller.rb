@@ -11,8 +11,9 @@ class RobokassaController < Robokassa::Controller
     hash = Digest::MD5.hexdigest(hash_string)
     if hash.upcase == params[:SignatureValue]
       @car_wash.premial_status = 'paid'
+      @car_wash.save!
     end
-    logger.info "hash: #{hash.inspect} #{params.inspect}"
+    logger.info "#{hash.inspect} #{params.inspect}"
   end
   def success
     super
