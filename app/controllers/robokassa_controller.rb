@@ -9,7 +9,7 @@ class RobokassaController < Robokassa::Controller
     password2 = ROBO_CRED[:password2]
     hash_string = [params[:OutSum],params[:InvId],password2,"shpcar_wash_id=#{params[:shpcar_wash_id]}"].join(":")
     hash = Digest::MD5.hexdigest(hash_string)
-    if hash == params[:SignatureValue]
+    if hash.upcase == params[:SignatureValue]
       @car_wash.premial_status = 'paid'
     end
     logger.info "hash: #{hash.inspect} #{params.inspect}"
