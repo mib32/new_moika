@@ -17,8 +17,7 @@ module Robokassa
         #   password1: robo_cred[:password1],
         #   password2: robo_cred[:password2]
         # }
-      end
-
+      end      
       def success_implementation(invoice_id, *args)
         Payment.find(invoice_id).confirm!
       end

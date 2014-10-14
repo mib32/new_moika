@@ -1,6 +1,16 @@
+require 'digest/md5'
+
 class RobokassaController < Robokassa::Controller
+  ROBO_CRED_PATH = "config/robokassa.yml"
+  ROBO_CRED  = YAML.load_file(ROBO_CRED_PATH)[Rails.env]
   def notify
     super
+    @car_wash = CarWash.find(params[:shpcar_wash_id])
+    password2 = ROBO_CRED[:password2]
+    hash = Digest::MD5.hexdigest([params[:OutSum],params[:InvId],password2,"shpcar_wash_id=#{params[:shpcar_wash_id]}"].join(":"))
+    if hash == params[:SignatureValue]
+      @car_wash.premial_status = 'paid'
+    end
   end
   def success
     super
@@ -16,16 +26,21 @@ class RobokassaController < Robokassa::Controller
     redirect_to edit_car_wash_path(@car_wash), warning: "Во время принятия платежа возникла ошибка. Мы скоро разберемся!"
   end
 
-  def notify_implementation(invoice_id, *args)
-    Payment.find(invoice_id).verifity!
-  end
-
   def get_options_by_notification_key(key)
+
     {
       test_mode: true,
-      login: 'test.moika-77.ru',
-      password1: 'vat123',
-      password2: 'va20T11S'
+      login: ROBO_CRED[:login],
+      password1: ROBO_CRED[:password1],
+      password2: ROBO_CRED[:password2]
     }
+    # {
+    #   test_mode: true,
+    #   login: 'test.moika,
+    #   password1: robo_cred[:password1],
+    #   password2: robo_cred[:password2]
+    # }
   end
+
+
 end
