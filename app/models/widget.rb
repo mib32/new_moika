@@ -52,7 +52,7 @@ class Widget
   end
 
   def js_image_size
-    zoom = 1.1
+    zoom = 0.8
     "[#{dx*zoom},#{dy*zoom}]"
   end
 

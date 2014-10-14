@@ -1581,3 +1581,20 @@ input[type=text],input[type=password], input[type=email],textarea{
 		line-height: 20px;
 	}
 }
+
+.pay-btn{
+	font-size: 8pt;
+	color: #555;
+	text-align:center;
+	line-height:30px;
+	border: 1px solid #aaa;
+	width: 165px;
+	border-radius: 7px;
+	margin: 10px 0;
+}
+.pdf-pay{
+	color: #555;
+	font-size: 8pt;
+	float: right;
+	width: 75%;
+}

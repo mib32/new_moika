@@ -369,7 +369,7 @@ class Robokassa::Interface
       self.new get_options_by_notification_key(key)
     end
 
-    %w{success fail notify}.map{|m| m + '_implementation'} + ['get_options_by_notification_key'].each do |m|
+    %w{success fail notify}.map{|m| m + '_implementation'}.each do |m|
       define_method m.to_sym do |*args|
         raise NoMethodError, "Robokassa::Interface.#{m} should be defined by app developer"
       end

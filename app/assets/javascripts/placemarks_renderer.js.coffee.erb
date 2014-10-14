@@ -26,8 +26,8 @@ class @PlacemarksRenderer
         {
           name: '<%=w.type%>'
           imageHref: "<%= asset_path('placemarks.png') %>"
-          # imageSize: <%= w.js_image_size %>
-          imageSize: [40,48]
+          imageSize: <%= w.js_image_size %>
+          # imageSize: [40,48] 
           imageClipRect: <%= w.js_clip_rect %>
           pisL: 0
         }
