@@ -34,7 +34,7 @@ module ApplicationHelper
     content_tag :li, class: klass do
       link_to path, class: 'li' do
       # image_tag(asset_path image_path)
-        content_tag(:div, name) +
+        content_tag(:div, name, class: 't') +
         content_tag(:div, nil, id: image, class: 'img')
       end
     end
@@ -91,8 +91,15 @@ module ApplicationHelper
     route = [controller.controller_name, controller.action_name]
     rules = [['map'], ['car_washes','show']]
     rules.each do |rule|
-      if (rule & route).any?
-        return false
+      case rule.size
+      when 1
+        if (rule & route).any?
+          return false
+        end
+      else
+        if rule == route
+          return false
+        end
       end
     end
 

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mib32/forem.git
-  revision: a65cf464c40025ac89ea3a18e42a7300897c4d79
+  revision: f5e46882cae7ed69a09834e484bc2f190018b7b2
   branch: rails4
   specs:
     forem (1.0.0.beta1)
@@ -243,7 +243,7 @@ GEM
     hike (1.2.3)
     hirb (0.7.2)
     http_parser.rb (0.6.0)
-    i18n (0.6.11)
+    i18n (0.7.0.beta1)
     interactive_editor (0.0.10)
       spoon (>= 0.0.1)
     irbtools (1.5.1)

@@ -1,6 +1,6 @@
 <a name='post-<%= post.id %>'></a>
 <div class="row">
-  <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%> col-md-12'>
+  <div id='post_<%= post_counter + 1 %>' class='post c <%= cycle('odd', 'even') -%> col-md-12'>
     <% if post.pending_review? %>
       <div class='moderation alert'>
         <%= t(".pending_review") %>
@@ -16,30 +16,26 @@
       </div>
     <% end %>
 
-    <div class='contents'>
-      <div class='user col-md-2'>
-        <div class='username'>
-            <%= link_to post.user.forem_name, [main_app, post.user] %>
-        </div>
-      </div>
+    <div class="post-text"><%= forem_format(post.text) %></div>
 
-      <div class='contents col-md-7'>
-        <a href='#post-<%= post.id %>'>
+      <div class='post-details'>
+        <a href='#post-<%= post.id %>' class="date">
           <%= post_time_tag(post) %>
         </a>
-        <%= forem_format(post.text) %>
+        <span class='post-username'>
+            <%= link_to post.user.forem_name, [main_app, post.user] %>
+        </span>
+        
 
-        <% if post.reply_to %>
-          <div class='in-reply-to'>
+        <% if false && post.reply_to %>
             <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user.forem_name}", "#post-#{post.reply_to.id}" %>
-          </div>
         <% end %>
 
         <% if forem_user %>
           <div class='btn-group'>
             <% if can?(:reply, post.topic) %>
               <% if post.topic.can_be_replied_to? %>
-                <%= link_to t('reply', :scope => 'forem.topic'), forem.new_forum_topic_post_path(post.forum, post.topic, :reply_to_id => post.id), :class => "btn btn-primary" %>
+                <!-- <%= link_to t('reply', :scope => 'forem.topic'), forem.new_forum_topic_post_path(post.forum, post.topic, :reply_to_id => post.id), :class => "btn btn-primary" %> -->
                 <%= link_to t('quote', :scope => 'forem.topic'), forem.new_forum_topic_post_path(post.forum, post.topic, :reply_to_id => post.id, :quote => true), :class => "btn btn-success" %>
               <% end %>
             <% end %>
@@ -54,6 +50,5 @@
           </div>
         <% end %>
       </div>
-    </div>
   </div>
 </div>

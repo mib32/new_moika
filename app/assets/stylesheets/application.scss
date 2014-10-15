@@ -47,6 +47,7 @@
 // @import "flowplayer/skin/minimalist"
 
 $blue: #56b2ff;
+$red: #BE1E2D;
 // rgb(255, 207, 6)
 $yellow: #FFF14A;
 // $yellow: rgba(248, 248, 248, 1);
@@ -56,7 +57,7 @@ $sb-color: white;
 
 $g-shadow: 0px 0px 6px rgba(0,0,0,0.1);
 
-$sb-width: 240px;
+$sb-width: 270px;
 $mq-height: 30px;
 
 $carousel-count: 10;
@@ -138,6 +139,9 @@ a{
 	float:left;
 	.ocean{
 		margin-top: -29px;
+		img{
+			width: $sb-width;
+		}
 	}
 	.logo{
 		// padding-top: 10px;
@@ -203,6 +207,7 @@ a{
 		box-shadow: 0px -1px 5px rgb(186, 190, 197);
 		// background: -webkit-linear-gradient(-64deg, rgba(68,61,59,0.98) 0%,rgba(68,61,59,1) 49%,rgba(81,81,81,1) 50%,rgba(68,61,59,0.98) 100%);
 		background: asset-url('footer_2.png');
+		background-size: cover;
 		#via{
 			// position: absolute;
 			// top: 10px;
@@ -237,6 +242,11 @@ nav ul{
 	li{
 		&:hover{
 			background-color: #f1f6f6;
+		}
+		.t{
+			// position: relative;
+			// left:100px;
+			// float:rigth;
 		}
 		.img{
 				width: 16px;
@@ -622,15 +632,24 @@ fieldset{
 		}
 	}
 .m-btn{
-	background-color: transparent;
+	background-color: white;
 	border: none;
 	padding: 6px 18px;
 	border: 1px solid rgb(161, 158, 158);
 	border-radius: 4px;
 	font-size: 9pt;
-	font-weight: bold;
+	// font-weight: bold;
 	cursor: pointer;
+	&.btn-primary, &.blue{
+		color:white;
+		background-color: $blue;
+	}
+	&.btn-danger, &.red{
+		color:white;
+		background-color: $red;
+	}
 	&:hover{
+		color: black;
 		background-color:#efefef;
 	}
 	&:active{
@@ -645,16 +664,16 @@ fieldset{
 	left:0;
 	bottom:0;
 	top: $mq-height*2;
-	min-width: 740px;
+	min-width: 540px;
 	// right:250px;
 	right: 0;
-	font-family: 'Lucida Grande', sans-serif;
+	font-family: 'Open Sans', 'Lucida Grande', sans-serif;
 	font-size: 10pt;
 	overflow-y: scroll;
 }
 body.ads{
 	#m{
-		right: 250px;
+		right: 230px;
 	}
 }
 
@@ -969,26 +988,86 @@ h1{
 }
 .date{
 	display: inline-block;
-	color: #aaa;
+	color: #aaa !important;
 }
-.forums, .topics{
+.forums, .topics, .posts{
+	form{
+		label{
+			margin:10px 0;
+			display: inline-block;
+		}
+		textarea{
+			height: 150px;
+		}
+	}
+	.btn-group{
+		// display: inline-block;
+		margin-bottom: 0;
+		margin-top: 10px;
+		background-color: transparent;
+		box-shadow: none;
+		padding: 0;
+		.m-btn{
+			border-radius: 3px;
+			padding: 10px;
+			box-shadow: $g-shadow;
+		}
+	}
 	#m{
-		width: 90%;
-		padding: 20px;
+		// width: 90%;
+		// padding: 20px;
+	}
+	.post-text{
+		margin-bottom: 15px;
+	}
+	.post-details{
+		a,span{
+			color: #777;
+			margin-right:10px;
+		}
 	}
 	.topic{
-		background-color: rgba(255,255,255,0.7);
-		padding: 15px 25px;
+		// #forum_topic_links{
+		// 	display: inline-block;
+			margin-bottom: 15px;
+			margin-top: 15px;
+		// 	background-color: transparent;
+		// 	box-shadow: none;
+		// 	padding: 0;
+		// 	.m-btn{
+		// 		border-radius: 3px;
+		// 		padding: 10px;
+		// 		box-shadow: $g-shadow;
+		// 	}
+		// }
+		// background-color: rgba(255,255,255,0.7);
+		background-color: rgba(255,255,255,1);
+		// padding: 15px 25px;
 
-		margin: 20px 0;
-		width:500px;
+		// margin: 20px 0;
+		// width:500px;
+		// width:100%;
+		super{
+			display: block;
+		}
 		.subject{
 			float:left;
+			font-size: 14pt;
+			color: #222;
 		}
 		.latest-post{
 			overflow: hidden;
 			text-align: right;
 			float:right;
+			color: #777;
+		}
+		.posts-count{
+			color: #777;
+			margin-right: 10px;
+		}
+		.views-count{
+			color: #777;
+			margin-right: 10px;
 		}
 	}
 
@@ -1001,11 +1080,11 @@ h1{
 	}
 
 	.post{
-		background-color: rgba(255,255,255,0.7);
-		padding: 15px 25px;
+		// background-color: rgba(255,255,255,0.7);
+		// padding: 15px 25px;
 
-		margin: 20px 0;
-		width:500px;	
+		margin: 15px 30px;
+		// width:500px;	
 	}
 
 }
@@ -1013,7 +1092,7 @@ h1{
 #ad{
 	position: fixed;
 	right: 0;
-	width: 250px;
+	width: 230px;
 	bottom: 0;
 	top: $mq-height*2;
 	background-color: rgba(250,250,250,1);

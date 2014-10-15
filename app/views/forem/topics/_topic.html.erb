@@ -1,4 +1,5 @@
-<li class="topic <%= cycle('odd', 'even') %> <%= topic.locked? ? 'locked' : 'unlocked' %>">
+<li class="c topic <%= cycle('odd', 'even') %> <%= topic.locked? ? 'locked' : 'unlocked' %>">
+  <%= link_to forem.forum_topic_path(@forum, topic) do %>
   <div class='icon'>
     <% if topic.locked? %>
       <span class='lock icon'></span>
@@ -17,12 +18,13 @@
   </div>
   <div class='m-row clearfix'>
     <%= new_since_last_view_text(topic) %>
-    <div class='subject'><%= link_to forem_emojify(topic.subject), forem.forum_topic_path(@forum, topic) %></div>
+    <div class='subject'><%= forem_emojify(topic.subject) %></div>
         <%= link_to_latest_post(topic) -%>
   </div>
   <div class='m-row'>
-    <div class='posts-count'><%= t('forem.post',count:relevant_posts(topic).count) %></div>
+    <span class='posts-count'><%= t('forem.post',count:relevant_posts(topic).count) %></span>
+    <span class="views-count"><%= t('forem.general.views_count', count: topic.views_count) %></span>
+    <span class="date"><%= l topic.created_at.localtime, format: :long %></span>
   </div>
-
-  <!-- <td class='views-count text-center'><%= topic.views_count %></td> -->
+<% end %>
 </li>
