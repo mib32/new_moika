@@ -21,6 +21,7 @@ $ ->
 			$('input[name=car_wash\\[working_time_string\\]]').nextAll('select').prop('disabled',true)
 
 	fun()
+	console.log(123)
 	$('input[name=car_wash\\[working_time_string\\]]').change ->
 		fun()
 

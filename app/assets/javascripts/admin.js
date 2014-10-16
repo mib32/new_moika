@@ -38,6 +38,12 @@
 
 
 //= require ../../../vendor/assets/javascripts/bootsy
+
+
+//= require admin/banners
+//= require admin/car_washes
+//= require admin/posts
+//= require admin/sort_navs
 window.Bootsy.options.parserRules.tags.iframe=
 {
   set_attributes: {
@@ -50,8 +56,3 @@ window.Bootsy.options.parserRules.tags.iframe=
     "src": "href"
   }
 };
-
-//= require admin/banners
-//= require admin/car_washes
-//= require admin/posts
-//= require admin/sort_navs

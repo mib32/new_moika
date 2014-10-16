@@ -99,8 +99,8 @@ class CarWash < ActiveRecord::Base
 
   def working_time_string
     w_time = read_attribute(:working_time)
-    w_time_arr = w_time.scan(/(\d*)\s(\d*)/)
-    if w_time_arr.empty?
+    w_time_arr = w_time.scan(/(\d*)\s(\d*)/) unless w_time.nil?
+    if !w_time_arr.nil? && w_time_arr.empty?
       if w_time.is_a?(String)
         return w_time
       else
