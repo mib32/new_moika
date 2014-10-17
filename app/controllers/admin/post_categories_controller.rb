@@ -3,13 +3,14 @@ class Admin::PostCategoriesController < AdminController
   def new
     @category = PostCategory.new
   end
-  
+
   def create
     @category = PostCategory.new(post_categories_params)
 
     if @category.save
       respond_to do |format|
         format.js
+        format.html{ redirect_to admin_video_posts_path, notice: 'Категория успешно создана'}
       end
     end
   end
