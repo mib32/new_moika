@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%ul.list-group
+  %li.list-group-item= @admin_video_post.title
+  %li.list-group-item= @admin_video_post.subtitle
+  %li.list-group-item= @admin_video_post.post_category.try(:name)
+  %li.list-group-item=sanitize @admin_video_post.content
+
+= link_to t('edit'), edit_admin_video_post_path(@admin_video_post), class: "btn btn-warning"
+\|
+= link_to t('back_link'), admin_video_posts_path, class: "btn btn-success"

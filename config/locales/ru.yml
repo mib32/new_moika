@@ -350,12 +350,13 @@ ru:
         header: "Список автомоек"
     posts:
       index:
-        header: Список новостей
+        header: Список публикаций
       new:
-        news_header: Создание новости
-        info_header: Создание статьи
+        news_post_header: Создание новости
+        info_post_header: Создание статьи
+        video_post_header: Создание видео-публикации
       edit:
-        header: Редактирование новости
+        header: Редактирование публикации
   users:
     show:
       registration_message:

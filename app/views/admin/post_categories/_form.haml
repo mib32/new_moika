@@ -1,0 +1,21 @@
+= form_for [:admin,@category],role: 'form' do |f|
+  - if @category.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@category.errors.count, "error")} prohibited this admin_post from being saved:"
+      %ul
+        - @category.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .form-group
+      = f.label "Имя"
+      = f.text_field :name, class: 'form-control'
+  .row
+    .form-group
+      = f.label "Категория"
+      = f.collection_select(:post_category_id)
+
+  %br
+  %hr
+  .row
+    .col-lg-4.col-lg-offset-4
+      = f.submit t("save_button"), class: 'btn btn-danger btn-block'

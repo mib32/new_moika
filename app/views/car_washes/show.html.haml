@@ -1,7 +1,7 @@
 -title @car_wash.title + ' Мойка-77'
 -# content_for :background, car_wash_background(@car_wash)
 #cw_header.c
-  .bgt
+  .bgt.mobile-block
     %h1= car_wash_title @car_wash.title
 
     / .rating 
@@ -10,9 +10,9 @@
       - @car_wash.categories.each do |category|
         .cat-pic{ class: category.image + ' ' + cycle('','light')}
 #cw_content.clearfix
-  #cw-first
-    .left
-      #cw-info.c
+  #cw-first.mobile-block
+    .left.mobile-block
+      #cw-info.c.mobile-block
         .info
           .phone.v-inline
             = image_tag 'phone.png'
@@ -50,22 +50,22 @@
               .additional_svc.hidden
                 %h4 Дополнительные услуги:
                 %div= @car_wash.additional_services
-      #cw-actions.c
+      #cw-actions.c.mobile-block
         .cd
           =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
         .cd
           =link_to 'Оставить заявку', new_car_wash_request_path(@car_wash), class: 'blue'
-    #cw-map.c
+    #cw-map.c.mobile-block
       
       -#
         #info.left
           = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
-      #map
+      #map.mobile-block
       /=link_to "Оставить заявку",new_car_wash_request_path(@car_wash), class: 'blue'
       / #cw_signal
       /   = render 'signal'
-  #cw-second
-    #cw-reviews
+  #cw-second.mobile-block
+    #cw-reviews.mobile-block
       .c
         %h4 Отзывы
         -#= link_to 'Написать отзыв', new_car_wash_review_path(@car_wash)
@@ -75,23 +75,23 @@
           = render partial: 'rate_it_opened', locals: {item: @car_wash, rating: 0}
         .reviews-items
           = render @car_wash.reviews
-    .v-content
-      #cw-live
+    .v-content.mobile-block
+      #cw-live.mobile-block
         %h4 Видео-трансляция
-        .ivideon_c
+        .ivideon_c.mobile-block
           %h5=@car_wash.video_title1
           = render 'video_100p', src: @car_wash.video_url1 
-        .ivideon_c
+        .ivideon_c.mobile-block
           %h5=@car_wash.video_title2
           = render 'video_100p', src: @car_wash.video_url2 
 
-      #cw-videos
+      #cw-videos.mobile-block
         -unless @car_wash.title_video_url.nil?
           %h4 Видео-презентация
           -#= render 'client_youtube', src: @car_wash.title_video_url
           = render 'client_youtube', src: video_url(@car_wash.title_video_url)
 
-  #cw-images.c.clearfix
+  #cw-images.c.clearfix.mobile-block
     = render @images
   -#= tab.static :hiring, "вакансии: #{@vacancy_actions.size}" do
   -#  #c

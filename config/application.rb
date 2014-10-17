@@ -7,6 +7,7 @@ require "action_mailer/railtie"
 require "sprockets/railtie"
 require 'multi_json'
 require 'emoji'
+require 'breakpoint'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems

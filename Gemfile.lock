@@ -114,6 +114,9 @@ GEM
     boson (1.2.4)
     boson-more (0.2.2)
       boson (>= 1.2.0)
+    breakpoint (2.0.7)
+      compass (>= 0.12.1)
+      sass (>= 3.2.0)
     builder (3.2.2)
     byebug (3.4.0)
       columnize (~> 0.8)
@@ -514,6 +517,7 @@ DEPENDENCIES
   bettertabs
   binding_of_caller
   bootsy
+  breakpoint
   byebug
   cancan
   capistrano (~> 2.0)

@@ -4,7 +4,7 @@ class Admin::PostsController < AdminController
   # GET /admin/posts
   # GET /admin/posts.json
   def index
-    @admin_posts = Post.all
+    @admin_posts = Post.where("type <> 'VideoPost'")
   end
 
   # GET /admin/posts/1
@@ -14,7 +14,7 @@ class Admin::PostsController < AdminController
 
   # GET /admin/posts/new
   def new
-    @admin_post = Post.new type: params[:type]
+    @admin_post = params[:type].constantize.new
   end
 
   # GET /admin/posts/1/edit
@@ -31,7 +31,7 @@ class Admin::PostsController < AdminController
 
     respond_to do |format|
       if @admin_post.save
-        format.html { redirect_to admin_post_path(@admin_post), notice: 'Статья успешно создана' }
+        format.html { redirect_to admin_post_path(@admin_post), notice: 'Публикация успешно создана' }
         format.json { render action: 'show', status: :created, location: @admin_post }
       else
         format.html { render action: 'new' }
@@ -45,7 +45,7 @@ class Admin::PostsController < AdminController
   def update
     respond_to do |format|
       if @admin_post.update(admin_post_params)
-        format.html { redirect_to admin_post_path(@admin_post), notice: 'Статья успешно обновлена' }
+        format.html { redirect_to admin_post_path(@admin_post), notice: 'Публикация успешно обновлена' }
         format.json { render action: 'show', status: :ok, location: @admin_post }
       else
         format.html { render action: 'edit' }

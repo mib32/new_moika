@@ -1,0 +1,6 @@
+%article.post.c.media
+  %h2= video_post.title
+  %h3.sub= video_post.subtitle
+  %p.pc= render 'client_youtube', src: video_url(video_post.content)
+  %p.date= video_post.created_at.localtime.strftime("%H:%M %d.%m.%Y") 
+  .share42init{ 'data-path' => '', 'data-zero-counter' => 1, 'data-icons-file' => asset_path('share42_icons.png')}

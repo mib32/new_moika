@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_news
-    @news = Post.news.limit(1)
+    @news = NewsPost.limit(1)
   end
 
   def set_sets

@@ -1,0 +1,51 @@
+%ul.nav.nav-tabs#users
+  %li.active
+    =link_to "Публикации", "#videos", data:{toggle: "tab"}
+  %li
+    =link_to "Категории", "#categories", data:{toggle: "tab"}
+.tab-content
+  .tab-pane.fade.active.in#videos
+    %br
+    .row
+      .col-lg-12
+        = link_to 'Создать видео-публикацию', new_admin_video_post_path, class: 'btn btn-success'
+    %h1= t('Видео')
+
+    %table.table
+      %tr
+        %th Заголовок
+        %th Подзаголовок
+        %th Категория
+        %th Тип
+        %th Дата создания
+        %th
+        %th
+
+      - @admin_video_posts.each do |admin_post|
+        %tr
+          %td= admin_post.title
+          %td= admin_post.subtitle
+          %td= admin_post.post_category.try(:name)
+          %td= admin_post.type_name
+          %td= admin_post.created_at.localtime.strftime("%H:%M %d.%m.%Y")
+          %td= link_to t('show_link'), admin_video_post_path(admin_post), class: 'btn btn-success'
+          %td= link_to t('edit_button'), edit_admin_video_post_path(admin_post), class: 'btn btn-warning'
+          %td= link_to t('delete_button'), admin_video_post_path(admin_post), :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: 'btn btn-danger'
+  .tab-pane.fade#categories
+    %br
+    .row
+      %h1= t('Категории')
+      .col-lg-12
+        = link_to 'Создать', new_admin_post_category_path, class: 'btn btn-success'
+
+    %table.table.cats
+      %tr
+        %th Название
+        %th
+        %th
+
+      - @admin_video_post_categories.each do |cat|
+        %tr
+          %td= cat.name
+          %td= link_to t('edit_button'), edit_admin_post_category_path(cat), class: 'btn btn-warning'
+          %td= link_to t('delete_button'), admin_post_category_path(cat), :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: 'btn btn-danger'

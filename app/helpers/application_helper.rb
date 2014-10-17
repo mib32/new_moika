@@ -64,7 +64,11 @@ module ApplicationHelper
     # byebug
     base = "//www.youtube.com/embed/"
     suffix = "?wmode=transparent"
-    query = URI.parse(src).query
+    begin
+      query = URI.parse(src).query
+    rescue URI::InvalidURIError
+      return '';
+    end
     if !query.nil? && (/wmode=transparent/ =~ src).nil?
       src = base + query[2..-1] + suffix
     else

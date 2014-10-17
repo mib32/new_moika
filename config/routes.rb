@@ -22,8 +22,9 @@ Moika::Application.routes.draw do
   mount Forem::Engine, :at => '/forum'
 
 
-  get 'news', to: 'posts#index', type: 'news'
-  get 'info', to: 'posts#index', type: 'info'
+  get 'news', to: 'posts#index', type: 'NewsPost'
+  get 'info', to: 'posts#index', type: 'InfoPost'
+  get 'video', to: 'video_posts#index'
   # get 'temp_session/login'
   resources :temp_session
   # resources :navs
@@ -104,6 +105,10 @@ Moika::Application.routes.draw do
     resources :static_pages
     resources :car_washes
     resources :posts
+    resources :news_posts, :controller => 'posts', :type => 'NewsPost'
+    resources :info_posts, :controller => 'posts', :type => 'InfoPost'
+    resources :video_posts
+    resources :post_categories
     resources :navs do
       post :update_position, on: :collection
     end 

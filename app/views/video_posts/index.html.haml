@@ -1,0 +1,4 @@
+= bettertabs :cw_tabs, :class => "bt_#{PostCategory.count}" do |tab|
+  - PostCategory.all.each do |post_category|
+    = tab.static post_category.id, post_category.name do
+      = render post_category.posts

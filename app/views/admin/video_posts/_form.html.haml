@@ -1,0 +1,27 @@
+= form_for [:admin,@admin_video_post],role: 'form' do |f|
+  - if @admin_video_post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@admin_video_post.errors.count, "error")} prohibited this admin_post from being saved:"
+      %ul
+        - @admin_video_post.errors.full_messages.each do |msg|
+          %li= msg
+  =f.hidden_field :type
+  .form-group
+    = f.label "Заголовок"
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label "Описание"
+    = f.text_field :subtitle, class: 'form-control'
+  .form-group
+    = f.label "Категория"
+    = f.collection_select(:post_category_id, PostCategory.all, :id, :name, prompt: "Выберите категорию:")
+
+  .form-group
+    = f.label "Ссылка"
+    = f.text_field :content, class: 'form-control col-lg-10'
+
+  %br
+  %hr
+  .row
+    .col-lg-4.col-lg-offset-4
+      = f.submit t("save_button"), class: 'btn btn-danger btn-block'
