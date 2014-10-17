@@ -67,10 +67,12 @@ module ApplicationHelper
     begin
       query = URI.parse(src).query
     rescue URI::InvalidURIError
-      return '';
+      return ''
     end
+
+    video_id = Rack::Utils.parse_nested_query(query).deep_symbolize_keys[:v]
     if !query.nil? && (/wmode=transparent/ =~ src).nil?
-      src = base + query[2..-1] + suffix
+      src = base + video_id + suffix
     else
       src += suffix
     end
