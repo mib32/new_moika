@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
   has_many :received_messages, class_name: "Message", foreign_key: "receiver_id"
   has_many :posts
+  has_many :subscribes
+  has_many :car_washes, through: :subscribes
+
 
   validates_presence_of :phone, :car_wash_title, :address, if: :car_wash_owner?
 

@@ -6,13 +6,14 @@
   - unless ans.blank?
     .row
       .col-lg-2
-        = ans + ' :'
+        = ans + ':'
       .col-lg-10
         - denominator = @admin_survey.survey_results.where("result = #{i}").count
         - unless denominator == 0
-          =  number_to_percentage 100 * @admin_survey.survey_results.count / denominator, precision: 2
+          =  number_to_percentage 100 * denominator / @admin_survey.survey_results.count, precision: 2
         - else
           = "0%"
+        = " (#{denominator} из #{@admin_survey.survey_results.count})"
 
 
 %p

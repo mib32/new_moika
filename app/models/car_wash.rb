@@ -13,8 +13,8 @@ class CarWash < ActiveRecord::Base
   has_many :messages
   has_many :payments
   has_many :invoices
-  # has_many :subscribes
-  # has_many :normal_users, through: :subscribes
+  has_many :subscribes
+  has_many :users, through: :subscribes
   has_many :reviews
   has_many :images, as: :parent
   has_many :videos
