@@ -1771,3 +1771,27 @@ input[type=text],input[type=password], input[type=email],textarea{
 .c img{
 	max-width:100%;
 }
+
+.video-posts{
+	$vcw: 120px;
+	#m{
+		margin-left: $sb-width+ $vcw;
+	}
+	.tabs{
+		position: fixed;
+		left: $sb-width;
+		// top: $mq-height*
+		width: $vcw;
+		padding: 70px 0px 100% 0px;
+		background: white;
+		margin-top: -70px;
+		li{
+			float:none;
+			background-color: white;
+			a{color:black;}
+			&.active{
+				background-color: #f3f3f3;
+			}
+		}
+	}
+}
