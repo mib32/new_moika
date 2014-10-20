@@ -1,81 +1,84 @@
-#cw_header
-  .bgt.edit
-    %h1= link_to car_wash_title(@car_wash.title), @car_wash
-    %h2 Управление
-    %h2= "Статус: #{car_wash_status(@car_wash.premial_status)}"
-#cw_content.cw_admin
-  = bettertabs :cw_tabs, selected_tabs: :info do |tab|
-    = tab.static :basic, 'Виджеты для карты' do
-      = render 'form'
-    = tab.static :video, "Загрузка ссылки на видео" do
-      .c.clearfix
-        
-        = form_for @car_wash do |f|
+#ca
+  #cw_header
+    .bgt.edit
+      %h1= link_to car_wash_title(@car_wash.title), @car_wash
+      %h2 Управление
+      %h2= "Статус: #{car_wash_status(@car_wash.premial_status)}"
+  #cw_content.cw_admin
+    = bettertabs :cw_tabs, selected_tabs: :info do |tab|
+      = tab.static :basic, 'Виджеты для карты' do
+        = render 'form'
+      = tab.static :video, "Загрузка ссылки на видео" do
+        .c.clearfix
+          
+          = form_for @car_wash do |f|
 
-          .videos
-            -#= render partial: 'videos/form', locals: {item: @car_wash}
-            %h4 Добавить видео:
-            %fieldset.spaced
-              .m-row
-                = f.label 'Ссылка'
-              .m-row
-                = f.text_field :title_video_url, class: "m-form-control wide"
-              .m-row
-                = f.submit 'Сохранить', class: 'm-btn'
-          .live
-            %h4 Размещение кода онлайн-трансляции:
-            %fieldset.spaced
-              .m-row
-                = f.label CarWash.human_attribute_name("video_title1")
-              .m-row
-                = f.text_field :video_title1, class: 'm-form-control wide'
-              .m-row
-                = f.label CarWash.human_attribute_name("video_url1")
-              .m-row
-                = f.text_field :video_url1, class: 'm-form-control'
-              .m-row
-                = f.label CarWash.human_attribute_name("video_title2")
-              .m-row
-                = f.text_field :video_title2, class: 'm-form-control wide'
-              .m-row
-                = f.label CarWash.human_attribute_name("video_url2")
-              .m-row
-                = f.text_field :video_url2, class: 'm-form-control wide'
-              .m-row
-                = f.submit 'Сохранить', class: 'm-btn'
-      #c
-        = render @car_wash.videos
-    = tab.static :images, "Загрузка фото" do
-      .c
-        %h4 Добавить фото:
-        = render partial: 'images/form_with_parent_item', locals: {item: @car_wash}
-      #c
-        = render @car_wash.images
-    = tab.static :detailed, "Информация об автомойке" do
-      #c.clearfix
-        = render 'detailed_form'
-    = tab.static :payment, "Оплата" do
-      .c.clearfix
-        %h4 Выберите способ оплаты
-        %h5.text-center Электронными деньгами
-        - pay_url = Robokassa.client.init_payment_url(@car_wash.payments.first.id, @car_wash.payments.first.amount, '', currency='', language='ru', email='', custom_options={car_wash_id: @car_wash.id})
-        = link_to pay_url do
-          .pay-btn
-            %div Оплатить с помощью
-            %div= image_tag 'robokassa.jpg', size: '150x25'
-        %h5 Счет на оплату
-        %br
-        .pdf-pay
-          %p
-            Вы также можете оплатить наши услуги с рассчетного счета вашей организации.
-          %p
-            Перевод может совершаться в течение 5 банковских дней.
-          %p
-            Для ускорения зачисления денежных средств на ваш счет вы можете прислать нам скан или фотографию квитанции на адрес support@moika-77.ru.
-        = link_to "Сформировать счёт в pdf", new_car_wash_invoice_path(@car_wash), class: 'blue'
-    = tab.static :requests, "Заявки: #{@car_wash.unread_requests_count}" do
-      - @car_wash.requests.each do |request|
+            .videos
+              -#= render partial: 'videos/form', locals: {item: @car_wash}
+              %h4 Добавить видео:
+              %fieldset.spaced
+                .m-row
+                  = f.label 'Ссылка'
+                .m-row
+                  = f.text_field :title_video_url, class: "m-form-control wide"
+                .m-row
+                  = f.submit 'Сохранить', class: 'm-btn'
+            .live
+              %h4 Размещение кода онлайн-трансляции:
+              %fieldset.spaced
+                .m-row
+                  = f.label CarWash.human_attribute_name("video_title1")
+                .m-row
+                  = f.text_field :video_title1, class: 'm-form-control wide'
+                .m-row
+                  = f.label CarWash.human_attribute_name("video_url1")
+                .m-row
+                  = f.text_field :video_url1, class: 'm-form-control'
+                .m-row
+                  = f.label CarWash.human_attribute_name("video_title2")
+                .m-row
+                  = f.text_field :video_title2, class: 'm-form-control wide'
+                .m-row
+                  = f.label CarWash.human_attribute_name("video_url2")
+                .m-row
+                  = f.text_field :video_url2, class: 'm-form-control wide'
+                .m-row
+                  = f.submit 'Сохранить', class: 'm-btn'
+        #c
+          = render @car_wash.videos
+      = tab.static :images, "Загрузка фото" do
         .c
-          %p.date= l request.created_at.localtime, format: :long
-          %h5= request.name + ', тел: ' + request.phone
-          %p= request.text
+          %h4 Добавить фото:
+          = render partial: 'images/form_with_parent_item', locals: {item: @car_wash}
+        #c
+          = render @car_wash.images
+      = tab.static :detailed, "Информация об автомойке" do
+        #c.clearfix
+          = render 'detailed_form'
+      = tab.static :payment, "Оплата" do
+        .c.clearfix
+          %h4 Выберите способ оплаты
+          %h5.text-center Электронными деньгами
+          - pay_url = Robokassa.client.init_payment_url(@car_wash.payments.first.id, @car_wash.payments.first.amount, '', currency='', language='ru', email='', custom_options={car_wash_id: @car_wash.id})
+          = link_to pay_url do
+            .pay-btn
+              %div Оплатить с помощью
+              %div= image_tag 'robokassa.jpg', size: '150x25'
+          %h5 Счет на оплату
+          %br
+          .pdf-pay
+            %p
+              Вы также можете оплатить наши услуги с рассчетного счета вашей организации.
+            %p
+              Перевод может совершаться в течение 5 банковских дней.
+            %p
+              Для ускорения зачисления денежных средств на ваш счет вы можете прислать нам скан или фотографию квитанции на адрес support@moika-77.ru.
+          = link_to "Сформировать счёт в pdf", new_car_wash_invoice_path(@car_wash), class: 'blue'
+      = tab.static :requests, "Заявки: #{@car_wash.unread_requests_count}" do
+        - @car_wash.requests.each do |request|
+          .c
+            %p.date= l request.created_at.localtime, format: :long
+            %h5= request.name + ', тел: ' + request.phone
+            %p= request.text
+      = tab.static :subscribes, "Подписки: #{@car_wash.subscribes.count}" do
+        = render @car_wash.subscribes

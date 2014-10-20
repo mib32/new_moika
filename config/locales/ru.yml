@@ -198,7 +198,7 @@ ru:
       requests: "Заявки"
       messages: "Сообщения администрации сайта"
       subscribe: "Подписаться"
-      register_and_subscribe: "Регистрация для клиентов Автомойки"
+      register_and_subscribe: "Регистрация для клиентов автомойки"
       you_are_subscribed: "Вы подписаны"
     edit:
       signal_notice: "Вы поменяли сигнал"

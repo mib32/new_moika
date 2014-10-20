@@ -822,11 +822,11 @@ body.ads{
 		.tabs{
 			width:100%;
 			li{
-				width:16.6%;
+				// width:16.6%;
 				transition: all 0.2s ease;
 				-webkit-transition: all 0.2s ease;
 				a{
-					white-space: nowrap;
+					// white-space: nowrap;
 					font-weight: 400;
 					font-size: 10pt;
 				}
@@ -1061,6 +1061,7 @@ h1{
 	.topic{
 		// #forum_topic_links{
 		// 	display: inline-block;
+			position: relative;
 			margin-bottom: 15px;
 			margin-top: 15px;
 		// 	background-color: transparent;
@@ -1795,27 +1796,53 @@ input[type=text],input[type=password], input[type=email],textarea{
 	max-width:100%;
 }
 
-.video-posts{
+.video-posts, .car-washes.edit{
 	$vcw: 120px;
 	#m{
 		margin-left: $sb-width+ $vcw;
 	}
-	#video_tabs .tabs{
+	#video_tabs .tabs, #cw_tabs .tabs{
 		position: fixed;
 		left: $sb-width;
 		// top: $mq-height*
 		width: $vcw;
-		padding: 70px 0px 100% 0px;
+		padding: 140px 0px 100% 6px;
 		background: white;
-		margin-top: -70px;
+		margin-top: -140px;
 		li{
 			float:none;
 			background-color: white;
+			text-align: left;
+			line-height: 20px;
+			margin: 14px 0;
 			a{color:black;}
 			&.active{
 				a{color:maroon;}
 				background-color: #f3f3f3;
 			}
+		}
+	}
+}
+.forums, .topics, .posts{
+	.topic, .post{
+		background: asset-url('big_car.png');
+		background-color: white;
+		background-repeat: no-repeat;
+		background-position: 90% bottom;
+		border-radius: 3px;
+	}
+}
+
+.metrika{
+	position: absolute;
+	top: 41px;
+	left: 12px;
+}
+
+.posts{
+	.pc{
+		h1{
+			font-size: 17pt;
 		}
 	}
 }

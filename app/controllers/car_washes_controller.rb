@@ -35,7 +35,7 @@ class CarWashesController < ApplicationController
         #  :methods=>[ :widget_title, :categories_concated]
         #  )
         @hostname = request.host
-        @port = request.port
+        @port = request.port  
         @car_washes = CarWash.eager_load(:categories).all
       end
     end
@@ -130,7 +130,7 @@ class CarWashesController < ApplicationController
   end
 
   def subscribe
-    @subscribe = Subscribe.new(normal_user_id: params[:user_id], car_wash_id: params[:id])
+    @subscribe = Subscribe.new(user_id: params[:user_id], car_wash_id: params[:id])
 
     respond_to do |format|
       if @subscribe.save

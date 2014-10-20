@@ -2,7 +2,7 @@
   %h2= @static_page.title
   %br
   %br
-  %div=h @static_page.content
+  %div=raw @static_page.content
 - if @static_page.permalink == 'car_wash_owner_info'
   %hr
   .container

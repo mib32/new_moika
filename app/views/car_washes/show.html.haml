@@ -2,7 +2,7 @@
 -# content_for :background, car_wash_background(@car_wash)
 #cw_header.c
   .bgt.mobile-block
-    %h1= car_wash_title @car_wash.title
+    %h1= link_to car_wash_title(@car_wash.title), @car_wash
 
     / .rating 
     /   = render partial: 'rate_it', locals: {item: @car_wash}
@@ -51,13 +51,14 @@
                 %h4 Дополнительные услуги:
                 %div= @car_wash.additional_services
       #cw-actions.c.mobile-block
-        .cd
-          =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
+        -#
+          .cd
+            =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
         #subscribe_button
-          - if current_normal_user.blank?
-            = link_to t('.register_and_subscribe'), new_normal_user_registration_path
-          - elsif current_normal_user.car_washes.where(id: @car_wash.id).blank?
-            = link_to t('.subscribe'), car_washes_subscribe_path(@car_wash, current_normal_user.id), method: :post, remote: true
+          - if current_user.blank?
+            = link_to t('.register_and_subscribe'), new_user_registration_path, class: 'blue'
+          - elsif current_user.car_washes.where(id: @car_wash.id).blank?
+            = link_to t('.subscribe'), car_washes_subscribe_path(@car_wash, current_user.id), method: :post, remote: true, class: 'blue'
           - else
             = link_to t('.you_are_subscribed'), "#"
         .cd
