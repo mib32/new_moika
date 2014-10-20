@@ -1777,7 +1777,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 	#m{
 		margin-left: $sb-width+ $vcw;
 	}
-	.tabs{
+	#video_tabs .tabs{
 		position: fixed;
 		left: $sb-width;
 		// top: $mq-height*
@@ -1790,6 +1790,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 			background-color: white;
 			a{color:black;}
 			&.active{
+				a{color:maroon;}
 				background-color: #f3f3f3;
 			}
 		}

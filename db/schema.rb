@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020052111) do
+ActiveRecord::Schema.define(version: 20141020075445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 20141020052111) do
     t.boolean  "repaired",                                    default: false
     t.boolean  "tired",                                       default: false
     t.integer  "title_image"
-    t.string   "widget_type"
+    t.string   "widget_type",                                 default: "normal"
     t.string   "widget_content"
     t.datetime "updated_widget_at"
     t.string   "working_time"

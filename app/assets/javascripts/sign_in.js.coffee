@@ -29,3 +29,6 @@ $ ->
 		console.log 'auth should disap'
 	$('#auth').click (e) ->
 		e.stopPropagation()
+	$('#sign_up_submit').mousedown ->
+		if $(this).prop('disabled')
+			alert('Пожалуйста, определите согласны ли вы с пользовательским соглашением')

@@ -44,15 +44,16 @@
               = User.human_attribute_name("address")
               %span.red &nbsp;*
             = text_field_tag 'user[address]', nil,class: "m-form-control", required: "required", disabled: true
-          #agreement_text
-            = render 'agreement'
-          %div
-            %label.checkbox
-              = check_box_tag 'agreement', '', false
-              Нажимая кнопку «Зарегистрироваться», я принимаю условия Пользовательского соглашения
+        -##agreement_text
+          = render 'agreement'
+        %div
+          %label.checkbox
+            Нажимая кнопку «Зарегистрироваться», я принимаю условия 
+            = link_to 'Пользовательского соглашения', '/agreement'
+          = check_box_tag 'agreement', '', false
         = hidden_field_tag 'user[normal]', true
         .m-row
           .m-right
-            =f.submit t("devise.sign_up"), class: "m-btn"
+            =f.submit t("devise.sign_up"), id: 'sign_up_submit', class: "m-btn", disabled: true
             %br
             = render "devise/shared/links"
