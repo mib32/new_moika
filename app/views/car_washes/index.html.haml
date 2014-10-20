@@ -2,16 +2,16 @@
 .cw-list
   - @car_washes.each do |cw|
     = link_to cw do
-      .cw.c
+      .cw
         -#.cbg= car_wash_background cw
+        %h3= cw.title
         .p
-          %h3= cw.title
           %span.address= cw.address
-        .rating
-          -5.times do |i|
-            .star{ class: (cw.rating >= i+1 ? 'lit' : 'dim')}
-        .categories.small
-          - cw.categories.each do |category|
-            .cat-pic{ class: category.image + ' ' + cycle('','light')}
+          .rating
+            -5.times do |i|
+              .star{ class: (cw.rating >= i+1 ? 'lit' : 'dim')}
+          .categories.small
+            - cw.categories.each do |category|
+              .cat-pic{ class: category.image + ' ' + cycle('','light')}
 .c.pagination-wrap
   = paginate @car_washes

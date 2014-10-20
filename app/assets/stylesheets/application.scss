@@ -689,7 +689,7 @@ fieldset{
 	left:0;
 	bottom:0;
 	top: $mq-height*2;
-	min-width: 540px;
+	min-width: 330px;
 	// right:250px;
 	right: 0;
 	font-family: 'Open Sans', 'Lucida Grande', sans-serif;
@@ -1665,6 +1665,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 .cw{
 	width:200px;
 	min-height:180px;
+	box-shadow: $g-shadow;
 	position: relative;
 	background: asset-url('big_car.png');
 	background-color: white;
@@ -1681,14 +1682,15 @@ input[type=text],input[type=password], input[type=email],textarea{
   _height: 250px;
   transition: box-shadow 0.3s ease;
   -webkit-transition: box-shadow 0.3s ease;
+
   @media screen and (min-width: 1090px){
-  	width: 22%;
+  	width: 28%;
   }
   @media screen and (min-width: 860px) and (max-width: 1090px){
-  	width: 30%;
+  	width: 42%;
   }
   @media screen and (max-width: 860px){
-  	width: 40%;
+  	width: 92%;
   }
   @media screen and (max-width: 440px){
   	width: 92%;
@@ -1703,7 +1705,7 @@ input[type=text],input[type=password], input[type=email],textarea{
   	}
   }
 	.address{
-		margin: 10px 0;
+		margin: 20px 0;
 		display: inline-block;
 	}
 	.big-car-placemark{
@@ -1713,6 +1715,27 @@ input[type=text],input[type=password], input[type=email],textarea{
 		position:absolute;
 		bottom:0;
 		right:40px;
+	}
+	.p{
+		padding: 15px;
+	}
+	h3{
+		font-size: 11pt;
+		margin: 20 auto;
+		background-color: rgb(64, 154, 216);
+		color: white;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		width: 100%;
+		min-height: 35px;
+		border-top-right-radius: 11px;
+		border-top-left-radius: 11px;
+		padding: 9px 12px;
+		// margin-bottom: 22px;
+		// border: 1px solid #CACACA;
+		// border-bottom: 1px solid white;
+		text-shadow: 1px 1px rgba(0, 0, 0, 0.18);
 	}
 }
 .pagination-wrap{
