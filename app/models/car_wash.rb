@@ -112,7 +112,7 @@ class CarWash < ActiveRecord::Base
   end
 
   def widget_title
-    Widget.find_by_type(widget_type).name unless widget_type == 'normal'
+    Widget.find_by_type(widget_type).name unless widget_type == 'normal' || widget_type.nil?
  end
 
   # def working_time

@@ -10,7 +10,7 @@ class AdminController < ActionController::Base
     redirect_to new_user_session_path unless current_user && current_user.admin?
   end
 
-  before_action :set_about_page
+  before_action :set_static_pages
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(User) && resource.admin?
@@ -20,7 +20,8 @@ class AdminController < ActionController::Base
     end
   end
 
-  def set_about_page
+  def set_static_pages
     @about = StaticPage.where("permalink = 'new_about'").first
+    @legal = StaticPage.where("permalink = 'legal'").first
   end
 end

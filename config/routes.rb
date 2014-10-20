@@ -116,6 +116,8 @@ Moika::Application.routes.draw do
     get 'add_car_wash/:id', to: 'users#add_car_wash', as: '/add_car_wash'
     delete 'delete_file/:id', to: 'banners#delete_file', as: '/delete_file'
   end
+
+  get ':permalink', to: 'static_pages#show'
   match "*path" => redirect("/"), via: :all
 
 

@@ -6,9 +6,9 @@
         - @static_page.errors.full_messages.each do |msg|
           %li= msg
 
-  / .form-group
-  /   = f.label :title, 'Заголовок в браузере'
-  /   = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :title, 'Заголовок'
+    = f.text_field :title, class: 'form-control'
   / .form-group
   /   = f.label :header, 'Заголовок в тексте'
   /   = f.text_area :header, class: 'form-control'
