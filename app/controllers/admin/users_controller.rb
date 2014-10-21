@@ -33,6 +33,10 @@ class Admin::UsersController < AdminController
       if params[:add_car_wash] && @user.make_client && @user.revoke_guest
         CarWash.find(user_params[:car_wash_id]).update!(grey: false)
       end 
+      if user_params[:car_wash_id].blank?
+        @user.make_guest
+        @user.revoke_client
+      end
       redirect_to admin_users_path, :notice => "Пользователь обновлен успешно"
     else
       render :edit

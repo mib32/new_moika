@@ -9,6 +9,7 @@ class AdminController < ActionController::Base
   before_filter do 
     redirect_to new_user_session_path unless current_user && current_user.admin?
   end
+  before_filter :check_guests
 
   before_action :set_static_pages
 
@@ -23,5 +24,10 @@ class AdminController < ActionController::Base
   def set_static_pages
     @about = StaticPage.where("permalink = 'new_about'").first
     @legal = StaticPage.where("permalink = 'legal'").first
+  end
+
+  private
+  def check_guests
+    @guests_waiting = User.guests.count
   end
 end

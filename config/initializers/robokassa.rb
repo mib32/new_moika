@@ -5,7 +5,6 @@ module Robokassa
         robo_cred_path = "config/robokassa.yml"
         robo_cred  = YAML.load_file(robo_cred_path)[Rails.env]
         {
-          test_mode: true,
           login: robo_cred[:login],
           password1: robo_cred[:password1],
           password2: robo_cred[:password2]

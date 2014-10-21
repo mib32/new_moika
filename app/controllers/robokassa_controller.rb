@@ -11,7 +11,7 @@ class RobokassaController < Robokassa::Controller
     hash = Digest::MD5.hexdigest(hash_string)
     if hash.upcase == params[:SignatureValue]
       @car_wash.premial_status = 'paid'
-      @car_wash.save!
+      @car_wash.save! 
     end
     logger.info "#{hash.inspect} #{params.inspect}"
   end
@@ -32,7 +32,6 @@ class RobokassaController < Robokassa::Controller
   def get_options_by_notification_key(key)
 
     {
-      test_mode: true,
       login: ROBO_CRED[:login],
       password1: ROBO_CRED[:password1],
       password2: ROBO_CRED[:password2]

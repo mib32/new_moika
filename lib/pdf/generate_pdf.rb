@@ -1,5 +1,6 @@
 module MyPDF
   require 'fileutils'
+  require 'prawn/table'
 
   INVOICE_DATA = {
     number: "01122",

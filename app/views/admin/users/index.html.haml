@@ -2,8 +2,10 @@
 %ul.nav.nav-tabs#users
   %li.active
     =link_to t('.clients'), "#clients", data:{toggle: "tab"}
-  %li
-    =link_to t('.guests'), "#guests", data:{toggle: "tab"}
+  %li{class: ('danger' if @guests_waiting > 0)}
+    =link_to  "#guests", data:{toggle: "tab"} do
+      =t('.guests')
+      %span.badge= @guests_waiting if @guests_waiting > 0
   %li
     =link_to t('.admins'), "#admins", data:{toggle: "tab"}
   %li
@@ -30,8 +32,9 @@
           %td= client.car_wash.title unless client.car_wash.nil?
           %td= client.car_wash.address
           %td= client.contact_person
+          %td= link_to 'Редактировать', edit_admin_user_path(client), class: "btn btn-primary btn-sm"
           %td= link_to(t('.link_to_car_wash_edit'), edit_car_wash_path(client.car_wash), class: "btn btn-primary btn-sm") unless client.car_wash.nil?
-          %td= link_to t('.link_to_message'), "#messagemodal_#{client.id}", class: "btn btn-primary btn-sm", data: {toggle: "modal"}
+          -#%td= link_to t('.link_to_message'), "#messagemodal_#{client.id}", class: "btn btn-primary btn-sm", data: {toggle: "modal"}
         .modal.fade{role: "dialog", id: "messagemodal_#{client.id}"}
           = form_for [:admin, Message.new], role: 'form' do |f|
             .modal-dialog

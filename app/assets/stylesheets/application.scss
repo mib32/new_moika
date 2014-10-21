@@ -37,7 +37,7 @@
 }
 
 @import "navs";
-@import "scaffolds";
+
 
 // Sprites
 @import "toggle_buttons";
@@ -49,6 +49,7 @@
 
 $blue: #56b2ff;
 $red: #BE1E2D;
+@import "scaffolds";
 // rgb(255, 207, 6)
 $yellow: #FFF14A;
 // $yellow: rgba(248, 248, 248, 1);
@@ -1826,8 +1827,8 @@ input[type=text],input[type=password], input[type=email],textarea{
 		}
 	}
 }
-.forums, .topics, .posts{
-	.topic, .post{
+.forums, .topics, .posts, .proposals{
+	.topic, .post, .c{
 		background: asset-url('big_car.png');
 		background-color: white;
 		background-repeat: no-repeat;
@@ -1835,6 +1836,8 @@ input[type=text],input[type=password], input[type=email],textarea{
 		border-radius: 3px;
 	}
 }
+
+
 
 .metrika{
 	position: absolute;

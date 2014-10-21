@@ -1,0 +1,6 @@
+%h1= "Редактировать клиента #{@user.name}"
+=form_for [:admin,@user] do |f|
+  =f.label :car_wash, 'Автомойка'
+  -#=f.select :car_wash_id, options_from_collection_for_select(CarWash.all, :id, :title), include_blank: 'Отсутствует'
+  =f.collection_select :car_wash_id, CarWash.all, :id, :title,{ include_blank: 'Отсутствует' }
+  =f.submit t('link_to_save'), class: "btn btn-primary"

@@ -366,6 +366,7 @@ GEM
     plupload-rails (1.2.1)
       rails (>= 3.1)
     polyglot (0.3.5)
+    prawn-table (0.2.0)
     private_pub (1.0.3)
       faye
     pry (0.10.1)
@@ -557,6 +558,7 @@ DEPENDENCIES
   pg
   plupload-rails
   prawn!
+  prawn-table
   private_pub
   rails
   rails-bootstrap-toggle-buttons

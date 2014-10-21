@@ -1,7 +1,10 @@
 %ul.nav.nav-pills.list-group
   %li= link_to 'Бегущая строка', admin_marquee_ads_path, class: 'list-group-item'
   %li= link_to 'Вращающийся куб', admin_cube_ads_path, class: 'list-group-item'
-  %li= link_to t('.users'), admin_users_path, class: 'list-group-item'
+  %li
+    = link_to  admin_users_path, class: 'list-group-item '+('active' if @guests_waiting > 0).to_s do
+      = t('.users')
+      %span.badge= @guests_waiting if @guests_waiting > 0
   -# %li= link_to t('.adv'), admin_banners_path, class: 'list-group-item'
   %li= link_to 'Реклама', admin_ad_settings_path, class: 'list-group-item'
   %li= link_to 'Опросы', admin_surveys_path, class: 'list-group-item'
