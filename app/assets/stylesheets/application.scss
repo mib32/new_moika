@@ -1772,6 +1772,9 @@ input[type=text],input[type=password], input[type=email],textarea{
 .posts, .static-pages{
 	.c{
 		line-height: 20px;
+		iframe{
+			width: 100%;
+		}
 	}
 }
 
