@@ -141,11 +141,14 @@ a{
 	// padding-left:10px;
 
 	/*overflow-y:auto;*/
-	z-index:10;
+	z-index:20;
 	position:absolute;
 	float:left;
 	@include breakpoint($mobile){
 		margin-left: $shift-left;
+		position: fixed;
+		overflow: hidden;
+		margin-top: -150px;
 	}
 	.ocean{
 		margin-top: -29px;
@@ -513,6 +516,10 @@ b{
 	margin-left:$sb-width;
 	top:148px;
 	width:600px;
+	@include breakpoint($mobile){
+		width: 100%;
+		margin-left:0;
+	}
 	display:none;
 	z-index: 50;
 
@@ -632,6 +639,9 @@ fieldset{
 		
 	}
 	width: 380px;
+	@include breakpoint($mobile){
+		width: 100%;
+	}
 	margin: auto;
 	left: 0;
 	right: 0;
@@ -1803,17 +1813,21 @@ input[type=text],input[type=password], input[type=email],textarea{
 
 .video-posts, .car-washes.edit{
 	$vcw: 120px;
-	#m{
-		margin-left: $sb-width+ $vcw;
+	@include breakpoint($middle){
+		#m{
+			margin-left: $sb-width+ $vcw;
+		}
 	}
 	#video_tabs .tabs, #cw_tabs .tabs{
-		position: fixed;
-		left: $sb-width;
-		// top: $mq-height*
-		width: $vcw;
-		padding: 140px 0px 100% 6px;
 		background: white;
-		margin-top: -140px;
+		@include breakpoint($middle){
+			position: fixed;
+			left: $sb-width;
+			// top: $mq-height*
+			width: $vcw;
+			padding: 140px 0px 100% 6px;
+			margin-top: -140px;
+		}
 		li{
 			float:none;
 			background-color: white;
@@ -1829,7 +1843,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 	}
 }
 .forums, .topics, .posts, .proposals{
-	.topic, .post, .c{
+	.topic, .post{
 		background: asset-url('big_car.png');
 		background-color: white;
 		background-repeat: no-repeat;
@@ -1878,5 +1892,62 @@ input[type=text],input[type=password], input[type=email],textarea{
 #requests_content{
 	.m-row{
 		margin: 5px 0;
+	}
+}
+.video-posts{
+	.mobile-shown{
+		background-color: white;
+		padding:5px;
+		z-index: 10;
+		position: relative;
+	}
+	#video_tabs .tabs{
+		height:45px;
+		overflow:hidden;
+		padding-left: 25px;
+		margin-top: -10px;
+		li{
+			&.active{
+				background-color: white !important;
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+.mobile-shown{
+	@include breakpoint($middle){
+		display:none;
+	}
+}
+
+	.m_cnt{
+		float:none !important;
+		height: $mq-height;
+		width: 1000px;
+		position: relative;
+		@include breakpoint($mobile){
+			-webkit-animation: 30s slide linear infinite;
+			animation: 30s slide linear infinite;
+		}
+	}
+@include breakpoint($mobile){
+	@keyframes slide{
+		from{
+			left: 0;
+		}
+
+		to{
+			left: -1000px;
+		}
+	}
+	@-webkit-keyframes slide{
+		from{
+			left: 0;
+		}
+
+		to{
+			left: -1000px;
+		}
 	}
 }

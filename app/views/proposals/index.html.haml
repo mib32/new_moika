@@ -1,7 +1,7 @@
 -title 'Акции и скидки на автомойках - Мойка-77'
 - @proposals.each do |p|
   - unless p.widget_content.blank?
-    .c  
+    .post.c
       = link_to car_wash_path(p) do
         %h3.b-marged= p.title
       %div= p.widget_content

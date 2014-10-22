@@ -1,27 +1,28 @@
 #mq
-  #date_currency
-    .datetime
-      %span.date
-      %span.time
+  .m_cnt
+    #date_currency
+      .datetime
+        %span.date
+        %span.time
+      .vr
+      #weather
+        #deg
+      .vr
+      .currency 
+        %span.name &#36;
+        %span.dynamics= currency_dynamics @usd.diff
+        %span.value= @usd.value
+        %span.name &euro;
+        %span.dynamics= currency_dynamics @euro.diff
+        %span.value= @euro.value
     .vr
-    #weather
-      #deg
+    .traffic
+      #traffic_light.none
+      %span.level ?
     .vr
-    .currency 
-      %span.name &#36;
-      %span.dynamics= currency_dynamics @usd.diff
-      %span.value= @usd.value
-      %span.name &euro;
-      %span.dynamics= currency_dynamics @euro.diff
-      %span.value= @euro.value
-  .vr
-  .traffic
-    #traffic_light.none
-    %span.level ?
-  .vr
-  #message 
-    #m_mq
-      - @mq_ads.each_with_index do |ad, i|
-        - unless ad.text.blank?
-          .msg_mq{ :class => ('active' if i == 0), :id => "mq_#{i}" } 
-            = link_to ad.text, ad.url, target: '_blank'
+    #message 
+      #m_mq
+        - @mq_ads.each_with_index do |ad, i|
+          - unless ad.text.blank?
+            .msg_mq{ :class => ('active' if i == 0), :id => "mq_#{i}" } 
+              = link_to ad.text, ad.url, target: '_blank'

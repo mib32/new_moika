@@ -1,4 +1,6 @@
 = bettertabs :video_tabs do |tab|
+  .mobile-shown
+    = raw "Категория #{link_to '(выбрать другую)','javascript:void(0);', class: 'expand-categories blue'}:"
   - PostCategory.all.each do |post_category|
     = tab.static post_category.id, post_category.name do
       = render post_category.posts

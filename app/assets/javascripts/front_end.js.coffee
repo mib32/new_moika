@@ -21,3 +21,7 @@ $ ->
     
   $('.flash').hover ->
     $(this).fadeOut()
+
+  $('.expand-categories').click -> 
+    height = $('#video_tabs .tabs li').first().outerHeight(true) * $('#video_tabs .tabs li').length
+    $('#video_tabs .tabs').css('height',height)
