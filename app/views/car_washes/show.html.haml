@@ -56,11 +56,11 @@
             =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
         #subscribe_button
           - if current_user.blank?
-            = link_to t('.register_and_subscribe'), new_user_registration_path, class: 'blue'
+            = link_to t('.register_and_subscribe'), new_user_registration_path, class: 'blue reg'
           - elsif current_user.car_washes.where(id: @car_wash.id).blank?
-            = link_to t('.subscribe'), car_washes_subscribe_path(@car_wash, current_user.id), method: :post, remote: true, class: 'blue'
+            = link_to t('.subscribe'), car_washes_subscribe_path(@car_wash, current_user.id), method: :post, remote: true, class: 'blue scr'
           - else
-            = link_to t('.you_are_subscribed'), "#"
+            = link_to t('.you_are_subscribed'), "#", class: 'alr'
         .cd
           =link_to 'Оставить заявку', new_car_wash_request_path(@car_wash), class: 'blue'
     #cw-map.c.mobile-block

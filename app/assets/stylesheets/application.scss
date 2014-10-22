@@ -600,6 +600,7 @@ fieldset{
 				display:inline-block;
 				width:7em;
 				text-align: right;
+				vertical-align: top;	
 			}
 			.m-right{
 				margin-left: 15em;
@@ -1850,5 +1851,32 @@ input[type=text],input[type=password], input[type=email],textarea{
 		h1{
 			font-size: 17pt;
 		}
+	}
+}
+
+#subscribe_button{
+	a{
+		display: inline-block;
+		border: none;
+		border-radius: 5px;
+		padding: 3px;
+		box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.13);
+		padding: 5px;
+		color: white;
+		&.reg{
+			background-color: #2116ed;
+		}
+		&.scr{
+			background-color: $red;
+		}
+		&.alr{
+			color:black;
+		}
+	}
+}
+
+#requests_content{
+	.m-row{
+		margin: 5px 0;
 	}
 }
