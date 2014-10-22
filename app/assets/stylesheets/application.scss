@@ -1825,15 +1825,16 @@ input[type=text],input[type=password], input[type=email],textarea{
 			left: $sb-width;
 			// top: $mq-height*
 			width: $vcw;
-			padding: 140px 0px 100% 6px;
+			padding: 140px 0px 100% 0px;
 			margin-top: -140px;
 		}
 		li{
 			float:none;
 			background-color: white;
 			text-align: left;
-			line-height: 20px;
-			margin: 14px 0;
+			line-height: normal;
+			margin: 5px 0;
+			padding: 5px;
 			a{color:black;}
 			&.active{
 				a{color:maroon;}
@@ -1901,15 +1902,17 @@ input[type=text],input[type=password], input[type=email],textarea{
 		z-index: 10;
 		position: relative;
 	}
-	#video_tabs .tabs{
-		height:45px;
-		overflow:hidden;
-		padding-left: 25px;
-		margin-top: -10px;
-		li{
-			&.active{
-				background-color: white !important;
-				box-shadow: none;
+	@include breakpoint($mobile){
+		#video_tabs .tabs{
+			height:45px;
+			overflow:hidden;
+			padding-left: 25px;
+			margin-top: -10px;
+			li{
+				&.active{
+					background-color: white !important;
+					box-shadow: none;
+				}
 			}
 		}
 	}
@@ -1950,4 +1953,14 @@ input[type=text],input[type=password], input[type=email],textarea{
 			left: -1000px;
 		}
 	}
+}
+.c-n{
+	margin: 10px 30px;
+	background-color: #52b2f3;
+	color: white;
+	font-size: 10pt;
+	font-style: italic;
+	border-radius: 3px;
+	padding: 15px;
+	width: 70%;
 }

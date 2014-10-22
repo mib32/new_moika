@@ -3,4 +3,6 @@
     = raw "Категория #{link_to '(выбрать другую)','javascript:void(0);', class: 'expand-categories blue'}:"
   - PostCategory.all.each do |post_category|
     = tab.static post_category.id, post_category.name do
+      .c-n
+        Хотите разместить свое видео? Присылайте ролик или ссылку на него на адрес info@moika-77.ru
       = render post_category.posts
