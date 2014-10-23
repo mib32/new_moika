@@ -27,6 +27,6 @@ class Admin::AdSettingsController < Admin::SettingsController
   end
 
   def ad_settings_params
-      params.require(:ad_settings).permit(:ad_1_title, :ad_1_text, :ad_2_title, :ad_2_text)
+      params.require(:ad_settings).permit(:ad_1_title, :ad_1_text, :ad_2_title, :ad_2_text, :ad_1_url, :ad_2_url)
   end
 end
