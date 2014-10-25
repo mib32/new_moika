@@ -71,8 +71,8 @@ $carousel-count: 10;
 $hlv: 'Helvetica Neue','Open Sans', 'Helvetica','Arial';
 $pt: 'PT Sans';
 
-$mobile: max-width 620px;
-$middle: 620px;
+$mobile: max-width 768px;
+$middle: 769px;
 
 @mixin rotate($deg){
 	-webkit-transform: rotate($deg);
@@ -149,12 +149,23 @@ a{
 		position: fixed;
 		overflow: hidden;
 		margin-top: -150px;
+		top:0;
+		bottom:0;
 	}
 	.ocean{
 		margin-top: -29px;
 		img{
 			width: $sb-width;
 		}
+	}
+	.logo-mini{
+		background-image: asset-url('logo_mini.png');
+		width: 38px;
+		height: 20px;
+		position: absolute;
+		top: 159px;
+		left: 227px;
+		background-size: cover;
 	}
 	.logo{
 		// padding-top: 10px;
@@ -198,6 +209,9 @@ a{
 	nav{
 		position: relative;
 		top: 26px;
+		@include breakpoint($mobile){
+			top: 60px;
+		}
 		// background-color: $sb-color;
 	}
 
@@ -413,6 +427,7 @@ b{
 	z-index:10;
 	left:0;
 	right:0;
+	top: 0;
 	line-height: $mq-height;
 	margin-left:$sb-width;
 	@include breakpoint($mobile){
@@ -694,16 +709,23 @@ fieldset{
 	@include breakpoint($mobile){
 		min-width: 0;
 		margin-left:$fifty;
+		// position: absolute;
+		// bottom: none;
+		margin-top:$mq-height*2;
+		// -webkit-overflow-scrolling: touch;
+	}
+	@include breakpoint($middle){
+		position:fixed;
+		left:0;
+		bottom:0;
+		top: $mq-height*2;
+		right: 0;	
 	}
 	margin-left:$sb-width;
 	// height:100%;
-	position:fixed;
-	left:0;
-	bottom:0;
-	top: $mq-height*2;
+	
 	min-width: 330px;
 	// right:250px;
-	right: 0;
 	font-family: 'Open Sans', 'Lucida Grande', sans-serif;
 	font-size: 10pt;
 	overflow-y: scroll;
@@ -1177,7 +1199,7 @@ h1{
 	// float:right;
 	height: 220px;
 	.ivideon_c{
-		width: 48%;
+		width: 48% !important;
 		float:left;
 		margin: 0 1%;
 		.iv-v{
@@ -1923,6 +1945,11 @@ input[type=text],input[type=password], input[type=email],textarea{
 		display:none;
 	}
 }
+.mobile-hidden{
+	@include breakpoint($mobile){
+		display:none;
+	}
+}
 
 	.m_cnt{
 		float:none !important;
@@ -1932,6 +1959,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 		@include breakpoint($mobile){
 			-webkit-animation: 30s slide linear infinite;
 			animation: 30s slide linear infinite;
+			-webkit-transform: translateZ(0);
 		}
 	}
 @include breakpoint($mobile){

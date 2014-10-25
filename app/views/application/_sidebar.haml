@@ -1,5 +1,6 @@
 .ocean
   =image_tag 'ocean2.png'
+.logo-mini.mobile-shown
 .logo.hidden-xs
   =link_to :root, class: 'image' do
     =image_tag 'logo_red2.png'
@@ -11,7 +12,7 @@
     = render 'devise'
     = render 'navs'
   - unless @survey.nil?
-    %article#survey
+    %article#survey.mobile-hidden
       = form_for SurveyResult.new, url: main_app.survey_results_path, :remote => true do |f|
         %p= @survey.question
         - 5.times do |i|
@@ -23,7 +24,7 @@
               = hidden_field_tag :survey_id, @survey.id
         .m-row
           = f.submit 'Отправить'
-  %section#news_list
+  %section#news_list.mobile-hidden
     %h5 Новости
     - @news.each do |n|
       = link_to main_app.post_path(n) do
@@ -33,9 +34,9 @@
         %b= n.title.truncate(35)
         %br
         = strip_tags n.content.truncate(80)
-  #wt
+  #wt.mobile-hidden
     Добро пожаловать на сайт! На карте находятся лучшие Автомойки в Москве! Видеотрансляция, предварительная запись, адреса, телефоны, фотографии, видеоролики, отзывы клиентов, акции и скидки, форум.
-#footer
+#footer.mobile-hidden
   = render 'footer'
 
 

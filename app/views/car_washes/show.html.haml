@@ -1,4 +1,4 @@
--title @car_wash.title + ' Мойка-77'
+-title @car_wash.title
 -# content_for :background, car_wash_background(@car_wash)
 #cw_header.c
   .bgt.mobile-block
@@ -86,10 +86,10 @@
     .v-content.mobile-block
       #cw-live.mobile-block
         %h4 Видео-трансляция
-        .ivideon_c.mobile-block
+        .ivideon_c
           %h5=@car_wash.video_title1
           = render 'video_100p', src: @car_wash.video_url1 
-        .ivideon_c.mobile-block
+        .ivideon_c
           %h5=@car_wash.video_title2
           = render 'video_100p', src: @car_wash.video_url2 
 

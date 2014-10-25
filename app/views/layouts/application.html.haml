@@ -6,7 +6,7 @@
     %meta{content: t('site_description'), name: "description"}
     %meta{content: t('site_keywords'), name: "keywords"}
     =render "favicon"
-    %title= content_for?(:title) ? yield(:title) : t('site_title')
+    %title= content_for?(:title) ? yield(:title) + ' | ' + t('site_title') : t('site_title')
     = stylesheet_link_tag    "application", media: "all"
     = csrf_meta_tags
   %body{ class: controller.controller_name.dasherize + ' ' + controller.action_name.dasherize + (' ads' if need_ads).to_s }
