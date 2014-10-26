@@ -751,6 +751,9 @@ body.ads{
 	#m{
 		@include breakpoint($middle){
 			right: 230px;
+			left:0;
+			// left: $sb-width;
+			position: absolute;
 		}
 	}
 }
