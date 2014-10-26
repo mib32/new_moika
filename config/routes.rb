@@ -22,14 +22,15 @@ Moika::Application.routes.draw do
   mount Forem::Engine, :at => '/forum'
 
 
-  get 'news', to: 'posts#index', type: 'NewsPost'
-  get 'info', to: 'posts#index', type: 'InfoPost'
+  resources 'news', only: [:index, :show], controller: 'posts', type: 'NewsPost', as: 'news_posts'
+  resources 'info', only: [:index, :show], controller: 'posts', type: 'InfoPost', as: 'info_posts'
   get 'video', to: 'video_posts#index'
   # get 'temp_session/login'
   resources :temp_session
   # resources :navs
 
-  resources :posts, only: [:index,:show]
+  get 'posts(/:id)', to: redirect('/news/%{id}')
+  # resources :posts, only: [:index,:show]
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get "normal_users/show"
   root 'map#show'

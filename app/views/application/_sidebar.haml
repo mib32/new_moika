@@ -1,6 +1,6 @@
 .ocean
   =image_tag 'ocean2.png'
-.logo-mini.mobile-shown
+=link_to "",:root, class: 'logo-mini mobile-shown'
 .logo.hidden-xs
   =link_to :root, class: 'image' do
     =image_tag 'logo_red2.png'
@@ -27,7 +27,7 @@
   %section#news_list.mobile-hidden
     %h5 Новости
     - @news.each do |n|
-      = link_to main_app.post_path(n) do
+      = link_to main_app.url_for(n) do
         %span
           = l n.created_at, format: :short
         %br

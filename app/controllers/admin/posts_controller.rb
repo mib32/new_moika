@@ -27,7 +27,7 @@ class Admin::PostsController < AdminController
   def create
     # params[:post][:type] = params[:type]
 
-    @admin_post = Post.new(admin_post_params)
+    @admin_post = params[:type].constantize.new(super_strong_params)
 
     respond_to do |format|
       if @admin_post.save
@@ -44,7 +44,7 @@ class Admin::PostsController < AdminController
   # PATCH/PUT /admin/posts/1.json
   def update
     respond_to do |format|
-      if @admin_post.update(admin_post_params)
+      if @admin_post.update(super_strong_params)
         format.html { redirect_to admin_post_path(@admin_post), notice: 'Публикация успешно обновлена' }
         format.json { render action: 'show', status: :ok, location: @admin_post }
       else
@@ -71,7 +71,15 @@ class Admin::PostsController < AdminController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_post_params
-      params.require(:post).permit(:title, :subtitle, :content, :bootsy_image_gallery_id, :type)
+    def admin_news_post_params
+      params.require(:news_post).permit(:title, :subtitle, :content, :bootsy_image_gallery_id, :type)
+    end
+
+    def admin_info_post_params
+      params.require(:info_post).permit(:title, :subtitle, :content, :bootsy_image_gallery_id, :type)
+    end
+
+    def super_strong_params 
+      send("admin_#{params[:type].underscore}_params")
     end
 end

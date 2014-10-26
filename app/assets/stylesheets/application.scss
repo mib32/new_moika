@@ -130,8 +130,10 @@ a{
 #sb{
 	width:$sb-width;
 	// height:120%;
-	padding-bottom: 120px;
-
+	// padding-bottom: 120px;
+	// height:100%;
+	top: 0;
+	bottom: 80px;
 	// background-color:rgba(245,245,245,0.95);
 	background-color:$sb-color;
 	// box-shadow:2px 0px 4px rgba(0,0,0,0.3);
@@ -142,7 +144,7 @@ a{
 
 	/*overflow-y:auto;*/
 	z-index:20;
-	position:absolute;
+	position:fixed;
 	float:left;
 	@include breakpoint($mobile){
 		margin-left: $shift-left;
@@ -207,10 +209,16 @@ a{
 
 
 	nav{
-		position: relative;
-		top: 26px;
+		// position: relative;
+		// top: 26px;
+		overflow: scroll;
+		position: absolute;
+		top: 148px;
+		bottom: 0;
+		left: 0;
+		right: 0;
 		@include breakpoint($mobile){
-			top: 60px;
+			top: 200px;
 		}
 		// background-color: $sb-color;
 	}
@@ -705,6 +713,7 @@ fieldset{
 	}
 }
 
+
 #m{
 	@include breakpoint($mobile){
 		min-width: 0;
@@ -713,13 +722,21 @@ fieldset{
 		// bottom: none;
 		margin-top:$mq-height*2;
 		// -webkit-overflow-scrolling: touch;
+
 	}
 	@include breakpoint($middle){
-		position:fixed;
-		left:0;
-		bottom:0;
-		top: $mq-height*2;
-		right: 0;	
+		// position:fixed;
+		// left:0;
+		// bottom:0;
+		// top: $mq-height*2;
+		// right: 0;	
+
+		min-width: 0;
+		margin-left:$sb-width;
+		// position: absolute;
+		// bottom: none;
+		margin-top:$mq-height*2;
+
 	}
 	margin-left:$sb-width;
 	// height:100%;
@@ -742,6 +759,12 @@ body.ads{
 	#m{
 		right: 0px;
 		overflow: auto;
+		position:fixed;
+		left:0;
+		bottom:0;
+		top: $mq-height*2;
+		right: 0;	
+		margin-top:0;
 	}
 	#map{
 	  width:100%;
@@ -1276,6 +1299,10 @@ article.media{
 	position: relative;
 }
 
+#cw_content{
+	overflow-x: hidden;
+}
+
 #cw_content .c{
 	// float: left;
 	margin: 12px;
@@ -1335,9 +1362,9 @@ article.media{
 		.c{
 			margin:12px !important;
 		}
-		#cw-live{
-			height:600px;
-		}
+		// #cw-live{
+		// 	height:600px;
+		// }
 		.mobile-block{
 			display:block !important;
 			float: none !important;
@@ -1649,7 +1676,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 		}
 	}
 	.v-content{
-		min-width: 600px;
+		min-width: 434px;
 		display: table-cell;
 		// position: absolute;
 		// right: 0;

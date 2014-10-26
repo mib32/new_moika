@@ -4,9 +4,9 @@ class InfoPost < Post
     'Статья'
   end
 
-  def self.model_name
-    Post.model_name
-  end
+  # def self.model_name
+  #   Post.model_name
+  # end
 
 
 end

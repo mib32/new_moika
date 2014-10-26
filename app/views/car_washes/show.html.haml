@@ -85,7 +85,7 @@
           = render @car_wash.reviews
     .v-content.mobile-block
       #cw-live.mobile-block
-        %h4 Видео-трансляция
+        %h4 Видеотрансляция
         .ivideon_c
           %h5=@car_wash.video_title1
           = render 'video_100p', src: @car_wash.video_url1 
@@ -95,7 +95,7 @@
 
       #cw-videos.mobile-block
         -unless @car_wash.title_video_url.nil?
-          %h4 Видео-презентация
+          %h4 Видеопрезентация
           -#= render 'client_youtube', src: @car_wash.title_video_url
           = render 'client_youtube', src: video_url(@car_wash.title_video_url)
 
