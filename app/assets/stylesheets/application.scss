@@ -2052,6 +2052,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 .video_thumb{
 	height:315px;
 	width: 100%;
+	cursor: pointer;
 }
 .video_thumb_text{
 	color:white;
@@ -2064,4 +2065,5 @@ input[type=text],input[type=password], input[type=email],textarea{
 	position: relative;
 	top: 150px;
 	text-shadow:1px 1px rgba(0, 0, 0, 0.18);
+	cursor: pointer;
 }

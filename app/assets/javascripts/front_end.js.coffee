@@ -31,7 +31,7 @@ $ ->
     thumb_url = "http://img.youtube.com/vi/"+id+"/maxresdefault.jpg"
     $('<img width="100%" src="'+thumb_url+'" />').appendTo($(this))
 
-  $('.video_thumb').click ->
-    src = $(this).data('src')
-    $(this).html('<iframe width="100%" height="315" src="'+src+'&autoplay=1" frameborder="0" allowfullscreen></iframe>').css('background', 'none');
+  $('.video_thumb, .video_thumb_text').click ->
+    src = $(this).parent().find('.video_thumb').data('src')
+    $(this).parent().find('.video_thumb').html('<iframe width="100%" height="315" src="'+src+'&autoplay=1" frameborder="0" allowfullscreen></iframe>').css('background', 'none');
     $(this).parent().find('.video_thumb_text').hide()
