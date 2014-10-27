@@ -35,7 +35,16 @@
   font-weight: normal;
   font-style: normal;
 }
-
+@font-face {
+  font-family: 'Open Sans';
+	src: url('OpenSans-BoldItalic-webfont.eot');
+  src: url('OpenSans-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('OpenSans-BoldItalic-webfont.woff') format('woff'),
+       url('OpenSans-BoldItalic-webfont.ttf') format('truetype'),
+       url('OpenSans-BoldItalic-webfont.svg#open_sansbold_italic') format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
 @import "navs";
 
 
@@ -588,7 +597,7 @@ b{
 		// border: 2px solid $dark-blue;
 		border-top: none;
 		// background-color: desaturate($dark-blue,30%);
-		height:300px;
+		// height:300px;
 		position: relative;
 	}
 	.tabs{
@@ -2021,4 +2030,21 @@ input[type=text],input[type=password], input[type=email],textarea{
 	border-radius: 3px;
 	padding: 15px;
 	width: 70%;
+}
+
+.video_thumb{
+	height:315px;
+	width: 100%;
+}
+.video_thumb_text{
+	color:white;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 24px;
+	display: inline-block;
+	width:100%;
+	text-align:center;
+	position: relative;
+	top: 150px;
+	text-shadow:1px 1px rgba(0, 0, 0, 0.18);
 }

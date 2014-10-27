@@ -56,8 +56,12 @@
             =link_to 'Регистрация для клиентов автомойки', new_registration_path(:user), class: 'blue'
         #subscribe_button
           - if current_user.blank?
+            .c-n
+              Посещаете эту автомойку? Подпишитесь, чтобы своевременно получать информацию об акциях и скидках!
             = link_to t('.register_and_subscribe'), new_user_registration_path, class: 'blue reg'
           - elsif current_user.car_washes.where(id: @car_wash.id).blank?
+            .c-n
+              Посещаете эту автомойку? Подпишитесь, чтобы своевременно получать информацию об акциях и скидках!
             = link_to t('.subscribe'), car_washes_subscribe_path(@car_wash, current_user.id), method: :post, remote: true, class: 'blue scr'
           - else
             = link_to t('.you_are_subscribed'), "#", class: 'alr'

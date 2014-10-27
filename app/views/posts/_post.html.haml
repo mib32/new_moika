@@ -1,6 +1,6 @@
 %article.post.c
-  %h2= post.title
+  %h2= link_to post.title, url_for(post)
   %h3.sub= post.subtitle
   %div.pc= raw post.content
   %p.date= post.created_at.localtime.strftime("%H:%M %d.%m.%Y") 
-  .share42init{ 'data-path' => url_for(post), 'data-zero-counter' => 1, 'data-icons-file' => asset_path('share42_icons.png')}
+  .share42init{ 'data-path' => '', 'data-url' => polymorphic_url(post, :only_path => false), 'data-zero-counter' => 1, 'data-icons-file' => asset_path('share42_icons.png')}

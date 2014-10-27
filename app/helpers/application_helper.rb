@@ -60,19 +60,24 @@ module ApplicationHelper
     end
   end
 
-  def video_url src
-    # byebug
-    base = "//www.youtube.com/embed/"
-    suffix = "?wmode=transparent"
+  def parse_query src
     begin
       query = URI.parse(src).query
     rescue URI::InvalidURIError
       return ''
     end
+  end
 
-    video_id = Rack::Utils.parse_nested_query(query).deep_symbolize_keys[:v]
-    if !query.nil? && (/wmode=transparent/ =~ src).nil?
-      src = base + video_id + suffix
+  def video_id src
+    Rack::Utils.parse_nested_query(parse_query(src)).deep_symbolize_keys[:v]
+  end
+  def video_url src
+    # byebug
+    base = "//www.youtube.com/embed/"
+    suffix = "?wmode=transparent"
+    
+    if !parse_query(src).nil? && (/wmode=transparent/ =~ src).nil?
+      src = base + video_id(src) + suffix
     else
       src += suffix
     end

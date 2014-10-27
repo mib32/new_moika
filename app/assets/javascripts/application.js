@@ -19,7 +19,6 @@
 // comment  jquery.cycle2.carousel.min
 //= require share
 //= require spinner
-//= require iscroll
 //= require front_end
 //= require toggle_agreement_submit
 //= require jquery.bettertabs.min
