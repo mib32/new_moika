@@ -62,12 +62,12 @@ class Currency < ActiveRecord::Base
   end
 
   def self.get_dynamics(current, date)
-    previous = Currency.where(name: current.name, date: date - 1)
-    if previous.empty?
+    previous = Currency.where(name: current.name, date: date - 1).first
+    if previous.nil?
       save_current_from_cb(date - 1)
-      current = Currency.where(name: current.name, date: date - 1)
+      current = Currency.where(name: current.name, date: date - 1).first
     end
-    diff = current.value - previous.first.value
+    diff = current.value - previous.value
   end
 
 end

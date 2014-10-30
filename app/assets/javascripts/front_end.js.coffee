@@ -28,7 +28,8 @@ $ ->
 
   $('.video_thumb').each ->
     id = $(this).data('id')
-    thumb_url = "http://img.youtube.com/vi/"+id+"/maxresdefault.jpg"
+    # thumb_url = "http://img.youtube.com/vi/"+id+"/maxresdefault.jpg"
+    thumb_url = "http://img.youtube.com/vi/"+id+"/hqdefault.jpg"
     $('<img width="100%" src="'+thumb_url+'" />').appendTo($(this))
 
   $('.video_thumb, .video_thumb_text').click ->
