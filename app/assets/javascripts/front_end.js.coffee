@@ -30,7 +30,7 @@ $ ->
     id = $(this).data('id')
     # thumb_url = "http://img.youtube.com/vi/"+id+"/maxresdefault.jpg"
     thumb_url = "http://img.youtube.com/vi/"+id+"/hqdefault.jpg"
-    $('<img width="100%" src="'+thumb_url+'" />').appendTo($(this))
+    $('<img width="100%" height="315px" src="'+thumb_url+'" />').appendTo($(this))
 
   $('.video_thumb, .video_thumb_text').click ->
     src = $(this).parent().find('.video_thumb').data('src')
