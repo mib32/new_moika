@@ -65,7 +65,7 @@ class Currency < ActiveRecord::Base
     previous = Currency.where(name: current.name, date: date - 1).first
     if previous.nil?
       save_current_from_cb(date - 1)
-      current = Currency.where(name: current.name, date: date - 1).first
+      previous = Currency.where(name: current.name, date: date - 1).first
     end
     diff = current.value - previous.value
   end
