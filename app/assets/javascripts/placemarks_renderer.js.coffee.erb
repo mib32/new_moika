@@ -139,7 +139,14 @@ class @PlacemarksRenderer
           MapRenderer.myMap.geoObjects.add(collection)
     PlacemarksRenderer.clusterer.add greyGeoObjects
     MapRenderer.myMap.geoObjects.add PlacemarksRenderer.clusterer
+    # PlacemarksRenderer.putMeToMap()
     console.log "putPlacemarksToMap end"
+
+  @putMeToMap: (coords = undefined)->
+    if coords or window.navigation_data
+      coords = coords || window.navigation_data
+      me = new ymaps.Placemark(coords.map.center, {}, {preset:'islands#geolocationIcon'})
+      MapRenderer.myMap.geoObjects.add(me)
 
   @render: =>
     @addPresets()
@@ -155,4 +162,3 @@ class @PlacemarksRenderer
       flag = (numOfPointsOnMap == numOfCarWashes)
     dfd.resolve()
     return dfd.promise()
-

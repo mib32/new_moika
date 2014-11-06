@@ -10,7 +10,11 @@ class @MapRenderer
 
 
   @init:  =>
+    # if window.navigation_data == undefined
     @settings = @default_settings
+    # else
+    #   @settings = window.navigation_data
+
     console.log 'map renderer init called'
     @myMap = window.map = new window.ymaps.Map("map", @settings.map)
     @myMap.behaviors.enable('scrollZoom')
@@ -42,7 +46,21 @@ class @MapRenderer
   #renderer = new MapRenderer
   #setTimeout(ymaps.ready(MapRenderer.init()),0)
   #setTimeout(CarWashLoader.load PlacemarksRenderer.render, 0)
-console.log('sh)')
+
+
+
+setPosition = (position) ->
+  window.navigation_data =
+    map:
+      center: [position.coords.latitude,position.coords.longitude]
+      zoom: 13
+  # if MapRenderer.myMap
+    # MapRenderer.myMap.setCenter([position.coords.latitude, position.coords.longitude], 13)
+    # PlacemarksRenderer.putMeToMap()
+
+# if navigator.geolocation
+  # navigator.geolocation.getCurrentPosition(setPosition);
+
 window.ydo = ->
   console.log(1)
   MapRenderer.init()
