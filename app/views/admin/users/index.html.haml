@@ -4,7 +4,7 @@
     =link_to t('.clients'), "#clients", data:{toggle: "tab"}
   %li{class: ('danger' if @guests_waiting > 0)}
     =link_to  "#guests", data:{toggle: "tab"} do
-      =t('.guests')
+      Заявки
       %span.badge= @guests_waiting if @guests_waiting > 0
   %li
     =link_to t('.admins'), "#admins", data:{toggle: "tab"}
@@ -63,13 +63,14 @@
                   %button(type="button" class="btn btn-default" data-dismiss="modal")= t('close')
                   %button(type="submit" class="btn btn-primary")= t('.submit_sending_message')
   .tab-pane.fade#guests
-    %h5 Список гостей(автомойки)
+    %h5 Заявки
     %table.table.admin_users
       %tr
         %th N п/п
         %th=User.human_attribute_name(:email)
         %th=User.human_attribute_name(:phone)
         %th=User.human_attribute_name(:car_wash_title)
+        %th=User.human_attribute_name(:address)
         %th=User.human_attribute_name(:contact_person)
         %th
         %th
@@ -79,6 +80,7 @@
           %td= user.email
           %td= user.phone 
           %td= user.car_wash_title
+          %td= user.address
           %td= user.name
           %td
             = link_to "Добавить в клиeнты", admin_add_car_wash_path(user), class: 'btn btn-primary'
