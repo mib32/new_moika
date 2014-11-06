@@ -10,10 +10,10 @@ class @MapRenderer
 
 
   @init:  =>
-    # if window.navigation_data == undefined
-    @settings = @default_settings
-    # else
-    #   @settings = window.navigation_data
+    if window.navigation_data == undefined
+      @settings = @default_settings
+    else
+      @settings = window.navigation_data
 
     console.log 'map renderer init called'
     @myMap = window.map = new window.ymaps.Map("map", @settings.map)
@@ -54,12 +54,12 @@ setPosition = (position) ->
     map:
       center: [position.coords.latitude,position.coords.longitude]
       zoom: 13
-  # if MapRenderer.myMap
-    # MapRenderer.myMap.setCenter([position.coords.latitude, position.coords.longitude], 13)
-    # PlacemarksRenderer.putMeToMap()
+  if MapRenderer.myMap
+    MapRenderer.myMap.setCenter([position.coords.latitude, position.coords.longitude], 13)
+    PlacemarksRenderer.putMeToMap()
 
-# if navigator.geolocation
-  # navigator.geolocation.getCurrentPosition(setPosition);
+if navigator.geolocation
+  navigator.geolocation.getCurrentPosition(setPosition);
 
 window.ydo = ->
   console.log(1)
