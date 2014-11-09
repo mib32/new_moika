@@ -91,8 +91,12 @@ class User < ActiveRecord::Base
   def forem_name
     if admin?
       'Администратор'
-    else
+    elsif car_wash_title?
       car_wash_title
+    elsif name?
+      name
+    else
+      email 
     end
   end
 
