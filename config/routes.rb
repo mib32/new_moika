@@ -1,5 +1,7 @@
 Moika::Application.routes.draw do
 
+  get 'mobile/admin'
+
   # Sorry
   get 'about', to: 'static_pages#show', permalink: 'new_about' 
 
