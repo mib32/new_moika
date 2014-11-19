@@ -15,6 +15,8 @@ class Widget
       new(name: 'Магазин', type: :store, clip_rect: {offset: {x:0,y:66}, dim: dim}),
       new(name: 'Кафе', type: :cafe, clip_rect: {offset: {x:51,y:66}, dim: dim}),
       new(name: 'Предложение', type: :proposal, clip_rect: {offset: {x:154,y:66}, dim: dim}),
+      new(name: 'Мойка грузовых автомобилей', type: :freight, clip_rect: {offset: {x:320,y:0}, dim: dim}),
+      new(name: 'Аренда (прокат) автомобилей', type: :rent_a_car, clip_rect: {offset: {x:320,y:66}, dim: dim}),
     ]
       # repair
       # discount_10
