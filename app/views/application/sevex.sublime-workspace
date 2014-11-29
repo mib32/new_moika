@@ -1,0 +1,1817 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Place",
+				"PlacemarksRenderer"
+			],
+			[
+				"na",
+				"navigation_data"
+			],
+			[
+				"Map",
+				"MapRenderer"
+			],
+			[
+				"lo",
+				"longitude"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"v",
+				"video_thumb_text"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"vide",
+				"video_thumb"
+			],
+			[
+				"pas",
+				"parse_query"
+			],
+			[
+				"vi",
+				"video_thumb"
+			],
+			[
+				"video",
+				"video_post"
+			],
+			[
+				"in",
+				"include"
+			],
+			[
+				"back",
+				"background-image"
+			],
+			[
+				"mob",
+				"mobile"
+			],
+			[
+				"imo",
+				"important"
+			],
+			[
+				"i",
+				"infinite"
+			],
+			[
+				"mobile",
+				"mobile-shown"
+			],
+			[
+				"btn",
+				"btn-primary"
+			],
+			[
+				"befor",
+				"before_filter"
+			],
+			[
+				"co",
+				"count"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"re",
+				"redirect_to"
+			],
+			[
+				"post_",
+				"post_categories_params"
+			],
+			[
+				"post",
+				"post_categories_params"
+			],
+			[
+				"admin",
+				"admin_video_post_categoies"
+			],
+			[
+				"bt",
+				"btn-success"
+			],
+			[
+				"sb",
+				"sb-width"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"borde",
+				"border-radius"
+			],
+			[
+				"line",
+				"line-height"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"has",
+				"hash_string"
+			],
+			[
+				"b",
+				"background-color"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"catego",
+				"categories_map"
+			],
+			[
+				"categor",
+				"categories_concated"
+			],
+			[
+				"widg",
+				"widget_title"
+			],
+			[
+				"car_was",
+				"car_washes"
+			],
+			[
+				"car",
+				"car_washes"
+			],
+			[
+				"add",
+				"address"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"additional",
+				"additional_svc"
+			],
+			[
+				"services",
+				"car_wash_services"
+			],
+			[
+				"car_washe",
+				"car_washes_services"
+			],
+			[
+				"white",
+				"white-space"
+			],
+			[
+				"ta",
+				"table"
+			],
+			[
+				"blu",
+				"dark-blue"
+			],
+			[
+				"bx",
+				"background-position-x"
+			],
+			[
+				"wtim",
+				"working_time"
+			],
+			[
+				"wo",
+				"working_time_string"
+			],
+			[
+				"car_wash",
+				"car_wash_params"
+			],
+			[
+				"end",
+				"end_hour"
+			],
+			[
+				"radi",
+				"radio_button"
+			],
+			[
+				"con",
+				"content_for"
+			],
+			[
+				"car_",
+				"car_washes_json"
+			],
+			[
+				"w",
+				"w	attr_writer .."
+			],
+			[
+				"perm",
+				"permalink"
+			],
+			[
+				"widget",
+				"widget_content"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"se",
+				"settings"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"d1",
+				"discount_15"
+			],
+			[
+				"conto",
+				"controller_name"
+			],
+			[
+				"cate",
+				"category_ids"
+			],
+			[
+				"border-",
+				"border-radius"
+			],
+			[
+				"geoO",
+				"geoObjectCollections"
+			],
+			[
+				"impor",
+				"important"
+			],
+			[
+				"ch",
+				"children"
+			],
+			[
+				"star",
+				"starSize"
+			],
+			[
+				"ca",
+				"car_wash_owner_checkbox"
+			],
+			[
+				"ra",
+				"raw_info"
+			],
+			[
+				"last",
+				"last_cl"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"sett",
+				"settings_params"
+			],
+			[
+				"be",
+				"before_action"
+			],
+			[
+				"traffic",
+				"trafficProvider"
+			],
+			[
+				"we",
+				"we_are_at_index"
+			],
+			[
+				"tra",
+				"traffic_time"
+			],
+			[
+				"tr",
+				"trafficTime"
+			],
+			[
+				"update",
+				"updateTraffic"
+			],
+			[
+				"opt",
+				"opt_hash"
+			],
+			[
+				"curren",
+				"currency_name"
+			],
+			[
+				"font-st",
+				"font-style"
+			],
+			[
+				"sur",
+				"survey_id"
+			],
+			[
+				"si",
+				"survey_id"
+			],
+			[
+				"s",
+				"survey_result"
+			],
+			[
+				"su",
+				"survey_results"
+			],
+			[
+				"surve",
+				"survey_result_params"
+			],
+			[
+				"sessi",
+				"session_id"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"mq",
+				"mq-height"
+			],
+			[
+				"list-gro",
+				"list-group-item"
+			],
+			[
+				"car_w",
+				"car_wash_id"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"dar",
+				"dark-blue"
+			],
+			[
+				"border-b",
+				"border-bottom"
+			],
+			[
+				"posi",
+				"position"
+			],
+			[
+				"pos",
+				"position_position"
+			],
+			[
+				"mod",
+				"module"
+			],
+			[
+				"a",
+				"absolute"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"right",
+				"right-aligned"
+			],
+			[
+				"app",
+				"application"
+			],
+			[
+				"no",
+				"normal_user_count"
+			],
+			[
+				"reso",
+				"resource_name"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"dev",
+				"devise_scope"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"list",
+				"list-group-item"
+			],
+			[
+				"unico",
+				"unicorn_pid"
+			],
+			[
+				"ti",
+				"tinner"
+			],
+			[
+				"st",
+				"stylesheet_link_tag"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"c",
+				"cla	class .. < ParentClass .. initialize .. end"
+			],
+			[
+				"backgro",
+				"background-color"
+			],
+			[
+				"curr",
+				"current_password"
+			],
+			[
+				"upda",
+				"update_password"
+			],
+			[
+				"sub",
+				"submit"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/gost/dev/sevex/config/database.yml",
+			"settings":
+			{
+				"buffer_size": 2911,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gost/dev/sevex/Gemfile",
+			"settings":
+			{
+				"buffer_size": 1394,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gost/dev/sevex/app/views/layouts/application.html.haml",
+			"settings":
+			{
+				"buffer_size": 467,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gost/dev/sevex/app/views/application/_header.haml",
+			"settings":
+			{
+				"buffer_size": 200,
+				"line_ending": "Unix",
+				"name": "_header.haml"
+			}
+		},
+		{
+			"contents": "/*\n * This is a manifest file that'll be compiled into application.css, which will include all the files\n * listed below.\n *\n * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,\n * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.\n *\n * You're free to add application-wide styles to this file and they'll appear at the bottom of the\n * compiled file so the styles you add here take precedence over styles defined in any styles\n * defined in the other CSS/SCSS files in this directory. It is generally better to create a new\n * file per style scope.\n *\n *= require_tree .\n *= require_self\n *= require foundation_and_overrides\n\n */\n\n\n#header{\n	height:400px;\n	background-image: asset_url('header.png');\n}",
+			"file": "/Users/gost/dev/sevex/app/assets/stylesheets/application.css",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 792,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gost/dev/sevex/app/controllers/welcome_controller.rb",
+			"settings":
+			{
+				"buffer_size": 70,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gost/dev/sevex/config/routes.rb",
+			"settings":
+			{
+				"buffer_size": 1599,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/gost/dev/sevex/app/views/welcome/index.html.haml",
+			"settings":
+			{
+				"buffer_size": 6,
+				"line_ending": "Unix",
+				"name": "index.html.haml"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 331.0,
+		"selected_items":
+		[
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"conver",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"tab ",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/gost/dev/sevex",
+		"/Users/gost/dev/sevex/app",
+		"/Users/gost/dev/sevex/app/assets",
+		"/Users/gost/dev/sevex/app/assets/stylesheets",
+		"/Users/gost/dev/sevex/app/controllers",
+		"/Users/gost/dev/sevex/app/views",
+		"/Users/gost/dev/sevex/app/views/welcome"
+	],
+	"file_history":
+	[
+		"/Users/gost/dev/sevex/app/helpers/application_helper.rb",
+		"/Users/gost/dev/sevex/test/test_helper.rb",
+		"/Users/gost/dev/sevex/config/application.rb",
+		"/Users/gost/dev/sevex/app/assets/javascripts/application.js",
+		"/Users/gost/dev/sevex/app/controllers/application_controller.rb",
+		"/Users/gost/dev/sevex/public/404.html",
+		"/Users/gost/dev/sevex/config/environments/development.rb",
+		"/Users/gost/dev/sevex/config.ru",
+		"/Users/gost/dev/new_moika/app/views/devise/menu/_login_items.haml",
+		"/Users/gost/dev/new_moika/app/views/forem/forums/_listing.html.erb",
+		"/Users/gost/dev/new_moika/config/initializers/setup_mail.rb",
+		"/Users/gost/dev/new_moika/app/assets/stylesheets/main.scss",
+		"/Users/gost/dev/new_moika/db/migrate/20140903175058_remove_pending_review_from_forem_topics_add_state.forem.rb",
+		"/Users/gost/dev/new_moika/spec/routing/admin/posts_routing_spec.rb",
+		"/Users/gost/dev/new_moika/log/development.log",
+		"/Users/gost/dev/new_moika/config/environment.rb",
+		"/Users/gost/dev/new_moika/spec/helpers/map_helper_spec.rb",
+		"/Users/gost/dev/new_moika/spec/controllers/map_controller_spec.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20140924143519_add_description_to_videos.rb",
+		"/Users/gost/dev/new_moika/todo_3101.txt",
+		"/Users/gost/dev/new_moika/true",
+		"/Users/gost/dev/new_moika/app/helpers/mobile_helper.rb",
+		"/Users/gost/dev/new_moika/app/models/video.rb",
+		"/Users/gost/dev/new_moika/app/views/car_washes/_form2.html",
+		"/Users/gost/dev/new_moika/db/migrate/20140903175059_approve_all_topics_and_posts.forem.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20140903175061_make_forem_views_polymorphic.forem.rb",
+		"/Users/gost/dev/new_moika/app/controllers/mobile_controller.rb",
+		"/Users/gost/dev/new_moika/config/initializers/secret_token.rb",
+		"/Users/gost/dev/new_moika/spec/controllers/admin/surveys_controller_spec.rb",
+		"/Users/gost/dev/new_moika/spec/views/car_washes/index.html.haml_spec.rb",
+		"/Users/gost/dev/new_moika/spec/routing/videos_routing_spec.rb",
+		"/Users/gost/dev/new_moika/.ruby-version",
+		"/Users/gost/dev/new_moika/vendor/assets/javascripts/iscroll.js",
+		"/Users/gost/dev/new_moika/bin/bundle",
+		"/Users/gost/dev/new_moika/db/migrate/20131114161340_add_fields_to_user.rb",
+		"/Users/gost/dev/new_moika/app/views/application/_carousel.haml",
+		"/Users/gost/dev/new_moika/spec/spec_helper.rb",
+		"/Users/gost/dev/new_moika/spec/requests/admin/admin_posts_spec.rb",
+		"/Users/gost/dev/new_moika/spec/helpers/posts_helper_spec.rb",
+		"/Users/gost/dev/new_moika/spec/controllers/posts_controller_spec.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20140930154638_create_new_static_page.rb",
+		"/Users/gost/dev/new_moika/app/views/normal_user_messages/_normal_user_message.html.haml",
+		"/Users/gost/dev/new_moika/app/views/car_washes/_signal.haml",
+		"/Users/gost/dev/new_moika/app/models/ad_settings.rb",
+		"/Users/gost/dev/new_moika/app/views/application/_ivideon_tag.haml",
+		"/Users/gost/dev/new_moika/db/migrate/20140218215058_add_video_title1_to_car_wash.rb",
+		"/Users/gost/dev/new_moika/tmp/cache/assets/development/sass/7a456c1529655df12b89d5410ac5643e9f10e812/_background-size.scssc",
+		"/Users/gost/dev/new_moika/tmp/cache/assets/development/sass/5b64933c7868db5c4b2055c26ae72fac64771340/_respond-to.scssc",
+		"/Users/gost/dev/new_moika/app/models/request.rb",
+		"/Users/gost/dev/new_moika/app/controllers/invoices_controller.rb",
+		"/Users/gost/dev/new_moika/app/models/invoice.rb",
+		"/Users/gost/dev/new_moika/app/models/ability.rb",
+		"/Users/gost/dev/new_moika/app/models/admin.rb",
+		"/Users/gost/dev/new_moika/app/models/advertisement.rb",
+		"/Users/gost/dev/new_moika/app/assets/fonts/OpenSans-Regular-webfont.svg",
+		"/Users/gost/dev/new_moika/db/migrate/20141007163601_add_price_to_car_washes_services.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20140903175057_remove_pending_review_add_state_to_forem_posts.forem.rb",
+		"/Users/gost/dev/new_moika/app/assets/javascripts/load_ivideon.js.coffee",
+		"/Users/gost/dev/new_moika/spec/routing/car_washes_routing_spec.rb",
+		"/Users/gost/dev/new_moika/lib/parse_data.rb",
+		"/Users/gost/dev/new_moika/tmp/cache/assets/development/sass/7a456c1529655df12b89d5410ac5643e9f10e812/_user-interface.scssc",
+		"/Users/gost/dev/new_moika/spec/models/user_spec.rb",
+		"/Users/gost/dev/new_moika/app/models/message.rb",
+		"/Users/gost/dev/new_moika/app/controllers/sessions_controller.rb",
+		"/Users/gost/dev/new_moika/config/locales/devise.en.yml",
+		"/Users/gost/dev/new_moika/db/migrate/20130912095725_devise_create_users.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20140203101108_devise_create_normal_users.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20130918183849_change_type_of_services.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20140929220943_copy_from_settings_to_ads.rb",
+		"/Users/gost/dev/new_moika/spec/models/payment_spec.rb",
+		"/Users/gost/dev/new_moika/public/yandex_451ba4c60354af19.html",
+		"/Users/gost/dev/new_moika/db/migrate/20140909160558_add_type_to_users.rb",
+		"/Users/gost/dev/new_moika/app/helpers/admin/users_helper.rb",
+		"/Users/gost/dev/new_moika/app/views/devise/menu/_registration_items.haml",
+		"/Users/gost/dev/new_moika/README.md",
+		"/Users/gost/dev/new_moika/spec/requests/admin/admin_surveys_spec.rb",
+		"/Users/gost/dev/new_moika/tmp/cache/assets/development/sass/14d66f45d9f4f42f22902986d4f4b730f19f2aed/_min.scssc",
+		"/Users/gost/dev/new_moika/config/newrelic.yml",
+		"/Users/gost/dev/new_moika/app/helpers/map_helper.rb",
+		"/Users/gost/dev/new_moika/app/models/marquee_ad.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20140910082608_add_order_to_navs.rb",
+		"/Users/gost/dev/new_moika/config/mauth.yml",
+		"/Users/gost/dev/new_moika/app/views/admin/static_pages/show.json.jbuilder",
+		"/Users/gost/dev/new_moika/app/controllers/static_pages_controller.rb",
+		"/Users/gost/dev/new_moika/spec/controllers/static_pages_controller_spec.rb",
+		"/Users/gost/dev/new_moika/tmp/cache/assets/development/sass/57428023fc057a763cced56c733a4da754e2cee2/_alternating-rows-and-columns.scssc",
+		"/Users/gost/dev/new_moika/app/views/admin/dashboard/main.haml",
+		"/Users/gost/dev/new_moika/app/helpers/admin/messages_helper.rb",
+		"/Users/gost/dev/new_moika/app/assets/fonts/glyphicons-halflings-regular.svg",
+		"/Users/gost/dev/new_moika/config/initializers/forem.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20140503143458_create_bootsy_image_galleries.bootsy.rb",
+		"/Users/gost/dev/new_moika/vendor/assets/javascripts/bootsy/bootstrap.file-input.js",
+		"/Users/gost/dev/new_moika/app/views/subscribe/_subscribe.haml",
+		"/Users/gost/dev/new_moika/app/views/devise/mailer/confirmation_instructions.html.haml",
+		"/Users/gost/dev/new_moika/app/helpers/admin/surveys_helper.rb",
+		"/Users/gost/dev/new_moika/app/models/survey_result.rb",
+		"/Users/gost/dev/new_moika/app/controllers/normal_user_messages_controller.rb",
+		"/Users/gost/dev/new_moika/app/views/car_washes/signal_update.js.erb",
+		"/Users/gost/dev/new_moika/app/helpers/static_pages_helper.rb",
+		"/Users/gost/dev/new_moika/spec/models/action_spec.rb",
+		"/Users/gost/dev/new_moika/app/assets/javascripts/toggle_agreement_submit.js.coffee",
+		"/Users/gost/dev/new_moika/app/views/application/_agreement.haml",
+		"/Users/gost/dev/new_moika/db/migrate/20140224170136_add_grey_to_car_wash.rb",
+		"/Users/gost/dev/new_moika/app/views/application/_ads.haml",
+		"/Users/gost/dev/new_moika/app/helpers/requests_helper.rb",
+		"/Users/gost/dev/new_moika/spec/helpers/reviews_helper_spec.rb",
+		"/Users/gost/dev/new_moika/db/migrate/20131027210644_change_request.rb",
+		"/Users/gost/dev/new_moika/app/helpers/comments_helper.rb",
+		"/Users/gost/dev/new_moika/app/views/admin/posts/index.json.jbuilder",
+		"/Users/gost/dev/new_moika/app/views/posts/show.html.haml",
+		"/Users/gost/dev/new_moika/tmp/cache/assets/development/sass/5b64933c7868db5c4b2055c26ae72fac64771340/_parsers.scssc",
+		"/Users/gost/dev/new_moika/spec/views/static_pages/edit.html.haml_spec.rb",
+		"/Users/gost/dev/new_moika/spec/helpers/static_pages_helper_spec.rb",
+		"/Users/gost/dev/new_moika/spec/models/static_page_spec.rb",
+		"/Users/gost/dev/new_moika/app/views/messages/index.js.erb",
+		"/Users/gost/dev/new_moika/app/views/car_washes/left_action_update.js.erb",
+		"/Users/gost/dev/new_moika/tmp/cache/assets/development/sass/b8a73813cd126d7e06461a190b4c532bd0162dad/_vertical_rhythm.scssc",
+		"/Users/gost/dev/new_moika/tmp/cache/assets/development/sass/382463d3e1056b1732a8791a0b11c1bcb4d3de69/_inline-list.scssc",
+		"/Users/gost/dev/new_moika/db/migrate/20130912101558_create_roles_users.rb",
+		"/Users/gost/dev/new_moika/app/controllers/video_posts_controller.rb",
+		"/Users/gost/dev/new_moika/app/assets/javascripts/navs.js.coffee",
+		"/Users/gost/dev/new_moika/spec/requests/navs_spec.rb",
+		"/Users/gost/dev/new_moika/app/helpers/navs_helper.rb",
+		"/Users/gost/dev/new_moika/app/controllers/navs_controller.rb",
+		"/Users/gost/dev/new_moika/app/models/nav.rb",
+		"/Users/gost/dev/new_moika/log/newrelic_agent.log",
+		"/Users/gost/dev/new_moika/app/views/videos/show.html.haml",
+		"/Users/gost/dev/new_moika/db/migrate/20140128191052_add_videoned_to_car_wash.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/gost/dev/new_moika/app/config",
+			"/Users/gost/dev/new_moika/app/assets",
+			"/Users/gost/dev/new_moika/app/views",
+			"/Users/gost/dev/new_moika/lib",
+			"/Users/gost/dev/new_moika/config",
+			"/Users/gost/dev/new_moika/app/views/admin/video_posts",
+			"/Users/gost/dev/new_moika/app/views/",
+			"/Users/gost/dev/new_moika/app/views/forem",
+			"/Users/gost/dev/new_moika/app",
+			"/Users/gost/dev/new_moika/config",
+			"/Users/gost/dev/new_moika/",
+			"/Users/gost/dev/new_moika/lib",
+			"/Users/gost/dev/new_moika/app/",
+			"/Users/gost/dev/new_moika/app/views",
+			"/Users/gost/dev/new_moika/app/assets",
+			"/Users/gost/dev/new_moika/app/",
+			"/Users/gost/dev/new_moika/app/controllers",
+			"/Users/gost/dev/new_moika/app/assets",
+			"/Users/gost/dev/new_moika/app/views",
+			"/Users/gost/dev/new_moika/app/helpers",
+			"/Users/gost/dev/new_moika/app/",
+			"/Users/gost/dev/new_moika/app/controllers",
+			"/Users/gost/dev/new_moika/app/assets",
+			"/Users/gost/dev/new_moika/app/views",
+			"/Users/gost/dev/new_moika/app/controllers",
+			"/Users/gost/dev/new_moika/app/views",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"haml",
+			"username",
+			"forem_name",
+			"post-userna",
+			"smtp.yandex",
+			"host",
+			"MapRenderer.myMap.geoObjects.add",
+			"Placemark",
+			"diff",
+			"dyn",
+			"set_cur",
+			"desc",
+			"vlue",
+			"pushed-s",
+			"m-form-con",
+			"toggle",
+			"get_dynamics",
+			"admin",
+			"weather",
+			"Open Sans",
+			"text-shadow",
+			"bettertabs",
+			"content{",
+			"#m{",
+			"600px",
+			"new",
+			"#m{",
+			"left",
+			"#m{",
+			"#cw-l",
+			"видео",
+			"(",
+			"posts",
+			".map",
+			"mobile-",
+			"moblie-",
+			"transform",
+			"#m{",
+			"-title",
+			"message",
+			" 6px;",
+			"6px;",
+			"-100px",
+			"form-",
+			"proposals",
+			"proposa",
+			"big_car",
+			"#sb",
+			"big_car",
+			"#sb",
+			"sb{",
+			"car_wash",
+			"car_washes{",
+			"car_washes",
+			"car_washes.",
+			".video_posts #m",
+			".video_posts",
+			"reque",
+			"marged",
+			"mar",
+			"subscribe",
+			"subscrive",
+			"prawn",
+			"@choices",
+			"@cho",
+			"@choic",
+			"@choice",
+			"@choices",
+			"choices",
+			"signed_up",
+			"list-grou",
+			"normal_users",
+			"proposals",
+			"big_car",
+			".post{",
+			"topic{",
+			"big-car",
+			"15.",
+			"nowrap",
+			"subscr",
+			"регистрация дл",
+			".c{",
+			".c",
+			"pbox",
+			"cw{",
+			"min-wid",
+			"cw",
+			"submit",
+			"widget_type",
+			"widget",
+			"max-width:",
+			"@admin_post",
+			"admin_post",
+			"admin_posts",
+			"@object_name=",
+			"@object_name =",
+			"@object_name",
+			"info:",
+			"set_news",
+			"cw-second",
+			"#cw_conte",
+			"#cw-first",
+			".c{",
+			"ads",
+			"#m",
+			"working_time_string",
+			"label{",
+			"form{",
+			"simple_form_for [forem, @topic.",
+			"h2",
+			"reply",
+			"localtime",
+			"views",
+			"views_",
+			"просмотров",
+			"fotter",
+			"#m",
+			"ocean",
+			"m-btn",
+			"lucida",
+			"topic",
+			"latest",
+			"m-btn",
+			"post",
+			"m-btn",
+			"super",
+			"nav",
+			"OutSum"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"@admin_video_post",
+			"admin_video_post",
+			"admin_video_posts",
+			"asset-url('",
+			"User",
+			"$pt",
+			".td-10",
+			".m-row",
+			".toggle",
+			"m-form-control",
+			"",
+			"$sb-width",
+			"  ",
+			".m-row",
+			"m-form-control",
+			".m-row",
+			"$blue",
+			"",
+			"redirect_to [:admin @nav",
+			"_path(\"social/",
+			"redirect_to [:admin, @nav]",
+			"sm",
+			"col-md-6",
+			"col-md-1"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/gost/dev/sevex/config/database.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2911,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								400,
+								400
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/gost/dev/sevex/Gemfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1393,
+								1393
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 314.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/gost/dev/sevex/app/views/layouts/application.html.haml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 467,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								403,
+								403
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/gost/dev/sevex/app/views/application/_header.haml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								59
+							]
+						],
+						"settings":
+						{
+							"auto_name": "_header.haml",
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/gost/dev/sevex/app/assets/stylesheets/application.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 792,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								770,
+								770
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/User/MarioRicalde-SCSS.tmbundle-58d60a4/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/gost/dev/sevex/app/controllers/welcome_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								65,
+								65
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/gost/dev/sevex/config/routes.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1599,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/gost/dev/sevex/app/views/welcome/index.html.haml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"auto_name": "index.html.haml",
+							"syntax": "Packages/Rails/Ruby Haml.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 47.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "sevex.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"haml",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"welcom",
+				"app/controllers/welcome_controller.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"appscs",
+				"app/assets/stylesheets/application.css"
+			],
+			[
+				"ge",
+				"Gemfile"
+			],
+			[
+				"applicationhtml",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"gemf",
+				"Gemfile"
+			],
+			[
+				"data",
+				"config/database.yml"
+			],
+			[
+				"conf",
+				"config.ru"
+			],
+			[
+				"_sideba",
+				"app/views/application/_sidebar.haml"
+			],
+			[
+				"user.rb",
+				"app/models/user.rb"
+			],
+			[
+				"_post",
+				"app/views/forem/posts/_post.html.erb"
+			],
+			[
+				"e",
+				"config/environment.rb"
+			],
+			[
+				"env",
+				"log/environment_variable.log"
+			],
+			[
+				"forem",
+				"config/initializers/forem.rb"
+			],
+			[
+				"mailer",
+				"app/mailers/system_mailer.rb"
+			],
+			[
+				"",
+				"config/environments/production.rb"
+			],
+			[
+				"prod",
+				"config/environments/production.rb"
+			],
+			[
+				"deve",
+				"config/environments/development.rb"
+			],
+			[
+				"develo",
+				"tmp/cache/assets/development/sass/7a456c1529655df12b89d5410ac5643e9f10e812/_opacity.scssc"
+			],
+			[
+				"en",
+				"config/environment.rb"
+			],
+			[
+				"adminusers",
+				"app/views/admin/users/index.html.haml"
+			],
+			[
+				"placem",
+				"app/assets/javascripts/placemarks_renderer.js.coffee.erb"
+			],
+			[
+				"mapjs",
+				"app/assets/javascripts/map.js.coffee"
+			],
+			[
+				"map",
+				"app/assets/javascripts/map_general.js"
+			],
+			[
+				"mapshow",
+				"app/views/map/show.html.haml"
+			],
+			[
+				"general",
+				"app/assets/javascripts/general.js.coffee"
+			],
+			[
+				"appjs",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"curren",
+				"app/models/currency.rb"
+			],
+			[
+				"apphelp",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"_marq",
+				"app/views/application/_marquee.haml"
+			],
+			[
+				"_head",
+				"app/views/application/_header.haml"
+			],
+			[
+				"applica_co",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"cwcon",
+				"app/controllers/car_washes_controller.rb"
+			],
+			[
+				"adminuserscontrol",
+				"app/controllers/admin/users_controller.rb"
+			],
+			[
+				"add_car_wa",
+				"~/dev/new_moika/app/views/admin/users/add_car_wash.haml"
+			],
+			[
+				"togg",
+				"app/assets/stylesheets/toggle_buttons.scss"
+			],
+			[
+				"app",
+				"app/assets/stylesheets/application.scss"
+			],
+			[
+				"mobileha",
+				"app/views/layouts/mobile.html.haml"
+			],
+			[
+				"stat",
+				"app/controllers/static_pages_controller.rb"
+			],
+			[
+				"mobilec",
+				"app/controllers/mobile_controller.rb"
+			],
+			[
+				"_wdigets",
+				"app/views/car_washes/_widgets_form.haml"
+			],
+			[
+				"cw_form",
+				"app/views/car_washes/_form.html.haml"
+			],
+			[
+				"cwedit",
+				"app/views/car_washes/edit.html.haml"
+			],
+			[
+				"mobileadmin",
+				"app/views/mobile/admin.html.haml"
+			],
+			[
+				"apprb",
+				"config/application.rb"
+			],
+			[
+				"apphaml",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"mobile",
+				"app/controllers/mobile_controller.rb"
+			],
+			[
+				"staticcon",
+				"app/controllers/static_pages_controller.rb"
+			],
+			[
+				"cwinde",
+				"app/views/car_washes/index.html.haml"
+			],
+			[
+				"scss",
+				"app/assets/stylesheets/application.scss"
+			],
+			[
+				"videoposts",
+				"app/views/video_posts/index.html.haml"
+			],
+			[
+				"fron",
+				"app/assets/javascripts/front_end.js.coffee"
+			],
+			[
+				"client_",
+				"app/views/application/_client_youtube.html.erb"
+			],
+			[
+				"currenc",
+				"app/models/currency.rb"
+			],
+			[
+				"_client",
+				"app/views/application/_client_youtube.html.erb"
+			],
+			[
+				"cwshow",
+				"app/views/car_washes/show.html.haml"
+			],
+			[
+				"cli",
+				"app/views/application/_client_youtube.html.erb"
+			],
+			[
+				"vindex",
+				"app/views/video_posts/index.html.haml"
+			],
+			[
+				"share",
+				"app/assets/javascripts/share42.js"
+			],
+			[
+				"front",
+				"app/assets/javascripts/front_end.js.coffee"
+			],
+			[
+				"adminpostscon",
+				"app/controllers/admin/posts_controller.rb"
+			],
+			[
+				"news_post",
+				"app/models/news_post.rb"
+			],
+			[
+				"infopost",
+				"app/models/info_post.rb"
+			],
+			[
+				"postsshow",
+				"app/views/posts/show.html.haml"
+			],
+			[
+				"newspost",
+				"app/models/news_post.rb"
+			],
+			[
+				"appc",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"_se",
+				"app/views/application/_sidebar.haml"
+			],
+			[
+				"_sideb",
+				"app/views/application/_sidebar.haml"
+			],
+			[
+				"cwindex",
+				"app/views/car_washes/index.html.haml"
+			],
+			[
+				"postsindex",
+				"app/views/posts/index.html.haml"
+			],
+			[
+				"newsindex",
+				"~/dev/new_moika/app/views/comments/index.html.haml"
+			],
+			[
+				"cw_show",
+				"app/views/car_washes/show.html.haml"
+			],
+			[
+				"ru.y",
+				"config/locales/ru.yml"
+			],
+			[
+				"adsettings_controler",
+				"app/controllers/admin/ad_settings_controller.rb"
+			],
+			[
+				"iter",
+				"iterations"
+			],
+			[
+				"place",
+				"app/assets/javascripts/placemarks_renderer.js.coffee.erb"
+			],
+			[
+				"placemar",
+				"app/assets/stylesheets/placemarks.scss.erb"
+			],
+			[
+				"widgets",
+				"app/controllers/widgets_controller.rb"
+			],
+			[
+				"widget",
+				"app/models/widget.rb"
+			],
+			[
+				"video_index",
+				"app/views/video_posts/index.html.haml"
+			],
+			[
+				"_devise",
+				"app/views/application/_devise.haml"
+			],
+			[
+				"_side",
+				"app/views/application/_sidebar.haml"
+			],
+			[
+				"_navs",
+				"app/views/application/_navs.haml"
+			],
+			[
+				"propindex",
+				"app/views/proposals/index.html.haml"
+			],
+			[
+				"_mq",
+				"app/views/application/_marquee.haml"
+			],
+			[
+				"videopostsinde",
+				"app/views/video_posts/index.html.haml"
+			],
+			[
+				"requestnew",
+				"app/views/requests/new.html.haml"
+			],
+			[
+				"invoicenew",
+				"app/views/invoices/new.html.haml"
+			],
+			[
+				"a",
+				"config/application.rb"
+			],
+			[
+				"genera",
+				"lib/pdf/generate_pdf.rb"
+			],
+			[
+				"robokass",
+				"app/controllers/robokassa_controller.rb"
+			],
+			[
+				"roboka",
+				"lib/robokassa/robokassa.rb"
+			],
+			[
+				"userscon",
+				"app/controllers/admin/users_controller.rb"
+			],
+			[
+				"ru.yml",
+				"config/locales/ru.yml"
+			],
+			[
+				"usersindex",
+				"app/views/admin/users/index.html.haml"
+			],
+			[
+				"metri",
+				"app/views/application/_metrika.html"
+			],
+			[
+				"infor",
+				"app/views/application/_metrika_informer.html"
+			],
+			[
+				"users",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"scaf",
+				"app/assets/stylesheets/scaffolds.css.scss"
+			],
+			[
+				"deviseyml",
+				"config/locales/devise.ru.yml"
+			],
+			[
+				"ru.ym",
+				"config/locales/ru.yml"
+			],
+			[
+				"usershow",
+				"app/views/users/show.html.haml"
+			],
+			[
+				"registration",
+				"app/views/registrations/edit.html.haml"
+			],
+			[
+				"regist",
+				"app/controllers/registrations_controller.rb"
+			],
+			[
+				"adminusersindex",
+				"app/views/admin/users/index.html.haml"
+			],
+			[
+				"_v",
+				"app/views/layouts/admin/_vmenu.haml"
+			],
+			[
+				"adminco",
+				"app/controllers/admin_controller.rb"
+			],
+			[
+				"adminucon",
+				"app/controllers/admin/users_controller.rb"
+			],
+			[
+				"auc",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"adminuin",
+				"app/views/admin/users/index.html.haml"
+			],
+			[
+				"newreg",
+				"app/views/system_mailer/new_registration_happen.html.haml"
+			],
+			[
+				"adminstatisshow",
+				"app/views/admin/static_pages/show.html.haml"
+			],
+			[
+				"staticshow",
+				"app/views/static_pages/show.html.haml"
+			],
+			[
+				"_footer",
+				"app/views/application/_footer.haml"
+			],
+			[
+				"_metr",
+				"app/views/application/_metrika.html"
+			],
+			[
+				"forumindex",
+				"app/views/forem/forums/index.html.erb"
+			],
+			[
+				"appha",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"subsc",
+				"app/views/car_washes/subscribe.js.erb"
+			],
+			[
+				"cwcontro",
+				"app/controllers/car_washes_controller.rb"
+			],
+			[
+				"ru",
+				"config/locales/ru.yml"
+			],
+			[
+				"idins",
+				"db/migrate/20141020163215_rename_normal_user_id_to_user_id_in_subscribes.rb"
+			],
+			[
+				"surveyshow",
+				"app/views/admin/surveys/show.html.haml"
+			],
+			[
+				"cw",
+				"app/models/car_wash.rb"
+			],
+			[
+				"sub",
+				"app/models/subscribe.rb"
+			],
+			[
+				"apphel",
+				"app/helpers/application_helper.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 331.0,
+		"selected_items":
+		[
+			[
+				"tab",
+				"table-bordered"
+			],
+			[
+				"",
+				"<< self"
+			]
+		],
+		"width": 395.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 186.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

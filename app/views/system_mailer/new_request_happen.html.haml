@@ -1,2 +1,11 @@
 Поступила новая заявка от клиента автомойки - 
-= link_to 'посмотреть.', car_wash_request_path(@car_wash,@request)
+%h5= @request.name + ', тел: ' + @request.phone
+%h5 Марка:
+= @request.car_model
+%h5 Гос. номер:
+= @request.license_plate_no
+%h5 Время заказа:
+= @request.wash_at
+%h5 Перечень услуг:
+%p= @request.text
+= link_to 'посмотреть.', edit_car_wash_with_tab_url(@car_wash,:requests)

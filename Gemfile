@@ -134,7 +134,9 @@ gem 'newrelic_rpm'
 #gem 'skylight'
 
 gem 'activemerchant', :require => 'active_merchant'
-gem 'robokassa'
+# gem 'robokassa'
+gem 'rubykassa', :git => "https://github.com/mib32/rubykassa"
+# gem 'rubykassa', :path => "/Users/antonmur/dev/r/rubykassa"
 gem 'prawn', :git => "https://github.com/prawnpdf/prawn.git"
 gem 'prawn-table'
 
@@ -174,3 +176,5 @@ gem 'request_profiler'
 
 # for css
 gem 'breakpoint'
+
+gem 'fastclick-rails'

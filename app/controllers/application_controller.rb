@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_devise_params, if: :devise_controller?
   before_filter :configure_permitted_parameters, if: :devise_controller?
+
   before_action :set_news
   before_action :set_sets
   before_action :set_survey
@@ -64,6 +65,7 @@ class ApplicationController < ActionController::Base
 
 
   def set_curr
+    # byebug
     @euro ||= Currency.get_current_eur
     @usd ||= Currency.get_current_usd
   end

@@ -1,7 +1,7 @@
 class CarWashesController < ApplicationController
-  before_action :set_car_wash, only: [:show, :edit, :update, :destroy]
+  before_action :set_car_wash, only: [:show, :edit, :update, :destroy, :update_widget_of]
   before_filter :check_access, :only => [:new, :edit, :update, :destroy]
-  before_action :check_premial_type, :only => [:update]
+  # before_action :check_premial_type, :only => [:update_widget_of]
   # GET /car_washes
   # GET /car_washes.json
   def index
@@ -117,7 +117,17 @@ class CarWashesController < ApplicationController
     end
   end
 
-
+  def update_widget_of
+    if @car_wash.update(premium_car_wash_params)
+      if params[:mobile]
+        redirect_to mobile_admin_path, notice: 'Автомойка успешно обновлена'
+      else
+        redirect_to edit_car_wash_path(@car_wash), notice: 'Автомойка успешно обновлена.'
+      end
+    else
+      render action: 'edit'
+    end
+  end
 
   # DELETE /car_washes/1
   # DELETE /car_washes/1.json
@@ -163,8 +173,11 @@ class CarWashesController < ApplicationController
 
     end
 
-
     # Never trust parameters from the scary internet, only allow the white list through.
+    
+    def premium_car_wash_params
+      params.require(:car_wash).permit( :widget_type, :widget_content )
+    end
     def car_wash_params
       params.require(:car_wash).permit(
         :title,
@@ -184,8 +197,8 @@ class CarWashesController < ApplicationController
         :signal_type,
         :video_title1,
         :video_title2,
-        :widget_type,
-        :widget_content,
+        # :widget_type,
+        # :widget_content,
         :title_video_url,
         :additional_services,
         :car_washes_services_attributes => [:price, :id],

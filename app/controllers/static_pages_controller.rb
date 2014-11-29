@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_static_page
-      @static_page = StaticPage.find_by_permalink(params[:permalink])
+      @static_page = StaticPage.find_by_permalink(params[:permalink]) or raise "ActiveRecord::RecordNotFound"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

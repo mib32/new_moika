@@ -1,0 +1,29 @@
+-# = form_for @car_wash do |f|
+  'a'
+= form_for @car_wash, url: update_widget_of_car_wash_path(@car_wash) do |f|
+  %h4 Виджет для карты
+  .widgets
+    - Widget.each do |widget|
+      = f.radio_button :widget_type, widget.type, class: 'toggle'
+      = label_tag widget.type, class: 'toggle' do 
+        .widget-pic{ id: widget.type }
+  %h4.widget-comment Комментарий к проводимой акции
+  = f.text_field :widget_content, class: 'm-form-control wide'
+  = hidden_field_tag :mobile, true
+  = f.submit 'Сохранить', class: 'm-btn wide'
+.low-row
+  .left
+    %h4.s Запись клиента на автомойку
+    = link_to mobile_requests_path, class: 'no-dec' do
+      .new-client
+        - unless (requests_count = @car_wash.requests.unread.count).zero?
+          .circle
+            .num= requests_count
+  .left
+    %h4.s Ваш новый подписчик
+    -#%h5 Подписок нет.
+    = link_to mobile_subscribes_path, class: 'no-dec' do
+      .new-subscribe
+        - unless (subscribes_count = @car_wash.subscribes.count).zero?
+          .circle
+            .num= subscribes_count

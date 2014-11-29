@@ -33,5 +33,8 @@ module Moika
 
     config.middleware.use "Rack::RequestProfiler"
 
+    config.time_zone = 'Moscow'
+    # config.active_record.default_timezone = :local
+    # config.active_record.initialize_timezone
   end
 end

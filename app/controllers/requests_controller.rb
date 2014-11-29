@@ -32,7 +32,7 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @car_wash = CarWash.find(params[:car_wash_id])
-    @request= @car_wash.requests.build
+    @request= @car_wash.requests.build(wash_at:DateTime.now)
   end
 
   # GET /requests/1/edit
@@ -91,6 +91,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:name, :phone, :email, :text, :car_wash_id, :after, :read)
+      params.require(:request).permit(:name, :phone, :email, :text, :car_wash_id, :after, :read, :wash_at, :car_model, :license_plate_no)
     end
 end

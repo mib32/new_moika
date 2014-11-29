@@ -1,0 +1,23 @@
+= link_to 'Назад', mobile_admin_path, class: 'back'
+%h4 Записи клиентов на автомойку
+%table.mobile
+  %thead
+    %tr
+      %th №
+      %th Время записи
+      %th Марка автомобиля
+      %th Гос. номер
+      %th Имя клиента
+      %th Контактный телефон
+      %th Перечень услуг
+
+  %tbody
+  - @car_wash.requests.each.with_index do |request, i|
+    %tr{ class: ('bold ' unless request.read).to_s + (cycle('odd ','even ')) }
+      %td= i+1
+      %td= request.wash_at
+      %td= request.car_model
+      %td= request.license_plate_no
+      %td= request.name
+      %td= request.phone
+      %td= request.text

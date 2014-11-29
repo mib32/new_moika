@@ -59,8 +59,8 @@
         .c.clearfix
           %h4 Выберите способ оплаты
           %h5.text-center Электронными деньгами
-          - pay_url = Robokassa.client.init_payment_url(@car_wash.payments.first.id, @car_wash.payments.first.amount, '', currency='', language='ru', email='', custom_options={car_wash_id: @car_wash.id})
-          = link_to pay_url do
+          -# pay_url = Robokassa.client.init_payment_url(@car_wash.payments.first.id, @car_wash.payments.first.amount, '', currency='', language='ru', email='', custom_options={car_wash_id: @car_wash.id})
+          = pay_url @car_wash.payments.first.id, @car_wash.payments.first.amount, {email:'sa',custom:{car_wash_id: @car_wash.id}} do
             .pay-btn
               %div Оплатить с помощью
               %div= image_tag 'robokassa.jpg', size: '150x25'
@@ -79,6 +79,13 @@
           .c
             %p.date= l request.created_at.localtime, format: :long
             %h5= request.name + ', тел: ' + request.phone
+            %h5 Марка:
+            = request.car_model
+            %h5 Гос. номер:
+            = request.license_plate_no
+            %h5 Время заказа:
+            = request.wash_at
+            %h5 Перечень услуг:
             %p= request.text
       = tab.static :subscribes, "Подписки: #{@car_wash.subscribes.count}" do
         = render @car_wash.subscribes

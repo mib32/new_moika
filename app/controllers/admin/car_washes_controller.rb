@@ -19,7 +19,7 @@ class Admin::CarWashesController < AdminController
 
     respond_to do |format|
       if @car_wash.save
-        format.html { redirect_to [:admin, @car_wash], notice: 'Car wash was successfully created.' }
+        format.html { redirect_to [:admin, @car_wash], notice: 'Автомойка успешно создана' }
         format.json { render action: 'show', status: :created, location: @car_wash }
       else
         format.html { render action: 'new' }

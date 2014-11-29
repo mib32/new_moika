@@ -1,7 +1,9 @@
 Moika::Application.routes.draw do
 
-  get 'mobile/admin'
 
+  get 'mobile/admin'
+  get 'mobile/requests'
+  get 'mobile/subscribes'
   # Sorry
   get 'about', to: 'static_pages#show', permalink: 'new_about' 
 
@@ -60,7 +62,7 @@ Moika::Application.routes.draw do
 
   resources :car_washes do
     get :update_map, on: :collection
-    # post :update_widget_of, on: :member
+    patch :update_widget_of, on: :member
     resource :widget
     resources :comments, only: [:index, :create]
     resources :requests
@@ -79,12 +81,19 @@ Moika::Application.routes.draw do
   put 'car_washes/:id/update_main_action', to: 'car_washes#update_main_action', as: '/car_washes_update_main_action'
   post 'car_washes/:id/subscribe/:user_id', to: 'car_washes#subscribe', as: '/car_washes_subscribe'
 
-  controller :robokassa do
-    get "robokassa/:notification_key/notify"   => :notify,  :as => :robokassa_notification
 
-    get "robokassa/success"  => :success, :as => :robokassa_on_success
-    get "robokassa/fail"     => :fail,    :as => :robokassa_on_fail
+  scope '/robokassa' do
+    %w(paid success fail).map do |route|
+      method(Rubykassa.http_method).call "/#{route}" => "robokassa##{route}", as: "robokassa_#{route}" 
+    end
   end
+  # controller :robokassa do
+  #   get "robokassa/:notification_key/notify"   => :notify,  :as => :robokassa_notification
+  #   get "robokassa/paid"   => :paid,  :as => :robokassa_payment
+
+  #   get "robokassa/success"  => :success, :as => :robokassa_on_success
+  #   get "robokassa/fail"     => :fail,    :as => :robokassa_on_fail
+  # end
 
   namespace :admin do
     get '', to: 'dashboard#main', as: '/'

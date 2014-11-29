@@ -4,7 +4,7 @@ class SystemMailer < ActionMailer::Base
   def new_request_happen car_wash, request
     to = []
     to << 'mibus32@gmail.com'
-    to << 'progress-msc@mail.ru'
+    to << 'progress-msc@mail.ru' if Rails.env == 'production'
 
     to << car_wash.users.map(&:email)
 
@@ -16,7 +16,7 @@ class SystemMailer < ActionMailer::Base
   def new_registration_happen user
     to = []
     to << 'mibus32@gmail.com'
-    to << 'progress-msc@mail.ru'
+    to << 'progress-msc@mail.ru' if Rails.env == 'production'
 
     @user = user
     mail(to: to.flatten, subject: 'Мойка-77: Новая регистрация')

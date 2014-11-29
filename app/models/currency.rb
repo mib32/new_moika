@@ -4,7 +4,7 @@ require 'nokogiri'
 class Currency < ActiveRecord::Base
   attr_accessor :diff
 
-  def self.get_from_cb(date = Time.now)
+  def self.get_from_cb(date = Date.today)
     ret = [] 
     formatted_date = date.strftime("%d/%m/%Y")
     file_handle = open("http://www.cbr.ru/scripts/XML_daily.asp?date_req=#{formatted_date}")
@@ -26,8 +26,10 @@ class Currency < ActiveRecord::Base
   def self.save_current_from_cb(current_date = Date.today)
     ary = Currency.get_from_cb(current_date)
     currency = []
+    # byebug
     ary.each do |row|
       Currency.create!(name: row[:name], value: row[:value], date: row[:date])
+      # crn = Currency.create!(name: row[:name], value: row[:value], date: current_date)
     end
   end
 
@@ -41,16 +43,19 @@ class Currency < ActiveRecord::Base
 
   def self.get_current(opt_hash)
     currency = opt_hash.delete(:currency_name)
-    current = Currency.where(name: currency, date: Date.today)
+    current = Currency.where('name = ? and date::date = ?',currency, Date.today)
     if current.empty?
       save_current_from_cb
-      current = Currency.where(name: currency, date: Date.today)
+      current = Currency.where('name = ? and date::date = ?',currency, Date.today)
     end
     if current.empty?
-      current = Currency.where(name: currency, date: Date.today-1)
+      # current = Currency.where(name: currency, "date::date" => Date.today-1)
+      current = Currency.where('name = ? and date::date = ?',currency, Date.today-1)
+
     end
     if current.empty?
-      current = Currency.where(name: currency, date: Date.today-2)
+      current = Currency.where('name = ? and date::date = ?',currency, Date.today-2)
+      # current = Currency.where(name: currency, "date::date" => Date.today-2)
     end
     current.first.diff = get_dynamics current.first, current.first.date.to_date
     current.first
@@ -62,10 +67,12 @@ class Currency < ActiveRecord::Base
   end
 
   def self.get_dynamics(current, date)
-    previous = Currency.where(name: current.name, date: date - 1).first
+    # previous = Currency.where(name: current.name, date: date - 1).first
+    previous = Currency.where("name = ? and date::date = ?",current.name, date - 1).first
     if previous.nil?
       save_current_from_cb(date - 1)
-      previous = Currency.where(name: current.name, date: date - 1).first
+      # previous = Currency.where(name: current.name, date: date - 1).first
+      previous = Currency.where("name = ? and date::date = ?",current.name, date - 1).first
     end
     diff = current.value - previous.value
   end

@@ -14,10 +14,16 @@
       = f.label "Телефон:"
       = f.text_field :phone, class: 'm-form-control'
     .m-row
-      = f.label "Электронная почта:"
-      = f.text_field :email, class: 'm-form-control'
+      = f.label "Марка автомобиля:"
+      = f.text_field :car_model, class: 'm-form-control'
     .m-row
-      = f.label "Заявка:"
+      = f.label :license_plate_no, "Гос. номер:"
+      = f.text_field :license_plate_no, class: 'm-form-control'
+    .m-row
+      = f.label "Время записи:"
+      = f.datetime_select :wash_at, class: 'm-form-control'
+    .m-row
+      = f.label "Перечень услуг:"
       = f.text_area :text, class: 'm-form-control'
     .m-row
       = f.submit t("save_button"), class: 'm-btn'

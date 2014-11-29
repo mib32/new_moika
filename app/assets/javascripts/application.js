@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery.purr
 //= require best_in_place
+//= require fastclick
 // comment  jquery.cycle2.min
 // comment  jquery.cycle2.carousel.min
 //= require share

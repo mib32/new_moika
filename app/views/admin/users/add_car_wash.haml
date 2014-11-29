@@ -10,7 +10,7 @@
     %legend= "Привязка мойки  к клиенту #{@user.email}"
 
     .field
-      = f.label :car_wash, t('.car_wash')
+      = f.label :car_wash, 'Автомойка'
       = f.select :car_wash_id, options_from_collection_for_select(CarWash.all.order(:created_at => :desc), :id, :title)
       = hidden_field :add_car_wash, true
 

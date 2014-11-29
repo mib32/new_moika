@@ -1,0 +1,17 @@
+= link_to 'Назад', mobile_admin_path, class: 'back'
+%h4 Ваши подписчики
+%table.mobile
+  %thead
+    %tr
+      %th №
+      %th Имя
+      %th Электронная почта
+      %th Телефон
+
+  %tbody
+  - @car_wash.subscribes.each.with_index do |subscribe, i|
+    %tr{ class: ('bold ' unless subscribe.read) + (cycle('odd ','even ')) }
+      %td= i+1
+      %td= subscribe.user.name
+      %td= subscribe.user.email
+      %td= subscribe.user.phone

@@ -5,28 +5,13 @@
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}
     %meta{content: t('site_description'), name: "description"}
     %meta{content: t('site_keywords'), name: "keywords"}
-    =render "favicon"
-    %title= content_for?(:title) ? yield(:title) + ' | ' + t('site_title') : t('site_title')
-    = stylesheet_link_tag    "application", media: "all"
+    = stylesheet_link_tag    "mobile", media: "all"
     = csrf_meta_tags
+    %title= 'Пульт управления'
   %body{ class: controller.controller_name.dasherize + ' ' + controller.action_name.dasherize + (' ads' if need_ads).to_s }
-    #sb
-      = render partial: 'sidebar'
-    #hd
-      = render partial: 'header'
-    #auth
-      = render partial: 'devise/shared/auth', locals: {current_tab: :sign_in}
     - flash.each do |flash, msg|
       .flash{class: flash}= msg
-    #bg
-      = yield(:background)
-    #m
-      = yield
-    = ads_block
-    
-    
+    = yield
     -#footer
       = render partial: 'footer'
-    = javascript_include_tag "application"
-    = render partial: 'metrika'
-    = yield :map_script
+    = javascript_include_tag "mobile"
