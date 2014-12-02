@@ -1678,6 +1678,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 
 #cw-second{
 	display: table;
+	min-height: 300px;
 	@include breakpoint($middle){
 		margin: 12px;
 	}
@@ -1695,6 +1696,7 @@ input[type=text],input[type=password], input[type=email],textarea{
 			left: 0;
 			margin:0;
 			margin-right: 12px;
+			min-height: 300px;
 		}
 	}
 	.v-content{
