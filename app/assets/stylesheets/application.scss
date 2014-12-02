@@ -1899,7 +1899,14 @@ input[type=text],input[type=password], input[type=email],textarea{
 			// top: $mq-height*
 			width: $vcw;
 			padding: 140px 0px 100% 0px;
-			margin-top: -140px;
+			margin-top: -250px;
+		}
+		&:before{
+			content:'Разделы:';
+			font-size: 16px;
+			margin: 5px;
+			margin-bottom: 14px;
+			display: inline-block;
 		}
 		li{
 			float:none;
