@@ -104,7 +104,7 @@ ru:
         few: ! '%{count} дня'
         many: ! '%{count} дней'
         one: ! '%{count} день'
-        other: ! '%{count} дня'
+        other: ! '%{count} дней'
       x_minutes:
         few: ! '%{count} минуты'
         many: ! '%{count} минут'

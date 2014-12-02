@@ -178,3 +178,5 @@ gem 'request_profiler'
 gem 'breakpoint'
 
 gem 'fastclick-rails'
+
+gem 'russian'

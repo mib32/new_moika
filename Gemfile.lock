@@ -441,6 +441,8 @@ GEM
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
     ruby-prof (0.15.1)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sanitize (2.0.6)
       nokogiri (>= 1.4.4)
     sass (3.2.19)
@@ -577,6 +579,7 @@ DEPENDENCIES
   request_profiler
   rspec-rails (~> 2.0)
   rubykassa!
+  russian
   sass-rails (= 4.0.2)
   sassy-buttons
   sdoc
