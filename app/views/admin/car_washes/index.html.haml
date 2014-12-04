@@ -1,4 +1,8 @@
 .row
+  - flash.each do |k, v|
+    .flash{id: k}= v
+
+.row
   .col-lg-3
     = link_to t('new_link'), new_admin_car_wash_path, class: 'btn btn-success btn-block'
 
@@ -11,6 +15,7 @@
     %th= CarWash.human_attribute_name(:address)
     %th
     %th
+    %th
 
   - @car_washes.each_with_index do |car_wash, i|
     %tr
@@ -19,3 +24,4 @@
       %td= car_wash.address
       %td= link_to t('show_link'), admin_car_wash_path(car_wash), class: 'btn btn-success'
       %td= link_to t('edit_button'), edit_admin_car_wash_path(car_wash), class: 'btn btn-danger'
+      %td= link_to "Удалить", admin_car_wash_path(car_wash), method: :delete, data: { confirm: "Вы уверены?"}, class: 'btn btn-danger'

@@ -31,7 +31,7 @@ class Admin::CarWashesController < AdminController
   def update
     respond_to do |format|
       if @car_wash.update(car_wash_params)
-        format.html { redirect_to [:admin, @car_wash], notice: 'Car wash was successfully updated.' }
+        format.html { redirect_to [:admin, @car_wash], notice: 'Автомойка успешно обновлена.' }
         format.json { render action: 'show', status: :created, location: @car_wash }
       else
         format.html { render action: 'edit' }
@@ -41,6 +41,11 @@ class Admin::CarWashesController < AdminController
   end
 
   def destroy
+    if @car_wash.destroy
+      redirect_to admin_car_washes_path, notice: 'Автомойка успешно удалена'
+    else
+      redirect_to admin_car_washes_path, notice: 'Ошибка!!!'
+    end      
   end
 
   private
