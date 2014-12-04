@@ -42,20 +42,21 @@ class Currency < ActiveRecord::Base
   end
 
   def self.get_current(opt_hash)
+    # byebug
     currency = opt_hash.delete(:currency_name)
-    current = Currency.where('name = ? and date::date = ?',currency, Date.today)
+    current = Currency.where(name: currency, date: (DateTime.now.at_beginning_of_day.utc..Time.now.utc))
     if current.empty?
       save_current_from_cb
-      current = Currency.where('name = ? and date::date = ?',currency, Date.today)
+      current = Currency.where(name: currency, date: (DateTime.now.at_beginning_of_day.utc..Time.now.utc))
     end
     if current.empty?
       # current = Currency.where(name: currency, "date::date" => Date.today-1)
-      current = Currency.where('name = ? and date::date = ?',currency, Date.today-1)
+      current = Currency.where(name: currency, date: (DateTime.now.at_beginning_of_day.utc-1..Time.now.utc))
 
     end
     if current.empty?
-      current = Currency.where('name = ? and date::date = ?',currency, Date.today-2)
-      # current = Currency.where(name: currency, "date::date" => Date.today-2)
+      current = Currency.where(name: currency, date: (DateTime.now.at_beginning_of_day.utc-2..Time.now.utc))
+        # current = Currency.where(name: currency, "date::date" => Date.today-2)
     end
     current.first.diff = get_dynamics current.first, current.first.date.to_date
     current.first
@@ -67,14 +68,15 @@ class Currency < ActiveRecord::Base
   end
 
   def self.get_dynamics(current, date)
-    # previous = Currency.where(name: current.name, date: date - 1).first
-    previous = Currency.where("name = ? and date::date = ?",current.name, date - 1).first
-    if previous.nil?
+      previous = Currency.where(name: current.name, date: (DateTime.now.at_beginning_of_day.utc-1..DateTime.now.at_end_of_day.utc-1))
+      # current = Currency.where(name: currency, date: (DateTime.now.at_beginning_of_day.utc..Time.now.utc))
+    if previous.empty?
       save_current_from_cb(date - 1)
       # previous = Currency.where(name: current.name, date: date - 1).first
-      previous = Currency.where("name = ? and date::date = ?",current.name, date - 1).first
+      previous = Currency.where(name: current.name, date: (DateTime.now.at_beginning_of_day.utc-1..DateTime.now.at_end_of_day.utc-1))
     end
-    diff = current.value - previous.value
+    diff = current.value - previous.first.value
+    # byebug
   end
 
 end

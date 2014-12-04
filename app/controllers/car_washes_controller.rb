@@ -158,7 +158,7 @@ class CarWashesController < ApplicationController
 
   private
     def set_car_wash
-      @car_wash = CarWash.find(params[:id])
+      @car_wash = CarWash.eager_load(:categories).find(params[:id])
     end
 
     def check_premial_type
