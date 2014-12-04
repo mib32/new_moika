@@ -21,6 +21,7 @@ ssh_options[:forward_agent] = true
 ssh_options[:port] = "1416"
 
 
+
 after "deploy:update_code", :update_images_symlink
 task  :update_images_symlink, roles => :app do
   run "cp -R #{release_path}/public/uploads/default #{deploy_to}/shared/uploads/ "
@@ -38,6 +39,7 @@ namespace :deploy do
   end
   # after "deploy","deploy:stop"
   # after "deploy:stop","deploy:start"
+
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
