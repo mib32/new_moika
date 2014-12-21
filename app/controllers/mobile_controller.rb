@@ -5,7 +5,7 @@ class MobileController < ApplicationController
   # before_action :authenticate_user!
   before_action :set_car_wash, only: [:admin, :requests, :subscribes]
 
-  # after_action :mark_as_read
+  after_action :mark_as_read
 
   def admin
 
