@@ -8,7 +8,9 @@ class MobileController < ApplicationController
   after_action :mark_as_read
 
   def admin
-
+    if @car_wash.nil?
+      render text: 'Автомойка не найдена'
+    end
   end
 
   def requests
