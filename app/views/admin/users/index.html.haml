@@ -30,7 +30,7 @@
           %td= client.email
           %td= client.phone 
           %td= client.car_wash.title unless client.car_wash.nil?
-          %td= client.car_wash.address
+          %td= client.car_wash.address unless client.car_wash.nil?
           %td= client.contact_person
           %td= link_to 'Редактировать', edit_admin_user_path(client), class: "btn btn-primary btn-sm"
           %td= link_to(t('.link_to_car_wash_edit'), edit_car_wash_path(client.car_wash), class: "btn btn-primary btn-sm") unless client.car_wash.nil?
