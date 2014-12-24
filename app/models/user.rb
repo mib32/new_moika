@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   scope :admins, -> { includes(:roles).where("roles.name='admin'").references(:roles) }
-  scope :clients, -> { includes(:roles).where("roles.name='client' and type='car_wash_owner'").references(:roles) }
+  scope :clients, -> { includes(:roles).joins(:car_wash).where("roles.name='client' and type='car_wash_owner'").references(:roles) }
   scope :guests, -> { includes(:roles).where("roles.name='guest' and type='car_wash_owner'").references(:roles) }
   scope :users, -> { where("type = 'user'") }
 
