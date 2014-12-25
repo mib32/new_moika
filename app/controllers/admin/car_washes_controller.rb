@@ -42,6 +42,7 @@ class Admin::CarWashesController < AdminController
 
   def destroy
     if @car_wash.destroy
+      # TODO revoke client from user
       redirect_to admin_car_washes_path, notice: 'Автомойка успешно удалена'
     else
       redirect_to admin_car_washes_path, notice: 'Ошибка!!!'

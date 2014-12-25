@@ -90,8 +90,8 @@ $carousel-count: 10;
 $hlv: 'Helvetica Neue','Open Sans', 'Helvetica','Arial';
 $pt: 'PT Sans';
 
-$mobile: max-width 768px;
-$middle: 769px;
+$mobile: max-width 980px;
+$middle: 981px;
 
 @mixin rotate($deg){
 	-webkit-transform: rotate($deg);
