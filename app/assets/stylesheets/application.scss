@@ -1916,6 +1916,9 @@ input[type=text],input[type=password], input[type=email],textarea{
 			line-height: normal;
 			margin: 5px 0;
 			padding: 5px;
+			#payment_cw_tabs_tab {
+				background-color: rgb(165, 255, 165);
+			}
 			a{color:black;}
 			&.active{
 				a{color:maroon;}
@@ -2078,6 +2081,3 @@ input[type=text],input[type=password], input[type=email],textarea{
 	cursor: pointer;
 }
 
-li#payment_cw_tabs_tab {
-	background-color: rgb(165, 255, 165);
-}
