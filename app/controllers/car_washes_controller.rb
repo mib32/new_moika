@@ -64,7 +64,7 @@ class CarWashesController < ApplicationController
   # GET /car_washes/1/edit
   def edit
     @full = (params['full'] == '1')
-    @payment = Payment.new(car_wash_id: @car_wash.id, amount: 6000.00)
+    @payment = Payment.new(car_wash_id: @car_wash.id, amount: 500.00)
     @video = Video.new
     @image = Image.new
 

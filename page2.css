@@ -1,0 +1,36 @@
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+   font-family: Arial;
+   font-size: 13px;
+   margin: 0;
+   padding: 0;
+}
+#wb_Text1 
+{
+   background-color: transparent;
+   border: 0px #000000 solid;
+   padding: 0;
+   text-align: center;
+}
+#wb_Text1 div
+{
+   text-align: center;
+}
+#wb_Text1
+{
+   position: absolute;
+   left: 110px;
+   top: 70px;
+   width: 730px;
+   height: 96px;
+   text-align: center;
+   z-index: 0;
+}
+#wb_uid0
+{
+   color: #000000;
+   font-family: Arial;
+   font-size: 27px;
+}

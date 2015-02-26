@@ -131,7 +131,7 @@ class CarWash < ActiveRecord::Base
   protected
   
     def create_payment
-      self.payments << Payment.new(amount: 6000.00)
+      self.payments << Payment.new(amount: 500.00)
     end
 
   private

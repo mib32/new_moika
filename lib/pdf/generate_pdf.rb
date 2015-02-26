@@ -75,14 +75,14 @@ module MyPDF
       font File.join(Prawn::BASEDIR, 'data','fonts','DejaVuSans.ttf'), size: 12, style: :bold do
         table([
           ["№", "Услуга", "Кол-во", "Ед", "Цена", "Сумма"],
-          ["1", "Оплата сервисных услуг интернет-сайта moika-77.ru", "1", {content: "усл"}, "6000.00 руб.", "6000.00 руб."],
-          [{content: "", borders: []}, {content: "", borders: []}, {content: "", borders: []},{content: "", borders: []}, {content: "Итого:", borders: []}, "6000.00 руб."],
+          ["1", "Оплата сервисных услуг интернет-сайта moika-77.ru", "1", {content: "усл"}, "500.00 руб.", "500.00 руб."],
+          [{content: "", borders: []}, {content: "", borders: []}, {content: "", borders: []},{content: "", borders: []}, {content: "Итого:", borders: []}, "500.00 руб."],
           [{content: "", borders: []}, {content: "", borders: []}, {content: "", borders: []},{content: "", borders: []}, {content: "Без налога(НДС)", borders: []}, "-"]
         ], width: 550)
       end
       move_down 10
       font File.join(Prawn::BASEDIR, 'data','fonts','DejaVuSans.ttf'), size: 12, style: :normal do
-        text "Всего наименований 1, на сумму 6000.00 руб."
+        text "Всего наименований 1, на сумму 500.00 руб."
       end
       move_down 10
       font File.join(Prawn::BASEDIR, 'data','fonts','DejaVuSans.ttf'), size: 12, style: :bold do

@@ -14,7 +14,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        MyPDF.generate_invoice(@invoice, "6000")
+        MyPDF.generate_invoice(@invoice, "500")
         format.html { redirect_to car_wash_invoice_path(@car_wash, @invoice), notice: 'Счёт успешно создан' }
       else
         format.html { render action: 'new' }
