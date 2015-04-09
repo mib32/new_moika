@@ -1,7 +1,7 @@
 .metrika
   =render 'metrika_informer'
 #copyright
-  = mail_to 'info@moika-77.ru'
+  = mail_to 'info@moika-77.ru', nil, encode: 'javascript'
   %br
   =link_to '© “Прогресс Мск”', 'legal'
   %br
@@ -9,4 +9,4 @@
   #via
     Разработка и дизайн:
     %br
-    = mail_to 'Маша и Мурыгин', 'mibus32@gmail.com'
+    = mail_to 'mibus32@gmail.com' ,'Маша и Мурыгин', encode: 'javascript'

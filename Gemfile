@@ -180,3 +180,5 @@ gem 'breakpoint'
 gem 'fastclick-rails'
 
 gem 'russian'
+
+gem 'actionview-encoded_mail_to'
