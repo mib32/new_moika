@@ -72,7 +72,6 @@ module ApplicationHelper
     Rack::Utils.parse_nested_query(parse_query(src)).deep_symbolize_keys[:v]
   end
   def video_url src
-    # byebug
     base = "//www.youtube.com/embed/"
     suffix = "?wmode=transparent"
     
