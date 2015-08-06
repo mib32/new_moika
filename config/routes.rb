@@ -65,7 +65,12 @@ Moika::Application.routes.draw do
     patch :update_widget_of, on: :member
     resource :widget
     resources :comments, only: [:index, :create]
-    resources :requests
+    resources :requests do 
+      # some spammers got me always going to this page
+      collection do
+        get 'legal', to: 'requests#legal'
+      end
+    end
     resources :messages, only: [:index, :show, :update]
     resources :normal_user_messages
     resources :banners, only: [:index, :update]

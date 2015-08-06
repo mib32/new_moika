@@ -83,6 +83,10 @@ class RequestsController < ApplicationController
     end
   end
 
+  def legal
+    render text: 'Хватит сюда ходить пожалуйста'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request

@@ -154,8 +154,6 @@ class CarWashesController < ApplicationController
     end
   end
 
-
-
   private
     def set_car_wash
       @car_wash = CarWash.eager_load(:categories).find(params[:id])
